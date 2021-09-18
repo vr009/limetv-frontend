@@ -1,6 +1,7 @@
 {
   "name": "2021_2_a06367",
   "version": "1.0.0",
+  "type": "module",
   "description": "Проект Netflix команды \"A06367\"",
   "main": "index.js",
   "scripts": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/frontend-park-mail-ru/2021_2_A06367/issues"
   },
-  "homepage": "https://github.com/frontend-park-mail-ru/2021_2_A06367#readme"
+  "homepage": "https://github.com/frontend-park-mail-ru/2021_2_A06367#readme",
+  "dependencies": {
+    "pug": "^3.0.2"
+  }
 }
