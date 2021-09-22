@@ -1,0 +1,10 @@
+div.authorization_block
+     div Welcome to Netflix
+     div New films every day
+     div#error
+     form(name="authorization" method="post" action="/")
+         div.input_block
+             input#login_field(type="text" placeholder="Login")
+         div.input_block
+             input#password_field(type="password" placeholder="Password")
+         input(type="submit" name="auth" value="Продолжить" id="auth_btn")
