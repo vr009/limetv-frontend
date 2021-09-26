@@ -1,0 +1,178 @@
+body {
+    background: #3c3d46;
+}
+
+#menu {
+    padding: 20px;
+    border-radius: 50px;
+    background: #3c3d46;
+    box-shadow:  20px 20px 38px #202126,
+    -20px -20px 38px #585966;
+    margin-top: 20px;
+}
+
+#menu-items {
+    color: white;
+    font-size: 20px;
+    margin: auto;
+
+}
+
+#menu-items a, #auth_btn, #registration_btn {
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid #39ff14;
+    margin-right: 10px;
+
+}
+
+#menu-items  a:hover {
+    background: #39ff14;
+    display: inline-block;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid rgba(31, 255, 0, 0.35);
+    margin-right: 10px;
+
+}
+
+.film-item:nth-of-type(2n)  {
+    display: inline-block;
+    margin: 30px;
+    min-width: 400px;
+    min-height: 400px;
+    border-radius: 55px;
+    background: radial-gradient(ellipse at left top, #1fff0021, transparent 170px),
+    radial-gradient(ellipse at right bottom, #1fff0021, transparent 170px);
+    box-shadow:  20px 20px 23px #2d2e35,
+    -20px -20px 23px #4b4c58;
+}
+
+.film-item:nth-of-type(2n+1)  {
+    display: inline-block;
+    margin: 30px;
+    min-width: 400px;
+    min-height: 400px;
+    border-radius: 55px;
+    background: radial-gradient(ellipse at left top, rgba(255, 234, 0, 0.13), transparent 170px),
+    radial-gradient(ellipse at right bottom, rgba(255, 234, 0, 0.13), transparent 170px);
+    box-shadow:  20px 20px 23px #2d2e35,
+    -20px -20px 23px #4b4c58;
+}
+
+.registration_block {
+    margin: 30px;
+    width:430px;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 35px 35px 45px;
+    border-radius: 50px;
+    background: radial-gradient(ellipse at left top, #1fff0021, transparent 170px),
+    radial-gradient(ellipse at right bottom, #1fff0021, transparent 170px);
+    box-shadow:  20px 20px 23px #2d2e35,
+    -20px -20px 23px #4b4c58;
+}
+
+.input_block {
+    width: 100%;
+    padding: 75px 5px 5px 5px;
+}
+
+.input_block input {
+    width: 95%;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    outline:none;
+    background: #3c3d46;
+    box-shadow: inset 35px 35px 99px #18181c,
+    inset -35px -35px 99px #606270;
+    font-size: 18px;
+    padding:20px 10px 20px 5px;
+    text-indent: 30px;
+}
+
+.input_block input:-webkit-autofill {
+    width: 100%;
+    -webkit-text-fill-color: #ffffff;
+    border: none;
+    outline:none;
+    border-radius: 50px;
+    background: #3c3d46;
+    -webkit-box-shadow: inset 35px 35px 99px #18181c,
+    inset -35px -35px 99px #606270;
+    font-size: 18px;
+    padding:20px 10px 20px 5px;
+    text-indent: 30px;
+}
+
+.toggle-container {
+    margin: 50px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 80px;
+    width: 400px;
+    border-radius: 50px;
+    background: #464750;
+    box-shadow: 10px 10px 20px rgb(38 39 45), -10px -10px 20px rgb(81 82 95);
+}
+
+.toggle-container::after {
+    position: absolute;
+    content: '';
+    display: block;
+    height: 50px;
+    width: 170px;
+    border-radius: 50px;
+    background: #3c3d46;
+    border: solid #39ff14;
+
+    z-index: 1;
+    top: calc(50% - 25px);
+    left: calc(50% - 170px);
+    transition: all 0.4s cubic-bezier(1, 0.04, 0.66, 1.23);
+}
+
+.toggle-container input {
+    display: none;
+}
+
+label {
+    color: white;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+    height: 100%;
+    z-index: 2;
+}
+
+.toggle-container input:checked + label::after {
+    display: block;
+}
+
+
+.hottest::after {
+    left: calc(50% - 170px);
+}
+
+.newest::after {
+    left: calc(50% - 0px);
+}
