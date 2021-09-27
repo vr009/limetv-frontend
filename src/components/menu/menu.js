@@ -1,6 +1,7 @@
 'use strict';
 
 import {createFilms} from '../films/films.js';
+import {showErrors} from '../utils/errors';
 
 const application = document.getElementById('root');
 
@@ -171,8 +172,8 @@ const renderRegistration = () => {
 const menuElements = {
   films: 'Фильмы',
   profile: 'Профиль',
-  login: 'Login',
-  signup: 'SignUp',
+  login: 'Войти',
+  signup: 'Регистрация',
 };
 
 // элементы роутинга
@@ -235,12 +236,4 @@ application.addEventListener('click', function(event) {
   }
 });
 
-const showErrors = (text) => {
-  const root = document.getElementById('menu');
-  root.innerHTML = '';
-
-  const msg = document.createElement('p');
-  msg.textContent = text;
-  root.appendChild(msg);
-};
 

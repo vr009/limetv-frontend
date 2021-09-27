@@ -1,3 +1,5 @@
+import {showErrors} from '../utils/errors';
+
 export const createFilms = () => {
   createToggle();
   createBasic();
