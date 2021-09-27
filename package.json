@@ -28,6 +28,7 @@
     "pug-html-loader": "^1.1.5"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
