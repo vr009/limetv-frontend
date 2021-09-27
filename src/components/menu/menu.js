@@ -1,7 +1,7 @@
 'use strict';
 
 import {createFilms} from '../films/films.js';
-import {showErrors} from '../utils/errors';
+import {showErrors} from '../utils/errors.js';
 
 const application = document.getElementById('root');
 
