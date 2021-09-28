@@ -1,4 +1,8 @@
-export const showErrors = (text) => {
+/**
+ * Отрисовывает элемент-ошибку с кастомным текстом
+ * @param {string} text - Текст ошибки
+ */
+export const showErrors = (text = '') => {
   const root = document.getElementById('error');
   root.innerHTML = '';
 

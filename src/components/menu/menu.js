@@ -2,25 +2,10 @@
 
 import {createFilms} from '../films/films.js';
 import {authModule} from '../auth/auth.js';
+import {createElements} from './elements.js';
 
 const application = document.getElementById('root');
 
-// элементы меню
-const menuElements = {
-  films: 'Фильмы',
-};
-
-// элементы для зарегистрированных пользователей
-const authElements = {
-  profile: 'Профиль',
-  logout: 'Выйти',
-};
-
-// элементы для незарегистрированных пользователей
-const unauthElements = {
-  login: 'Войти',
-  signup: 'Регистрация',
-};
 
 // элементы роутинга
 const menuRoutes = {
@@ -55,39 +40,12 @@ const createTemplate = () => {
   root.appendChild(stuff);
 };
 
-// создание элементов для меню
-const createElements = () => {
-  const root = document.getElementById('menu-items');
-  root.innerHTML = '';
 
-  // основные блоки меню
-  Object.keys(menuElements).forEach(function(key) {
-    const menuItem = document.createElement('a');
-    menuItem.textContent = menuElements[key];
-    menuItem.href = `/${key}`;
-    menuItem.dataset.section = key;
-    root.appendChild(menuItem);
-  });
-
-  if (authModule.authHelper()) {
-    Object.keys(authElements).forEach(function(key) {
-      const menuItem = document.createElement('a');
-      menuItem.textContent = authElements[key];
-      menuItem.href = `/${key}`;
-      menuItem.dataset.section = key;
-      root.appendChild(menuItem);
-    });
-  } else {
-    Object.keys(unauthElements).forEach(function(key) {
-      const menuItem = document.createElement('a');
-      menuItem.textContent = unauthElements[key];
-      menuItem.href = `/${key}`;
-      menuItem.dataset.section = key;
-      root.appendChild(menuItem);
-    });
-  }
-};
-
+/**
+ * Модуль создания меню
+ * Генерирует элементы меню
+ * @function
+ */
 export const createMenu = () => {
   createTemplate();
   createElements();

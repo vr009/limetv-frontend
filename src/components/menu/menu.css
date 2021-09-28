@@ -109,7 +109,6 @@ body {
 }
 
 .input_block input:-webkit-autofill {
-    width: 100%;
     -webkit-text-fill-color: #ffffff;
     border: none;
     outline:none;

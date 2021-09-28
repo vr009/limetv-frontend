@@ -2,12 +2,38 @@ import {validators} from '../utils/validate.js';
 import {showErrors} from '../utils/errors.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createFilms} from '../films/films.js';
+import {createElements} from '../menu/elements.js';
 
 export const authModule = {
+  /**
+   * Создание экрана авторизации
+   * @function
+   * @return {null}
+   */
   renderAuth: () => renderAuth(),
+  /**
+   * Создание экрана регистрации
+   * @function
+   * @return {null}
+   */
   renderRegistration: () => renderRegistration(),
+  /**
+   * Удаление текущей сессии пользователя
+   * @function
+   * @return {null}
+   */
   logOut: () => logOut(),
+  /**
+   * To be Done
+   * @function
+   * @return {null}
+   */
   renderProfile: () => renderProfile,
+  /**
+   * Вспомогательная функция работы с куки
+   * @function
+   * @return {boolean} - Статус сессии пользователя
+   */
   authHelper: () => isAuthed(),
 };
 
@@ -42,6 +68,7 @@ const renderAuth = () => {
   input3.setAttribute('id', 'password_field');
   input3.setAttribute('type', 'password');
   input3.setAttribute('placeholder', 'пароль');
+  input3.setAttribute('maxlength', '16');
   inputBlock3.appendChild(input3);
   form.appendChild(inputBlock3);
 
@@ -60,7 +87,6 @@ const renderAuth = () => {
   const btn = document.getElementById('auth_btn');
   btn.addEventListener('click', function(event) {
     event.preventDefault();
-    console.log('Login');
     const name = document.getElementById('login_field').value;
     const pwd = document.getElementById('password_field').value;
 
@@ -73,22 +99,28 @@ const renderAuth = () => {
       msg += 'Пароль должен быть от 6 до 16 символов.';
       input3.classList.add('invalid');
     }
-    if (!(validators.username(name) && validators.password(pwd))) {
+    if (msg !== '') {
       showErrors(msg );
     } else {
       const user = {login: name, password: pwd};
       const url = 'http://127.0.0.1:8000/user/login';
 
       fetchRequest(url, 'POST', user).then(
-          (response) => response.json(),
+          (response) => {
+            if (response.ok) {
+              response.json();
+            } else {
+              throw error;
+            }
+          },
       ).then(
           (result) => {
             document.cookie = `jwt_token = ${result.token}`;
             createElements();
+            createFilms();
           },
       ).catch(function(error) {
-        console.log(error);
-        showErrors('Network Error');
+        showErrors('Что-то пошло не так, попробуйте позже');
       });
     }
   });
@@ -154,6 +186,7 @@ const renderRegistration = () => {
   input3.setAttribute('id', 'password_field');
   input3.setAttribute('type', 'password');
   input3.setAttribute('placeholder', 'пароль');
+  input3.setAttribute('maxlength', '16');
   inputBlock3.appendChild(input3);
   form.appendChild(inputBlock3);
 
@@ -187,11 +220,18 @@ const renderRegistration = () => {
       const url = 'http://127.0.0.1:8000/user/signup';
 
       fetchRequest(url, 'POST', user).then(
-          (response) => response.json(),
+          (response) => {
+            if (response.ok) {
+              response.json();
+            } else {
+              throw error;
+            }
+          },
       ).then(
           (result) => {
             document.cookie = `jwt_token = ${result.token}`;
             createElements();
+            createFilms();
           },
       ).catch(function() {
         showErrors('');

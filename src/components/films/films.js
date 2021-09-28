@@ -1,5 +1,9 @@
 import {showErrors} from '../utils/errors.js';
 
+/**
+ * Модуль создания экрана фильмов
+ * @function
+ */
 export const createFilms = () => {
   createToggle();
   createBasic();
