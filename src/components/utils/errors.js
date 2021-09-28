@@ -1,5 +1,5 @@
 export const showErrors = (text) => {
-  const root = document.getElementById('menu');
+  const root = document.getElementById('error');
   root.innerHTML = '';
 
   const msg = document.createElement('p');

@@ -2,6 +2,8 @@
 
 import {createFilms} from '../films/films.js';
 import {showErrors} from '../utils/errors.js';
+import {fetchRequest} from '../network/fetch.js';
+import {validators} from '../utils/validate.js';
 
 const application = document.getElementById('root');
 
@@ -84,23 +86,33 @@ const renderAuth = () => {
     const name = document.getElementById('login_field').value;
     const pwd = document.getElementById('password_field').value;
 
-    const user = {login: name, password: pwd};
-    const url = 'http://127.0.0.1:8000/user/login';
+    let msg = '';
+    if (!validators.username(name)) {
+      msg += 'Имя должно быть длинее 3 символов.';
+      input2.classList.add('invalid');
+    }
+    if (!validators.password(pwd)) {
+      msg += 'Пароль должен быть от 6 до 16 символов.';
+      input3.classList.add('invalid');
+    }
+    if (!(validators.username(name) && validators.password(pwd))) {
+      showErrors(msg );
+    } else {
+      const user = {login: name, password: pwd};
+      const url = 'http://127.0.0.1:8000/user/login';
 
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(user),
-    },
-    ).then(
-        (response) => response.json(),
-    ).then(
-        (result) => {
-          document.cookie = `jwt_token = ${result.Token}`;
-          createElements();
-        },
-    ).catch(function() {
-      showErrors('');
-    });
+      fetchRequest(url, 'POST', user).then(
+          (response) => response.json(),
+      ).then(
+          (result) => {
+            document.cookie = `jwt_token = ${result.token}`;
+            createElements();
+          },
+      ).catch(function(error) {
+        console.log(error);
+        showErrors('Network Error');
+      });
+    }
   });
 };
 
@@ -161,25 +173,34 @@ const renderRegistration = () => {
     const name = document.getElementById('login_field').value;
     const pwd = document.getElementById('password_field').value;
     const email = document.getElementById('email_field').value;
+    let msg = '';
+    if (!validators.username(name)) {
+      msg += 'Имя должно быть длинее 3 символов.';
+    }
+    if (!validators.password(pwd)) {
+      msg += 'Пароль должен быть от 6 до 16 символов.';
+    }
+    if (!validators.email(email)) {
+      msg += 'Некорректный формат email-адреса.';
+    }
+    if (msg !== '') {
+      showErrors(msg );
+    } else {
+      const user = {login: name, password: pwd, email: email};
+      const url = 'http://127.0.0.1:8000/user/signup';
 
-    const user = {login: name, password: pwd, email: email};
-    const url = 'http://127.0.0.1:8000/user/signup';
-
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(user),
-    },
-    ).then(
-        (response) => response.json(),
-    ).then(
-        (result) => {
-          document.cookie = `jwt_token = ${result.Token}`;
-          createElements();
-        },
-    ).catch(function() {
-      showErrors('');
-    },
-    );
+      fetchRequest(url, 'POST', user).then(
+          (response) => response.json(),
+      ).then(
+          (result) => {
+            document.cookie = `jwt_token = ${result.token}`;
+            createElements();
+          },
+      ).catch(function() {
+        showErrors('');
+      },
+      );
+    }
   });
 };
 
