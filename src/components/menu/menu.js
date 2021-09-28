@@ -5,6 +5,21 @@ import {showErrors} from '../utils/errors.js';
 
 const application = document.getElementById('root');
 
+// удаление сессии
+const logOut = () => {
+  const url = 'http://127.0.0.1:8000/user/logout';
+
+  fetch(url, {
+    method: 'POST',
+  },
+  ).catch(function(error) {
+  });
+
+  document.cookie = 'jwt_token=; Max-Age=-99999999;';
+  createElements();
+  createFilms();
+};
+
 // отрисовка профиля
 const renderProfile = () => {
   const isAuthed = sessionStorage.getItem('jwt_token');
@@ -37,6 +52,7 @@ const renderAuth = () => {
   const input2 = document.createElement('input');
   input2.setAttribute('id', 'login_field');
   input2.setAttribute('type', 'text');
+  input2.setAttribute('placeholder', 'логин');
   inputBlock2.appendChild(input2);
   form.appendChild(inputBlock2);
 
@@ -45,11 +61,13 @@ const renderAuth = () => {
   const input3 = document.createElement('input');
   input3.setAttribute('id', 'password_field');
   input3.setAttribute('type', 'password');
+  input3.setAttribute('placeholder', 'пароль');
   inputBlock3.appendChild(input3);
   form.appendChild(inputBlock3);
 
   const ok = document.createElement('div');
   ok.setAttribute('id', 'auth_btn');
+  ok.innerText = 'Войти';
   form.appendChild(ok);
 
   // отрисовка темплейта
@@ -77,16 +95,12 @@ const renderAuth = () => {
         (response) => response.json(),
     ).then(
         (result) => {
-          sessionStorage.setItem('jwt_token', result.Token);
-
-          const root = document.getElementById('menu-items');
-          root.childNodes.item(2).remove();
-          root.childNodes.item(2).remove();
+          document.cookie = `jwt_token = ${result.Token}`;
+          createElements();
         },
-    ).catch(function(error) {
+    ).catch(function() {
       showErrors('');
-    },
-    );
+    });
   });
 };
 
@@ -112,6 +126,7 @@ const renderRegistration = () => {
   const input = document.createElement('input');
   input.setAttribute('id', 'email_field');
   input.setAttribute('type', 'email');
+  input.setAttribute('placeholder', 'почта');
   inputBlock.appendChild(input);
   form.appendChild(inputBlock);
 
@@ -120,6 +135,7 @@ const renderRegistration = () => {
   const input2 = document.createElement('input');
   input2.setAttribute('id', 'login_field');
   input2.setAttribute('type', 'text');
+  input2.setAttribute('placeholder', 'логин');
   inputBlock2.appendChild(input2);
   form.appendChild(inputBlock2);
 
@@ -128,11 +144,13 @@ const renderRegistration = () => {
   const input3 = document.createElement('input');
   input3.setAttribute('id', 'password_field');
   input3.setAttribute('type', 'password');
+  input3.setAttribute('placeholder', 'пароль');
   inputBlock3.appendChild(input3);
   form.appendChild(inputBlock3);
 
   const ok = document.createElement('div');
   ok.setAttribute('id', 'registration_btn');
+  ok.innerText = 'Зарегистрироваться';
   form.appendChild(ok);
 
   // обработка отправки формы
@@ -155,13 +173,10 @@ const renderRegistration = () => {
         (response) => response.json(),
     ).then(
         (result) => {
-          sessionStorage.setItem('jwt_token', result.Token);
-
-          const root = document.getElementById('menu-items');
-          root.childNodes.item(2).remove();
-          root.childNodes.item(2).remove();
+          document.cookie = `jwt_token = ${result.Token}`;
+          createElements();
         },
-    ).catch(function(error) {
+    ).catch(function() {
       showErrors('');
     },
     );
@@ -171,7 +186,16 @@ const renderRegistration = () => {
 // элементы меню
 const menuElements = {
   films: 'Фильмы',
+};
+
+// элементы для зарегистрированных пользователей
+const authElements = {
   profile: 'Профиль',
+  logout: 'Выйти',
+};
+
+// элементы для незарегистрированных пользователей
+const unauthElements = {
   login: 'Войти',
   signup: 'Регистрация',
 };
@@ -182,6 +206,7 @@ const menuRoutes = {
   profile: renderProfile,
   login: renderAuth,
   signup: renderRegistration,
+  logout: logOut,
 };
 
 // загрузка меню из темплейта
@@ -213,6 +238,7 @@ const createElements = () => {
   const root = document.getElementById('menu-items');
   root.innerHTML = '';
 
+  // основные блоки меню
   Object.keys(menuElements).forEach(function(key) {
     const menuItem = document.createElement('a');
     menuItem.textContent = menuElements[key];
@@ -220,6 +246,29 @@ const createElements = () => {
     menuItem.dataset.section = key;
     root.appendChild(menuItem);
   });
+
+  if (isAuthed()) {
+    Object.keys(authElements).forEach(function(key) {
+      const menuItem = document.createElement('a');
+      menuItem.textContent = authElements[key];
+      menuItem.href = `/${key}`;
+      menuItem.dataset.section = key;
+      root.appendChild(menuItem);
+    });
+  } else {
+    Object.keys(unauthElements).forEach(function(key) {
+      const menuItem = document.createElement('a');
+      menuItem.textContent = unauthElements[key];
+      menuItem.href = `/${key}`;
+      menuItem.dataset.section = key;
+      root.appendChild(menuItem);
+    });
+  }
+};
+
+const isAuthed = () => {
+  return !!document.cookie.split(';').filter((item) =>
+    item.trim().startsWith('jwt_token')).length;
 };
 
 export const createMenu = () => {

@@ -21,7 +21,7 @@ const createToggle = () => {
   const inputlabel = document.createElement('label');
 
   inputlabel.setAttribute('for', 'hottest');
-  inputlabel.innerText = 'Hottest';
+  inputlabel.innerText = 'Популярное';
   div.appendChild(inputlabel);
 
 
@@ -35,7 +35,7 @@ const createToggle = () => {
   const inputlabel2 = document.createElement('label');
 
   inputlabel2.setAttribute('for', 'newest');
-  inputlabel2.innerText = 'Newest';
+  inputlabel2.innerText = 'Новое';
   div.appendChild(inputlabel2);
 
   div.addEventListener('click', function(event) {
@@ -78,6 +78,18 @@ const showFilms = (state) => {
           const film = document.createElement('div');
           film.setAttribute('class', 'film-item');
           film.setAttribute('id', result[i].id);
+          const div = document.createElement('div');
+          div.setAttribute('class', "dot");
+          //div.innerText = result[i].title.slice(0,1);
+          film.appendChild(div);
+          const title = document.createElement('div');
+          title.setAttribute('class', "centered");
+          title.innerText = result[i].title;
+          film.appendChild(title);
+          const desc = document.createElement('div');
+          desc.setAttribute('class', "centered");
+          desc.innerText = result[i].genres.join();
+          film.appendChild(desc);
           root.appendChild(film);
         }
       },
