@@ -1,7 +1,7 @@
-import {validators} from '../utils/validate';
-import {showErrors} from '../utils/errors';
-import {fetchRequest} from '../network/fetch';
-import {createFilms} from '../films/films';
+import {validators} from '../utils/validate.js';
+import {showErrors} from '../utils/errors.js';
+import {fetchRequest} from '../network/fetch.js';
+import {createFilms} from '../films/films.js';
 
 export const authModule = {
   renderAuth: () => renderAuth(),
