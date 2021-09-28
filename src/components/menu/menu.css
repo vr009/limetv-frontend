@@ -7,9 +7,8 @@ body {
     padding: 20px;
     border-radius: 50px;
     background: #3c3d46;
-    box-shadow:  20px 20px 38px #202126,
-    -20px -20px 38px #585966;
-    margin-top: 40px;
+    box-shadow:  20px 20px 20px #20212654, -20px -20px 20px #484955;
+    margin: 40px;
 }
 
 #menu-items {
@@ -19,7 +18,7 @@ body {
 
 }
 
-#menu-items a, #auth_btn, #registration_btn {
+#menu-items a {
     display: inline-block;
     color: white;
     cursor: pointer;
@@ -34,7 +33,23 @@ body {
 
 }
 
+#auth_btn, #registration_btn {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid  #8bc34a;
+    margin: 5px auto;
+    max-width: 100px;
+}
+
 #menu-items  a:hover {
+    text-align: center;
     background: #8bc34a;
     display: inline-block;
     color: black;
@@ -57,8 +72,8 @@ body {
     min-width: 150px;
     min-height: 150px;
     border-radius: 55px;
-    background: radial-gradient(ellipse at left top, #1fff0021, transparent 170px),
-    radial-gradient(ellipse at right bottom, #1fff0021, transparent 170px);
+    background: radial-gradient(ellipse at left top, #8bc34a59, transparent 170px),
+    radial-gradient(ellipse at right bottom, #8bc34a59, transparent 170px);
     box-shadow:  20px 20px 23px #2d2e35,
     -20px -20px 23px #4b4c58;
 }
@@ -70,28 +85,29 @@ body {
     min-width: 150px;
     min-height: 150px;
     border-radius: 55px;
-    background: radial-gradient(ellipse at left top, rgba(255, 234, 0, 0.13), transparent 170px),
-    radial-gradient(ellipse at right bottom, rgba(255, 234, 0, 0.13), transparent 170px);
+    background: radial-gradient(ellipse at left top, #ffeb3b38, transparent 170px),
+    radial-gradient(ellipse at right bottom, #ffeb3b38, transparent 170px);
     box-shadow:  20px 20px 23px #2d2e35,
     -20px -20px 23px #4b4c58;
 }
 
 .registration_block {
-    margin: 30px;
+    margin: 30px auto;
     width:430px;
     justify-content: center;
     align-items: center;
     padding: 60px 35px 35px 45px;
     border-radius: 50px;
-    background: radial-gradient(ellipse at left top, #1fff0021, transparent 170px),
-    radial-gradient(ellipse at right bottom, #1fff0021, transparent 170px);
+    background: radial-gradient(ellipse at left top, #8bc34a59, transparent 170px),
+    radial-gradient(ellipse at right bottom, #8bc34a59, transparent 170px);
     box-shadow:  20px 20px 23px #2d2e35,
     -20px -20px 23px #4b4c58;
 }
 
 .input_block {
     width: 100%;
-    padding: 75px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    margin: 20px auto;
 }
 
 .input_block input {
@@ -129,8 +145,8 @@ body {
     height: 80px;
     width: 400px;
     border-radius: 50px;
-    background: #464750;
-    box-shadow: 10px 10px 20px rgb(38 39 45), -10px -10px 20px rgb(81 82 95);
+    background: #3c3d46;
+    box-shadow:  20px 20px 20px #20212654, -20px -20px 20px #484955;
 }
 
 .toggle-container::after {
@@ -193,4 +209,11 @@ label {
     color: white;
     text-align: center;
     margin: 10px auto;
+}
+
+#error {
+    color: #c68019;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
 }

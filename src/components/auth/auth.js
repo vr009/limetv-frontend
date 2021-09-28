@@ -92,11 +92,11 @@ const renderAuth = () => {
 
     let msg = '';
     if (!validators.username(name)) {
-      msg += 'Имя должно быть длинее 3 символов.';
+      msg += 'Имя должно быть длиннее 3 символов. ';
       input2.classList.add('invalid');
     }
     if (!validators.password(pwd)) {
-      msg += 'Пароль должен быть от 6 до 16 символов.';
+      msg += 'Пароль должен быть от 6 до 16 символов. ';
       input3.classList.add('invalid');
     }
     if (msg !== '') {
@@ -192,7 +192,7 @@ const renderRegistration = () => {
 
   const ok = document.createElement('div');
   ok.setAttribute('id', 'registration_btn');
-  ok.innerText = 'Зарегистрироваться';
+  ok.innerText = 'Создать';
   form.appendChild(ok);
 
   // обработка отправки формы
@@ -205,13 +205,13 @@ const renderRegistration = () => {
     const email = document.getElementById('email_field').value;
     let msg = '';
     if (!validators.username(name)) {
-      msg += 'Имя должно быть длинее 3 символов.';
+      msg += 'Имя должно быть длинее 3 символов. ';
     }
     if (!validators.password(pwd)) {
-      msg += 'Пароль должен быть от 6 до 16 символов.';
+      msg += 'Пароль должен быть от 6 до 16 символов. ';
     }
     if (!validators.email(email)) {
-      msg += 'Некорректный формат email-адреса.';
+      msg += 'Некорректный формат email-адреса. ';
     }
     if (msg !== '') {
       showErrors(msg );
@@ -234,7 +234,7 @@ const renderRegistration = () => {
             createFilms();
           },
       ).catch(function() {
-        showErrors('');
+        showErrors('Что-то пошло не так, попробуйте позже');
       },
       );
     }
