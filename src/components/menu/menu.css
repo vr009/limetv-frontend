@@ -1,0 +1,219 @@
+body {
+    background: #3c3d46;
+    //overflow-y: hidden;
+}
+
+#menu {
+    padding: 20px;
+    border-radius: 50px;
+    background: #3c3d46;
+    box-shadow:  20px 20px 20px #20212654, -20px -20px 20px #484955;
+    margin: 40px;
+}
+
+#menu-items {
+    color: white;
+    font-size: 20px;
+    margin: auto;
+
+}
+
+#menu-items a {
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid  #8bc34a;
+    margin-right: 10px;
+
+}
+
+#auth_btn, #registration_btn {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid  #8bc34a;
+    margin: 5px auto;
+    max-width: 100px;
+}
+
+#menu-items  a:hover {
+    text-align: center;
+    background: #8bc34a;
+    display: inline-block;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid #8bc34a;
+    margin-right: 10px;
+
+}
+
+.film-item:nth-of-type(2n)  {
+    display: inline-block;
+    padding: 20px;
+    margin: 30px;
+    min-width: 150px;
+    min-height: 150px;
+    border-radius: 55px;
+    background: radial-gradient(ellipse at left top, #8bc34a59, transparent 170px),
+    radial-gradient(ellipse at right bottom, #8bc34a59, transparent 170px);
+    box-shadow:  20px 20px 23px #2d2e35,
+    -20px -20px 23px #4b4c58;
+}
+
+.film-item:nth-of-type(2n+1)  {
+    display: inline-block;
+    padding: 20px;
+    margin: 30px;
+    min-width: 150px;
+    min-height: 150px;
+    border-radius: 55px;
+    background: radial-gradient(ellipse at left top, #ffeb3b38, transparent 170px),
+    radial-gradient(ellipse at right bottom, #ffeb3b38, transparent 170px);
+    box-shadow:  20px 20px 23px #2d2e35,
+    -20px -20px 23px #4b4c58;
+}
+
+.registration_block {
+    margin: 30px auto;
+    width:430px;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 35px 35px 45px;
+    border-radius: 50px;
+    background: radial-gradient(ellipse at left top, #8bc34a59, transparent 170px),
+    radial-gradient(ellipse at right bottom, #8bc34a59, transparent 170px);
+    box-shadow:  20px 20px 23px #2d2e35,
+    -20px -20px 23px #4b4c58;
+}
+
+.input_block {
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+    margin: 20px auto;
+}
+
+.input_block input {
+    width: 95%;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    outline:none;
+    background: #3c3d46;
+    box-shadow: inset 35px 35px 99px #18181c,
+    inset -35px -35px 99px #606270;
+    font-size: 18px;
+    padding:20px 10px 20px 5px;
+    text-indent: 30px;
+}
+
+.input_block input:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff;
+    border: none;
+    outline:none;
+    border-radius: 50px;
+    background: #3c3d46;
+    -webkit-box-shadow: inset 35px 35px 99px #18181c,
+    inset -35px -35px 99px #606270;
+    font-size: 18px;
+    padding:20px 10px 20px 5px;
+    text-indent: 30px;
+}
+
+.toggle-container {
+    margin: 50px auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 80px;
+    width: 400px;
+    border-radius: 50px;
+    background: #3c3d46;
+    box-shadow:  20px 20px 20px #20212654, -20px -20px 20px #484955;
+}
+
+.toggle-container::after {
+    position: absolute;
+    content: '';
+    display: block;
+    height: 50px;
+    width: 170px;
+    border-radius: 50px;
+    background: #3c3d46;
+    border: solid #8bc34a;
+
+    z-index: 1;
+    top: calc(50% - 25px);
+    left: calc(50% - 170px);
+    transition: all 0.4s cubic-bezier(1, 0.04, 0.66, 1.23);
+}
+
+.toggle-container input {
+    display: none;
+}
+
+label {
+    color: white;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+    height: 100%;
+    z-index: 2;
+}
+
+.toggle-container input:checked + label::after {
+    display: block;
+}
+
+
+.hottest::after {
+    left: calc(50% - 170px);
+}
+
+.newest::after {
+    left: calc(50% - 0px);
+}
+
+.dot {
+    color: #000000;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.centered {
+    color: white;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#error {
+    color: #c68019;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
