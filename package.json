@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src DEBUG=http",
     "dev": "http-server",
-    "lint": "eslint --fix --ext .js,.jsx ."
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "wp": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
   }
 }
