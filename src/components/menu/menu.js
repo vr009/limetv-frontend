@@ -1,5 +1,5 @@
 'use strict';
-
+const pug = require('pug');
 import {createFilms} from '../films/films.js';
 import {authModule} from '../auth/auth.js';
 import {createElements} from './elements.js';
@@ -18,6 +18,9 @@ const menuRoutes = {
 
 // загрузка меню из темплейта
 const createTemplate = () => {
+  const cf = pug.compileFile('menu.pug');
+  console.log(cf);
+
   const root = document.getElementById('root');
   const menu = document.createElement('div');
   menu.setAttribute('id', 'menu');
