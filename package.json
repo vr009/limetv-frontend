@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src DEBUG=http",
     "dev": "http-server",
-    "lint": "eslint --fix --ext .js,.jsx .",
+    "lint": "eslint --ignore-pattern 'dist/*' --fix --ext .js,.jsx .",
     "wp": "npx webpack --config webpack.config.js"
   },
   "repository": {
