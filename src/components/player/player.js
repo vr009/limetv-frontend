@@ -32,8 +32,6 @@ export class Player {
     this.videoBlock.querySelector('.move_right_btn').
         addEventListener('click', this.changeTimelineRight.bind(this));
     // изменение громкости
-    this.videoBlock.querySelector('.volume_btn').
-        addEventListener('click', this.changeVolumeButton.bind(this));
     this.videoBlock.querySelector('.prev_button').
         addEventListener('click', this.previousEpisode.bind(this));
     this.videoBlock.querySelector('.next_button').
@@ -42,7 +40,8 @@ export class Player {
     this.video.addEventListener('mousemove',
         this.changeVideoDuration.bind(this));
 
-    this.changeTimelineGeneral();
+    this.changeVolumeButton();
+    this.changeTimelineButton();
   }
 
   /** Добавление всех листенеров для видео*/
@@ -53,9 +52,10 @@ export class Player {
     this.video.addEventListener('loadedmetadata', this.setMetadata.bind(this));
     // обновление проигрывания при клике
     this.video.addEventListener('timeupdate',
-        this.changeTimelineButton.bind(this));
+        this.changeTimelineLine.bind(this));
     // обновление звука при клике
-    this.video.addEventListener('volumechange', this.changeVolumeButton.bind(this));
+    this.video.addEventListener('volumechange',
+        this.changeVolumeButton.bind(this));
   }
 
   /**  Изменение состояния видео */
@@ -85,12 +85,50 @@ export class Player {
 
   /** Обновление громкости */
   changeVolumeButton() {
-    console.log('???');
+    const container = this.videoBlock.querySelectorAll('em');
+    for (let i = 0; i < container.length; i++) {
+      container[i].addEventListener('click', (event) => {
+        const nodes = event.currentTarget.parentNode.childNodes;
+        let index = 0;
+        for (let j = 0; j < nodes.length; j++) {
+          if (nodes[j] === event.currentTarget) {
+            index = j;
+            break;
+          }
+        }
+        for (let j = 0; j <= index; j++) {
+          nodes[j].classList = ['volume-gray'];
+        }
+        for (let j = index+1; j < nodes.length; j++) {
+          nodes[j].classList = ['volume-white'];
+        }
+        this.video.volume = (index+1).toFixed()*10/100;
+      });
+    }
+  }
+
+  /** Обновление таймлайна по времени */
+  changeTimelineLine() {
+    this.changeVideoDuration();
+    const timeline = document.querySelector('.timeline-current');
+    const percent = this.video.currentTime.toFixed() /
+        this.video.duration.toFixed();
+    timeline.style.width = `${percent.toFixed(2)*300}px`;
   }
 
   /** Обновление таймлайна по клику */
   changeTimelineButton() {
+    const timeline = document.querySelector('.timeline_holder');
+    timeline.addEventListener('click', (event) => {
+      console.log(event.target.getBoundingClientRect());
+      console.log(event.clientX);
 
+      const percent = event.clientX / (
+        event.target.getBoundingClientRect().right -
+          event.target.getBoundingClientRect().left);
+
+      this.video.currentTime = Number(percent.toFixed(2)) * this.video.duration;
+    });
   }
 
   /** Обновление данных о времени */
@@ -98,7 +136,6 @@ export class Player {
     const time = Number(this.video.duration.toFixed());
     const currentTime = Number(this.video.currentTime.toFixed());
 
-    console.log(time, currentTime);
     let formatted = '0:00 / 0:00';
     if (!isNaN(time) && !isNaN(currentTime)) {
       formatted = `${this.timeHelper(currentTime)} / ${this.timeHelper(time)}`;

@@ -1,0 +1,25 @@
+.volume_holder em {
+    display: inline-block;
+    height: 16px;
+    width: 2px;
+    margin: 2px;
+}
+
+.volume-white {
+    background-color: #a8a1a1;
+}
+.volume-gray {
+    background-color: #64595c;
+}
+
+.timeline {
+    width: 300px;
+    height: 2px;
+    background: #455945;
+}
+
+.timeline-current {
+    height: 2px;
+    background: green;
+    width: 300px;
+}
