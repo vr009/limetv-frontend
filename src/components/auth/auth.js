@@ -85,7 +85,7 @@ const renderAuth = () => {
 
   // обработка отправки формы
   const btn = document.getElementById('auth_btn');
-  btn.addEventListener('click', function(event) {
+  form.addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('login_field').value;
     const pwd = document.getElementById('password_field').value;
