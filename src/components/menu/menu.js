@@ -1,7 +1,8 @@
 'use strict';
-const pug = require('pug');
+// const pug = require('pug');
 import {createFilms} from '../films/films.js';
 import {authModule} from '../auth/auth.js';
+import {createActors} from '../actors/actors.js';
 import {createElements} from './elements.js';
 
 const application = document.getElementById('root');
@@ -14,12 +15,13 @@ const menuRoutes = {
   login: authModule.renderAuth,
   signup: authModule.renderRegistration,
   logout: authModule.logOut,
+  actors: createActors,
 };
 
 // загрузка меню из темплейта
 const createTemplate = () => {
-  const cf = pug.compileFile('menu.pug');
-  console.log(cf);
+  // const cf = pug.compileFile('menu.pug');
+  // console.log(cf);
 
   const root = document.getElementById('root');
   const menu = document.createElement('div');

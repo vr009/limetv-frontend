@@ -84,7 +84,7 @@ const renderAuth = () => {
       */
 
   // обработка отправки формы
-  const btn = document.getElementById('auth_btn');
+  document.getElementById('auth_btn');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('login_field').value;
@@ -103,7 +103,7 @@ const renderAuth = () => {
       showErrors(msg );
     } else {
       const user = {login: name, password: pwd};
-      const url = 'http://3.67.182.34:8000/user/login';
+      const url = 'http://http://127.0.0.1:8000/user/login';
 
       fetchRequest(url, 'POST', user).then(
           (response) => {
@@ -128,7 +128,7 @@ const renderAuth = () => {
 
 // удаление сессии
 const logOut = () => {
-  const url = 'http://3.67.182.34:8000/user/logout';
+  const url = 'http://http://127.0.0.1:8000/user/logout';
 
   fetchRequest(url, 'POST',
   ).catch(function(error) {
@@ -217,7 +217,7 @@ const renderRegistration = () => {
       showErrors(msg );
     } else {
       const user = {login: name, password: pwd, email: email};
-      const url = 'http://3.67.182.34:8000/user/signup';
+      const url = 'http://127.0.0.1:8000/user/signup';
 
       fetchRequest(url, 'POST', user).then(
           (response) => {

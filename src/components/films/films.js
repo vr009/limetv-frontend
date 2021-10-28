@@ -68,7 +68,7 @@ const createBasic = () => {
 
 
 const showFilms = (state) => {
-  const url = 'http://3.67.182.34:8000/films/selection/'+state;
+  const url = 'http://127.0.0.1:8000/films/selection/'+state;
   fetch(url, {
     method: 'GET',
   },
