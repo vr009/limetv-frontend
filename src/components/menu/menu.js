@@ -18,7 +18,7 @@ const menuRoutes = {
 
 // загрузка меню из темплейта
 const createTemplate = () => {
-  // const cf = pug.compileFile('menu.pug');
+  // const cf = pug.compileFile('./menu.pug');
   // console.log(cf);
 
   const root = document.getElementById('root');
