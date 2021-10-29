@@ -14,11 +14,11 @@ export const validators = {
   username: (username) => validateField(username, regExpressions.username),
   password: (password) => validateField(password, regExpressions.password),
   userLink: (userLink) => validateField(userLink, regExpressions.userLink),
-  loginLink: (loginLink) => validateField(loginLink, regExpressions.pinsUserLink),
-  signupLink: (signupLink) => validateField(signupLink, regExpressions.deskUserLink),
-  filmLink: (filmLink) => validateField(filmLink, regExpressions.chatUserLink),
-  actorLink: (actorLink) => validateField(actorLink, regExpressions.chatUserLink),
-  playerLink: (playerLink) => validateField(playerLink, regExpressions.chatUserLink),
+  loginLink: (loginLink) => validateField(loginLink, regExpressions.loginLink),
+  signupLink: (signupLink) => validateField(signupLink, regExpressions.signupLink),
+  filmLink: (filmLink) => validateField(filmLink, regExpressions.filmLink),
+  actorLink: (actorLink) => validateField(actorLink, regExpressions.actorLink),
+  playerLink: (playerLink) => validateField(playerLink, regExpressions.playerLink),
 };
 
 const validateField = (field, regExp) => {
