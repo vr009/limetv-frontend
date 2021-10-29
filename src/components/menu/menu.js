@@ -3,6 +3,7 @@
 import {createFilms} from '../films/films.js';
 import {authModule} from '../auth/auth.js';
 import {createElements} from './elements.js';
+import '../pages/menu/menu.css'
 
 const application = document.getElementById('root');
 
