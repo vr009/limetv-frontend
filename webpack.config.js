@@ -12,7 +12,7 @@ module.exports = {
     path: __dirname + '/dist/',
     filename: '[name].js',
   },
-  target: 'node',
+
   module: {
     rules: [{
       test: /\.pug$/,
