@@ -73,7 +73,7 @@ body {
     height: 200px;
     border-radius: 15px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.2s;
     overflow: hidden;
     /*background: radial-gradient(ellipse at left top, #8bc34a59, transparent 170px),*/
     /*radial-gradient(ellipse at right bottom, #8bc34a59, transparent 170px);*/

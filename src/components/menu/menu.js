@@ -3,18 +3,38 @@
 import {createFilms} from '../films/films.js';
 import {authModule} from '../auth/auth.js';
 import {createElements} from './elements.js';
+import Router from '../../utils/router';
 import '../pages/menu/menu.css'
 
 const application = document.getElementById('root');
 
+const goMain = () => {
+  Router.go("/","Main");
+}
+
+const goSignup = () => {
+  Router.go("/signup","signup");
+}
+
+const goLogin = () => {
+  Router.go("/login","login");
+}
+
+const goProfile = () => {
+  Router.go("/profile","profile");
+}
+
+const goLogout = () => {
+  Router.go("/logout","logout");
+}
 
 // элементы роутинга
 const menuRoutes = {
-  films: createFilms,
-  profile: authModule.renderProfile,
-  login: authModule.renderAuth,
-  signup: authModule.renderRegistration,
-  logout: authModule.logOut,
+  films: goMain,
+  profile: goProfile,
+  login: goLogin,
+  signup: goSignup,
+  logout: goLogout,
 };
 
 // загрузка меню из темплейта
@@ -31,7 +51,6 @@ const createTemplate = () => {
 
   const menuItems = document.createElement('div');
   menuItems.setAttribute('id', 'menu-items');
-
 
   menuContainer.appendChild(menuItems);
   menu.appendChild(menuContainer);
@@ -63,5 +82,8 @@ application.addEventListener('click', function(event) {
     menuRoutes[target.dataset.section]();
   }
 });
+
+
+
 
 
