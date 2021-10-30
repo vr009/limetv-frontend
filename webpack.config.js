@@ -9,12 +9,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   target: 'node',
-  plugins: [
-    new HTMLWebPackPlugin({
-      template: './src/view/index.html',
-    }),
-    new CleanWebpackPlugin(),
-  ],
   module: {
     rules: [{
       test: /\.pug$/,
@@ -45,4 +39,10 @@ module.exports = {
       ],
     }],
   },
+  plugins: [
+    new HTMLWebPackPlugin({
+      template: './src/view/index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
 };
