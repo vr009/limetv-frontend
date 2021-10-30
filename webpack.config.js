@@ -1,12 +1,16 @@
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    bundle: path.join(__dirname, '/src/index.js'),
+  },
   output: {
     path: __dirname + '/dist/',
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   target: 'node',
   module: {
@@ -28,13 +32,13 @@ module.exports = {
       options: {
         name: '[name].[ext]',
       },
-    },{
+    }, {
       test: /\.css$/,
       use: [
         'style-loader',
         {
           loader: 'css-loader',
-          options: { sourceMap: true },
+          options: {sourceMap: true},
         },
       ],
     }],
@@ -42,6 +46,35 @@ module.exports = {
   plugins: [
     new HTMLWebPackPlugin({
       template: './src/view/index.html',
+    }),
+    // new WorkboxPlugin.GenerateSW({
+    //   // Do not precache images
+    //   exclude: [/\.(?:png|jpg|jpeg|svg|)$/],
+    //
+    //   // Define runtime caching rules.
+    //   runtimeCaching: [{
+    //     // Match any request that ends with .png, .jpg, .jpeg or .svg.
+    //     urlPattern: /\.(?:png|jpg|jpeg|svg|js|html|css)$/,
+    //
+    //     // Apply a cache-first strategy.
+    //     handler: 'CacheFirst',
+    //
+    //     options: {
+    //       // Use a custom cache name.
+    //       cacheName: 'LimeTV',
+    //
+    //       // Only cache 10 images.
+    //       expiration: {
+    //         maxEntries: 10,
+    //       },
+    //     },
+    //   }],
+    // }),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src/utils/sw.js',
+      swDest: 'sw.js',
+      include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
+        /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
     }),
     new CleanWebpackPlugin(),
   ],
