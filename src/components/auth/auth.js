@@ -146,7 +146,7 @@ const renderProfile = () => {
 
 
 // отрисовка формы регистрации
-const renderRegistration = () => {
+export const renderRegistration = () => {
   const root = document.getElementById('stuff');
   root.innerHTML = '';
 
