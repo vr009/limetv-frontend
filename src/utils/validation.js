@@ -33,9 +33,9 @@ const validateField = (field, regExp) => {
  * @return {boolean} isOk?
  */
 export function validateCreateBoard(name, description) {
-
-  if (name.length < 5 || name.length > 65 )
+  if (name.length < 5 || name.length > 65 ) {
     return false;
+  }
 
   // @todo do we need description check?
   // it can be 0 length
