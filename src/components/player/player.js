@@ -1,3 +1,8 @@
+const toggle = {
+  play: 'play.png',
+  pause: 'pause.png',
+};
+
 /** Класс видеоплеера */
 export class Player {
   /** Инициализация пустого объекта */
@@ -19,6 +24,7 @@ export class Player {
     this.addVideoBlockListeners();
     // листенер для видео
     this.addVideoListeners();
+    this.changeTimelineGeneral();
   }
 
   /** Добавление всех листенеров для видеоблока*/
@@ -71,10 +77,15 @@ export class Player {
   /** Изменение кнопки */
   changePlayButton() {
     // изменение иконок
+
+    let btn = this.videoBlock.querySelector('.start_stop_btn');
+    let img = btn.querySelector('img');
     if (this.statusPlaying) {
-      this.videoBlock.querySelector('.start_stop_btn').innerHTML = '⏵';
+
+      img.src = toggle.pause;
     } else {
-      this.videoBlock.querySelector('.start_stop_btn').innerHTML = '⏸';
+
+      img.src = toggle.play;
     }
   }
 
@@ -111,23 +122,23 @@ export class Player {
   changeTimelineLine() {
     this.changeVideoDuration();
     const timeline = document.querySelector('.timeline-current');
+
+    const full = document.querySelector('.timeline');
     const percent = this.video.currentTime.toFixed() /
         this.video.duration.toFixed();
-    timeline.style.width = `${percent.toFixed(2)*300}px`;
+    timeline.style.width = `${percent.toFixed(2)*full.getBoundingClientRect().width}px`;
   }
 
   /** Обновление таймлайна по клику */
   changeTimelineButton() {
     const timeline = document.querySelector('.timeline_holder');
     timeline.addEventListener('click', (event) => {
-      console.log(event.target.getBoundingClientRect());
-      console.log(event.clientX);
+      const percent = (event.clientX /
+        event.target.getBoundingClientRect().right );
 
-      const percent = event.clientX / (
-        event.target.getBoundingClientRect().right -
-          event.target.getBoundingClientRect().left);
 
       this.video.currentTime = Number(percent.toFixed(2)) * this.video.duration;
+      console.log(this.video.currentTime);
     });
   }
 
