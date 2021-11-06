@@ -1,0 +1,48 @@
+.settings {
+    display: flex;
+}
+.profile_pic {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.profile_pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile_pic input {
+    opacity: 0;
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: opacity 1s;
+    border-width: 0;
+
+}
+
+.profile_pic input:hover {
+    opacity: 100%;
+ }
+
+.profile_settings {
+    display: inline-block;
+    position: relative;
+    border: #8bc34a 2px solid;
+
+}
+
+.profile_settings * {
+    position: center  ;
+}
+

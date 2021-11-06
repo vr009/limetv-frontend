@@ -78,13 +78,11 @@ export class Player {
   changePlayButton() {
     // изменение иконок
 
-    let btn = this.videoBlock.querySelector('.start_stop_btn');
-    let img = btn.querySelector('img');
+    const btn = this.videoBlock.querySelector('.start_stop_btn');
+    const img = btn.querySelector('img');
     if (this.statusPlaying) {
-
       img.src = toggle.pause;
     } else {
-
       img.src = toggle.play;
     }
   }
