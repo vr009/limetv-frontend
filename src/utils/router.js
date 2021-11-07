@@ -1,5 +1,6 @@
 import {createFilms} from '../components/films/films';
 import {authModule} from '../components/auth/auth';
+import {offlinePage} from '../components/offlinePage/offlinePage';
 // import {validators} from "./validation";
 
 class Router {
@@ -22,7 +23,7 @@ class Router {
       // eslint-disable-next-line max-len
       // Если зашли первый раз только на страницу и браузер сохранил уже ее себе в стек
       if (evt.state === null) {
-        this.go('/', null, evt.state, false);
+        this.go('/hi', null, evt.state, false);
       } else {
         const path = evt.state.path;
         this.go(path, evt.state.title, evt.state, false);
@@ -32,7 +33,7 @@ class Router {
 
   go(path, title, state=null, needPush=true) {
     if (!navigator.onLine) {
-      createOfflinePage(path, title, state=null, needPush);
+      offlinePage(path, title, state=null, needPush);
       return;
     }
 

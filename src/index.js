@@ -1,5 +1,5 @@
 'use strict';
-import {createOfflinePage} from './components/offlinePage/offlinePage.js';
+import {offlinePage} from './components/offlinePage/offlinePage.js';
 import {createMenu} from './components/menu/menu.js';
 import {createFilms} from './components/films/films.js';
 import Router from './utils/router.js';
