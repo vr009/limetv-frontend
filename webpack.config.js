@@ -12,15 +12,11 @@ module.exports = {
     path: __dirname + '/dist/',
     filename: '[name].js',
   },
-
   module: {
     rules: [{
       test: /\.pug$/,
-      oneOf: [
-        // this applies to pug imports inside JavaScript
-        {
-          use: ['pug-loader'],
-        },
+      use: [
+        'pug-loader',
       ],
     }, {
       test: /\.js$/,
@@ -78,4 +74,19 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    onAfterSetupMiddleware: function(devServer) {
+      devServer.app.get('*', function(req, res, next) {
+        console.log(req, res);
+        res.json({custom: 'response'});
+        if ( ! (req.url.endsWith('.svg') ||
+            req.url.endsWith('.js') ||
+            req.url.endsWith('.ico') ||
+            req.url.endsWith('.js.map')) ) {
+          req.url = '/';
+        }
+        next('route');
+      });
+    },
+  },
 };
