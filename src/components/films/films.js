@@ -1,4 +1,5 @@
 import {showErrors} from '../utils/errors.js';
+import {createFilmPage} from '../film/film_page.js';
 /**
  * Модуль создания экрана фильмов
  * @function
@@ -49,9 +50,17 @@ const showFilms = (state) => {
           filmItemContainer.setAttribute('class', 'film-item-container');
           filmItemContainer.setAttribute('id', 'film-item-container');
           const film = document.createElement('img');
-          film.setAttribute('src', result[i].src[0]);
+          film.setAttribute('film_id', result[i].id);
+          film.setAttribute('src', '../../../tmp/' + result[i].src[0]);
           film.setAttribute('class', 'film-item');
           filmItemContainer.appendChild(film);
+
+          film.addEventListener('click', function(event) {
+              const {target} = event;
+              event.preventDefault();
+              createFilmPage(result[i].id);
+          });
+
           root.appendChild(filmItemContainer);
         }
         rootGlobal.appendChild(root);
@@ -87,9 +96,15 @@ const showSelection = () => {
             filmItemContainer.setAttribute('class', 'film-item');
             filmItemContainer.setAttribute('id', 'film-item');
             const film = document.createElement('img');
-            film.setAttribute('src', result[i].src[0]);
+            film.setAttribute('src', '../../../tmp/' + result[i].src[0]);
+            film.setAttribute('film_id', result[i].id);
             film.setAttribute('class', 'film-item');
             filmItemContainer.appendChild(film);
+            film.addEventListener('click', function(event) {
+                const {target} = event;
+                event.preventDefault();
+                createFilmPage(result[i].id);
+            });
             root.appendChild(filmItemContainer);
         }
         rootGlobal.appendChild(root);
