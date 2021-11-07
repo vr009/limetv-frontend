@@ -37,16 +37,27 @@ const showFilm = (filmId) => {
 
 const FetchActors = (actors, rootTag) => {
     const url = 'http://127.0.0.1:8000/actors/film';
+    const actorsBody = [];
+    for (let i = 0; i < actors.length; i++) {
+        let bdy = {
+            id: actors[i].toString(),
+        }
+        actorsBody.push(bdy);
+    }
+
+    console.log(JSON.stringify(actorsBody));
+
     fetch(url, {
             method: 'POST',
-            mode: 'no-cors',
-            body: actors,
+            body: JSON.stringify(actorsBody),
         },
     ).then(
         (response) => response.json(),
     ).then(
         (result) => {
-
+            console.log('here');
+            console.log(result);
+            actorsLineRender(result, rootTag);
         },
     ).catch((error) => {
             console.log(error);
@@ -117,6 +128,7 @@ const filmPageRender = (result) => {
     actors.setAttribute('id', 'actors');
     actors.setAttribute('class', 'actors');
     genres.setAttribute('class', 'film-note');
+    console.log(result.actors);
     FetchActors(result.actors, 'actors');
     description.appendChild(actors);
 
@@ -131,11 +143,12 @@ const filmPageRender = (result) => {
     stuff.appendChild(root);
 }
 
-const actorsLineRender = (result) => {
+const actorsLineRender = (result, rootTag) => {
     const root = document.getElementById(rootTag);
 
     const actorsContainer = document.createElement('div');
     actorsContainer.setAttribute('class', 'actors-container')
+    console.log(result.length);
     for (let i = 0; i < result.length; i++) {
         const actorContainer = document.createElement('div');
         actorContainer.setAttribute('class', 'actor-container');
@@ -143,10 +156,14 @@ const actorsLineRender = (result) => {
         const actorPhoto = document.createElement('img');
         actorPhoto.setAttribute('src', result[i].avatar);
         actorPhoto.setAttribute('class', 'actor-photo');
-        actorContainer.appendChild(actorPhoto);
-        actorContainer.appendChild(actorContainer);
-    }
-    description.appendChild(actorsContainer);
 
-    root.appendChild(description);
+        const ActorName = document.createElement('div');
+        ActorName.setAttribute('class', 'film-note');
+        ActorName.innerText = result[i].name + ' ' + result[i].surname;
+
+        actorContainer.appendChild(actorPhoto);
+        actorContainer.appendChild(ActorName);
+        actorsContainer.appendChild(actorContainer);
+    }
+    root.appendChild(actorsContainer);
 }

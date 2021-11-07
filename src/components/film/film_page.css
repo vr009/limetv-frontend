@@ -29,9 +29,13 @@
     display: flex;
 }
 
-.actors-container {}
+.actors-container {
+    display: flex;
+}
 
-.actor-container {}
+.actor-container {
+    margin-left: 20px;
+}
 
 .actor-photo {}
 
