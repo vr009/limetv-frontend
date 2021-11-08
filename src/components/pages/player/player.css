@@ -1,3 +1,64 @@
+.player_block{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.player_panel {
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgb(66, 62, 62);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    opacity: 0;
+    margin: 20px;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 1s;
+}
+
+.player_panel:hover{
+    opacity: 100%;
+}
+
+.buttons_holder {
+    justify-content: center;
+    display: flex;
+}
+
+.timeline_holder {
+    z-index: 10;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    transition: opacity 1s;
+}
+
+.duration_holder {
+    color: white;
+}
+
+.volume_holder {
+    margin: 0 15px;
+}
 .volume_holder em {
     display: inline-block;
     height: 16px;
@@ -6,20 +67,39 @@
 }
 
 .volume-white {
-    background-color: #a8a1a1;
+
+    background-color: #4e6c4e;
 }
 .volume-gray {
-    background-color: #64595c;
+    background-color: green;
 }
 
 .timeline {
-    width: 300px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
     height: 2px;
     background: #455945;
 }
 
 .timeline-current {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
     height: 2px;
     background: green;
-    width: 300px;
+}
+
+button {
+    all: unset;
+    background: transparent;
+}
+
+button img {
+    padding: 0 10px;
+    vertical-align: center;
+    max-height: 10px;
+    max-width: 10px;
 }

@@ -1,0 +1,15 @@
+div.profile
+     h1.title Настройки профиля
+     div.settings
+        div(class="profile_pic")
+            img(src="pic.png" id="avatar")
+            input(type="submit" class="" name="pic" value="Изменить" id="new_avatar")
+        div(class="profile_settings")
+            form(id="pass_form")
+                div
+                    input(type="password" placeholder="Password")
+                    input(type="submit" class="red_btn" name="password" value="Сохранить" id="submit_pass")
+            form(id="bio_form")
+                div
+                    textarea(placeholder="О себе" maxlength="512" rows="14" cols="33")= about
+                    input(type="submit" class="red_btn" name="login" value="Сохранить" id="submit_save")
