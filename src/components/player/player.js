@@ -1,3 +1,4 @@
+import '../pages/menu/menu.css'
 const toggle = {
   play: 'play.png',
   pause: 'pause.png',
@@ -8,7 +9,7 @@ export class Player {
   /** Инициализация пустого объекта */
   constructor() {
     // сам компонент с видео
-    this.videoBlock = document.querySelector('.player_block');
+    this.videoBlock = document.querySelector('player_block');
     this.video = this.videoBlock.querySelector('video');
     // компонент с названием
     this.title = document.querySelector('title');

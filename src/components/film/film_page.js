@@ -1,8 +1,9 @@
 import {showErrors} from '../utils/errors.js';
-import './film_page.css'
-import '../../components/pages/menu/menu.css'
+import './film_page.css';
+import '../../components/pages/menu/menu.css';
+import {Player} from '../player/player';
 /**
- * Модуль создания экрана фильмов
+ * Модуль создания страницы фильма
  * @function
  */
 export const createFilmPage = (id) => {
@@ -132,11 +133,19 @@ const filmPageRender = (result) => {
     FetchActors(result.actors, 'actors');
     description.appendChild(actors);
 
-    const watchBtn = document.createElement('input');
-    watchBtn.setAttribute('type', 'button');
+    const watchBtn = document.createElement('a');
+    // watchBtn.setAttribute('type', 'button');
     watchBtn.setAttribute('class', 'watch-btn');
-    watchBtn.value = "Watch it";
+    // watchBtn.value = "Watch it";
+    watchBtn.innerText = 'Watch it';
     watchBtn.href = ``;
+    
+    watchBtn.addEventListener('click', function(event) {
+        const {target} = event;
+        event.preventDefault();
+        new Player();
+        console.log('Player here');
+    });
     description.appendChild(watchBtn);
 
     root.appendChild(description);
