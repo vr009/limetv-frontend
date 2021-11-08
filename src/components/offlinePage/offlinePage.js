@@ -1,6 +1,6 @@
 import Router from '../../utils/router.js';
-import './offlinePage.css';
-import offlinePagePug from './offlinePage.pug';
+import '../pages/offline/offline.css';
+import offlinePagePug from '../pages/offline/offline.pug';
 import {createMenu} from '../menu/menu.js';
 
 export function offlinePage(path, title, state, needPush) {
@@ -15,7 +15,7 @@ export function offlinePage(path, title, state, needPush) {
       createMenu();
       Router.go(path, title, state, needPush);
     } else {
-      offlinePageMsg.innerText = 'Соединение пока потеряно:(';
+      offlinePageMsg.innerText = 'Соединение пока потеряно :(';
     }
   });
 }

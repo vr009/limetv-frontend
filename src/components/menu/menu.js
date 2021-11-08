@@ -1,32 +1,32 @@
 'use strict';
 // const pug = require('pug');
-import {createFilms} from '../films/films.js';
-import {authModule} from '../auth/auth.js';
+// import {createFilms} from '../films/films.js';
+// import {authModule} from '../auth/auth.js';
 import {createElements} from './elements.js';
 import Router from '../../utils/router';
-import '../pages/menu/menu.css'
+import '../pages/menu/menu.css';
 
 const application = document.getElementById('root');
 
 const goMain = () => {
-  Router.go("/","Main");
-}
+  Router.go('/', 'Main');
+};
 
 const goSignup = () => {
-  Router.go("/signup","signup");
-}
+  Router.go('/signup', 'signup');
+};
 
 const goLogin = () => {
-  Router.go("/login","login");
-}
+  Router.go('/login', 'login');
+};
 
 const goProfile = () => {
-  Router.go("/profile","profile");
-}
+  Router.go('/profile', 'profile');
+};
 
 const goLogout = () => {
-  Router.go("/logout","logout");
-}
+  Router.go('/logout', 'logout');
+};
 
 // элементы роутинга
 const menuRoutes = {
@@ -82,8 +82,3 @@ application.addEventListener('click', function(event) {
     menuRoutes[target.dataset.section]();
   }
 });
-
-
-
-
-
