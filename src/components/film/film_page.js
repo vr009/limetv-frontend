@@ -2,15 +2,17 @@ import {showErrors} from '../utils/errors.js';
 import './film_page.css';
 import '../../components/pages/menu/menu.css';
 import {Player} from '../player/player';
+import Router from '../../utils/router';
+import PlayerPug from '../pages/player/player.pug';
 /**
  * Модуль создания страницы фильма
  * @function
  */
 export const createFilmPage = (id) => {
-    createToggle(id);
+    createBase(id);
 };
 
-const createToggle = (id) => {
+const createBase = (id) => {
     const stuff = document.getElementById('stuff');
     stuff.innerHTML = '';
     showFilm(id);
@@ -90,39 +92,52 @@ const filmPageRender = (result) => {
     title.innerText = result.title;
     description.appendChild(title);
 
+    const watchBtn = document.createElement('a');
+    watchBtn.setAttribute('type', 'button');
+    watchBtn.setAttribute('class', 'watch-btn');
+    watchBtn.innerText = 'Смотреть';
+    watchBtn.href = ``;
+    watchBtn.addEventListener('click', function(event) {
+        const {target} = event;
+        event.preventDefault();
+        stuff.innerHTML = PlayerPug();
+        new Player();
+    });
+    description.appendChild(watchBtn);
+
     const year = document.createElement('div');
     year.setAttribute('class', 'film-note');
-    year.innerText = 'Year: ' + result.year;
+    year.innerText = 'Год: ' + result.year;
     description.appendChild(year);
 
     const language = document.createElement('div');
     language.setAttribute('class', 'film-note');
-    language.innerText = 'Language: ' + result.language;
+    language.innerText = 'Язык: ' + result.language;
     description.appendChild(language);
 
     const duration = document.createElement('div');
     duration.setAttribute('class', 'film-note');
-    duration.innerText = 'Duration: ' + result.duration;
+    duration.innerText = 'Продолжительность: ' + result.duration;
     description.appendChild(duration);
 
     const release = document.createElement('div');
     release.setAttribute('class', 'film-note');
-    release.innerText = 'Release: ' + result.release;
+    release.innerText = 'Дата релиза: ' + result.release;
     description.appendChild(release);
 
     const directors = document.createElement('div');
     directors.setAttribute('class', 'film-note');
-    directors.innerText = 'Directors: ' + result.director;
+    directors.innerText = 'Исполнительный директор: ' + result.director;
     description.appendChild(directors);
 
     const authors = document.createElement('div');
     authors.setAttribute('class', 'film-note');
-    authors.innerText = 'Authors: ' + result.authors;
+    authors.innerText = 'Авторы сценария: ' + result.authors;
     description.appendChild(authors);
 
     const genres = document.createElement('div');
     genres.setAttribute('class', 'film-note');
-    genres.innerText = 'Genres: ' + result.genres;
+    genres.innerText = 'Жанр: ' + result.genres;
     description.appendChild(genres);
 
     const actors = document.createElement('div');
@@ -133,20 +148,7 @@ const filmPageRender = (result) => {
     FetchActors(result.actors, 'actors');
     description.appendChild(actors);
 
-    const watchBtn = document.createElement('a');
-    // watchBtn.setAttribute('type', 'button');
-    watchBtn.setAttribute('class', 'watch-btn');
-    // watchBtn.value = "Watch it";
-    watchBtn.innerText = 'Watch it';
-    watchBtn.href = ``;
-    
-    watchBtn.addEventListener('click', function(event) {
-        const {target} = event;
-        event.preventDefault();
-        new Player();
-        console.log('Player here');
-    });
-    description.appendChild(watchBtn);
+
 
     root.appendChild(description);
     stuff.appendChild(root);

@@ -13,8 +13,8 @@ const createToggle = () => {
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
   showSelection();
-  showFilms('Popular on LimeTV');
-  showFilms('New on LimeTV');
+  showFilms('Популярное на LimeTV');
+  showFilms('Новое на LimeTV');
 };
 
 const createBasic = () => {
@@ -85,7 +85,7 @@ const showSelection = () => {
         const rootGlobal = document.getElementById('films-container');
         const divLabel = document.createElement('div');
         const label = document.createElement('h1');
-        label.innerText = 'Recommended for you';
+        label.innerText = 'Рекомендуем к просмотру';
         label.setAttribute('class','selection-label');
         label.setAttribute('id','selection-label');
         divLabel.appendChild(label);

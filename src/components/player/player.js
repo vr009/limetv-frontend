@@ -1,7 +1,15 @@
-import '../pages/menu/menu.css'
+import '../pages/player/player.css';
+import '../pages/menu/menu.css';
+import playImg from './play.png';
+import pauseImg from './pause.png';
+import ffImg from './ff.png';
+import nextImg from './next.png';
+import previousImg from './previous.png';
+import rewindImg from './rewind.png';
+
 const toggle = {
-  play: 'play.png',
-  pause: 'pause.png',
+  play: playImg,
+  pause: pauseImg,
 };
 
 /** Класс видеоплеера */
@@ -9,7 +17,7 @@ export class Player {
   /** Инициализация пустого объекта */
   constructor() {
     // сам компонент с видео
-    this.videoBlock = document.querySelector('player_block');
+    this.videoBlock = document.querySelector('.player_block');
     this.video = this.videoBlock.querySelector('video');
     // компонент с названием
     this.title = document.querySelector('title');

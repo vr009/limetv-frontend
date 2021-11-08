@@ -1,6 +1,6 @@
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -36,6 +36,18 @@ module.exports = {
           loader: 'css-loader',
           options: {sourceMap: true},
         },
+        {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              plugins: [
+                require('postcss-preset-env')({
+                  browsers: 'last 2 versions',
+                }),
+              ],
+            },
+          },
+        },
       ],
     }],
   },
@@ -66,12 +78,12 @@ module.exports = {
     //     },
     //   }],
     // }),
-    new WorkboxPlugin.InjectManifest({
-      swSrc: './src/utils/sw.js',
-      swDest: 'sw.js',
-      include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
-        /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
-    }),
+    // new WorkboxPlugin.InjectManifest({
+    //   swSrc: './src/utils/sw.js',
+    //   swDest: 'sw.js',
+    //   include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
+    //     /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
+    // }),
     new CleanWebpackPlugin(),
   ],
   devServer: {
