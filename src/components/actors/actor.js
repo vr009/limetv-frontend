@@ -72,7 +72,6 @@ function getFilmsByActor(state) {
         const rootFilm = document.getElementById('one_film');
         for (let i=0; i < result.length; i++) {
           result[i].title = result[i].title+' ('+result[i].year+')';
-          result[i].duration = result[i].duration+'+';
           result[i].director = result[i].director[0];
           result[i].duration = result[i].duration+'м';
         }
