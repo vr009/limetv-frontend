@@ -1,11 +1,21 @@
 div.container
+    <hr size="2" style="margin-bottom: 20px;">
+    b.title-film Фильмы
     each val in films
-        li=val.id
-        li=val.title
-        li=val.id
-        li=val.id
-        li=val.id
-        li=val.id
-        li=val.id
-        li=val.id
-        li=val.id
+        div.row
+            div.film
+                div.row
+                    div.col-1-2-q
+                        a.name_film(href=val.src.toString())=val.title
+                    div.col-1-2-l
+                        div.circle
+                            b=val.duration
+                div.row
+                    div.col-1-2-t
+                        b(style="color: #cfcfcf;") Жанр:
+                        each v in val.genres
+                            b=' '+v
+
+                        b(style="color: #cfcfcf; padding-left: 100px;") Режиссер:
+                        b=' '+val.director
+
