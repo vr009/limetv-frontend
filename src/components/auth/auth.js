@@ -112,15 +112,7 @@ const renderAuth = () => {
       const user = {login: name, password: pwd};
       const url = 'http://localhost:8000/users/login';
       // 3.67.182.34
-      fetchRequest(url, 'POST', user).then(
-          (response) => {
-            if (response.ok) {
-              response.json();
-            } else {
-              throw error;
-            }
-          },
-      ).then(
+      fetchRequest(url, 'POST', user).then().then(
           (result) => {
             Router.go("/","main", null, true, true);
           },
