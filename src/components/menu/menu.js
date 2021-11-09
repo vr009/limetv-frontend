@@ -21,6 +21,7 @@ const goLogin = () => {
 }
 
 const goProfile = () => {
+  console.log("11111");
   Router.go("/profile","profile");
 }
 
@@ -71,8 +72,22 @@ const createTemplate = () => {
  */
 export const createMenu = () => {
   createTemplate();
-  createElements();
+  const url = 'http://127.0.0.1:8000/users/auth';
+  fetch(url, {
+        method: 'GET',
+      },
+  ).then(
+      (response) => response.json(),
+  ).then(
+      (result) => {
+        createElements(true);
+      },
+  ).catch((error) => {
+        createElements(false);
+      },
+  );
 };
+
 
 application.addEventListener('click', function(event) {
   const {target} = event;
@@ -82,8 +97,3 @@ application.addEventListener('click', function(event) {
     menuRoutes[target.dataset.section]();
   }
 });
-
-
-
-
-

@@ -3,6 +3,13 @@ import {showErrors} from '../utils/errors.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createFilms} from '../films/films.js';
 import {createElements} from '../menu/elements.js';
+import {createProfile} from '../profile/profile'
+import Router from '../../utils/router';
+
+
+const prefixUrlDEBUG = 'http://localhost'
+const prefixUrlDEPLOY = 'http://3.67.182.34'
+const port = ':8000'
 
 export const authModule = {
   /**
@@ -34,7 +41,7 @@ export const authModule = {
    * @function
    * @return {boolean} - Статус сессии пользователя
    */
-  authHelper: () => isAuthed(),
+  authHelper: () => isAuthed(false),
 };
 
 const renderAuth = () => {
@@ -72,7 +79,7 @@ const renderAuth = () => {
   inputBlock3.appendChild(input3);
   form.appendChild(inputBlock3);
 
-  const ok = document.createElement('div');
+  const ok = document.createElement('button');
   ok.setAttribute('id', 'auth_btn');
   ok.innerText = 'Войти';
   form.appendChild(ok);
@@ -103,8 +110,8 @@ const renderAuth = () => {
       showErrors(msg );
     } else {
       const user = {login: name, password: pwd};
-      const url = 'http://3.67.182.34:8000/user/login';
-
+      const url = 'http://localhost:8000/users/login';
+      // 3.67.182.34
       fetchRequest(url, 'POST', user).then(
           (response) => {
             if (response.ok) {
@@ -115,9 +122,7 @@ const renderAuth = () => {
           },
       ).then(
           (result) => {
-            document.cookie = `jwt_token = ${result.token}`;
-            createElements();
-            createFilms();
+            Router.go("/","main", null, true, true);
           },
       ).catch(function(error) {
         showErrors('Что-то пошло не так, попробуйте позже');
@@ -128,20 +133,20 @@ const renderAuth = () => {
 
 // удаление сессии
 const logOut = () => {
-  const url = 'http://3.67.182.34:8000/user/logout';
+  const url = 'http://localhost:8000/users/logout';
 
   fetchRequest(url, 'POST',
   ).catch(function(error) {
   });
 
-  document.cookie = 'jwt_token=; Max-Age=-99999999;';
   createElements();
   createFilms();
 };
 
 // отрисовка профиля
 const renderProfile = () => {
-  alert('in progress');
+
+  console.log('need fetch here');
 };
 
 
@@ -162,14 +167,14 @@ export const renderRegistration = () => {
   const form = document.createElement('form');
   block.appendChild(form);
 
-  const inputBlock = document.createElement('div');
-  inputBlock.setAttribute('class', 'input_block');
-  const input = document.createElement('input');
-  input.setAttribute('id', 'email_field');
-  input.setAttribute('type', 'email');
-  input.setAttribute('placeholder', 'почта');
-  inputBlock.appendChild(input);
-  form.appendChild(inputBlock);
+  // const inputBlock = document.createElement('div');
+  // inputBlock.setAttribute('class', 'input_block');
+  // const input = document.createElement('input');
+  // input.setAttribute('id', 'email_field');
+  // input.setAttribute('type', 'email');
+  // input.setAttribute('placeholder', 'почта');
+  // inputBlock.appendChild(input);
+  // form.appendChild(inputBlock);
 
   const inputBlock2 = document.createElement('div');
   inputBlock2.setAttribute('class', 'input_block');
@@ -190,7 +195,7 @@ export const renderRegistration = () => {
   inputBlock3.appendChild(input3);
   form.appendChild(inputBlock3);
 
-  const ok = document.createElement('div');
+  const ok = document.createElement('button');
   ok.setAttribute('id', 'registration_btn');
   ok.innerText = 'Создать';
   form.appendChild(ok);
@@ -202,7 +207,7 @@ export const renderRegistration = () => {
     console.log('Sign Up');
     const name = document.getElementById('login_field').value;
     const pwd = document.getElementById('password_field').value;
-    const email = document.getElementById('email_field').value;
+    // const email = document.getElementById('email_field').value;
     let msg = '';
     if (!validators.username(name)) {
       msg += 'Имя должно быть длинее 3 символов. ';
@@ -210,28 +215,18 @@ export const renderRegistration = () => {
     if (!validators.password(pwd)) {
       msg += 'Пароль должен быть от 6 до 16 символов. ';
     }
-    if (!validators.email(email)) {
-      msg += 'Некорректный формат email-адреса. ';
-    }
+    // if (!validators.email(email)) {
+    //   msg += 'Некорректный формат email-адреса. ';
+    // }
     if (msg !== '') {
       showErrors(msg );
     } else {
-      const user = {login: name, password: pwd, email: email};
-      const url = 'http://3.67.182.34:8000/user/signup';
+      const user = {login: name, password: pwd};
+      const url = 'http://localhost:8000/users/signup';
 
-      fetchRequest(url, 'POST', user).then(
-          (response) => {
-            if (response.ok) {
-              response.json();
-            } else {
-              throw error;
-            }
-          },
-      ).then(
+      fetchRequest(url, 'POST', user).then().then(
           (result) => {
-            document.cookie = `jwt_token = ${result.token}`;
-            createElements();
-            createFilms();
+            Router.go("/","main", null, true, true);
           },
       ).catch(function() {
         showErrors('Что-то пошло не так, попробуйте позже');
@@ -241,7 +236,8 @@ export const renderRegistration = () => {
   });
 };
 
-const isAuthed = () => {
-  return !!document.cookie.split(';').filter((item) =>
-    item.trim().startsWith('jwt_token')).length;
+const isAuthed = (code) => {
+  return (code === 200);
 };
+
+

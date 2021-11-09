@@ -12,7 +12,7 @@ export function offlinePage(path, title, state, needPush) {
   const reloadBtn = document.getElementById('reload_page');
   reloadBtn.addEventListener('click', (evt)=>{
     if (navigator.onLine) {
-      createMenu();
+      createMenu(false);
       Router.go(path, title, state, needPush);
     } else {
       offlinePageMsg.innerText = 'Соединение пока потеряно:(';

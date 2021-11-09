@@ -23,7 +23,7 @@ const unauthElements = {
  * @function
  */
 // создание элементов для меню
-export const createElements = () => {
+export const createElements = (authed) => {
   const root = document.getElementById('menu-items');
   root.innerHTML = '';
 
@@ -36,7 +36,7 @@ export const createElements = () => {
     root.appendChild(menuItem);
   });
 
-  if (authModule.authHelper()) {
+  if (authed) {
     Object.keys(authElements).forEach(function(key) {
       const menuItem = document.createElement('a');
       menuItem.textContent = authElements[key];

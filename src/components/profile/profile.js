@@ -40,7 +40,7 @@ const updateUserPic = (event) => {
     reader.onload = (evt) => {
       const data = new FormData();
       data.append('pic', target.files[0]);
-      const url = serverLocate+'/user/profile/settings/pic';
+      const url = serverLocate+'/users/profile/settings/pic';
       fetchImage(url, data).then(
           (response) => {
             if (response.ok) {

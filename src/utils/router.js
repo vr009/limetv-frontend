@@ -1,5 +1,6 @@
 import {createFilms} from '../components/films/films';
 import {authModule} from '../components/auth/auth';
+import {createMenu} from '../components/menu/menu';
 import {offlinePage} from '../components/offlinePage/offlinePage';
 // import {validators} from "./validation";
 
@@ -31,11 +32,11 @@ class Router {
     });
   }
 
-  go(path, title, state=null, needPush=true) {
-    if (!navigator.onLine) {
-      offlinePage(path, title, state=null, needPush);
-      return;
-    }
+  go(path, title, state=null, needPush=true, authedChanged=false) {
+    // if (!navigator.onLine) {
+    //   offlinePage(path, title, state=null, needPush);
+    //   return;
+    // }
 
     if (needPush === true) {
       console.log('GO path:' + path);
@@ -53,10 +54,16 @@ class Router {
     // alert("Go : path:" + path);
 
     document.title = title;
+
+    if (authedChanged) {
+      createMenu();
+    }
+
+
     const func = this.routs[path];
 
     if (func === undefined) {
-      this.go('/', 'Main');
+      this.go('/', 'Main', null, true, true);
     // createPinPageFromRequest (pin/{pinID})
     // if (path.includes("/pin/")) { // если находится на странице пина
     //     const pinId = path.substring("/pin/".length, path.length);
@@ -128,7 +135,9 @@ class Router {
     // получает пользователя в синглтон currenUser и вызывает go(текущий путь)
     // if (Requests.getUserProfile(false)) {
     //
-    //     createMenu(true);
+    //
+    //
+    //   (true);
     // } else {
     //     createMenu(false);
     // }
