@@ -30,6 +30,7 @@ const showFilms = (state) => {
   const url = 'http://127.0.0.1:8000/films/selection/'+state;
   fetch(url, {
     method: 'GET',
+    credentials: 'include',
   },
   ).then(
       (response) => response.json(),
@@ -76,6 +77,7 @@ const showSelection = () => {
   const url = 'http://127.0.0.1:8000/films/selection';
   fetch(url, {
         method: 'GET',
+        credentials: 'include',
       },
   ).then(
       (response) => response.json(),

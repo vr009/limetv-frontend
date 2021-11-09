@@ -100,7 +100,8 @@ const filmPageRender = (result) => {
     watchBtn.addEventListener('click', function(event) {
         const {target} = event;
         event.preventDefault();
-        stuff.innerHTML = PlayerPug();
+        const rootPage = document.getElementById('root');
+        rootPage.innerHTML = PlayerPug();
         new Player();
     });
     description.appendChild(watchBtn);

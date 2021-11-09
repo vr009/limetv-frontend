@@ -75,9 +75,14 @@ export const createMenu = () => {
   const url = 'http://127.0.0.1:8000/users/auth';
   fetch(url, {
         method: 'GET',
+        credentials: 'include',
       },
   ).then(
-      (response) => response.json(),
+      (response) => {
+        if (!response.ok) {
+          throw error;
+        }
+      },
   ).then(
       (result) => {
         createElements(true);
