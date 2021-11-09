@@ -27,5 +27,5 @@ const menu = document.createElement('div');
 menu.setAttribute('id', 'menu');
 root.innerHTML = '';
 root.appendChild(menu);
-createMenu(false);
+createMenu();
 createFilms();

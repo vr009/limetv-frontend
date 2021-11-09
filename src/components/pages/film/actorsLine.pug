@@ -1,0 +1,7 @@
+h1.actor-note(id=root-actors)='Актеры: '
+    div.actors
+        each actor in actors
+            div.actor-container(id=actor.id)
+                div.actor-photo
+                    img.actor-photo(src=actor.avatar)
+                div.actor-note #{actor.name}  #{actor.surname}
