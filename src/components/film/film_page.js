@@ -5,8 +5,8 @@ import {Player} from '../player/player';
 import {createActor} from '../actors/actor';
 import {showErrors} from '../utils/errors.js';
 
-import filmPagePug from '../film/film_page.pug';
-import actorsLinePug from '../film/actorsLine.pug';
+import filmPagePug from '../pages/film/film_page.pug';
+import actorsLinePug from '../pages/film/actorsLine.pug';
 import PlayerPug from '../pages/player/player.pug';
 
 import Router from '../../utils/router';
