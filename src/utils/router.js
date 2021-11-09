@@ -1,12 +1,10 @@
 import {createFilms} from '../components/films/films';
 import {authModule} from '../components/auth/auth';
-<<<<<<< HEAD
 import {createMenu} from '../components/menu/menu';
-import {offlinePage} from '../components/offlinePage/offlinePage';
-=======
+// import {offlinePage} from '../components/offlinePage/offlinePage';
 import {offline} from '../components/offline/offline';
 import {createActor} from "../components/actors/actor";
->>>>>>> fix_webpack
+
 // import {validators} from "./validation";
 
 class Router {

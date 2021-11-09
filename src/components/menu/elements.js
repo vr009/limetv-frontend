@@ -3,7 +3,6 @@ import {authModule} from '../auth/auth.js';
 
 const menuElements = {
   films: 'Фильмы',
-  actor: 'Актер', // временно
 };
 
 // элементы для зарегистрированных пользователей

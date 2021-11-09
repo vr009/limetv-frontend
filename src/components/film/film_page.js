@@ -2,6 +2,7 @@ import {showErrors} from '../utils/errors.js';
 import './film_page.css';
 import '../../components/pages/menu/menu.css';
 import {Player} from '../player/player';
+import {createActor} from '../actors/actor';
 import Router from '../../utils/router';
 import PlayerPug from '../pages/player/player.pug';
 /**
@@ -175,7 +176,15 @@ const actorsLineRender = (result, rootTag) => {
 
         actorContainer.appendChild(actorPhoto);
         actorContainer.appendChild(ActorName);
+        actorContainer.addEventListener('click', function(event) {
+            const {target} = event;
+            event.preventDefault();
+            const rootPage = document.getElementById('stuff');
+            rootPage.innerHTML = '';
+            createActor(result[i].id);
+        });
         actorsContainer.appendChild(actorContainer);
+
     }
     root.appendChild(actorsContainer);
 }

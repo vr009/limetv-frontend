@@ -4,7 +4,7 @@ import filmPagePug from '../pages/actors/oneFilm.pug';
 import '../pages/actors/actor.css';
 
 
-export const createActor = () => {
+export const createActor = (state) => {
   const filmGlobal = document.getElementById('films-container');
   if (filmGlobal != null) {
     filmGlobal.innerHTML = '';
@@ -20,7 +20,7 @@ export const createActor = () => {
 
   rootGlobal.appendChild(film);
 
-  const state = '3e06d4e4-3b47-11ec-8d3d-0242ac130003'; // временно
+  // const state = '3e06d4e4-3b47-11ec-8d3d-0242ac130003'; // временно
   showActor(state);
   getFilmsByActor(state);
 };
