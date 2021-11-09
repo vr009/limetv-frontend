@@ -1,5 +1,5 @@
 import {showErrors} from '../utils/errors.js';
-import {createFilmPage} from '../film/film_page.js';
+import Router from '../../utils/router';
 /**
  * Модуль создания экрана фильмов
  * @function
@@ -41,9 +41,9 @@ const showFilms = (state) => {
         const divLabel = document.createElement('div');
         const label = document.createElement('h1');
         label.innerText = state;
-        label.setAttribute('class','selection-label');
-        label.setAttribute('id','selection-label');
-        divLabel.appendChild(label)
+        label.setAttribute('class', 'selection-label');
+        label.setAttribute('id', 'selection-label');
+        divLabel.appendChild(label);
         root.appendChild(divLabel);
 
         for (let i = 0; i < result.length; i++) {
@@ -57,11 +57,9 @@ const showFilms = (state) => {
           filmItemContainer.appendChild(film);
 
           film.addEventListener('click', function(event) {
-              const {target} = event;
-              event.preventDefault();
-              createFilmPage(result[i].id);
+            event.preventDefault();
+            Router.go('/film/' + result[i].id.toString());
           });
-
           root.appendChild(filmItemContainer);
         }
         rootGlobal.appendChild(root);
@@ -76,9 +74,9 @@ const showFilms = (state) => {
 const showSelection = () => {
   const url = 'http://127.0.0.1:8000/films/selection';
   fetch(url, {
-        method: 'GET',
-        credentials: 'include',
-      },
+    method: 'GET',
+    credentials: 'include',
+  },
   ).then(
       (response) => response.json(),
   ).then(
@@ -88,32 +86,31 @@ const showSelection = () => {
         const divLabel = document.createElement('div');
         const label = document.createElement('h1');
         label.innerText = 'Рекомендуем к просмотру';
-        label.setAttribute('class','selection-label');
-        label.setAttribute('id','selection-label');
+        label.setAttribute('class', 'selection-label');
+        label.setAttribute('id', 'selection-label');
         divLabel.appendChild(label);
         root.appendChild(divLabel);
 
         for (let i = 0; i < result.length; i++) {
-            const filmItemContainer = document.createElement('div');
-            filmItemContainer.setAttribute('class', 'film-item');
-            filmItemContainer.setAttribute('id', 'film-item');
-            const film = document.createElement('img');
-            film.setAttribute('src', '../../../tmp/' + result[i].src[0]);
-            film.setAttribute('film_id', result[i].id);
-            film.setAttribute('class', 'film-item');
-            filmItemContainer.appendChild(film);
-            film.addEventListener('click', function(event) {
-                const {target} = event;
-                event.preventDefault();
-                createFilmPage(result[i].id);
-            });
-            root.appendChild(filmItemContainer);
+          const filmItemContainer = document.createElement('div');
+          filmItemContainer.setAttribute('class', 'film-item');
+          filmItemContainer.setAttribute('id', 'film-item');
+          const film = document.createElement('img');
+          film.setAttribute('src', '../../../tmp/' + result[i].src[0]);
+          film.setAttribute('film_id', result[i].id);
+          film.setAttribute('class', 'film-item');
+          filmItemContainer.appendChild(film);
+          film.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/film/' + result[i].id.toString());
+          });
+          root.appendChild(filmItemContainer);
         }
         rootGlobal.appendChild(root);
       },
   ).catch((error) => {
-        console.log(error);
-        showErrors(error);
-      },
+    console.log(error);
+    showErrors(error);
+  },
   );
 };

@@ -28,6 +28,13 @@
     float: left;
 }
 
+.col-1-2-n {
+    padding-left: 50px;
+    padding-top: 10px;
+    width: 81%;
+    float: left;
+}
+
 .col-1-2-b {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -119,15 +126,20 @@
 
 .circle {
     background: #5dcd4d;
-    padding: 15px;
-    margin: 5px;
+    padding: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    max-width: 10px;
+    border-radius: 18px;
+    width: 40px;
+    height: 7px;
+    max-width: 40px;
     max-height: 10px;
 }
 

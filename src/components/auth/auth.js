@@ -3,13 +3,12 @@ import {showErrors} from '../utils/errors.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createFilms} from '../films/films.js';
 import {createElements} from '../menu/elements.js';
-import {createProfile} from '../profile/profile'
 import Router from '../../utils/router';
 
 
-const prefixUrlDEBUG = 'http://localhost'
-const prefixUrlDEPLOY = 'http://3.67.182.34'
-const port = ':8000'
+// const prefixUrlDEBUG = 'http://localhost';
+// const prefixUrlDEPLOY = 'http://3.67.182.34';
+// const port = ':8000';
 
 export const authModule = {
   /**
@@ -91,7 +90,7 @@ const renderAuth = () => {
       */
 
   // обработка отправки формы
-  const btn = document.getElementById('auth_btn');
+  document.getElementById('auth_btn');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('login_field').value;
@@ -114,7 +113,7 @@ const renderAuth = () => {
       // 3.67.182.34
       fetchRequest(url, 'POST', user).then().then(
           (result) => {
-            Router.go("/","main", null, true, true);
+            Router.go('/', 'main', null, true, true);
           },
       ).catch(function(error) {
         showErrors('Что-то пошло не так, попробуйте позже');
@@ -137,7 +136,6 @@ const logOut = () => {
 
 // отрисовка профиля
 const renderProfile = () => {
-
   console.log('need fetch here');
 };
 
@@ -218,7 +216,7 @@ export const renderRegistration = () => {
 
       fetchRequest(url, 'POST', user).then().then(
           (result) => {
-            Router.go("/","main", null, true, true);
+            Router.go('/', 'main', null, true, true);
           },
       ).catch(function() {
         showErrors('Что-то пошло не так, попробуйте позже');

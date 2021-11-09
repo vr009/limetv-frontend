@@ -1,6 +1,6 @@
 import {fetchRequest} from '../network/fetch.js';
-import {serverLocate} from "../../utils/locale.js";
-import {fetchImage} from "../network/image.js";
+import {serverLocate} from '../../utils/locale.js';
+import {fetchImage} from '../network/image.js';
 
 export const createProfile = (profile) => {
   const avatar = document.getElementById('new_avatar');
