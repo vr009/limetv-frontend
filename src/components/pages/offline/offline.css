@@ -16,30 +16,23 @@
 a.blubtn {
     width:150px;
     text-align:center;
-    display:block;
-    font-family: arial, serif;
+    display: block;
+    color: black;
+    cursor: pointer;
     text-decoration: none;
-    font-weight: 300;
-    font-size: 15px;
-    border: #105dd0 2px solid;
-    color: #105dd0;
+    border-radius: 50px;
+    transition: .5s;
+    border: solid  #8bbf51;
     padding: 11px 11px;
     margin: 0 auto;
-    transition: .5s;
-    border-radius: 0;
 }
 
 a.blubtn:hover {
-    top: 5px;
+    background: #8bbf51;
+    display: block;
+    color: black;
+    cursor: pointer;
     transition: .5s;
-    color: #08b842;
-    border: #08b842 2px solid;
-    border-radius: 12px;
-}
-
-a.blubtn:active {
-    color: #000;
-    border: #1A1A1A 2px solid;
-    transition: .07s;
-    background-color: #FFF;
+    border-radius: 50px;
+    border: solid #8bbf51;
 }

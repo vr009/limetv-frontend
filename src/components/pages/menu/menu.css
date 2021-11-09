@@ -28,9 +28,9 @@ body {
     padding: 10px;
     text-decoration-color: initial;
     border-radius: 50px;
-    border: solid  #8bc34a;
+    border: solid  #8bbf51;
+    transition: .5s;
     margin-right: 10px;
-
 }
 
 #auth_btn, #registration_btn {
@@ -43,14 +43,16 @@ body {
     padding: 10px;
     text-decoration-color: initial;
     border-radius: 50px;
-    border: solid  #8bc34a;
+    border: solid  #8bbf51;
+    transition: .5s;
     margin: 5px auto;
     max-width: 100px;
 }
 
 #menu-items  a:hover {
     text-align: center;
-    background: #8bc34a;
+    background: #8bbf51;
+    transition: .5s;
     display: inline-block;
     color: black;
     cursor: pointer;
@@ -60,7 +62,7 @@ body {
     padding: 10px;
     text-decoration-color: initial;
     border-radius: 50px;
-    border: solid #8bc34a;
+    border: solid #8bbf51;
     margin-right: 10px;
 
 }

@@ -1,7 +1,12 @@
 import {createFilms} from '../components/films/films';
 import {authModule} from '../components/auth/auth';
+<<<<<<< HEAD
 import {createMenu} from '../components/menu/menu';
 import {offlinePage} from '../components/offlinePage/offlinePage';
+=======
+import {offline} from '../components/offline/offline';
+import {createActor} from "../components/actors/actor";
+>>>>>>> fix_webpack
 // import {validators} from "./validation";
 
 class Router {
@@ -13,7 +18,7 @@ class Router {
       '/films': createFilms,
       '/profile': authModule.renedrProfile,
       // "/film": CreateChatView,
-      // "/actor":  createNotificationsView,
+      '/actor':  createActor,
       '/logout': authModule.logout,
 
       // пути ниже буду проверяться в методе go(), если не будет совпадения с путями, обозначенными выше
@@ -24,7 +29,7 @@ class Router {
       // eslint-disable-next-line max-len
       // Если зашли первый раз только на страницу и браузер сохранил уже ее себе в стек
       if (evt.state === null) {
-        this.go('/hi', null, evt.state, false);
+        this.go('/', null, evt.state, false);
       } else {
         const path = evt.state.path;
         this.go(path, evt.state.title, evt.state, false);
@@ -37,6 +42,7 @@ class Router {
     //   offlinePage(path, title, state=null, needPush);
     //   return;
     // }
+
 
     if (needPush === true) {
       console.log('GO path:' + path);
