@@ -22,17 +22,17 @@ a.blubtn {
     text-decoration: none;
     border-radius: 50px;
     transition: .5s;
-    border: solid  #8bc34a;
+    border: solid  #8bbf51;
     padding: 11px 11px;
     margin: 0 auto;
 }
 
 a.blubtn:hover {
-    background: #8bc34a;
+    background: #8bbf51;
     display: block;
     color: black;
     cursor: pointer;
     transition: .5s;
     border-radius: 50px;
-    border: solid #8bc34a;
+    border: solid #8bbf51;
 }

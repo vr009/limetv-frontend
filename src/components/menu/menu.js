@@ -12,6 +12,10 @@ const goMain = () => {
   Router.go('/', 'Main');
 };
 
+const goActor = () => {
+  Router.go('/actor', 'actor'); // временно
+};
+
 const goSignup = () => {
   Router.go('/signup', 'signup');
 };
@@ -35,6 +39,7 @@ const menuRoutes = {
   login: goLogin,
   signup: goSignup,
   logout: goLogout,
+  actor: goActor, // временно
 };
 
 // загрузка меню из темплейта

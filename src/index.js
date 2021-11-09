@@ -1,5 +1,5 @@
 'use strict';
-import {offlinePage} from './components/offlinePage/offlinePage.js';
+import {offline} from './components/offline/offline.js';
 import {createMenu} from './components/menu/menu.js';
 import {createFilms} from './components/films/films.js';
 import Router from './utils/router.js';
@@ -16,7 +16,7 @@ if ('serviceWorker' in navigator) {
         });
     if (!navigator.onLine) {
       console.log('offline load path:', window.location.pathname);
-      offlinePage(window.location.pathname, document.title);
+      offline(window.location.pathname, document.title);
     }
   });
 }

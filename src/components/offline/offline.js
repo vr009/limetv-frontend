@@ -3,7 +3,7 @@ import '../pages/offline/offline.css';
 import offlinePagePug from '../pages/offline/offline.pug';
 import {createMenu} from '../menu/menu.js';
 
-export function offlinePage(path, title, state, needPush) {
+export function offline(path, title, state, needPush) {
   const root = document.getElementById('root');
   root.innerHTML = offlinePagePug();
 
