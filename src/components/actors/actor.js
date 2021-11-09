@@ -1,6 +1,7 @@
 import {showErrors} from '../utils/errors';
 import actorPagePug from '../pages/actors/actor.pug';
 import filmPagePug from '../pages/actors/oneFilm.pug';
+import {createFilmPage} from '../film/film_page';
 import '../pages/actors/actor.css';
 
 
@@ -73,10 +74,22 @@ function getFilmsByActor(state) {
           result[i].title = result[i].title+' ('+result[i].year+')';
           result[i].duration = result[i].duration+'+';
           result[i].director = result[i].director[0];
+
         }
         rootFilm.innerHTML = filmPagePug({
           films: result,
         });
+
+        for (let i=0; i < result.length; i++) {
+          const t = document.getElementById(result[i].id);
+          t.addEventListener('click', function (event) {
+            const {target} = event;
+            event.preventDefault();
+            const rootPage = document.getElementById('stuff');
+            rootPage.innerHTML = '';
+            createFilmPage(result[i].id);
+          });
+        }
       },
   ).catch((error) => {
     console.log(error);
