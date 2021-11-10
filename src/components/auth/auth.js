@@ -124,20 +124,20 @@ const renderAuth = () => {
 };
 
 // удаление сессии
-const logOut = () => {
+export const logOut = () => {
   const url = 'http://localhost:8000/users/logout';
 
   fetchRequest(url, 'POST',
   ).catch(function(error) {
+    Router.go("/","main", null, true, true);
   });
 
-  createElements();
-  createFilms();
+  Router.go("/","main", null, true, true);
 };
 
 // отрисовка профиля
 const renderProfile = () => {
-
+  createProfile('?');
   console.log('need fetch here');
 };
 

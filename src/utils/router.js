@@ -4,7 +4,8 @@ import {createMenu} from '../components/menu/menu';
 // import {offlinePage} from '../components/offlinePage/offlinePage';
 import {offline} from '../components/offline/offline';
 import {createActor} from "../components/actors/actor";
-
+import {createProfilePage} from '../view/createProfilePage'
+import {logOut} from '../components/auth/auth'
 // import {validators} from "./validation";
 
 class Router {
@@ -14,10 +15,10 @@ class Router {
       '/signup': authModule.renderRegistration,
       '/login': authModule.renderAuth,
       '/films': createFilms,
-      '/profile': authModule.renedrProfile,
+      '/profile': createProfilePage,
       // "/film": CreateChatView,
       '/actor':  createActor,
-      '/logout': authModule.logout,
+      '/logout': logOut,
 
       // пути ниже буду проверяться в методе go(), если не будет совпадения с путями, обозначенными выше
       // проверяются в (func === undefined)
