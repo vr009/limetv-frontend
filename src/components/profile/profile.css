@@ -1,13 +1,23 @@
 .settings {
     display: flex;
 }
+.profile {
+    color: white;
+    margin-left: 40px;
+}
+
+.profile_login {
+    color: white;
+}
+
 .profile_pic {
     display: inline-block;
     position: relative;
     width: 100px;
     height: 100px;
-    background-color: black;
-    border-radius: 50%;
+    background-color: unset;
+    border: solid  #8bbf51;
+    border-radius: 62%;
 }
 
 .profile_pic img {
@@ -36,13 +46,44 @@
  }
 
 .profile_settings {
-    display: inline-block;
+    display: table-caption;
     position: relative;
-    border: #8bc34a 2px solid;
-
+    margin-left: 20px;
 }
 
 .profile_settings * {
     position: center  ;
 }
 
+.profile_pass {
+
+}
+
+.profile_bio {
+    display: table-caption;
+}
+
+.custom_btn {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    padding: 10px;
+    text-decoration-color: initial;
+    border-radius: 50px;
+    border: solid  #8bbf51;
+    transition: .5s;
+    margin: 5px auto;
+    max-width: 100px;
+    background: unset;
+}
+.custom_input {
+    background: unset;
+    border: #8bc34a 2px solid;
+    border-radius: 14px;
+    min-height: 35px;
+    width: 420px;
+    margin-top: 30px;
+}

@@ -21,7 +21,9 @@ export const createProfilePage = () => {
   ).then(
       (result) => {
           const root = document.getElementById('stuff');
-          root.innerHTML = profilePug();
+          root.innerHTML = profilePug({
+              login: result.Login,
+          });
           createProfile(result);
       },
   ).catch(function(error) {
