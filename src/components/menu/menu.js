@@ -1,10 +1,8 @@
 'use strict';
-// const pug = require('pug');
-// import {createFilms} from '../films/films.js';
-// import {authModule} from '../auth/auth.js';
 import {createElements} from './elements.js';
 import Router from '../../utils/router';
 import '../pages/menu/menu.css';
+import menuPug from '../pages/menu/menu.pug';
 
 const application = document.getElementById('root');
 
@@ -49,24 +47,8 @@ const createTemplate = () => {
   // console.log(cf);
 
   const root = document.getElementById('root');
-  const menu = document.createElement('div');
-  menu.setAttribute('id', 'menu');
 
-  const menuContainer = document.createElement('div');
-  menuContainer.setAttribute('id', 'menu-el-container');
-
-  const menuItems = document.createElement('div');
-  menuItems.setAttribute('id', 'menu-items');
-
-  menuContainer.appendChild(menuItems);
-  menu.appendChild(menuContainer);
-
-  const stuff = document.createElement('div');
-  stuff.setAttribute('id', 'stuff');
-
-  root.innerHTML = '';
-  root.appendChild(menu);
-  root.appendChild(stuff);
+  root.innerHTML = menuPug();
 };
 
 
@@ -79,9 +61,9 @@ export const createMenu = () => {
   createTemplate();
   const url = 'http://localhost:8000/users/auth';
   fetch(url, {
-        method: 'GET',
-        credentials: 'include',
-      },
+    method: 'GET',
+    credentials: 'include',
+  },
   ).then(
       (response) => {
         if (!response.ok) {
@@ -93,8 +75,8 @@ export const createMenu = () => {
         createElements(true);
       },
   ).catch((error) => {
-        createElements(false);
-      },
+    createElements(false);
+  },
   );
 };
 

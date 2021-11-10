@@ -1,7 +1,10 @@
 import {showErrors} from '../utils/errors.js';
 import {createFilmPage} from '../film/film_page.js';
 import listPug from '../pages/films/films.pug';
+import firstFilmPug from '../pages/films/firstFilm.pug';
+import '../pages/films/films.css';
 
+import Router from '../../utils/router';
 /**
  * Модуль создания экрана фильмов
  * @function
@@ -13,6 +16,10 @@ export const createFilms = () => {
 const createBase = () => {
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
+  const first = document.createElement('div');
+  first.setAttribute('id', 'first-root');
+  stuff.appendChild(first);
+
   const recommended = document.createElement('div');
   recommended.setAttribute('id', 'rec-root');
   stuff.appendChild(recommended);
@@ -28,6 +35,7 @@ const createBase = () => {
   showFilmsList('/selection', 'rec-root', 'Рекомендуем к просмотру');
   showFilmsList('/selection/newest', 'pop-root', 'Популярное на Lime TV');
   showFilmsList('/selection/hottest', 'new-root', 'Новое на Lime TV');
+  showFilmsList('/selection', 'first-root', 'Рекомендуем к просмотру');
 };
 
 
@@ -46,12 +54,18 @@ const showFilmsList = (relUrl, rootId, title) => {
                 title: title,
                 films: result,
             });
+            if (rootId === 'first-root') {
+                const root = document.getElementById('first-root');
+                root.innerHTML = firstFilmPug({
+                    films: result[0],
+                });
+                result.splice(0);
+            }
             for (let i = 0; i < result.length; i++) {
                 const film = document.getElementById(result[i].id);
                 film.addEventListener('click', function(event) {
-                    const {target} = event;
                     event.preventDefault();
-                    createFilmPage(result[i].id);
+                    Router.go('/film/' + result[i].id.toString());
                 });
             }
         },

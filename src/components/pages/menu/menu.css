@@ -1,14 +1,14 @@
 body {
-    background: #3c3d46;
+    background: #141414;
+    margin: 0;
     //overflow-y: hidden;
 }
 
 #menu {
-    padding: 20px;
-    border-radius: 50px;
-    background: #3c3d46;
-    box-shadow:  20px 20px 20px #20212654, -20px -20px 20px #484955;
-    margin: 40px;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
 }
 
 #menu-items {
@@ -31,6 +31,30 @@ body {
     border: solid  #8bbf51;
     transition: .5s;
     margin-right: 10px;
+}
+
+.logo {
+    background-size: cover;
+    background-image: url(../images/limetv.png);
+}
+
+.cont {
+    width: 100%;
+    max-width: 2700px; /*максимальная ширина может иметь другое значение*/
+    margin: 0 auto;
+}
+
+.col-2 {
+    padding-top: 20px;
+    width: 45%;
+    float: left;
+    text-align: center;
+}
+
+.cont:after, .row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 #auth_btn, #registration_btn {

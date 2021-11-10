@@ -1,8 +1,8 @@
 import {showErrors} from '../utils/errors';
 import actorPagePug from '../pages/actors/actor.pug';
 import filmPagePug from '../pages/actors/oneFilm.pug';
-import {createFilmPage} from '../film/film_page';
 import '../pages/actors/actor.css';
+import Router from '../../utils/router';
 
 
 export const createActor = (state) => {
@@ -21,7 +21,6 @@ export const createActor = (state) => {
 
   rootGlobal.appendChild(film);
 
-  // const state = '3e06d4e4-3b47-11ec-8d3d-0242ac130003'; // временно
   showActor(state);
   getFilmsByActor(state);
 };
@@ -38,7 +37,8 @@ const showActor = (state) => {
         const actorRoot = document.getElementById('one_actor');
 
         const upName = result.name[0].toUpperCase()+result.name.slice(1);
-        const upSurname = result.surname[0].toUpperCase()+result.surname.slice(1);
+        const upSurname = result.surname[0]
+            .toUpperCase()+result.surname.slice(1);
 
         const birth = getBirth(new Date(result.date_of_birth));
 
@@ -72,9 +72,8 @@ function getFilmsByActor(state) {
         const rootFilm = document.getElementById('one_film');
         for (let i=0; i < result.length; i++) {
           result[i].title = result[i].title+' ('+result[i].year+')';
-          result[i].duration = result[i].duration+'+';
           result[i].director = result[i].director[0];
-
+          result[i].duration = result[i].duration+'м';
         }
         rootFilm.innerHTML = filmPagePug({
           films: result,
@@ -83,11 +82,12 @@ function getFilmsByActor(state) {
         for (let i=0; i < result.length; i++) {
           const t = document.getElementById(result[i].id);
           t.addEventListener('click', function (event) {
-            const {target} = event;
+            // const {target} = event;
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
-            createFilmPage(result[i].id);
+            Router.go('/film/' + result[i].id.toString());
+            // createFilmPage(result[i].id);
           });
         }
       },

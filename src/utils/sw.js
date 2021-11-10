@@ -14,7 +14,13 @@ workbox.core.setCacheNameDetails({
 });
 
 // workbox.precaching.precacheAndRoute([
+//   {url: '/', revision: null},
 //   {url: '/login', revision: null},
+//   {url: '/signup', revision: null},
+//   {url: '/film', revision: null},
+//   {url: '/profile', revision: null},
+//   {url: '/logout', revision: null},
+//   {url: '/actor', revision: null},
 // ]);
 
 workbox.routing.registerRoute(
