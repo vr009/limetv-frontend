@@ -5,8 +5,9 @@ import {offline} from '../components/offline/offline.js';
 import {createActor} from '../components/actors/actor';
 import {validate as uuidValidate} from 'uuid';
 import {createFilmPage} from '../components/film/film_page';
-import {createProfilePage} from '../view/createProfilePage'
-import {logOut} from '../components/auth/auth'
+import {createProfilePage} from '../view/createProfilePage';
+import {logOut} from '../components/auth/auth';
+import {createPlayerPage} from '../components/player/player';
 
 export class Router {
   constructor() {
@@ -17,7 +18,7 @@ export class Router {
       '/films': createFilms,
       '/profile': createProfilePage,
       // "/film": CreateChatView,
-      '/actor':  createActor,
+      '/player': createPlayerPage,
       '/logout': logOut,
 
       // пути ниже буду проверяться в методе go(), если не будет совпадения с путями, обозначенными выше

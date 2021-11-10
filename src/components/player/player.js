@@ -217,3 +217,12 @@ export class Player {
     this.video.currentTime = 0;
   }
 }
+
+
+export const createPlayerPage = (src) => {
+  const rootPage = document.getElementById('root'); //TODO в id закидывать параметр функции?
+  rootPage.innerHTML = PlayerPug({
+    videoSrc: src[0],
+  });
+  new Player();
+}

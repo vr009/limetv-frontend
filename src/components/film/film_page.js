@@ -52,7 +52,9 @@ const showFilm = (filmId) => {
                 const {target} = event;
                 event.preventDefault();
                 const rootPage = document.getElementById('root');
-                rootPage.innerHTML = PlayerPug();
+                rootPage.innerHTML = PlayerPug({
+                    videoSrc: result.src[0],
+                });
                 new Player();
             });
             showActors(result.actors);
@@ -99,7 +101,7 @@ const showActors = (actors) => {
                     event.preventDefault();
                     const rootPage = document.getElementById('stuff');
                     rootPage.innerHTML = '';
-                    createActor(result[i].id);
+                    Router.go("/actor/"+result[i].id, "actor");
                 });
             }
         },

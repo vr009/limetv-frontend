@@ -124,7 +124,7 @@ const renderAuth = () => {
 };
 
 // удаление сессии
-const logOut = () => {
+export const logOut = () => {
   const url = 'http://localhost:8000/users/logout';
 
   fetchRequest(url, 'POST',
