@@ -1,5 +1,4 @@
 // элементы меню
-import {authModule} from '../auth/auth.js';
 
 const menuElements = {
   films: 'Фильмы',

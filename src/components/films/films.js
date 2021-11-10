@@ -2,6 +2,7 @@ import {showErrors} from '../utils/errors.js';
 import {createFilmPage} from '../film/film_page.js';
 import listPug from '../pages/films/films.pug';
 
+import Router from '../../utils/router';
 /**
  * Модуль создания экрана фильмов
  * @function
@@ -52,6 +53,7 @@ const showFilmsList = (relUrl, rootId, title) => {
                     const {target} = event;
                     event.preventDefault();
                     createFilmPage(result[i].id);
+                    Router.go('/film/' + result[i].id.toString());
                 });
             }
         },

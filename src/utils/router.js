@@ -1,31 +1,22 @@
 import {createFilms} from '../components/films/films';
 import {authModule} from '../components/auth/auth';
 import {createMenu} from '../components/menu/menu';
-// import {offlinePage} from '../components/offlinePage/offlinePage';
-import {offline} from '../components/offline/offline';
-import {createActor} from "../components/actors/actor";
+import {offline} from '../components/offline/offline.js';
+import {createActor} from '../components/actors/actor';
+import {validate as uuidValidate} from 'uuid';
+import {createFilmPage} from '../components/film/film_page';
 
-// import {validators} from "./validation";
-
-class Router {
+export class Router {
   constructor() {
     this.routs = {
       '/': createFilms,
       '/signup': authModule.renderRegistration,
       '/login': authModule.renderAuth,
-      '/films': createFilms,
-      '/profile': authModule.renedrProfile,
-      // "/film": CreateChatView,
-      '/actor':  createActor,
-      '/logout': authModule.logout,
-
-      // пути ниже буду проверяться в методе go(), если не будет совпадения с путями, обозначенными выше
-      // проверяются в (func === undefined)
+      '/profile': authModule.renderProfile,
+      '/logout': authModule.logOut,
     };
 
     window.addEventListener('popstate', (evt) => {
-      // eslint-disable-next-line max-len
-      // Если зашли первый раз только на страницу и браузер сохранил уже ее себе в стек
       if (evt.state === null) {
         this.go('/', null, evt.state, false);
       } else {
@@ -36,10 +27,14 @@ class Router {
   }
 
   go(path, title, state=null, needPush=true, authedChanged=false) {
-    // if (!navigator.onLine) {
-    //   offlinePage(path, title, state=null, needPush);
-    //   return;
-    // }
+    if (!navigator.onLine) {
+      offline(path, title, state=null, needPush);
+      return;
+    }
+
+    if (authedChanged) {
+      createMenu();
+    }
 
 
     if (needPush === true) {
@@ -55,95 +50,33 @@ class Router {
           path, // URL новой записи (same origin)
       );
     }
-    // alert("Go : path:" + path);
 
     document.title = title;
-
-    if (authedChanged) {
-      createMenu();
-    }
-
-
     const func = this.routs[path];
 
     if (func === undefined) {
-      this.go('/', 'Main', null, true, true);
-    // createPinPageFromRequest (pin/{pinID})
-    // if (path.includes("/pin/")) { // если находится на странице пина
-    //     const pinId = path.substring("/pin/".length, path.length);
-    //     const isInt = Number.isInteger(Number(pinId));
-    //     if (!isInt) {
-    //         console.log("error get pinID from url");
-    //         createDeskView();
-    //         return;
-    //     }
-    //     // если url корректный, то запросим инфу о пине и отобразим его
-    //     createPinPageFromRequest(pinId);
-    //     return;
-    // } else if (validators.pinsUserLink(path)) {// если находится на странице пинов одного пользователя
-    //     const userId = path.substring("/pins/user/".length, path.length);
-    //     const isInt = Number.isInteger(Number(userId));
-    //     if (!isInt) {
-    //         console.log("error get userID from url");
-    //         createDeskView();
-    //         return;
-    //     }
-    //     console.log("createUserPinsDeskView userid:",userId );
-    //     // если url корректный, то отобразим пины пользователя
-    //     const state = {};
-    //     state.userId = userId;
-    //     createUserPinsDeskView(state);
-    // } else
-    // //createBoardDeskView
-    // if (validators.deskUserLink(path)) { // если находится на странице пинов одного пользователя
-    //     const boardId = path.substring("/desk/".length, path.length);
-    //     const isInt = Number.isInteger(Number(boardId));
-    //     if (!isInt) {
-    //         console.log("error get boardID from url");
-    //         createDeskView();
-    //         return;
-    //     }
-    //     console.log("createBoardDeskView boardid:", boardId);
-    //     // если url корректный, то отобразим пины пользователя
-    //     const state = {};
-    //     state.deskId = boardId;
-    //     createBoardDeskView(state);
-    //     return;
-    // } else if (validators.userLink(path)) {
-    //     const userId = path.substring("/user/".length, path.length);
-    //     const state = {};
-    //     state.id = userId;
-    //     console.log("createUserView!!!!")
-    //     createUserView(state);
-    // }  else if (validators.chatUserLink(path)) {
-    //     const userId = path.substring("/chats/user/".length, path.length);
-    //     const state = {};
-    //     state.id = userId;
-    //     console.log("CreateChatView with contact person Id:", userId)
-    //     CreateChatView(userId) //Только ID человека
-    // }  else {
-    //     // не страница пина - по дефолту главная
-    //     createDeskView();
-    //     document.title = 'Bug route!';
-    //     alert('Bug route, сообщите отделу фротенда об этом!\n' + path);
-    // }
+      // this.go('/', 'Main', null, true, true); // плеер
+      if (path.includes('/actor/')) {
+        const uuid = path.substring('/actor/'.length, path.length);
+        if (!uuidValidate(uuid)) {
+          console.log('error UUID from url actor');
+          window.history.back();
+        }
+        createActor(uuid);
+      } else if (path.includes('/film/')) {
+        const uuid = path.substring('/film/'.length, path.length);
+        if (!uuidValidate(uuid)) {
+          console.log('error UUID from url films');
+          window.history.back();
+        }
+        createFilmPage(uuid);
+      } else {
+        this.go('/', 'Main', null, true, true);
+      }
     } else {
       console.log('ROUTE FUNC:', func);
       console.log('ROUTE state:', state);
       func();
     }
-  }
-
-  start() {
-
-    // получает пользователя в синглтон currenUser и вызывает go(текущий путь)
-    // if (Requests.getUserProfile(false)) {
-    //
-    //
-    //
-    //   (true);
-    // } else {
-    //     createMenu(false);
-    // }
   }
 } export default new Router();

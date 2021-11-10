@@ -1,7 +1,4 @@
 'use strict';
-// const pug = require('pug');
-// import {createFilms} from '../films/films.js';
-// import {authModule} from '../auth/auth.js';
 import {createElements} from './elements.js';
 import Router from '../../utils/router';
 import '../pages/menu/menu.css';
@@ -25,7 +22,6 @@ const goLogin = () => {
 };
 
 const goProfile = () => {
-  console.log("11111");
   Router.go('/profile', 'profile');
 };
 
@@ -80,9 +76,9 @@ export const createMenu = () => {
   createTemplate();
   const url = 'http://127.0.0.1:8000/users/auth';
   fetch(url, {
-        method: 'GET',
-        credentials: 'include',
-      },
+    method: 'GET',
+    credentials: 'include',
+  },
   ).then(
       (response) => {
         if (!response.ok) {
@@ -94,8 +90,8 @@ export const createMenu = () => {
         createElements(true);
       },
   ).catch((error) => {
-        createElements(false);
-      },
+    createElements(false);
+  },
   );
 };
 

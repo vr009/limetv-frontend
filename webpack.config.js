@@ -37,7 +37,7 @@ module.exports = {
           options: {sourceMap: true},
         },
         {
-          loader: "postcss-loader",
+          loader: 'postcss-loader',
           options: {
             postcssOptions: {
               plugins: [
