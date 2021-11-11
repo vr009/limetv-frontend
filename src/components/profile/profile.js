@@ -72,7 +72,7 @@ const updateUserPassword = (event) => {
     const data = {
       'password': password,
     };
-    const url = serverLocate+'/user/profile/settings/pass';
+    const url = serverLocate+'/users/profile/settings/pass';
     fetchRequest(url, 'POST', data).then(
         (response) => {
           if (response.ok) {
@@ -100,7 +100,7 @@ const updateUserBio = (event) => {
     const data = {
       'about': bio,
     };
-    const url = serverLocate+'/user/profile/settings/bio';
+    const url = serverLocate+'/users/profile/settings/bio';
     fetchRequest(url, 'POST', data).then(
         (response) => {
           if (response.ok) {

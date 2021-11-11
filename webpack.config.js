@@ -1,6 +1,6 @@
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -23,9 +23,10 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/',
     }, {
-      test: /\.(png|jpg|gif|svg)$/,
+      test: /\.(png|jpg|gif|svg|mp4)$/,
       loader: 'file-loader',
       options: {
+        path: __dirname + '/tmp/',
         name: '[name].[ext]',
       },
     }, {

@@ -112,12 +112,16 @@ const renderAuth = () => {
       const user = {login: name, password: pwd};
       const url = 'http://localhost:8000/users/login';
       // 3.67.182.34
-      fetchRequest(url, 'POST', user).then().then(
+      fetchRequest(url, 'POST', user).then((result)=>{
+        if(!result.ok) {
+          throw error;
+        }
+      }).then(
           (result) => {
             Router.go("/","main", null, true, true);
           },
       ).catch(function(error) {
-        showErrors('Что-то пошло не так, попробуйте позже');
+        showErrors('Неверный логин или пароль');
       });
     }
   });
@@ -215,12 +219,16 @@ export const renderRegistration = () => {
       const user = {login: name, password: pwd};
       const url = 'http://localhost:8000/users/signup';
 
-      fetchRequest(url, 'POST', user).then().then(
+      fetchRequest(url, 'POST', user).then((result)=>{
+        if(!result.ok) {
+          throw error;
+        }
+      }).then(
           (result) => {
             Router.go("/","main", null, true, true);
           },
       ).catch(function() {
-        showErrors('Что-то пошло не так, попробуйте позже');
+        showErrors('Пользователь с таким именем уже существует');
       },
       );
     }

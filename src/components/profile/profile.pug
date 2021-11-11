@@ -1,15 +1,16 @@
 div.profile
-     h1.profile_login Настройки профиля
-     h3.profile_login Имя пользователя: #{login}
-     div.settings
+    h1.title Настройки профиля
+    h3.profile_login Имя пользователя: #{login}
+    div.settings
         div(class="profile_pic")
             img(src="pic.png" id="avatar")
-            input(type="submit" class="" name="pic" value="Изменить" id="new_avatar")
+            input(type="submit" class="" name="pic" value="change" id="new_avatar")
         div(class="profile_settings")
-            form(id="pass_form" class="profile_pass")
+            form(id="pass_form")
                 div
-                    input(type="password" placeholder="Password" class="custom_input")
-            form(id="bio_form" class="profile_bio")
+                    input(type="password" placeholder="Password")
+                    input(type="submit" class="red_btn" name="password" value="Сохранить" id="submit_pass")
+            form(id="bio_form")
                 div
-                    textarea(placeholder="О себе" maxlength="512" rows="14" cols="33" class="custom_input")= about
-                    input(type="submit" class="custom_btn" name="login" value="Сохранить" id="submit_save")
+                    textarea(placeholder="О себе" maxlength="512" rows="14" cols="33")= about
+                    input(type="submit" class="red_btn" name="login" value="Сохранить" id="submit_save")
