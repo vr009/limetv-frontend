@@ -56,11 +56,11 @@
 }
 
 .profile_pass {
-
-}
-
-.profile_bio {
-    display: table-caption;
+    background: unset;
+    border-radius: 15px;
+    border: solid #8bbf51;
+    width: 110%;
+    height: 26px;
 }
 
 .custom_btn {
@@ -86,4 +86,12 @@
     min-height: 35px;
     width: 420px;
     margin-top: 30px;
+}
+
+.profile_bio{
+    display: table-caption;
+    background: unset;
+    border-radius: 21px;
+    border: solid #8bbf51;
+    width: 110%;
 }
