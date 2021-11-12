@@ -1,1 +1,1 @@
-export const serverLocate = 'http://localhost:8000';
+export const serverLocate = 'http://localhost';

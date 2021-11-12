@@ -1,5 +1,6 @@
 'use strict';
 import {createElements} from './elements.js';
+import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
 import '../pages/menu/menu.css';
 import menuPug from '../pages/menu/menu.pug';
@@ -56,7 +57,7 @@ const createTemplate = () => {
  */
 export const createMenu = () => {
   createTemplate();
-  const url = 'http://localhost:8000/users/auth';
+  const url = serverLocate+'/users/auth';
   fetch(url, {
     method: 'GET',
     credentials: 'include',

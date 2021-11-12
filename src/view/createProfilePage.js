@@ -1,6 +1,7 @@
 import {fetchRequest} from '../components/network/fetch.js';
 import {showErrors} from '../components/utils/errors.js';
 import {createProfile} from '../components/profile/profile.js';
+import {serverLocate} from '../utils/locale.js';
 import profilePug from '../components/profile/profile.pug';
 import avatarPug from '../components/pages/menu/avatar.pug';
 import '../components/profile/profile.css';
@@ -11,7 +12,7 @@ export const createProfilePage = (draw) => {
     document.title = 'Profile';
   }
 
-  const url = 'http://localhost:8000/users/profile';
+  const url = serverLocate+'/users/profile';
 
   fetchRequest(url, 'GET', null).then(
       (res) => {

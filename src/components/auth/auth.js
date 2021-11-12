@@ -1,6 +1,7 @@
 import {validators} from '../utils/validate.js';
 import {showErrors} from '../utils/errors.js';
 import {fetchRequest} from '../network/fetch.js';
+import {serverLocate} from '../../utils/locale.js';
 import {createFilms} from '../films/films.js';
 import {createElements} from '../menu/elements.js';
 import Router from '../../utils/router';
@@ -71,7 +72,7 @@ export const renderAuth = () => {
       showErrors(msg );
     } else {
       const user = {login: name, password: pwd};
-      const url = 'http://localhost:8000/users/login';
+      const url = serverLocate+'/users/login';
       // 3.67.182.34
       fetchRequest(url, 'POST', user).then((result)=>{
         if (!result.ok) {
@@ -90,7 +91,7 @@ export const renderAuth = () => {
 
 // удаление сессии
 export const logOut = () => {
-  const url = 'http://localhost:8000/users/logout';
+  const url = serverLocate+'/users/logout';
 
   fetchRequest(url, 'POST',
   ).catch(function(error) {
@@ -143,7 +144,7 @@ export const renderRegistration = () => {
       showErrors(msg );
     } else {
       const user = {login: name, password: pwd};
-      const url = 'http://localhost:8000/users/signup';
+      const url = serverLocate+'/users/signup';
 
       fetchRequest(url, 'POST', user).then((result)=>{
         if (!result.ok) {

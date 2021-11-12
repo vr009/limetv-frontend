@@ -33,7 +33,7 @@ const createBase = (id) => {
 
 
 const showFilm = (filmId) => {
-  const url = 'http://127.0.0.1:8000/films/film/'+filmId;
+  const url = serverLocate+'/films/film/'+filmId;
   fetch(url, {
     method: 'GET',
   },
@@ -60,7 +60,7 @@ const showFilm = (filmId) => {
 };
 
 const showActors = (actors) => {
-  const url = 'http://127.0.0.1:8000/actors/film';
+  const url = serverLocate+'/actors/film';
   const actorsBody = [];
   for (let i = 0; i < actors.length; i++) {
     const bdy = {

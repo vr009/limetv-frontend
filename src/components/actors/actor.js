@@ -1,4 +1,5 @@
 import {showErrors} from '../utils/errors';
+import {serverLocate} from '../../utils/locale.js';
 import actorPagePug from '../pages/actors/actor.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
@@ -26,7 +27,7 @@ export const createActor = (state) => {
 };
 
 const showActor = (state) => {
-  const url = 'http://127.0.0.1:8000/actors/actor/'+state;
+  const url = serverLocate+'/actors/actor/'+state;
   fetch(url, {
     method: 'GET',
   },
@@ -61,7 +62,7 @@ const showActor = (state) => {
 };
 
 function getFilmsByActor(state) {
-  const url = 'http://127.0.0.1:8000/films/selection/actor/' + state;
+  const url = serverLocate+'/films/selection/actor/' + state;
   fetch(url, {
     method: 'GET',
   },
