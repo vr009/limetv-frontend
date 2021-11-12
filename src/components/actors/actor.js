@@ -1,6 +1,7 @@
 import {showErrors} from '../utils/errors';
 import actorPagePug from '../pages/actors/actor.pug';
 import filmPagePug from '../pages/actors/oneFilm.pug';
+import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
 import Router from '../../utils/router';
 
@@ -75,7 +76,7 @@ function getFilmsByActor(state) {
           result[i].director = result[i].director[0];
           result[i].duration = result[i].duration+'м';
         }
-        rootFilm.innerHTML = filmPagePug({
+        rootFilm.innerHTML = actorFilmsPug({
           films: result,
         });
 

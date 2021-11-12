@@ -1,0 +1,7 @@
+div.actor-films Фильмы с участием актера
+    div.films-container
+        h1.selection-label #{title}
+        div.containerFilm
+            each film in films
+                a(class="item")
+                    img(src=film.src[0] id=film.id style="border-radius: 15px;")
