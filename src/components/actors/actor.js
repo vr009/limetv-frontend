@@ -1,6 +1,5 @@
 import {showErrors} from '../utils/errors';
 import actorPagePug from '../pages/actors/actor.pug';
-import filmPagePug from '../pages/actors/oneFilm.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
 import Router from '../../utils/router';

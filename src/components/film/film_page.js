@@ -1,9 +1,7 @@
 import '../pages/film/film_page.css';
 import '../../components/pages/menu/menu.css';
-
 import {Player} from '../player/player';
 import {showErrors} from '../utils/errors.js';
-
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
 import PlayerPug from '../pages/player/player.pug';
