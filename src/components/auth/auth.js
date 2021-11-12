@@ -92,6 +92,7 @@ export const renderAuth = () => {
 
   // обработка отправки формы
   const btn = document.getElementById('auth_btn');
+  const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('login_field').value;

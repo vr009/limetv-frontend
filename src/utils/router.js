@@ -13,7 +13,7 @@ export class Router {
   constructor() {
     this.routs = {
       '/': createFilms,
-      '/signup': renderAuth,
+      '/signup': authModule.renderRegistration,
       '/login': authModule.renderAuth,
       '/films': createFilms,
       '/profile': createProfilePage,
