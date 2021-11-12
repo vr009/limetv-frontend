@@ -1,5 +1,5 @@
 import {createFilms} from '../components/films/films';
-import {authModule} from '../components/auth/auth';
+import {authModule, renderAuth} from '../components/auth/auth';
 import {createMenu} from '../components/menu/menu';
 import {offline} from '../components/offline/offline.js';
 import {createActor} from '../components/actors/actor';
@@ -13,7 +13,7 @@ export class Router {
   constructor() {
     this.routs = {
       '/': createFilms,
-      '/signup': authModule.renderRegistration,
+      '/signup': renderAuth,
       '/login': authModule.renderAuth,
       '/films': createFilms,
       '/profile': createProfilePage,

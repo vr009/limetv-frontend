@@ -3,8 +3,8 @@ import {showErrors} from '../utils/errors.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createFilms} from '../films/films.js';
 import {createElements} from '../menu/elements.js';
-import {createProfile} from '../profile/profile'
 import Router from '../../utils/router';
+import RegistrationPug from '../pages/auth/registration.pug';
 
 
 const prefixUrlDEBUG = 'http://localhost'
@@ -44,51 +44,51 @@ export const authModule = {
   authHelper: () => isAuthed(false),
 };
 
-const renderAuth = () => {
+export const renderAuth = () => {
   const root = document.getElementById('stuff');
   root.innerHTML = '';
 
-  const block = document.createElement('div');
-  block.setAttribute('class', 'registration_block' );
+  const block = document.createElement('img');
+  block.setAttribute('class', 'registration-back');
+  block.setAttribute('src', 'registration.png');
+
+  const register = document.createElement('div');
+  register.setAttribute('id', 'register');
+  block.appendChild(register);
   root.appendChild(block);
+  //
+  // const form = document.createElement('form');
+  // block.appendChild(form);
+  //
+  // const inputBlock2 = document.createElement('div');
+  // inputBlock2.setAttribute('class', 'input_block');
+  // const input2 = document.createElement('input');
+  // input2.setAttribute('id', 'login_field');
+  // input2.setAttribute('type', 'text');
+  // input2.setAttribute('placeholder', 'логин');
+  // inputBlock2.appendChild(input2);
+  // form.appendChild(inputBlock2);
+  //
+  // const inputBlock3 = document.createElement('div');
+  // inputBlock3.setAttribute('class', 'input_block');
+  // const input3 = document.createElement('input');
+  // input3.setAttribute('id', 'password_field');
+  // input3.setAttribute('type', 'password');
+  // input3.setAttribute('placeholder', 'пароль');
+  // input3.setAttribute('maxlength', '16');
+  // inputBlock3.appendChild(input3);
+  // form.appendChild(inputBlock3);
+  //
+  // const ok = document.createElement('button');
+  // ok.setAttribute('id', 'auth_btn');
+  // ok.innerText = 'Войти';
+  // form.appendChild(ok);
+  const reg = document.createElement('div');
+  root.appendChild(reg);
 
 
-  const error = document.createElement('div');
-  error.setAttribute('id', 'error');
-  block.appendChild(error);
-
-  const form = document.createElement('form');
-  block.appendChild(form);
-
-  const inputBlock2 = document.createElement('div');
-  inputBlock2.setAttribute('class', 'input_block');
-  const input2 = document.createElement('input');
-  input2.setAttribute('id', 'login_field');
-  input2.setAttribute('type', 'text');
-  input2.setAttribute('placeholder', 'логин');
-  inputBlock2.appendChild(input2);
-  form.appendChild(inputBlock2);
-
-  const inputBlock3 = document.createElement('div');
-  inputBlock3.setAttribute('class', 'input_block');
-  const input3 = document.createElement('input');
-  input3.setAttribute('id', 'password_field');
-  input3.setAttribute('type', 'password');
-  input3.setAttribute('placeholder', 'пароль');
-  input3.setAttribute('maxlength', '16');
-  inputBlock3.appendChild(input3);
-  form.appendChild(inputBlock3);
-
-  const ok = document.createElement('button');
-  ok.setAttribute('id', 'auth_btn');
-  ok.innerText = 'Войти';
-  form.appendChild(ok);
-
-  // отрисовка темплейта
-  /* const auth = pug.compileFile('/auth/authorization.pug', null);
-      const root = document.getElementById();
-      root.innerHTML = auth;
-      */
+  // const rootReg = document.getElementById('register');
+  reg.innerHTML = RegistrationPug();
 
   // обработка отправки формы
   const btn = document.getElementById('auth_btn');

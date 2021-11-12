@@ -80,7 +80,7 @@ module.exports = {
     //   }],
     // }),
     new WorkboxPlugin.InjectManifest({
-      maximumFileSizeToCacheInBytes: 50000000,
+      maximumFileSizeToCacheInBytes: 5000000000,
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js',
       include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
