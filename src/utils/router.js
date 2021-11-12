@@ -20,14 +20,9 @@ export class Router {
       // "/film": CreateChatView,
       '/player': createPlayerPage,
       '/logout': logOut,
-
-      // пути ниже буду проверяться в методе go(), если не будет совпадения с путями, обозначенными выше
-      // проверяются в (func === undefined)
     };
 
     window.addEventListener('popstate', (evt) => {
-      // eslint-disable-next-line max-len
-      // Если зашли первый раз только на страницу и браузер сохранил уже ее себе в стек
       if (evt.state === null) {
         this.go('/', null, evt.state, false);
       } else {
@@ -61,7 +56,6 @@ export class Router {
           path, // URL новой записи (same origin)
       );
     }
-    // alert("Go : path:" + path);
 
     document.title = title;
 

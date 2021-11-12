@@ -1,10 +1,5 @@
-// элементы меню
+import {createProfilePage} from '../../view/createProfilePage';
 
-// const menuElements = {
-//   films: 'Фильмы',
-// };
-
-// элементы для зарегистрированных пользователей
 const authElements = {
   profile: 'Профиль',
   logout: 'Выйти',
@@ -37,6 +32,9 @@ export const createElements = (authed) => {
 
   if (authed) {
     Object.keys(authElements).forEach(function(key) {
+      if (key === 'profile') {
+        createProfilePage(true);
+      }
       const menuItem = document.createElement('a');
       menuItem.setAttribute('class', 'btn-in first');
       menuItem.textContent = authElements[key];

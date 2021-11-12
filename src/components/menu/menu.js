@@ -3,6 +3,7 @@ import {createElements} from './elements.js';
 import Router from '../../utils/router';
 import '../pages/menu/menu.css';
 import menuPug from '../pages/menu/menu.pug';
+import {createProfilePage} from "../../view/createProfilePage";
 
 const application = document.getElementById('root');
 
@@ -43,11 +44,7 @@ const menuRoutes = {
 
 // загрузка меню из темплейта
 const createTemplate = () => {
-  // const cf = pug.compileFile('./menu.pug');
-  // console.log(cf);
-
   const root = document.getElementById('root');
-
   root.innerHTML = menuPug();
 };
 

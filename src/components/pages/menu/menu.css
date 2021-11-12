@@ -114,7 +114,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 60px 35px 35px 45px;
-    background: #000000a3;
+    background: rgb(0 0 0 / 69%);
 }
 
 .input_block {
@@ -130,6 +130,7 @@ body {
     font-size: 18px;
     padding: 20px 10px 20px 5px;
     text-indent: 30px;
+    color: #ffffff;
 }
 
 .input_block input:-webkit-autofill {
@@ -139,7 +140,7 @@ body {
     font-size: 18px;
     width: 93%;
     border: none;
-    background: #333333;
+    background: #dedede;
     padding: 20px 10px 20px 5px;
     text-indent: 30px;
 }
@@ -219,10 +220,12 @@ label {
 }
 
 #error {
-    color: #c68019;
+    color: #c73a09;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .containerFilm {
@@ -277,7 +280,7 @@ label {
 .name-register {
     color: white;
     font: bold 34px/42px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
-    padding-left: 30px;
+    padding-left: 5px;
 }
 
 
@@ -323,7 +326,7 @@ label {
 
 .btn-in {
     -moz-appearance: none;
-    border: 3px solid #f7227c;
+    border: 3px solid #df2976;
     border-radius: 9px;
     color: #fff;
     cursor: pointer;
@@ -345,4 +348,32 @@ label {
 .first:hover {
     box-shadow: 0 0 40px 40px #dd377d inset;
     border: 3px solid #2ec614;
+}
+
+.avatar-menu {
+    margin-left: -10px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 28px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.ava {
+    vertical-align: bottom;
+    display: inline-block;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background-color: unset;
+    border: solid  #23e007;
+    border-radius: 62%;
+}
+
+.ava img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 }
