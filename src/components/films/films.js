@@ -1,5 +1,4 @@
 import {showErrors} from '../utils/errors.js';
-import {createFilmPage} from '../film/film_page.js';
 import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
@@ -20,22 +19,28 @@ const createBase = () => {
   first.setAttribute('id', 'first-root');
   stuff.appendChild(first);
 
+  const test = document.createElement('div');
+  test.setAttribute('class', 'selection');
+
   const recommended = document.createElement('div');
   recommended.setAttribute('id', 'rec-root');
-  stuff.appendChild(recommended);
+  recommended.setAttribute('class', 'selection-film');
+  test.appendChild(recommended);
 
   const popular = document.createElement('div');
   popular.setAttribute('id', 'pop-root');
-  stuff.appendChild(popular);
+  popular.setAttribute('class', 'selection-film');
+  test.appendChild(popular);
 
   const newest = document.createElement('div');
   newest.setAttribute('id', 'new-root');
-  stuff.appendChild(newest);
+  newest.setAttribute('class', 'selection-film');
+  test.appendChild(newest);
+  stuff.appendChild(test);
 
   showFilmsList('/selection', 'rec-root', 'Рекомендуем к просмотру');
   showFilmsList('/selection/newest', 'pop-root', 'Популярное на Lime TV');
   showFilmsList('/selection/hottest', 'new-root', 'Новое на Lime TV');
-  showFilmsList('/selection', 'first-root', 'Рекомендуем к просмотру');
 };
 
 
@@ -54,14 +59,18 @@ const showFilmsList = (relUrl, rootId, title) => {
                 title: title,
                 films: result,
             });
-            if (rootId === 'first-root') {
-                const root = document.getElementById('first-root');
-                root.innerHTML = firstFilmPug({
+            if (rootId === 'new-root') {
+                const tRoot = document.getElementById('first-root');
+                tRoot.innerHTML = firstFilmPug({
                     films: result[0],
                 });
-                result.splice(0);
+                const firstfilm = document.getElementById(result[0].id);
+                firstfilm.addEventListener('click', function(ev) {
+                    ev.preventDefault();
+                    Router.go('/film/' + result[0].id);
+                });
             }
-            for (let i = 0; i < result.length; i++) {
+            for (let i = 1; i < result.length; i++) {
                 const film = document.getElementById(result[i].id);
                 film.addEventListener('click', function(event) {
                     event.preventDefault();

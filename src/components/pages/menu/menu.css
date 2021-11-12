@@ -1,7 +1,7 @@
 body {
     background: #141414;
     margin: 0;
-    //overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #menu {
@@ -88,38 +88,7 @@ body {
     border-radius: 50px;
     border: solid #8bbf51;
     margin-right: 10px;
-
 }
-
-.film-item  {
-    display: inline-block;
-    /*padding: 20px;*/
-    margin: 6px;
-    width: 305px;
-    height: 200px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.2s;
-    overflow: hidden;
-    /*background: radial-gradient(ellipse at left top, #8bc34a59, transparent 170px),*/
-    /*radial-gradient(ellipse at right bottom, #8bc34a59, transparent 170px);*/
-    /*box-shadow:  20px 20px 23px #2d2e35,*/
-    /*-20px -20px 23px #4b4c58;*/
-}
-
-.film-item:hover {
-    transform: scale(1.05);
-}
-.films-container {
-    margin: 30px;
-}
-
-.film-item-container {
-    display: inline-block;
-    margin: 0px;
-    cursor: pointer;
-}
-
 
 .selection-label {
     display: inline-block;
@@ -253,4 +222,41 @@ label {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
+}
+
+.containerFilm {
+    display: flex;
+    margin-left: 50px;
+    margin-top: 22px;
+}
+
+.item {
+    position: relative;
+    display: block;
+    transition: transform 400ms;
+    margin: 6px;
+    width: 305px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.containerFilm:focus-within .item,
+.containerFilm:hover .item {
+    transform: translateX(-25%);
+}
+
+.item:focus ~ .item,
+.item:hover ~ .item {
+    transform: translateX(25%);
+}
+
+.containerFilm .item:focus,
+.containerFilm .item:hover {
+    transform: scale(1.5);
+    z-index: 1;
+}
+
+.item img {
+    display: block;
+    max-width: 100%;
 }

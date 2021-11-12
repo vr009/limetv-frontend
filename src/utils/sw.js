@@ -5,7 +5,7 @@ import {CacheFirst} from 'workbox-strategies';
 workbox.skipWaiting;
 workbox.clientsClaim;
 
-// workbox.precaching.precacheAndRoute(self.__WB_MANIFEST)
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 workbox.core.setCacheNameDetails({
   prefix: 'LimeTV',
   suffix: 'v1',

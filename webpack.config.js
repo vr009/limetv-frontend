@@ -1,6 +1,6 @@
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/',
     }, {
-      test: /\.(png|jpg|gif|svg)$/,
+      test: /\.(png|jpg|gif|svg|ico)$/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]',
@@ -78,12 +78,13 @@ module.exports = {
     //     },
     //   }],
     // }),
-    // new WorkboxPlugin.InjectManifest({
-    //   swSrc: './src/utils/sw.js',
-    //   swDest: 'sw.js',
-    //   include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
-    //     /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
-    // }),
+    new WorkboxPlugin.InjectManifest({
+      maximumFileSizeToCacheInBytes: 50000000,
+      swSrc: './src/utils/sw.js',
+      swDest: 'sw.js',
+      include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
+        /\.svg$/, /\.html$/, /\.js$/, /\.css$/, /\.ico$/],
+    }),
     new CleanWebpackPlugin(),
   ],
   devServer: {

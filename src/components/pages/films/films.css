@@ -1,4 +1,68 @@
-#first-film {
+.first-film {
     color: #fff;
-    background: #000 url(../images/img.png) fixed;
+    background-image: url(../images/img.png);
+}
+
+.info-button {
+    width: 40px;
+    background: url(../images/help_info.ico);
+}
+
+.play-button {
+    width: 40px;
+    background: url(../images/play.ico);
+}
+
+.info-text {
+    position: absolute;
+    left: 115px;
+    text-transform: uppercase;
+    background: rgb(137 137 137 / 58%);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+}
+
+.play-text {
+    position: absolute;
+
+    text-transform: uppercase;
+    background: rgb(255, 255, 255);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+    /*font: bold 24px/34px Helvetica, Sans-Serif;*/
+}
+
+.info-text:hover {
+    transform: scale(1.05);
+}
+
+.play-text:hover {
+    transform: scale(1.05);
+}
+
+.start-text {
+    position: absolute;
+    font: bold 24px/64px Helvetica, Sans-Serif;
+    left: 115px;
+    max-width: 30%;
+    /*padding-bottom: 60px;*/
+    padding-top: 28%;
+    font-size: 62px;
+    color: white;
+}
+
+.selection {
+    position: absolute;
+    padding-top: 45%;
+    pointer-events: none;
+}
+
+.selection-film {
+    pointer-events: all;
 }
