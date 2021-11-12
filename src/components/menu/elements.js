@@ -1,8 +1,8 @@
 // элементы меню
 
-const menuElements = {
-  films: 'Фильмы',
-};
+// const menuElements = {
+//   films: 'Фильмы',
+// };
 
 // элементы для зарегистрированных пользователей
 const authElements = {
@@ -27,17 +27,18 @@ export const createElements = (authed) => {
   root.innerHTML = '';
 
   // основные блоки меню
-  Object.keys(menuElements).forEach(function(key) {
-    const menuItem = document.createElement('a');
-    menuItem.textContent = menuElements[key];
-    menuItem.href = `/${key}`;
-    menuItem.dataset.section = key;
-    root.appendChild(menuItem);
-  });
+  // Object.keys(menuElements).forEach(function(key) {
+  //   const menuItem = document.createElement('a');
+  //   menuItem.textContent = menuElements[key];
+  //   menuItem.href = `/${key}`;
+  //   menuItem.dataset.section = key;
+  //   root.appendChild(menuItem);
+  // });
 
   if (authed) {
     Object.keys(authElements).forEach(function(key) {
       const menuItem = document.createElement('a');
+      menuItem.setAttribute('class', 'btn-in first');
       menuItem.textContent = authElements[key];
       menuItem.href = `/${key}`;
       menuItem.dataset.section = key;
@@ -46,6 +47,7 @@ export const createElements = (authed) => {
   } else {
     Object.keys(unauthElements).forEach(function(key) {
       const menuItem = document.createElement('a');
+      menuItem.setAttribute('class', 'btn-in first');
       menuItem.textContent = unauthElements[key];
       menuItem.href = `/${key}`;
       menuItem.dataset.section = key;
