@@ -1,3 +1,3 @@
-export const createFilm = (state) => {
+export const createFilm = () => {
   console.log('state');
 };

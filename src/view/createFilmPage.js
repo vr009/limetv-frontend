@@ -18,7 +18,7 @@ export const createFilmPage = (state) => {
   ).then(
       (result) => {
         if (result.status === 200) {
-          createFilm(result.body);
+          createFilm();
         } else {
           showErrors('Ошибка обработки запроса');
         }

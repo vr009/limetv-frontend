@@ -7,9 +7,9 @@ import Router from '../../utils/router';
 import RegistrationPug from '../pages/auth/registration.pug';
 import AuthPug from '../pages/auth/authorization.pug'
 
-const prefixUrlDEBUG = 'http://localhost'
-const prefixUrlDEPLOY = 'http://3.67.182.34'
-const port = ':8000'
+const prefixUrlDEBUG = 'http://localhost';
+const prefixUrlDEPLOY = 'http://3.67.182.34';
+const port = ':8000';
 
 export const authModule = {
   /**
@@ -54,7 +54,6 @@ export const renderAuth = () => {
   reg.innerHTML = AuthPug();
 
   // обработка отправки формы
-  const btn = document.getElementById('auth_btn');
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -75,12 +74,12 @@ export const renderAuth = () => {
       const url = 'http://localhost:8000/users/login';
       // 3.67.182.34
       fetchRequest(url, 'POST', user).then((result)=>{
-        if(!result.ok) {
+        if (!result.ok) {
           throw error;
         }
       }).then(
           (result) => {
-            Router.go("/","main", null, true, true);
+            Router.go('/', 'main', null, true, true);
           },
       ).catch(function(error) {
         showErrors('Неверный логин или пароль');
@@ -109,7 +108,6 @@ const renderProfile = () => {
 
 // отрисовка формы регистрации
 export const renderRegistration = () => {
-
   const root = document.getElementById('stuff');
   root.innerHTML = '';
 
@@ -129,7 +127,6 @@ export const renderRegistration = () => {
 
   // обработка отправки формы
   const form = document.getElementById('form');
-  const btn = document.getElementById('registration_btn');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('Sign Up');
@@ -149,12 +146,12 @@ export const renderRegistration = () => {
       const url = 'http://localhost:8000/users/signup';
 
       fetchRequest(url, 'POST', user).then((result)=>{
-        if(!result.ok) {
+        if (!result.ok) {
           throw error;
         }
       }).then(
           (result) => {
-            Router.go("/","main", null, true, true);
+            Router.go('/', 'main', null, true, true);
           },
       ).catch(function() {
         showErrors('Пользователь с таким именем уже существует');

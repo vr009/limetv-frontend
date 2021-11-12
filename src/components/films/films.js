@@ -45,43 +45,42 @@ const createBase = () => {
 
 
 const showFilmsList = (relUrl, rootId, title) => {
-    const url = 'http://127.0.0.1:8000/films'+relUrl;
-    fetch(url, {
-            method: 'GET',
-            credentials: 'include',
-        },
-    ).then(
-        (response) => response.json(),
-    ).then(
-        (result) => {
-            const root = document.getElementById(rootId);
-            root.innerHTML = listPug({
-                title: title,
-                films: result,
-            });
-            if (rootId === 'new-root') {
-                const tRoot = document.getElementById('first-root');
-                tRoot.innerHTML = firstFilmPug({
-                    films: result[0],
-                });
-                const firstfilm = document.getElementById(result[0].id);
-                firstfilm.addEventListener('click', function(ev) {
-                    ev.preventDefault();
-                    Router.go('/film/' + result[0].id);
-                });
-            }
-            for (let i = 1; i < result.length; i++) {
-                const film = document.getElementById(result[i].id);
-                film.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    Router.go('/film/' + result[i].id.toString());
-                });
-            }
-        },
-    ).catch((error) => {
-            console.log(error);
-            showErrors(error);
-        },
-    );
+  const url = 'http://127.0.0.1:8000/films'+relUrl;
+  fetch(url, {
+    method: 'GET',
+    credentials: 'include',
+  },
+  ).then(
+      (response) => response.json(),
+  ).then(
+      (result) => {
+        const root = document.getElementById(rootId);
+        root.innerHTML = listPug({
+          title: title,
+          films: result,
+        });
+        if (rootId === 'new-root') {
+          const tRoot = document.getElementById('first-root');
+          tRoot.innerHTML = firstFilmPug({
+            films: result[0],
+          });
+          const firstfilm = document.getElementById(result[0].id);
+          firstfilm.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            Router.go('/film/' + result[0].id);
+          });
+        }
+        for (let i = 1; i < result.length; i++) {
+          const film = document.getElementById(result[i].id);
+          film.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/film/' + result[i].id.toString());
+          });
+        }
+      },
+  ).catch((error) => {
+    console.log(error);
+    showErrors(error);
+  },
+  );
 };
-
