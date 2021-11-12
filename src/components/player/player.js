@@ -6,6 +6,7 @@ import ffImg from './ff.png';
 import nextImg from './next.png';
 import previousImg from './previous.png';
 import rewindImg from './rewind.png';
+import PlayerPug from '../pages/player/player.pug'
 
 const toggle = {
   play: playImg,
@@ -222,7 +223,7 @@ export class Player {
 export const createPlayerPage = (src) => {
   const rootPage = document.getElementById('root'); //TODO в id закидывать параметр функции?
   rootPage.innerHTML = PlayerPug({
-    videoSrc: src[0],
+    videoSrc: src,
   });
   new Player();
 }

@@ -1,6 +1,7 @@
 import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchImage} from '../network/image.js';
+import {showErrors} from '../utils/errors.js'
 
 export const createProfile = (profile) => {
   const avatar = document.getElementById('new_avatar');
@@ -44,13 +45,13 @@ const updateUserPic = (event) => {
       fetchImage(url, data).then(
           (response) => {
             if (response.ok) {
-              console.log('updated');
+              showErrors('updated');
             } else {
               throw error;
             }
           },
       ).catch(function(error) {
-        console.log('not updated');
+        showErrors('not updated');
       });
     };
     reader.readAsDataURL(target.files[0]);

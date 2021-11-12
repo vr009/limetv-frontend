@@ -61,6 +61,17 @@
     border: solid #8bbf51;
     width: 110%;
     height: 26px;
+    color: white;
+}
+
+.des_btn {
+    background: #8bbf51;
+    border: solid #8bbf51;
+    width: 120px;
+    height: 46px;
+    color: black;
+    border-radius: 13px;
+    margin-block: 4%;
 }
 
 .custom_btn {
@@ -94,4 +105,5 @@
     border-radius: 21px;
     border: solid #8bbf51;
     width: 110%;
+    color: white;
 }

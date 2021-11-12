@@ -88,6 +88,9 @@ export class Router {
           window.history.back();
         }
         createFilmPage(uuid);
+      } else if (path.includes('/player/')) {
+        const src = path.substring('/player/'.length, path.length);
+        createPlayerPage(src);
       } else {
         this.go('/', 'Main', null, true, true);
       }

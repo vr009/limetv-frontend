@@ -5,7 +5,7 @@ import {showErrors} from '../utils/errors.js';
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
 import PlayerPug from '../pages/player/player.pug';
-
+import {createPlayerPage} from '../player/player.js'
 import Router from '../../utils/router';
 
 /**
@@ -48,11 +48,7 @@ const showFilm = (filmId) => {
         const watchBtn = document.querySelector('.watch-btn');
         watchBtn.addEventListener('click', function(event) {
           event.preventDefault();
-          const rootPage = document.getElementById('root');
-          rootPage.innerHTML = PlayerPug({
-            videoSrc: result.src[0],
-          });
-          new Player();
+          Router.go("/player/"+result.src[1], "Player");
         });
         showActors(result.actors);
       },
