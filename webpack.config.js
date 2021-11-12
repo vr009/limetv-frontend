@@ -23,9 +23,10 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/',
     }, {
-      test: /\.(png|jpg|gif|svg|ico)$/,
+      test: /\.(png|jpg|gif|svg|ico|mp4)$/,
       loader: 'file-loader',
       options: {
+        path: __dirname + '/tmp/',
         name: '[name].[ext]',
       },
     }, {
