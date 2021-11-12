@@ -264,7 +264,7 @@ label {
 
 .containerFilm .item:focus,
 .containerFilm .item:hover {
-    transform: scale(1.5);
+    transform: scale(1.4);
     z-index: 1;
 }
 
