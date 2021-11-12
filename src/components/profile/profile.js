@@ -42,15 +42,12 @@ const updateUserPic = (event) => {
       const data = new FormData();
       data.append('pic', target.files[0]);
       const url = serverLocate+'/users/profile/settings/pic';
-      fetchImage(url, data).then(
-          (response) => {
-            if (response.ok) {
-              showErrors('updated');
-            } else {
-              throw error;
-            }
-          },
-      ).catch(function(error) {
+      fetchImage(url, data).then((result)=>{
+        if (!result.ok) {
+          throw error;
+        }
+        showErrors('updated');
+      }).catch(function(error) {
         showErrors('not updated');
       });
     };

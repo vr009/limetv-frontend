@@ -65,13 +65,19 @@
 }
 
 .des_btn {
-    background: #8bbf51;
-    border: solid #8bbf51;
-    width: 120px;
-    height: 46px;
-    color: black;
-    border-radius: 13px;
-    margin-block: 4%;
+    -moz-appearance: none;
+    border: 3px solid #f7227c;
+    border-radius: 9px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 28px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    background: unset;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .custom_btn {
