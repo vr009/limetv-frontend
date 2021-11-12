@@ -64,6 +64,11 @@ const showFilmsList = (relUrl, rootId, title) => {
           tRoot.innerHTML = firstFilmPug({
             films: result[0],
           });
+          const playBtn = document.querySelector('.play-text');
+          playBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/player/' + result[0].src[1]);
+          });
           const firstfilm = document.getElementById(result[0].id);
           firstfilm.addEventListener('click', function(ev) {
             ev.preventDefault();
