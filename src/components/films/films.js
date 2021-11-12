@@ -1,4 +1,5 @@
 import {showErrors} from '../utils/errors.js';
+import {serverLocate} from '../../utils/locale.js';
 import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
@@ -45,7 +46,7 @@ const createBase = () => {
 
 
 const showFilmsList = (relUrl, rootId, title) => {
-  const url = 'http://127.0.0.1:8000/films'+relUrl;
+  const url = serverLocate+'/films'+relUrl;
   fetch(url, {
     method: 'GET',
     credentials: 'include',
