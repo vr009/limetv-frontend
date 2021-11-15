@@ -70,7 +70,7 @@ const showFilmsList = (relUrl, rootId, title) => {
             event.preventDefault();
             Router.go('/player/' + result[0].src[0]);
           });
-          const firstfilm = document.getElementById(result[0].id);
+          const firstfilm = document.getElementById("first_info");
           firstfilm.addEventListener('click', function(ev) {
             ev.preventDefault();
             Router.go('/film/' + result[0].id);
