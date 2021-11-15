@@ -3,8 +3,8 @@ import {serverLocate} from '../../utils/locale.js';
 import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
-
 import Router from '../../utils/router';
+
 /**
  * Модуль создания экрана фильмов
  * @function
