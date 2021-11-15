@@ -68,7 +68,7 @@ const showFilmsList = (relUrl, rootId, title) => {
           const playBtn = document.querySelector('.play-text');
           playBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/player/' + result[0].src[1]);
+            Router.go('/player/' + result[0].src[0]);
           });
           const firstfilm = document.getElementById(result[0].id);
           firstfilm.addEventListener('click', function(ev) {
