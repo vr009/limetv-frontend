@@ -4,8 +4,6 @@ import {Player} from '../player/player';
 import {showErrors} from '../utils/errors.js';
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
-import PlayerPug from '../pages/player/player.pug';
-import {createPlayerPage} from '../player/player.js'
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
 
@@ -49,7 +47,7 @@ const showFilm = (filmId) => {
         const watchBtn = document.querySelector('.watch-btn');
         watchBtn.addEventListener('click', function(event) {
           event.preventDefault();
-          Router.go("/player/"+result.src[0], "Player");
+          Router.go('/player/'+result.src[0], 'Player');
         });
         showActors(result.actors);
       },
