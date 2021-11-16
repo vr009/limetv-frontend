@@ -99,6 +99,7 @@ export const logOut = () => {
 
   createElements();
   createFilms();
+  Router.go('/', 'main', null, true, false);
 };
 
 // отрисовка профиля

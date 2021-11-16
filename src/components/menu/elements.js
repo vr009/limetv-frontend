@@ -1,4 +1,5 @@
 import {createProfilePage} from '../../view/createProfilePage';
+import Router from '../../utils/router';
 
 const authElements = {
   profile: 'Профиль',
@@ -18,20 +19,17 @@ const unauthElements = {
  */
 // создание элементов для меню
 export const createElements = (authed) => {
+  const menuLogo = document.getElementById('logo-start');
+  menuLogo.addEventListener('click', function(event) {
+    event.preventDefault();
+    Router.go('/', 'main', null, true, false);
+  });
   const root = document.getElementById('menu-items');
   root.innerHTML = '';
 
-  // основные блоки меню
-  // Object.keys(menuElements).forEach(function(key) {
-  //   const menuItem = document.createElement('a');
-  //   menuItem.textContent = menuElements[key];
-  //   menuItem.href = `/${key}`;
-  //   menuItem.dataset.section = key;
-  //   root.appendChild(menuItem);
-  // });
-
   if (authed) {
     Object.keys(authElements).forEach(function(key) {
+      root.setAttribute('class', 'col-2 left-menu');
       if (key === 'profile') {
         createProfilePage(true);
       }
@@ -44,6 +42,7 @@ export const createElements = (authed) => {
     });
   } else {
     Object.keys(unauthElements).forEach(function(key) {
+      root.setAttribute('class', 'col-2 none-auth');
       const menuItem = document.createElement('a');
       menuItem.setAttribute('class', 'btn-in first');
       menuItem.textContent = unauthElements[key];

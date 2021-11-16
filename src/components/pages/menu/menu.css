@@ -13,7 +13,7 @@ body {
 
 #menu-items {
     font-size: 20px;
-    margin: auto;
+    margin-bottom: -5px;
 }
 
 #menu-items a {
@@ -353,6 +353,16 @@ label {
     --ggs: 2;
 }
 
+.col-for-logo-2-s {
+    padding-top: 16px;
+    padding-left: 60px;
+    padding-right: 10px;
+}
+
+.none-auth {
+    float: right; display: -webkit-box;
+}
+
 .btn-in {
     -moz-appearance: none;
     border: 3px solid #df2976;
@@ -405,4 +415,9 @@ label {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+}
+
+.left-menu {
+    float: right;
+    padding-top: 5px;
 }

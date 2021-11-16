@@ -59,11 +59,6 @@ export class Router {
 
     document.title = title;
 
-    if (authedChanged) {
-      createMenu();
-    }
-
-
     const func = this.routs[path];
 
     if (func === undefined) {
@@ -93,18 +88,5 @@ export class Router {
       console.log('ROUTE state:', state);
       func();
     }
-  }
-
-  start() {
-
-    // получает пользователя в синглтон currenUser и вызывает go(текущий путь)
-    // if (Requests.getUserProfile(false)) {
-    //
-    //
-    //
-    //   (true);
-    // } else {
-    //     createMenu(false);
-    // }
   }
 } export default new Router();
