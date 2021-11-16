@@ -5,12 +5,12 @@
 
 .info-button {
     width: 40px;
-    background: url(../images/help_info.svg);
+    background: url(../images/help_info.ico);
 }
 
 .play-button {
     width: 40px;
-    background: url(../images/play.svg);
+    background: url(../images/play.ico);
 }
 
 .info-text {

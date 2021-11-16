@@ -26,7 +26,7 @@ module.exports = {
       test: /\.(png|jpg|gif|svg|mp4)$/,
       loader: 'file-loader',
       options: {
-        path: __dirname + '/tmp/',
+        path: __dirname + '/dist/',
         name: '[name].[ext]',
       },
     }, {
