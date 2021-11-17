@@ -23,10 +23,10 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/',
     }, {
-      test: /\.(png|jpg|gif|svg|ico|mp4)$/,
+      test: /\.(png|jpg|gif|svg|mp4)$/,
       loader: 'file-loader',
       options: {
-        path: __dirname + '/tmp/',
+        path: __dirname + '/dist/',
         name: '[name].[ext]',
       },
     }, {
@@ -84,7 +84,7 @@ module.exports = {
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js',
       include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
-        /\.svg$/, /\.html$/, /\.js$/, /\.css$/, /\.ico$/],
+        /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
     }),
     new CleanWebpackPlugin(),
   ],

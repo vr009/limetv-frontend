@@ -5,14 +5,18 @@ div.menu
         //- отдельные элементы
         div(class="cont")
             div(class="row" style="padding-bottom: 20px;")
-                div(class="logo col-2")
+                div(class="logo col-2" id="logo-start")
                     div(class="col-for-logo-2" style="padding-top: 16px; padding-left: 60px; padding-right: 10px;")
                         a(href="/")
                             i(class="gg-film")
                     div(class="col-for-logo-2")
                         a(href="/")
                             span LimeTV
-                div(id="menu-items" style="float: right; display: -webkit-box;").col-2
+                div.wrapper
+                    div.container-search
+                        input(type="text" class="input-text" placeholder="Поиск...")
+                        input(type="button" value="ПОИСК" class="close-btn")
+                div(id="menu-items")
 
 div(id="stuff")
     img(class="registration-back" src="registration.png")

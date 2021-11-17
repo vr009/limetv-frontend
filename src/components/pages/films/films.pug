@@ -1,6 +1,6 @@
 div.films-container
     h1.selection-label #{title}
-    div.containerFilm
+    div.contentFilm
         each film in films
             a(class="item")
-                img(src=film.src[0] id=film.id style="border-radius: 15px;")
+                img(src=film.pic[0] id=film.id style="border-radius: 15px;")

@@ -1,13 +1,15 @@
 div.film-page-container
     div.film-item-container
-        img.film-pic(src=result.src[0])
+        img.film-pic(src=result.pic[0])
     div.film_description
         h1.film-title #{result.title}
         a.watch-btn Смотреть
         div.film-note Год: #{result.year}
         div.film-note Язык:  #{result.language}
-        div.film-note Продолжительность:  #{result.duration}
+        div.film-note Время:  #{result.duration}
         div.film-note Дата релиза:  #{result.release.slice(0, 10)}
         div.film-note Исполнительный директор:  #{result.director}
         div.film-note Авторы сценария: #{result.authors}
+        div.film-note Возраст: #{result.age}
+        div.film-note Бюджет: #{result.budget}
         div.film-note Жанр: #{result.genres}

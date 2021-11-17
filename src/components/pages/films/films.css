@@ -5,12 +5,12 @@
 
 .info-button {
     width: 40px;
-    background: url(../images/help_info.ico);
+    background: url(../images/help_info.svg);
 }
 
 .play-button {
     width: 40px;
-    background: url(../images/play.ico);
+    background: url(../images/play.svg);
 }
 
 .info-text {
@@ -50,9 +50,8 @@
     position: absolute;
     font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     left: 115px;
-    max-width: 30%;
-    /*padding-bottom: 60px;*/
-    padding-top: 28%;
+    max-width: 40%;
+    padding-top: 20%;
     font-size: 62px;
     color: white;
 }

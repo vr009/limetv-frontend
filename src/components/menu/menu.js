@@ -30,7 +30,7 @@ const goProfile = () => {
 
 
 const goLogout = () => {
-  Router.go('/logout', 'logout');
+  Router.go('/logout', 'logout', null, true, false);
 };
 
 // элементы роутинга
