@@ -1,18 +1,18 @@
-div.search_results
+div#search_results
     h1.title Результаты поиска
     if result.profiles
         h3.title Профили
         each profile in profiles
-            a(class="item")
+            a(class="profile-item")
                 img(src=profile.avatar)
     if result.films
         h3.title Фильмы
         each film in films
-            a(class="item")
+            a(class="film-item")
                 img(src=film.src[0] id=film.id)
 
     if result.actors
         h3.title Актеры
             each actor in actors
-                a(class="item")
+                a(class="actor-item")
                     img(src=actor.avatar)
