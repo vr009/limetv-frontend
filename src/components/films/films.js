@@ -59,6 +59,7 @@ const showFilmsList = (relUrl, rootId, title) => {
         root.innerHTML = listPug({
           title: title,
           films: result,
+          salt: rootId,
         });
         if (rootId === 'new-root') {
           const tRoot = document.getElementById('first-root');
@@ -76,8 +77,9 @@ const showFilmsList = (relUrl, rootId, title) => {
             Router.go('/film/' + result[0].id);
           });
         }
-        for (let i = 1; i < result.length; i++) {
-          const film = document.getElementById(result[i].id);
+        for (let i = 0; i < result.length; i++) {
+          const film = document.getElementById(result[i].id+rootId);
+          console.log(film);
           film.addEventListener('click', function(event) {
             event.preventDefault();
             Router.go('/film/' + result[i].id.toString());
