@@ -1,0 +1,35 @@
+.des_btn {
+    -moz-appearance: none;
+    border: 3px solid #f7227c;
+    border-radius: 9px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 28px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    background: unset;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.profile_pic {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: unset;
+    border: solid  #8bbf51;
+    border-radius: 62%;
+}
+
+.note {
+    color: white;
+}
+
+.profile {
+    color: white;
+    margin-left: 40px;
+}
+

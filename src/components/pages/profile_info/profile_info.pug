@@ -1,0 +1,9 @@
+div.profile
+    h1.title Информация о пользователе
+    h3.note Имя пользователя : #{login}
+    h3.note Про себя: #{about}
+    h3.note Количесвто подписок: #{subscriptions}
+    h3.note Количество подписчиков: #{subscribers}
+    div(class="profile_pic")
+        img(src=avatar class="avatar")
+    input(type="submit" class="des_btn" name="login" id="settings_btn" value="Настройки" )
