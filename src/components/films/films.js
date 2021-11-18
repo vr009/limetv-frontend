@@ -4,6 +4,8 @@ import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
 import Router from '../../utils/router';
+import {fetchRequest} from "../network/fetch";
+import {response} from "express";
 
 /**
  * Модуль создания экрана фильмов
@@ -70,7 +72,7 @@ const showFilmsList = (relUrl, rootId, title) => {
             event.preventDefault();
             Router.go('/player/' + result[0].src[0]);
           });
-          const firstfilm = document.getElementById("first_info");
+          const firstfilm = document.getElementById('first_info');
           firstfilm.addEventListener('click', function(ev) {
             ev.preventDefault();
             Router.go('/film/' + result[0].id);
@@ -90,3 +92,38 @@ const showFilmsList = (relUrl, rootId, title) => {
   },
   );
 };
+
+
+export const showGenresFilmsList = (genre) => {
+  const url = serverLocate+'/films/genre/'+ genre;
+
+  fetchRequest(url, 'GET').then(
+      (response) => {
+        if (response.ok) {
+          response.json();
+        } else {
+          throw 'genre error';
+        }
+      }
+  ).then(
+      (result) => {
+        const root = document.getElementById('stuff');
+        root.innerHTML = listPug({
+          title: genre,
+          films: result,
+        });
+
+        for (let i = 1; i < result.length; i++) {
+          const film = document.getElementById(result[i].id);
+          film.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/film/' + result[i].id.toString());
+          });
+        }
+
+      }
+  ).catch((error) => {
+    console.log(error);
+  })
+
+}

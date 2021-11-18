@@ -4,7 +4,8 @@ import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
 import '../pages/menu/menu.css';
 import menuPug from '../pages/menu/menu.pug';
-import {createProfilePage} from "../../view/createProfilePage";
+
+const genres = [['Horror', 'Movie', 'Comedy'],['SciFi', 'Documentary', 'Cartoons']];
 
 const application = document.getElementById('root');
 
