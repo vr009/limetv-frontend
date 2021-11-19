@@ -1,7 +1,9 @@
-h1.actor-note(id=root-actors)='Актеры: '
-    div.actors
+span
+    -  let flag = false;
         each actor in actors
-            div.actor-container(id=actor.id)
-                div.actor-photo
-                    img.actor-photo(src=actor.avatar)
-                div.actor-note #{actor.name}  #{actor.surname}
+                if flag
+                    span ,
+                    a(id=actor.id class="actor-h") #{' '+actor.name}  #{actor.surname}
+                else
+                    a(id=actor.id class="actor-h") #{actor.name}  #{actor.surname}
+                - flag = true

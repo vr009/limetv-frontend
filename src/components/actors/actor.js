@@ -4,6 +4,7 @@ import actorPagePug from '../pages/actors/actor.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
 import Router from '../../utils/router';
+import {getMonth} from "../utils/validate";
 
 
 export const createActor = (state) => {
@@ -41,7 +42,7 @@ const showActor = (state) => {
         const upSurname = result.surname[0]
             .toUpperCase()+result.surname.slice(1);
 
-        const birth = getBirth(new Date(result.date_of_birth));
+        const birth = getMonth(new Date(result.date_of_birth));
 
         actorRoot.innerHTML = actorPagePug({
           avatar: '/' + result.avatar,
@@ -83,12 +84,10 @@ function getFilmsByActor(state) {
         for (let i=0; i < result.length; i++) {
           const t = document.getElementById(result[i].id);
           t.addEventListener('click', function (event) {
-            // const {target} = event;
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
             Router.go('/film/' + result[i].id.toString());
-            // createFilmPage(result[i].id);
           });
         }
       },
@@ -97,48 +96,4 @@ function getFilmsByActor(state) {
     showErrors(error);
   },
   );
-}
-
-function getBirth(birth) {
-  let birthDay = birth.getDay();
-  switch (birth.getMonth()) {
-    case 0:
-      birthDay += ' января ';
-      break;
-    case 1:
-      birthDay += ' февраля ';
-      break;
-    case 2:
-      birthDay += ' марта ';
-      break;
-    case 3:
-      birthDay += ' апреля ';
-      break;
-    case 4:
-      birthDay += ' мая ';
-      break;
-    case 5:
-      birthDay += ' июня ';
-      break;
-    case 6:
-      birthDay += ' июля ';
-      break;
-    case 7:
-      birthDay += ' августа ';
-      break;
-    case 8:
-      birthDay += ' сентября ';
-      break;
-    case 9:
-      birthDay += ' октября ';
-      break;
-    case 10:
-      birthDay += ' ноября ';
-      break;
-    case 11:
-      birthDay += ' декабря ';
-      break;
-  }
-  birthDay += birth.getFullYear();
-  return birthDay;
 }

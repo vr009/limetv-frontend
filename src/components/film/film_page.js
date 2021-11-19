@@ -6,6 +6,7 @@ import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
+import {getMonth, getTimeFromMins} from '../utils/validate.js';
 
 /**
  * Модуль создания страницы фильма
@@ -23,10 +24,6 @@ const createBase = (id) => {
   rootFilm.setAttribute('id', 'root-film');
   stuff.appendChild(rootFilm);
 
-  const rootActors = document.createElement('div');
-  rootActors.setAttribute('id', 'root-actors');
-  stuff.appendChild(rootActors);
-
   showFilm(id);
 };
 
@@ -41,10 +38,13 @@ const showFilm = (filmId) => {
   ).then(
       (result) => {
         const rootFilm = document.getElementById('root-film');
+        result.duration = getTimeFromMins(result.duration);
+        result.release = getMonth(new Date(result.release));
+        result.release_rus = getMonth(new Date(result.release_rus));
         rootFilm.innerHTML = filmPagePug({
           result: result,
         });
-        const watchBtn = document.querySelector('.watch-btn');
+        const watchBtn = document.querySelector('.btn-watch');
         watchBtn.addEventListener('click', function(event) {
           event.preventDefault();
           Router.go('/player/'+result.src[0], 'Player');
@@ -80,7 +80,15 @@ const showActors = (actors) => {
       (result) => {
         console.log('here');
         console.log(result);
+        const manyActors = document.getElementById('many-actors');
+        manyActors.innerHTML = actorsLinePug({
+          actors: result,
+        });
+
         const root = document.getElementById('root-actors');
+        if (result.length > 3) {
+          result = result.slice(0, 3);
+        }
         root.innerHTML = actorsLinePug({
           actors: result,
         });
