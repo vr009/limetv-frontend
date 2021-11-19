@@ -1,8 +1,10 @@
 import {showErrors} from '../utils/errors';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchRequest} from '../network/fetch.js';
+import {showFilmsList} from '../films/films.js'
+
+import filmListPug from '../pages/films/films.pug'
 import userInfoPug from '../pages/profile_info/profile_info.pug';
-import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
 import Router from '../../utils/router';
 
@@ -18,6 +20,17 @@ export const createUserInfoPage = () => {
     root.appendChild(user);
 
     showUserInfo();
+
+    const watchList = document.createElement('div');
+    watchList.setAttribute('id', 'watchlist-root');
+    root.appendChild(watchList);
+
+    const favList = document.createElement('div');
+    favList.setAttribute('id', 'favlist-root');
+    root.appendChild(favList);
+
+    showFilmsList('/fav', 'watchlist-root', 'Смотреть позже');
+    showFilmsList('/watchlist', 'favlist-root', 'Избранное');
 };
 
 const showUserInfo = () => {
@@ -55,40 +68,4 @@ const showUserInfo = () => {
     );
 };
 
-// function getFilmsByUser(state) {
-//     const url = serverLocate+'/films/selection/actor/' + state;
-//     fetch(url, {
-//             method: 'GET',
-//         },
-//     ).then(
-//         (response) => response.json(),
-//     ).then(
-//         (result) => {
-//             const rootFilm = document.getElementById('one_film');
-//             for (let i=0; i < result.length; i++) {
-//                 result[i].title = result[i].title+' ('+result[i].year+')';
-//                 result[i].director = result[i].director[0];
-//                 result[i].duration = result[i].duration+'м';
-//             }
-//             rootFilm.innerHTML = actorFilmsPug({
-//                 films: result,
-//             });
-//
-//             for (let i=0; i < result.length; i++) {
-//                 const t = document.getElementById(result[i].id);
-//                 t.addEventListener('click', function (event) {
-//                     // const {target} = event;
-//                     event.preventDefault();
-//                     const rootPage = document.getElementById('stuff');
-//                     rootPage.innerHTML = '';
-//                     Router.go('/film/' + result[i].id.toString());
-//                     // createFilmPage(result[i].id);
-//                 });
-//             }
-//         },
-//     ).catch((error) => {
-//             console.log(error);
-//             showErrors(error);
-//         },
-//     );
-// }
+
