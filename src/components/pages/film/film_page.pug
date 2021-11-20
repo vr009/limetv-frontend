@@ -1,15 +1,81 @@
-div.film-page-container
-    div.film-item-container
-        img.film-pic(src=result.pic[0])
-    div.film_description
-        h1.film-title #{result.title}
-        a.watch-btn Смотреть
-        div.film-note Год: #{result.year}
-        div.film-note Язык:  #{result.language}
-        div.film-note Время:  #{result.duration}
-        div.film-note Дата релиза:  #{result.release.slice(0, 10)}
-        div.film-note Исполнительный директор:  #{result.director}
-        div.film-note Авторы сценария: #{result.authors}
-        div.film-note Возраст: #{result.age}
-        div.film-note Бюджет: #{result.budget}
-        div.film-note Жанр: #{result.genres}
+div(class="film-page-container" style="min-height: 590px; min-width: 100%; color: white;")
+    section
+        div.film-item-container
+            div.film-pic(style="position: absolute; float: left; width: 100%; height: 600px; z-index: 1;").film-n-pic
+            img(src="img.png").fon-pic(style="right: 0px; height: 600px;")
+            div
+                div.age-pic(style="right: 0px; margin-top: 500px; margin-right: 100px;") #{result.age+'+'}
+            div(style="position: absolute; padding-left: 100px; z-index: 3; padding-top: 100px;")
+                div
+                    h1.film-title #{result.title}
+                div(style="font-size: 18px; margin-top: 30px; color: hsla(0,0%,100%,.56); align-items: center;")
+                    span(style="font-size: 18px; line-height: 22px;") #{result.year} · #{result.genres} · #{result.duration} · #{" "+ ''}
+                    img(src="micro.svg" style="width: 13px;")
+                    span(style="font-size: 18px; line-height: 22px; letter-spacing: .03em;") #{" "+ 'RUS'}
+
+                div(style="font-size: 18px; margin-top: 30px; color: hsla(0,0%,100%,.56);")
+                    span Режиссер:
+                    span(style="color: white;") #{" "+result.director}
+
+                div(style="font-size: 18px; line-height: 36px; padding-top 4px; color: hsla(0,0%,100%,.56);")
+                    span #{'Актеры: '}
+                    span(id="root-actors")
+                div(style="font-size: 18px; padding-top: 60px;")
+                    a(class="btn-watch watch") Смотреть
+                        img(src="play-white.svg" style="vertical-align: middle; padding-left: 20px; width: 28px;")
+
+                    a(class="re-btn-watch re-like")
+                        img(src="heart.svg" style="vertical-align: middle; width: 30px;")
+    section.selection-2
+        div.about
+            div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 112px; margin-bottom: -2px;")
+                div(class="row" style="padding-bottom: 10px;") Описание
+            div(class="col-2" style="width: 54%;")
+                p(class="short-text")
+                    span История о том, как обычный паренёк из провинции превратился в одного из самых состоятельных людей США. Джордж Джанга (Джонни Депп) с детства мечтал о роскошной жизни: шикарном доме, дорогих автомобилях и лучших девушках США. Находчивый паренёк быстро отыскал оригинальный способ осуществить свою мечту: он решил распространять кокаин в промышленных масштабах. Как найти рынки сбыта? Очень просто — необходимо подсадить на белый порошок главных знаменитостей Америки!
+        div.selection-3
+            div(class="row" style="padding-bottom: 50px;")
+            div.full-grid(style="margin-left: 6%; margin-right: 6%;")
+                div.col-grid
+                    h2.name-col Информация
+                    div(class="grey-info")
+                        div Страна
+                        span(class="pug-text") #{result.country}
+
+                    div(class="grey-info")
+                        div Жанр
+                        span(class="pug-text") #{result.genres}
+
+                    div(class="grey-info")
+                        div Премьера в России
+                        span(class="pug-text") #{result.release_rus}
+
+                    div(class="grey-info")
+                        div Премьера в мире
+                        span(class="pug-text") #{result.release}
+
+                    div(class="grey-info")
+                        div Бюджет
+                        span(class="pug-text") #{result.budget}
+                div.col-grid
+                    h2.name-col Съёмочная группа
+                    div(class="grey-info")
+                        div Режиссёр
+                        span(class="pug-text") #{result.director}
+
+                    div(class="grey-info")
+                        div Актёры
+                        span(class="pug-text" id="many-actors")
+
+                    div(class="grey-info")
+                        div Сценаристы
+                        span(class="pug-text") #{result.authors}
+                div.col-grid
+                    h2.name-col Звук и субтитры
+                    div(class="grey-info")
+                        div Аудиодорожки
+                        span(class="pug-text") #{result.language}
+
+                    div(class="grey-info")
+                        div Качество
+                        span(class="pug-text") SD, HD, Full HD

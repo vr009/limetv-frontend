@@ -1,16 +1,19 @@
 .first-film {
     color: #fff;
     background-image: url(../images/img.png);
+    background: url(../images/help_info.svg);
+    background: url(../images/play.svg);
+    background: url(../images/micro.svg);
+    background: url(../images/play-white.svg);
+    background: url(../images/heart.svg);
 }
 
 .info-button {
     width: 40px;
-    background: url(../images/help_info.svg);
 }
 
 .play-button {
     width: 40px;
-    background: url(../images/play.svg);
 }
 
 .info-text {
