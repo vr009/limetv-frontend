@@ -29,8 +29,8 @@ export const createUserInfoPage = () => {
     favList.setAttribute('id', 'favlist-root');
     root.appendChild(favList);
 
-    showFilmsList('/fav', 'watchlist-root', 'Смотреть позже');
-    showFilmsList('/watchlist', 'favlist-root', 'Избранное');
+    showFilmsList('/wl', 'watchlist-root', 'Смотреть позже');
+    showFilmsList('/starred', 'favlist-root', 'Избранное');
 };
 
 const showUserInfo = () => {
