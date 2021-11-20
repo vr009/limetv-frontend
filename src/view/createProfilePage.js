@@ -2,6 +2,7 @@ import {fetchRequest} from '../components/network/fetch.js';
 import {showErrors} from '../components/utils/errors.js';
 import {createProfile} from '../components/profile/profile.js';
 import {serverLocate} from '../utils/locale.js';
+import Router from '../utils/router.js';
 import profilePug from '../components/profile/profile.pug';
 import avatarPug from '../components/pages/menu/avatar.pug';
 import '../components/profile/profile.css';
@@ -30,7 +31,11 @@ export const createProfilePage = (draw) => {
             const root = document.getElementById('menu-items');
             const name = document.createElement('a');
             name.setAttribute('id', 'me-av');
-            name.setAttribute('href', '/');
+            name.addEventListener('click', function(ev) {
+                ev.preventDefault();
+                Router.go('/profile', "Profile");
+            });
+
             name.innerHTML = avatarPug({
               login: result,
             });

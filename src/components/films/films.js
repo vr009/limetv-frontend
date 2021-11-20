@@ -45,7 +45,7 @@ const createBase = () => {
 };
 
 
-const showFilmsList = (relUrl, rootId, title) => {
+export const showFilmsList = (relUrl, rootId, title) => {
   const url = serverLocate+'/films'+relUrl;
   fetch(url, {
     method: 'GET',

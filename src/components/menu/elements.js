@@ -33,12 +33,12 @@ export const createElements = (authed) => {
       if (key === 'profile') {
         createProfilePage(true);
       }
-      const menuItem = document.createElement('a');
-      menuItem.setAttribute('class', 'btn-in first');
-      menuItem.textContent = authElements[key];
-      menuItem.href = `/${key}`;
-      menuItem.dataset.section = key;
-      root.appendChild(menuItem);
+      // const menuItem = document.createElement('a');
+      // menuItem.setAttribute('class', 'btn-in first');
+      // menuItem.textContent = authElements[key];
+      // menuItem.href = `/${key}`;
+      // menuItem.dataset.section = key;
+      // root.appendChild(menuItem);
     });
   } else {
     Object.keys(unauthElements).forEach(function(key) {
