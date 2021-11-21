@@ -57,6 +57,12 @@ const showFilm = (filmId) => {
             likeFilm(filmId);
         });
 
+        const wlBtn = document.getElementById('wl');
+          wlBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+              watchLater(filmId);
+        });
+
         showActors(result.actors);
       },
   ).catch((error) => {
@@ -121,5 +127,10 @@ const showActors = (actors) => {
 
 const likeFilm = (filmId) => {
     const url = serverLocate + "/films/starred/" + filmId
+    fetchRequest(url);
+};
+
+const watchLater = (filmId) => {
+    const url = serverLocate + "/films/wl/" + filmId
     fetchRequest(url);
 };
