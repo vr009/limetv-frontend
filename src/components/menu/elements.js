@@ -32,13 +32,14 @@ export const createElements = (authed) => {
       root.setAttribute('class', 'col-2 left-menu');
       if (key === 'profile') {
         createProfilePage(true);
+        return;
       }
-      // const menuItem = document.createElement('a');
-      // menuItem.setAttribute('class', 'btn-in first');
-      // menuItem.textContent = authElements[key];
-      // menuItem.href = `/${key}`;
-      // menuItem.dataset.section = key;
-      // root.appendChild(menuItem);
+      const menuItem = document.createElement('a');
+      menuItem.setAttribute('class', 'btn-in first');
+      menuItem.textContent = authElements[key];
+      menuItem.href = `/${key}`;
+      menuItem.dataset.section = key;
+      root.appendChild(menuItem);
     });
   } else {
     Object.keys(unauthElements).forEach(function(key) {

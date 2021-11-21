@@ -9,13 +9,6 @@ import Router from '../../utils/router';
 import {getMonth, getTimeFromMins} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch';
 
-const toggle = {
-    starred: 'star.png',
-    unstarred: 'unstar.png',
-    wl: 'wl.png',
-    unwl: 'unwl.png',
-};
-
 /**
  * Модуль создания страницы фильма
  * @function
@@ -125,71 +118,11 @@ const showActors = (actors) => {
 
 
 const likeFilm = (filmId) => {
-  const url = serverLocate + '/films/starred/' + filmId;
-  fetch(url, {
-    method: 'POST',
-  },
-  ).catch((error) => {
-    console.log(error);
-  },
-  );
+    const url = serverLocate + "/films/starred/" + filmId
+    fetchRequest(url);
 };
-//
-// const favoritePlaylist = (filmId) => {
-//   const url = serverLocate+'/films/starred/'+filmId;
-//   let method = 'POST';
-//   const btn = document.querySelector('.starred-btn');
-//   if (btn.dataset['on'] === true) {
-//         method = 'DELETE';
-//     }
-//
-//
-//     fetchRequest(url, method).then(
-//         (response) => {
-//             if (!response.ok()) {
-//                 // toggle button image
-//                 if (btn.dataset['on'] === true) {
-//                     btn.src = toggle.unstarred;
-//                     btn.dataset['on'] = false;
-//                 } else {
-//                     btn.src = toggle.starred;
-//                     btn.dataset['on'] = true;
-//                 }
-//             } else {
-//                 throw 'not updated';
-//             }
-//         },
-//     ).catch((error) => {
-//             console.log(error);
-//         },
-//     );
-// };
-//
-// const watchlistPlaylist = (filmId) => {
-//     const url = serverLocate+'/films/wl/'+filmId;
-//     let method = 'POST';
-//     const btn = document.querySelector('.wl-btn');
-//     if (btn.dataset['on'] === true) {
-//         method = 'DELETE';
-//     }
-//
-//     fetchRequest(url, method).then(
-//         (response) => {
-//             if (!response.ok()) {
-//                 // toggle button image
-//                 if (btn.dataset['on'] === true) {
-//                     btn.src = toggle.unwl;
-//                     btn.dataset['on'] = false;
-//                 } else {
-//                     btn.src = toggle.wl;
-//                     btn.dataset['on'] = true;
-//                 }
-//             } else {
-//                 throw 'not updated';
-//             }
-//         },
-//     ).catch((error) => {
-//             console.log(error);
-//         },
-//     );
-// };
+
+const watchLater = (filmId) => {
+    const url = serverLocate + "/films/wl/" + filmId
+    fetchRequest(url);
+};
