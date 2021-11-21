@@ -7,6 +7,7 @@ import actorsLinePug from '../pages/film/actorsLine.pug';
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
 import {getMonth, getTimeFromMins} from '../utils/validate.js';
+import {fetchRequest} from '../network/fetch.js'
 
 /**
  * Модуль создания страницы фильма
@@ -49,6 +50,13 @@ const showFilm = (filmId) => {
           event.preventDefault();
           Router.go('/player/'+result.src[0], 'Player');
         });
+
+        const likeBtn = document.getElementById('re-like');
+          likeBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            likeFilm(filmId);
+        });
+
         showActors(result.actors);
       },
   ).catch((error) => {
@@ -113,10 +121,5 @@ const showActors = (actors) => {
 
 const likeFilm = (filmId) => {
     const url = serverLocate + "/films/starred/" + filmId
-    fetch(url, {
-            method: 'POST',
-        },
-    ).catch((error) => {
-        console.log(error);
-    });
+    fetchRequest(url, 'GET');
 };
