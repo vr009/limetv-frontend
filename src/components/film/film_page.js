@@ -7,6 +7,14 @@ import actorsLinePug from '../pages/film/actorsLine.pug';
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
 import {getMonth, getTimeFromMins} from '../utils/validate.js';
+import {fetchRequest} from '../network/fetch';
+
+const toggle = {
+    starred: 'star.png',
+    unstarred: 'unstar.png',
+    wl: 'wl.png',
+    unwl: 'unwl.png',
+};
 
 /**
  * Модуль создания страницы фильма
@@ -125,3 +133,62 @@ const likeFilm = (filmId) => {
         console.log(error);
     }
 }
+
+const favoritePlaylist = (filmId) => {
+    const url = serverLocate+'/films/starred/'+filmId;
+    let method = 'POST';
+    const btn = document.querySelector('.starred-btn');
+    if (btn.dataset['on'] === true) {
+        method = 'DELETE';
+    }
+
+
+    fetchRequest(url, method).then(
+        (response) => {
+            if (!response.ok()) {
+                // toggle button image
+                if (btn.dataset['on'] === true) {
+                    btn.src = toggle.unstarred;
+                    btn.dataset['on'] = false;
+                } else {
+                    btn.src = toggle.starred;
+                    btn.dataset['on'] = true;
+                }
+            } else {
+                throw 'not updated';
+            }
+        },
+    ).catch((error) => {
+            console.log(error);
+        },
+    );
+};
+
+const watchlistPlaylist = (filmId) => {
+    const url = serverLocate+'/films/wl/'+filmId;
+    let method = 'POST';
+    const btn = document.querySelector('.wl-btn');
+    if (btn.dataset['on'] === true) {
+        method = 'DELETE';
+    }
+
+    fetchRequest(url, method).then(
+        (response) => {
+            if (!response.ok()) {
+                // toggle button image
+                if (btn.dataset['on'] === true) {
+                    btn.src = toggle.unwl;
+                    btn.dataset['on'] = false;
+                } else {
+                    btn.src = toggle.wl;
+                    btn.dataset['on'] = true;
+                }
+            } else {
+                throw 'not updated';
+            }
+        },
+    ).catch((error) => {
+            console.log(error);
+        },
+    );
+};

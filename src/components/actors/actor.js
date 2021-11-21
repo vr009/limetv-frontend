@@ -4,7 +4,7 @@ import actorPagePug from '../pages/actors/actor.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
 import Router from '../../utils/router';
-import {getMonth} from "../utils/validate";
+import {getMonth} from '../utils/validate';
 
 
 export const createActor = (state) => {
