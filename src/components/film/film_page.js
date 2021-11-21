@@ -49,6 +49,11 @@ const showFilm = (filmId) => {
           event.preventDefault();
           Router.go('/player/'+result.src[0], 'Player');
         });
+        const likeBtn = document.getElementById('re-like');
+        likeBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            likeFilm(filmId);
+        });
         showActors(result.actors);
       },
   ).catch((error) => {
@@ -109,3 +114,14 @@ const showActors = (actors) => {
   },
   );
 };
+
+
+const likeFilm = (filmId) => {
+    url = serverLocate + "/films/starred/" + filmId
+    fetch(url, {
+            method: 'POST',
+        },
+    ).catch(error) {
+        console.log(error);
+    }
+}
