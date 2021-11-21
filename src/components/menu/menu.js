@@ -4,6 +4,7 @@ import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router';
 import '../pages/menu/menu.css';
 import menuPug from '../pages/menu/menu.pug';
+import {createSearchPage} from '../search/search';
 
 const genres = [['Horror', 'Movie', 'Comedy'],['SciFi', 'Documentary', 'Cartoons']];
 
@@ -48,6 +49,13 @@ const menuRoutes = {
 const createTemplate = () => {
   const root = document.getElementById('root');
   root.innerHTML = menuPug();
+  // обработка отправки формы
+  const searchForm = document.getElementById('search-form');
+  searchForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const textSearch = document.getElementById('text_search').value;
+    createSearchPage(textSearch);
+  });
 };
 
 

@@ -13,15 +13,11 @@ div.menu
                         a(href="/")
                             span LimeTV
                 div.wrapper
-                    div.container-search
-                        input(type="text" class="input-text" placeholder="Поиск...")
-                        input(type="button" value="ПОИСК" class="close-btn")
-                     div.genres-field
-                        a(class="close-btn")
-                        each val, index in genres
-                            ul
-                            each genre in genres[index]
-                                li(class="test" dataset.section=genre) genre
+                    form(id="search-form" name="search" method="get" action="/")
+                        div.container-search
+                            input#text_search(type="text" class="input-text" placeholder="Поиск...")
+                            input(type="submit" value="ПОИСК" class="close-btn")
+
 
                 div(id="menu-items")
 

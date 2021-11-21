@@ -2,17 +2,17 @@ div.search_results
     h1.title Результаты поиска
     if result.profiles
         h3.title Профили
-        each profile in profiles
+        each profile in result.profiles
             a(class="item")
                 img(src=profile.avatar)
     if result.films
         h3.title Фильмы
-        each film in films
+        each film in result.films
             a(class="item")
                 img(src=film.src[0] id=film.id)
 
     if result.actors
         h3.title Актеры
-            each actor in actors
+            each actor in result.actors
                 a(class="item")
                     img(src=actor.avatar)

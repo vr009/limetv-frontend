@@ -4,8 +4,7 @@ import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
 import Router from '../../utils/router';
-import {fetchRequest} from "../network/fetch";
-import {response} from "express";
+import {fetchRequest} from '../network/fetch.js';
 
 /**
  * Модуль создания экрана фильмов
@@ -122,10 +121,8 @@ export const showGenresFilmsList = (genre) => {
             Router.go('/film/' + result[i].id.toString());
           });
         }
-
-      }
+      },
   ).catch((error) => {
     console.log(error);
-  })
-
-}
+  });
+};
