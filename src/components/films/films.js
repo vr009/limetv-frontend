@@ -5,6 +5,7 @@ import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
 import Router from '../../utils/router';
 import {fetchRequest} from '../network/fetch.js';
+import {createMenu} from '../menu/menu';
 
 /**
  * Модуль создания экрана фильмов
@@ -15,8 +16,17 @@ export const createFilms = () => {
 };
 
 const createBase = () => {
+  createMenu();
+  if (document.getElementById('stuff') === null) {
+    const root = document.getElementById('root');
+    root.innerHTML = '';
+    const stuff = document.createElement('div');
+    stuff.setAttribute('id', 'stuff');
+    root.appendChild(stuff);
+  }
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
+
   const first = document.createElement('div');
   first.setAttribute('id', 'first-root');
   stuff.appendChild(first);

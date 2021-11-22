@@ -1,5 +1,5 @@
 import {createFilms} from '../components/films/films';
-import {authModule, renderAuth} from '../components/auth/auth';
+import {authModule} from '../components/auth/auth';
 import {createMenu} from '../components/menu/menu';
 import {offline} from '../components/offline/offline.js';
 import {createActor} from '../components/actors/actor';
@@ -8,7 +8,7 @@ import {createFilmPage} from '../components/film/film_page';
 import {createProfilePage} from '../view/createProfilePage';
 import {logOut} from '../components/auth/auth';
 import {createPlayerPage} from '../components/player/player';
-import {createUserInfoPage} from '../components/profile_info/profile_info'
+import {createUserInfoPage} from '../components/profile_info/profile_info';
 
 export class Router {
   constructor() {
@@ -16,11 +16,8 @@ export class Router {
       '/': createFilms,
       '/signup': authModule.renderRegistration,
       '/login': authModule.renderAuth,
-      '/films': createFilms,
       '/settings': createProfilePage,
       '/profile': createUserInfoPage,
-      // "/film": CreateChatView,
-      '/player': createPlayerPage,
       '/logout': logOut,
     };
 
@@ -44,7 +41,6 @@ export class Router {
       createMenu();
     }
 
-
     if (needPush === true) {
       console.log('GO path:' + path);
       if (state == null) {
@@ -64,7 +60,6 @@ export class Router {
     const func = this.routs[path];
 
     if (func === undefined) {
-      // this.go('/', 'Main', null, true, true); // плеер
       if (path.includes('/actor/')) {
         const uuid = path.substring('/actor/'.length, path.length);
         if (!uuidValidate(uuid)) {
