@@ -46,9 +46,9 @@ const updateUserPic = (event) => {
         if (!result.ok) {
           throw error;
         }
-        showErrors('updated');
+        showErrors('Успешно');
       }).catch(function(error) {
-        showErrors('not updated');
+        showErrors('Не обновлено');
       });
     };
     reader.readAsDataURL(target.files[0]);
