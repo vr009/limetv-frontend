@@ -35,7 +35,6 @@ export const createProfilePage = (draw) => {
                 ev.preventDefault();
                 Router.go('/profile', "Profile");
             });
-
             name.innerHTML = avatarPug({
               login: result,
             });

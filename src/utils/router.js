@@ -8,7 +8,8 @@ import {createFilmPage} from '../components/film/film_page';
 import {createProfilePage} from '../view/createProfilePage';
 import {logOut} from '../components/auth/auth';
 import {createPlayerPage} from '../components/player/player';
-import {createUserInfoPage} from '../components/profile_info/profile_info'
+import {createUserInfoPage} from '../components/profile_info/profile_info';
+import {createProfileSettingsPage} from '../components/profile/profilePage.js';
 
 export class Router {
   constructor() {
@@ -17,7 +18,7 @@ export class Router {
       '/signup': authModule.renderRegistration,
       '/login': authModule.renderAuth,
       '/films': createFilms,
-      '/settings': createProfilePage,
+      '/settings': createProfileSettingsPage,
       '/profile': createUserInfoPage,
       // "/film": CreateChatView,
       '/player': createPlayerPage,

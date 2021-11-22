@@ -1,27 +1,31 @@
-import profilePug from '../pages/profile/profilePage.pug';
+import profilePug from './profile.pug';
 import {Router} from '../../utils/router.js';
 import {fetchRequest} from "../network/fetch.js";
-import searchPagePug from "../pages/search/search.pug";
+import {createProfile} from '../profile/profile.js';
+import {serverLocate} from '../../utils/locale.js';
+import {showErrors} from '../utils/errors.js';
 
+export const createProfileSettingsPage = () => {
+    const url = serverLocate+'/users/profile';
 
-export const createProfilePage = () => {
-  const url = serverLocate+'/users/profile'; // профиль вытащится из jwt
-    fetchRequest(url,'GET').then(
-      (response) => response.json(),
-  ).then(
-      (result) => {
-        const root = document.getElementById('stuff');
-        root.innerHTML = profilePug({
-          result: result,
-        });
-        const btn = root.querySelector('#settings');
-        btn.addEventListener('click', function(event) {
-          event.preventDefault();
-          Router.go('/settings', 'Settings');
-        });
-      },
-  ).catch((error) => {
-        console.log(error);
-    }
-    );
+    fetchRequest(url, 'GET', null).then(
+        (res) => {
+            return res.ok ? res : Promise.reject(res);
+        },
+    ).then(
+        (response) => {
+            return response.json();
+        },
+    ).then(
+        (result) => {
+            const root = document.getElementById('stuff');
+            root.innerHTML = profilePug({
+                login: result.login,
+                about: result.about,
+            });
+            createProfile(result);
+        },
+    ).catch(function(error) {
+        showErrors('Ошибка отправки запроса');
+    });
 };
