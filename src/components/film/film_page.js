@@ -64,6 +64,13 @@ const showFilm = (filmId) => {
             event.preventDefault();
             likeFilm(filmId);
         });
+
+        const wlBtn = document.getElementById('re-like');
+        wlBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            watchLater(filmId);
+        });
+
         showActors(result.actors);
       },
   ).catch((error) => {

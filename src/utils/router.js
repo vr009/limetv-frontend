@@ -5,10 +5,10 @@ import {offline} from '../components/offline/offline.js';
 import {createActor} from '../components/actors/actor';
 import {validate as uuidValidate} from 'uuid';
 import {createFilmPage} from '../components/film/film_page';
-import {createProfilePage} from '../view/createProfilePage';
 import {logOut} from '../components/auth/auth';
 import {createPlayerPage} from '../components/player/player';
-import {createUserInfoPage} from '../components/profile_info/profile_info';
+import {createUserInfoPage} from '../components/profile_info/profile_info.js';
+import {createProfileSettingsPage} from '../components/profile/profilePage.js';
 
 export class Router {
   constructor() {
@@ -16,8 +16,9 @@ export class Router {
       '/': createFilms,
       '/signup': authModule.renderRegistration,
       '/login': authModule.renderAuth,
-      '/settings': createProfilePage,
+      '/settings': createProfileSettingsPage,
       '/profile': createUserInfoPage,
+      '/player': createPlayerPage,
       '/logout': logOut,
     };
 
