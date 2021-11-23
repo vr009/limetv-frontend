@@ -18,6 +18,7 @@
     background-color: unset;
     border: solid  #8bbf51;
     border-radius: 62%;
+    object-fit: cover;
 }
 
 .profile_pic img {
