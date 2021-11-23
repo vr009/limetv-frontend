@@ -52,6 +52,7 @@ const showFilm = (filmId) => {
         result.release_rus = getMonth(new Date(result.release_rus));
         rootFilm.innerHTML = filmPagePug({
           result: result,
+          seasons: result.seasons,
         });
         const watchBtn = document.querySelector('.btn-watch');
         watchBtn.addEventListener('click', function(event) {
