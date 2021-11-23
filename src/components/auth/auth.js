@@ -109,12 +109,16 @@ export const logOut = () => {
   const url = serverLocate+'/users/logout';
 
   fetchRequest(url, 'POST',
-  ).catch(function(error) {
-  });
+  ).then((result)=>{
+    createElements();
+    createFilms();
+    Router.go('/', 'LimeTV', null, true, true);
 
-  createElements();
-  createFilms();
-  Router.go('/', 'LimeTV', null, true, false);
+  }).catch(function(error) {
+    createElements();
+    createFilms();
+    Router.go('/', 'LimeTV', null, true, false);
+  });
 };
 
 // отрисовка профиля
