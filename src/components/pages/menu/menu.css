@@ -395,6 +395,7 @@ label {
     background-color: unset;
     border: solid  #23e007;
     border-radius: 62%;
+    object-fit: cover;
 }
 
 .ava img {
