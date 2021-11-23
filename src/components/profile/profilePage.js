@@ -22,6 +22,7 @@ export const createProfileSettingsPage = () => {
             root.innerHTML = profilePug({
                 login: result.login,
                 about: result.about,
+                avatar: result.avatar,
             });
             createProfile(result);
         },
