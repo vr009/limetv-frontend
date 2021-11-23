@@ -82,6 +82,7 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                         div Качество
                         span(class="pug-text") SD, HD, Full HD
     section.selection-4
+    if result.is_series
         div.seasons-container
             each season in seasons
                 h1.selection-label Сезон
