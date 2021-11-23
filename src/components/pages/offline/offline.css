@@ -1,12 +1,14 @@
 .offline_page_div {
-    --pin-bg-color: #e0e0e0;
-    background:  var(--pin-bg-color);
+    --pin-bg-color: #0000006e;
+    background: var(--pin-bg-color);
     margin-left: auto;
     margin-right: auto;
     max-width: 40%;
     margin-top: 50px;
     padding: 20px;
     border-radius: 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .offline_page_ul {
@@ -14,25 +16,27 @@
 }
 
 a.blubtn {
-    width:150px;
-    text-align:center;
+    width: 150px;
+    text-align: center;
     display: block;
-    color: black;
+    color: #ffffff;
     cursor: pointer;
     text-decoration: none;
-    border-radius: 50px;
-    transition: .5s;
-    border: solid  #8bbf51;
+    border-radius: 10px;
+    -webkit-transition: .5s;
+    transition: .3s;
+    font-family: 'Montserrat', sans-serif;
+    border: solid #c73e77;
     padding: 11px 11px;
     margin: 0 auto;
 }
 
 a.blubtn:hover {
-    background: #8bbf51;
+    background: #c73e77;
     display: block;
-    color: black;
+    color: #2ec614;
     cursor: pointer;
     transition: .5s;
-    border-radius: 50px;
-    border: solid #8bbf51;
+    border-radius: 10px;
+    border: solid #2ec614;
 }
