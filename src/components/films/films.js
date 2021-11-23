@@ -90,7 +90,6 @@ export const showFilmsList = (relUrl, rootId, title) => {
         }
         for (let i = 0; i < result.length; i++) {
           const film = document.getElementById(result[i].id+rootId);
-          console.log(film);
           film.addEventListener('click', function(event) {
             event.preventDefault();
             Router.go('/film/' + result[i].id.toString(), result[i].title);

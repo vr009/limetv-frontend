@@ -79,7 +79,7 @@ export class Router {
         const src = path.substring('/player/'.length, path.length);
         createPlayerPage(src);
       } else {
-        this.go('/', 'Main', null, true, true);
+        this.go('/', 'LimeTV', null, true, true);
       }
     } else {
       console.log('ROUTE FUNC:', func);

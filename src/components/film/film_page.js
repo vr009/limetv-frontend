@@ -90,8 +90,6 @@ const showActors = (actors) => {
     actorsBody.push(bdy);
   }
 
-  console.log(JSON.stringify(actorsBody));
-
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(actorsBody),
@@ -100,23 +98,35 @@ const showActors = (actors) => {
       (response) => response.json(),
   ).then(
       (result) => {
-        console.log('here');
-        console.log(result);
+        let salt = 'many-actors';
         const manyActors = document.getElementById('many-actors');
         manyActors.innerHTML = actorsLinePug({
           actors: result,
+          salt: salt,
         });
 
+        for (let i = 0; i < result.length; i++) {
+            const actorContainer = document.getElementById(result[i].id+salt);
+            actorContainer.addEventListener('click', function(event) {
+                event.preventDefault();
+                const rootPage = document.getElementById('stuff');
+                rootPage.innerHTML = '';
+                Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
+            });
+        }
+
+        salt = 'root-actors';
         const root = document.getElementById('root-actors');
         if (result.length > 3) {
           result = result.slice(0, 3);
         }
         root.innerHTML = actorsLinePug({
           actors: result,
+          salt: salt,
         });
 
         for (let i = 0; i < result.length; i++) {
-          const actorContainer = document.getElementById(result[i].id);
+          const actorContainer = document.getElementById(result[i].id+salt);
           actorContainer.addEventListener('click', function(event) {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');

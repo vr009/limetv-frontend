@@ -61,7 +61,6 @@ const updateUserPic = (event) => {
  * Обновление пароля пользователя
  */
 const updateUserPassword = (event) => {
-  console.log(event);
   event.preventDefault();
   const form = document.getElementById('pass_form');
   const password = form.querySelector('input').value;
@@ -90,7 +89,6 @@ const updateUserPassword = (event) => {
  * @param event
  */
 const updateUserBio = (event) => {
-  console.log(event);
   event.preventDefault();
   const form = document.getElementById('bio_form');
   const bio = form.querySelector('textarea').value;

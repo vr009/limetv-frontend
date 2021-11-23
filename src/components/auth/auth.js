@@ -131,7 +131,6 @@ export const renderRegistration = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    console.log('Sign Up');
     const name = document.getElementById('login_field').value;
     const pwd = document.getElementById('password_field').value;
     let msg = '';

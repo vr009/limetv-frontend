@@ -87,7 +87,7 @@ body {
     display: inline-block;
     margin: 0;
     color: azure;
-    background-image: url(../images/img.png);
+    /*background-image: url(../images/img.png);*/
     /*background-image: url(../images/);*/
 }
 

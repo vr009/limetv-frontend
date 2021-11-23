@@ -146,7 +146,6 @@ export class Player {
 
 
       this.video.currentTime = Number(percent.toFixed(2)) * this.video.duration;
-      console.log(this.video.currentTime);
     });
   }
 

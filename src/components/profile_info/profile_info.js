@@ -44,7 +44,6 @@ const showUserInfo = () => {
         (response) => response.json(),
     ).then(
         (result) => {
-            console.log(result);
             const root = document.getElementById('one_user');
             root.innerHTML = userInfoPug({
                 login: result.login,
