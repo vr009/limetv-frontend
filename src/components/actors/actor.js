@@ -8,11 +8,10 @@ import {getMonth} from '../utils/validate';
 
 
 export const createActor = (state) => {
-  const filmGlobal = document.getElementById('films-container');
-  if (filmGlobal != null) {
-    filmGlobal.innerHTML = '';
-  }
   const rootGlobal = document.getElementById('stuff');
+  if (rootGlobal != null) {
+    rootGlobal.innerHTML = '';
+  }
 
   const actor = document.createElement('div');
   actor.setAttribute('id', 'one_actor');
@@ -83,7 +82,7 @@ function getFilmsByActor(state) {
 
         for (let i=0; i < result.length; i++) {
           const t = document.getElementById(result[i].id);
-          t.addEventListener('click', function (event) {
+          t.addEventListener('click', function(event) {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';

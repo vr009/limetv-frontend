@@ -1,6 +1,5 @@
 import '../pages/film/film_page.css';
 import '../../components/pages/menu/menu.css';
-import {Player} from '../player/player';
 import {showErrors} from '../utils/errors.js';
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
@@ -61,14 +60,14 @@ const showFilm = (filmId) => {
         });
         const likeBtn = document.getElementById('re-like');
         likeBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-            likeFilm(filmId);
+          event.preventDefault();
+          likeFilm(filmId);
         });
 
         const wlBtn = document.getElementById('re-like');
         wlBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-            watchLater(filmId);
+          event.preventDefault();
+          watchLater(filmId);
         });
 
         showActors(result.actors);
@@ -106,13 +105,13 @@ const showActors = (actors) => {
         });
 
         for (let i = 0; i < result.length; i++) {
-            const actorContainer = document.getElementById(result[i].id+salt);
-            actorContainer.addEventListener('click', function(event) {
-                event.preventDefault();
-                const rootPage = document.getElementById('stuff');
-                rootPage.innerHTML = '';
-                Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
-            });
+          const actorContainer = document.getElementById(result[i].id+salt);
+          actorContainer.addEventListener('click', function(event) {
+            event.preventDefault();
+            const rootPage = document.getElementById('stuff');
+            rootPage.innerHTML = '';
+            Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
+          });
         }
 
         salt = 'root-actors';
@@ -144,11 +143,11 @@ const showActors = (actors) => {
 
 
 const likeFilm = (filmId) => {
-    const url = serverLocate + "/films/starred/" + filmId
-    fetchRequest(url);
+  const url = serverLocate + '/films/starred/' + filmId;
+  fetchRequest(url);
 };
 
 const watchLater = (filmId) => {
-    const url = serverLocate + "/films/wl/" + filmId
-    fetchRequest(url);
+  const url = serverLocate + '/films/wl/' + filmId;
+  fetchRequest(url);
 };
