@@ -11,8 +11,27 @@ export const createSearchPage = (keyword) => {
       (response) => response.json(),
   ).then(
       (result) => {
-        const root = document.getElementById('stuff');
-        root.innerHTML = searchPagePug({result: result});
+        const root = document.getElementById('close_focus');
+        root.innerHTML = searchPagePug({
+          result: result,
+          salt: 'close_focus',
+        });
+        const res = ['actors', 'films'];
+        for (let j = 0; j <= 1; j++) {
+          if (result[res[j]].length !== 0) {
+            for (let i = 0; i < result[res[j]].length; i++) {
+              const film = document.getElementById(result[res[j]][i].id + 'close_focus');
+              film.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (j === 0) {
+                  Router.go('/actor/' + result[res[j]][i].id.toString());
+                } else {
+                  Router.go('/film/' + result[res[j]][i].id.toString());
+                }
+              });
+            }
+          }
+        }
       },
       // добавить листенеры
   ).catch((error) => {

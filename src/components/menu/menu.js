@@ -5,6 +5,7 @@ import Router from '../../utils/router';
 import '../pages/menu/menu.css';
 import menuPug from '../pages/menu/menu.pug';
 import {createSearchPage} from '../search/search';
+import searchPagePug from '../pages/search/search.pug';
 
 const genres = [['Horror', 'Movie', 'Comedy'],['SciFi', 'Documentary', 'Cartoons']];
 
@@ -50,11 +51,34 @@ const createTemplate = () => {
   const root = document.getElementById('root');
   root.innerHTML = menuPug();
   // обработка отправки формы
-  const searchForm = document.getElementById('search-form');
-  searchForm.addEventListener('submit', function(event) {
+  const search = document.getElementById('text_search');
+
+  search.addEventListener('focus', function(event) {
     event.preventDefault();
-    const textSearch = document.getElementById('text_search').value;
-    createSearchPage(textSearch);
+    if (document.getElementById('close_focus') == null) {
+      const search = document.getElementById('stuff');
+      const me = document.createElement('div');
+      me.setAttribute('class', 'back-search-fon');
+      me.setAttribute('id', 'close_focus');
+      search.appendChild(me);
+      const root = document.getElementById('close_focus');
+      // временно
+      const result = {'actors': [], 'films': []};
+      root.innerHTML = searchPagePug({result: result});
+    }
+  });
+
+  // не придумал
+  // search.addEventListener('blur', function(event) {
+  //   event.preventDefault();
+  //   const search = document.getElementById('close_focus');
+  //   search.parentNode.removeChild(search);
+  // });
+
+  const searchForm = document.getElementById('search-form');
+  searchForm.addEventListener('input', function(event) {
+    event.preventDefault();
+    createSearchPage(search.value);
   });
 };
 

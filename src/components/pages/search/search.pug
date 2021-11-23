@@ -1,18 +1,28 @@
 div.search_results
-    h1.title Результаты поиска
-    if result.profiles
-        h3.title Профили
-        each profile in result.profiles
-            a(class="item")
-                img(src=profile.avatar)
-    if result.films
-        h3.title Фильмы
-        each film in result.films
-            a(class="item")
-                img(src=film.pic[0] id=film.id)
+    h1.title-search Результаты поиска
+    if result.films.length !== 0
+        div.films-container(style="padding-top: 10px")
+            h3.tit-in-search Фильмы
+            div.contentFilms
+                each film in result.films
+                    div(id=film.id + salt).div-search-film
+                        a(class="items")
+                            img(src=film.pic[0] style="border-radius: 7px;")
+                        span.name-film #{film.title+' '}
+                        span.name-film #{' (' + film.year+')'}
 
-    if result.actors
-        h3.title Актеры
-            each actor in result.actors
-                a(class="item")
-                    img(src=actor.avatar)
+    if result.actors.length !== 0
+        div.films-container(style="padding-top: 10px")
+            h3.tit-in-search Актеры
+            div.contentFilms
+                each actor in result.actors
+                    div(id=actor.id + salt).div-search-film(style="height: 170px;")
+                        a(class="items" style="width: 130px;")
+                            img(src=actor.avatar style="border-radius: 7px; max-width: 100px;")
+                        span.name-film #{actor.name + ' '}
+                        span.name-film #{actor.surname}
+
+
+    if result.actors.length === 0 && result.films.length === 0
+        div.films-container(style="padding-top: 10px")
+            h3.tit-in-search Ничего не найдено
