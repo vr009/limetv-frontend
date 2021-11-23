@@ -32,8 +32,8 @@ export const createProfilePage = (draw) => {
             const name = document.createElement('a');
             name.setAttribute('id', 'me-av');
             name.addEventListener('click', function(ev) {
-                ev.preventDefault();
-                Router.go('/profile', "Profile");
+              ev.preventDefault();
+              Router.go('/profile', 'Профиль');
             });
             name.innerHTML = avatarPug({
               login: result,

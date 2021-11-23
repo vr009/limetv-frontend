@@ -24,9 +24,9 @@ export const createSearchPage = (keyword) => {
               film.addEventListener('click', function(event) {
                 event.preventDefault();
                 if (j === 0) {
-                  Router.go('/actor/' + result[res[j]][i].id.toString());
+                  Router.go('/actor/' + result[res[j]][i].id.toString(), result[res[j]][i].name+' '+result[res[j]][i].surname);
                 } else {
-                  Router.go('/film/' + result[res[j]][i].id.toString());
+                  Router.go('/film/' + result[res[j]][i].id.toString(), result[res[j]][i].name+' '+result[res[j]][i].surname);
                 }
               });
             }
@@ -48,7 +48,7 @@ const addListeners = (result) => {
     const element = document.getElementById(result.films[i].id);
     element.addEventListener('click', function(evt) {
       evt.preventDefault();
-      Router.go('/film/' + result.films[i].id, 'film');
+      Router.go('/film/' + result.films[i].id, result.films[i].title);
     });
   }
 
@@ -57,7 +57,7 @@ const addListeners = (result) => {
     const element = document.getElementById(result.actors[i].id);
     element.addEventListener('click', function(evt) {
       evt.preventDefault();
-      Router.go('/actor/'+result[i].id, 'actor');
+      Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
     });
   }
 

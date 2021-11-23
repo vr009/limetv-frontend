@@ -80,7 +80,7 @@ export const renderAuth = () => {
         }
       }).then(
           (result) => {
-            Router.go('/', 'main', null, true, true);
+            Router.go('/', 'LimeTV', null, true, true);
           },
       ).catch(function(error) {
         showErrors('Неверный логин или пароль');
@@ -99,7 +99,7 @@ export const logOut = () => {
 
   createElements();
   createFilms();
-  Router.go('/', 'main', null, true, false);
+  Router.go('/', 'LimeTV', null, true, false);
 };
 
 // отрисовка профиля
@@ -153,7 +153,7 @@ export const renderRegistration = () => {
         }
       }).then(
           (result) => {
-            Router.go('/', 'main', null, true, true);
+            Router.go('/', 'LimeTV', null, true, true);
           },
       ).catch(function() {
         showErrors('Пользователь с таким именем уже существует');

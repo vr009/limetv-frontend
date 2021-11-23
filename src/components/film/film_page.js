@@ -57,7 +57,7 @@ const showFilm = (filmId) => {
         const watchBtn = document.querySelector('.btn-watch');
         watchBtn.addEventListener('click', function(event) {
           event.preventDefault();
-          Router.go('/player/'+result.src[0], 'Player');
+          Router.go('/player/'+result.src[0], result.title);
         });
         const likeBtn = document.getElementById('re-like');
         likeBtn.addEventListener('click', function(event) {
@@ -121,7 +121,7 @@ const showActors = (actors) => {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
-            Router.go('/actor/'+result[i].id, 'actor');
+            Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
           });
         }
       },

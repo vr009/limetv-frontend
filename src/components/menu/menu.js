@@ -12,28 +12,28 @@ const genres = [['Horror', 'Movie', 'Comedy'],['SciFi', 'Documentary', 'Cartoons
 const application = document.getElementById('root');
 
 const goMain = () => {
-  Router.go('/', 'Main');
+  Router.go('/', 'LimeTV');
 };
 
 const goActor = () => {
-  Router.go('/actor', 'actor'); // временно
+  Router.go('/actor', 'Актер'); // временно
 };
 
 const goSignup = () => {
-  Router.go('/signup', 'signup');
+  Router.go('/signup', 'Регистрация');
 };
 
 const goLogin = () => {
-  Router.go('/login', 'login');
+  Router.go('/login', 'Вход');
 };
 
 const goProfile = () => {
-  Router.go('/profile', 'profile');
+  Router.go('/profile', 'Профиль');
 };
 
 
 const goLogout = () => {
-  Router.go('/logout', 'logout', null, true, false);
+  Router.go('/logout', 'Выход', null, true, false);
 };
 
 // элементы роутинга

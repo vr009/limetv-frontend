@@ -58,7 +58,7 @@ const showUserInfo = () => {
                 event.preventDefault();
                 const rootPage = document.getElementById('stuff');
                 rootPage.innerHTML = '';
-                Router.go('/settings');
+                Router.go('/settings', 'Настройки');
             });
         },
     ).catch((error) => {

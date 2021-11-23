@@ -87,7 +87,7 @@ function getFilmsByActor(state) {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
-            Router.go('/film/' + result[i].id.toString());
+            Router.go('/film/' + result[i].id.toString(), result[i].title);
           });
         }
       },

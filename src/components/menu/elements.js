@@ -22,7 +22,7 @@ export const createElements = (authed) => {
   const menuLogo = document.getElementById('logo-start');
   menuLogo.addEventListener('click', function(event) {
     event.preventDefault();
-    Router.go('/', 'main', null, true, false);
+    Router.go('/', 'LimeTV', null, true, false);
   });
   const root = document.getElementById('menu-items');
   root.innerHTML = '';

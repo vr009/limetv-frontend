@@ -80,12 +80,12 @@ export const showFilmsList = (relUrl, rootId, title) => {
           const playBtn = document.querySelector('.play-text');
           playBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/player/' + result[0].src[0]);
+            Router.go('/player/' + result[0].src[0], result[0].title);
           });
           const firstfilm = document.getElementById('first_info');
           firstfilm.addEventListener('click', function(ev) {
             ev.preventDefault();
-            Router.go('/film/' + result[0].id);
+            Router.go('/film/' + result[0].id, result[0].title);
           });
         }
         for (let i = 0; i < result.length; i++) {
@@ -93,7 +93,7 @@ export const showFilmsList = (relUrl, rootId, title) => {
           console.log(film);
           film.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/film/' + result[i].id.toString());
+            Router.go('/film/' + result[i].id.toString(), result[i].title);
           });
         }
       },
@@ -128,7 +128,7 @@ export const showGenresFilmsList = (genre) => {
           const film = document.getElementById(result[i].id);
           film.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/film/' + result[i].id.toString());
+            Router.go('/film/' + result[i].id.toString(), result[i].title);
           });
         }
       },
