@@ -83,9 +83,8 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                         span(class="pug-text") SD, HD, Full HD
     section.selection-4
         div.seasons-container
-            - var i = 0;
             each season in seasons
-                h1.selection-label Сезон #{i++}
+                h1.selection-label Сезон
                 each filmPic in season.Pics
                     a(class="item")
                         img(src=filmPic id=filmPic + salt style="border-radius: 15px;")
