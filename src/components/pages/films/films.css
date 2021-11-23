@@ -6,6 +6,29 @@
     /*background: url(../images/micro.svg);*/
     /*background: url(../images/play-white.svg);*/
     /*background: url(../images/heart.svg);*/
+    /*background-image: url(../images/eye.svg);*/
+}
+
+.input-icon {
+    width: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: all .4s ease;
+    right: 0;
+    float: right;
+    margin-top: -43px;
+    z-index: 3;
+    position: relative;
+    margin-right: 30px;
+}
+
+.input-icon.selected {
+    background-color: #dd3279ab;
+    border-radius: 10px;
+}
+
+.input-icon img {
+    max-width: 20px;
 }
 
 .info-button {
@@ -43,10 +66,12 @@
 
 .info-text:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .play-text:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .start-text {
@@ -67,4 +92,8 @@
 
 .selection-film {
     pointer-events: all;
+}
+
+.point {
+    cursor: pointer;
 }

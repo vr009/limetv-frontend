@@ -54,6 +54,21 @@ export const renderAuth = () => {
 
   reg.innerHTML = AuthPug();
 
+  const eye = document.getElementById('icon');
+  eye.addEventListener('click', function(event) {
+    event.preventDefault();
+    const passField = document.getElementById('password_field');
+    const icon = document.getElementById('icon');
+
+    if (passField.type === 'password') {
+      passField.type = 'text';
+      icon.classList.add('selected');
+    } else {
+      passField.type = 'password';
+      icon.classList.remove('selected');
+    }
+  });
+
   // обработка отправки формы
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
@@ -126,6 +141,21 @@ export const renderRegistration = () => {
   root.appendChild(reg);
 
   reg.innerHTML = RegistrationPug();
+
+  const eye = document.getElementById('icon');
+  eye.addEventListener('click', function(event) {
+    event.preventDefault();
+    const passField = document.getElementById('password_field');
+    const icon = document.getElementById('icon');
+
+    if (passField.type === 'password') {
+      passField.type = 'text';
+      icon.classList.add('selected');
+    } else {
+      passField.type = 'password';
+      icon.classList.remove('selected');
+    }
+  });
 
   // обработка отправки формы
   const form = document.getElementById('form');
