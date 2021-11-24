@@ -5,7 +5,7 @@ import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router.js';
-import {getMonth, getTimeFromMins} from '../utils/validate.js';
+import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu.js';
 
@@ -50,9 +50,11 @@ const showFilm = (filmId) => {
         result.duration = getTimeFromMins(result.duration);
         result.release = getMonth(new Date(result.release));
         result.release_rus = getMonth(new Date(result.release_rus));
+        const countSeries = (result.is_series) ? result.seasons.length+' '+sklonenieSeries(result.seasons.length, ['сезон', 'сезона', 'сезонов']) : '';
         rootFilm.innerHTML = filmPagePug({
           result: result,
           seasons: result.seasons,
+          countSeries: countSeries,
         });
         const watchBtn = document.querySelector('.btn-watch');
         watchBtn.addEventListener('click', function(event) {
