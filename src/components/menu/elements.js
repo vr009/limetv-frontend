@@ -53,17 +53,3 @@ export const createElements = (authed) => {
     });
   }
 };
-
-
-const genresListeners = () => {
-  const root = document.getElementById('menu-items');
-  let genres = root.querySelectorAll('li');
-  for (let i = 0; i < genres.length; i++) {
-    genres[i].addEventListener('click', (event) => {
-       event.preventDefault();
-      showGenresFilmsList(genres[i].dataset.section)
-
-      //здесь получение информации о жанре
-    });
-  }
-}

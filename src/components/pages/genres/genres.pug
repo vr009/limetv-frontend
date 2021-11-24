@@ -1,2 +1,12 @@
 div.films-container
     h1.selection-genres #{genres}
+    div.contentFilm
+
+        if genre !== null
+            each gen in genre
+                a(class="item")
+                    img(src=gen.pic[0] id=gen.id style="border-radius: 15px;")
+
+        else
+            div.films-container(style="padding-top: 10px")
+                h3.tit-in-search(style="width: 200px; padding-left: 100px;") Ничего не найдено
