@@ -85,7 +85,9 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
         if result.is_series
             div.seasons-container
                 each season in seasons
-                    h1.selection-label Сезон
-                    each filmPic in season.Src
-                        a(class="item")
-                            img(src=filmPic id=filmPic + salt style="border-radius: 15px;")
+                    div.films-container
+                        h1.selection-label Сезон
+                        div.contentFilm
+                            each filmPic in season.Src
+                                a(class="item")
+                                    img(src=filmPic id=filmPic + salt style="border-radius: 15px;")
