@@ -62,11 +62,11 @@ const showFilm = (filmId) => {
 
 
         const likeBtn = document.getElementById('re-like');
-        const dislikeBtn = document.querySelector('.re-btn-unwatch');
+        const dislikeBtn = document.getElementsByClassName('.re-btn-unwatch');
         if (dislikeBtn !== null) {
             dislikeBtn.addEventListener('click', function (event) {
                 event.preventDefault();
-                dislikeFilm(filmId);
+                likeFilm(filmId);
             });
             likeBtn.classList.toggle('re-btn-unwatch');
         } else {
