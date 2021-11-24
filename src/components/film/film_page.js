@@ -4,10 +4,10 @@ import {showErrors} from '../utils/errors.js';
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
 import {serverLocate} from '../../utils/locale.js';
-import Router from '../../utils/router.js';
+import Router from '../../utils/router';
 import {getMonth, getTimeFromMins} from '../utils/validate.js';
-import {fetchRequest} from '../network/fetch.js';
-import {createMenu} from '../menu/menu.js';
+import {fetchRequest} from '../network/fetch';
+import {createMenu} from '../menu/menu';
 
 /**
  * Модуль создания страницы фильма
@@ -65,16 +65,6 @@ const showFilm = (filmId) => {
           likeFilm(filmId);
         });
 
-        for (var i = 0; i < length(result.seasons); i++) {
-            for (var j = 0; j < length(result.seasons[i].Pics); j++) {
-                const serie = document.getElementById(result.seasons[i].filmPic[j]+(i+1));
-                serie.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    Router.go('/player/'+result.seasons[i].Pics[j], result.title);
-                });
-            }
-        }
-
         const wlBtn = document.getElementById('re-like');
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
@@ -114,6 +104,16 @@ const showActors = (actors) => {
           actors: result,
           salt: salt,
         });
+
+        for (let i = 0; i < result.length; i++) {
+          const actorContainer = document.getElementById(result[i].id+salt);
+          actorContainer.addEventListener('click', function(event) {
+            event.preventDefault();
+            const rootPage = document.getElementById('stuff');
+            rootPage.innerHTML = '';
+            Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
+          });
+        }
 
         salt = 'root-actors';
         const root = document.getElementById('root-actors');
