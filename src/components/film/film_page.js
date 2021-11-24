@@ -4,10 +4,10 @@ import {showErrors} from '../utils/errors.js';
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';
 import {serverLocate} from '../../utils/locale.js';
-import Router from '../../utils/router';
+import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins} from '../utils/validate.js';
-import {fetchRequest} from '../network/fetch';
-import {createMenu} from '../menu/menu';
+import {fetchRequest} from '../network/fetch.js';
+import {createMenu} from '../menu/menu.js';
 
 /**
  * Модуль создания страницы фильма

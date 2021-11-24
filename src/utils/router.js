@@ -1,12 +1,13 @@
-import {createFilms} from '../components/films/films';
-import {authModule} from '../components/auth/auth';
-import {createMenu} from '../components/menu/menu';
+import {createFilms} from '../components/films/films.js';
+import {authModule} from '../components/auth/auth.js';
+import {createMenu} from '../components/menu/menu.js';
 import {offline} from '../components/offline/offline.js';
-import {createActor} from '../components/actors/actor';
+import {createActor} from '../components/actors/actor.js';
 import {validate as uuidValidate} from 'uuid';
-import {createFilmPage} from '../components/film/film_page';
-import {logOut} from '../components/auth/auth';
-import {createPlayerPage} from '../components/player/player';
+import {createFilmPage} from '../components/film/film_page.js';
+import {logOut} from '../components/auth/auth.js';
+import {createPlayerPage} from '../components/player/player.js';
+import {createGenres} from '../components/genres/genres.js';
 import {createUserInfoPage} from '../components/profile_info/profile_info.js';
 import {createProfileSettingsPage} from '../components/profile/profilePage.js';
 
@@ -78,6 +79,9 @@ export class Router {
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
         createPlayerPage(src);
+      } else if (path.includes('/genre/')) {
+        const genres = path.substring('/genre/'.length, path.length);
+        createGenres(genres);
       } else {
         this.go('/', 'LimeTV', null, true, true);
       }

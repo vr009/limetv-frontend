@@ -3,10 +3,10 @@ import {serverLocate} from '../../utils/locale.js';
 import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
-import Router from '../../utils/router';
+import Router from '../../utils/router.js';
 import {fetchRequest} from '../network/fetch.js';
-import {createMenu} from '../menu/menu';
-import carouselGenres from '../pages/films/carousel_genres.pug';
+import {createMenu} from '../menu/menu.js';
+import carouselGenres from '../pages/genres/carousel_genres.pug';
 
 /**
  * Модуль создания экрана фильмов
@@ -65,6 +65,14 @@ const createBase = () => {
   genres.innerHTML = carouselGenres({
     genres: Genres,
   });
+
+  for (let i = 0; i < Genres.length; i++) {
+    const film = document.getElementById(Genres[i].id);
+    film.addEventListener('click', function(event) {
+      event.preventDefault();
+      Router.go('/genre/' + Genres[i].name, Genres[i].name);
+    });
+  }
 
   showFilmsList('/selection', 'rec-root', 'Рекомендуем к просмотру');
   showFilmsList('/selection/newest', 'pop-root', 'Популярное на Lime TV');

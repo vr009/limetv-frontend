@@ -4,9 +4,9 @@ import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {createFilms} from '../films/films.js';
 import {createElements} from '../menu/elements.js';
-import Router from '../../utils/router';
+import Router from '../../utils/router.js';
 import RegistrationPug from '../pages/auth/registration.pug';
-import AuthPug from '../pages/auth/authorization.pug'
+import AuthPug from '../pages/auth/authorization.pug';
 
 const prefixUrlDEBUG = 'http://localhost';
 const prefixUrlDEPLOY = 'http://3.67.182.34';

@@ -1,10 +1,10 @@
-import {showErrors} from '../utils/errors';
+import {showErrors} from '../utils/errors.js';
 import {serverLocate} from '../../utils/locale.js';
 import actorPagePug from '../pages/actors/actor.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
-import Router from '../../utils/router';
-import {getMonth} from '../utils/validate';
+import Router from '../../utils/router.js';
+import {getMonth} from '../utils/validate.js';
 
 
 export const createActor = (state) => {
