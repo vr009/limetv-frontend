@@ -84,9 +84,10 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
         div.selection-3
         if result.is_series
             div.seasons-container
+                - var i = 0;
                 each season in seasons
                     div.films-container
-                        h1.selection-label Сезон
+                        h1.selection-label Сезон #{i++}
                         div.contentFilm
                             each filmPic in season.Src
                                 a(class="item")
