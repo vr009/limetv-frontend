@@ -79,7 +79,7 @@ const showFilm = (filmId) => {
         const likeBtn = document.getElementById('re-like');
         likeBtn.addEventListener('click', function (event) {
             event.preventDefault();
-            const isStarred = likeBtn.contains('re-btn-unwatch');
+            const isStarred = likeBtn.classList.contains('re-btn-unwatch');
             if (isStarred) {
                 dislikeFilm(filmId);
             } else {
