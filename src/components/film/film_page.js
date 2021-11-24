@@ -65,6 +65,16 @@ const showFilm = (filmId) => {
           likeFilm(filmId);
         });
 
+        for (var i = 0; i < length(result.seasons); i++) {
+            for (var j = 0; j < length(result.seasons[i].Pics); j++) {
+                const serie = document.getElementById(result.seasons[i].filmPic[j]+(i+1));
+                serie.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    Router.go('/player/'+result.seasons[i].Pics[j], result.title);
+                });
+            }
+        }
+
         const wlBtn = document.getElementById('re-like');
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
