@@ -61,22 +61,20 @@ const showFilm = (filmId) => {
         });
 
 
-        const likeBtn = document.getElementById('re-btn-watch');
-        const dislikeBtn = document.getElementById('re-btn-unwatch');
-        if (likeBtn !== null) {
-            likeBtn.addEventListener('click', function (event) {
-                event.preventDefault();
-                likeFilm(filmId);
-            });
-            likeBtn.classList.toggle('re-btn-watch');
-            likeBtn.classList.toggle('re-btn-unwatch');
-        } else if (dislikeBtn !== null) {
+        const likeBtn = document.getElementById('re-like');
+        const dislikeBtn = document.querySelector('.re-btn-unwatch');
+        if (dislikeBtn !== null) {
             dislikeBtn.addEventListener('click', function (event) {
                 event.preventDefault();
                 dislikeFilm(filmId);
             });
-            dislikeBtn.classList.toggle('re-btn-unwatch');
-            dislikeBtn.classList.toggle('re-btn-watch');
+            likeBtn.classList.toggle('re-btn-unwatch');
+        } else {
+            likeBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                dislikeFilm(filmId);
+            });
+            likeBtn.classList.toggle('re-btn-unwatch');
         }
 
         const wlBtn = document.getElementById('wl');
