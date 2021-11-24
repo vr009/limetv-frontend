@@ -6,6 +6,7 @@ import '../pages/films/films.css';
 import Router from '../../utils/router';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu';
+import carouselGenres from '../pages/films/carousel_genres.pug';
 
 /**
  * Модуль создания экрана фильмов
@@ -27,28 +28,43 @@ const createBase = () => {
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
 
+  // стартовый фильм
   const first = document.createElement('div');
   first.setAttribute('id', 'first-root');
   stuff.appendChild(first);
 
+  // секция каруселей
   const test = document.createElement('div');
   test.setAttribute('class', 'selection');
 
+  // карусель жанров
+  const genres = document.createElement('div');
+  genres.setAttribute('id', 'carousel-genres');
+  genres.setAttribute('class', 'selection-film');
+  test.appendChild(genres);
+
+  // карусель рекомендаций
   const recommended = document.createElement('div');
   recommended.setAttribute('id', 'rec-root');
   recommended.setAttribute('class', 'selection-film');
   test.appendChild(recommended);
 
+  // карусель популярного на LimeTV
   const popular = document.createElement('div');
   popular.setAttribute('id', 'pop-root');
   popular.setAttribute('class', 'selection-film');
   test.appendChild(popular);
 
+  // карусель нового на LimeTV
   const newest = document.createElement('div');
   newest.setAttribute('id', 'new-root');
   newest.setAttribute('class', 'selection-film');
   test.appendChild(newest);
   stuff.appendChild(test);
+
+  genres.innerHTML = carouselGenres({
+    genres: Genres,
+  });
 
   showFilmsList('/selection', 'rec-root', 'Рекомендуем к просмотру');
   showFilmsList('/selection/newest', 'pop-root', 'Популярное на Lime TV');
@@ -82,8 +98,8 @@ export const showFilmsList = (relUrl, rootId, title) => {
             event.preventDefault();
             Router.go('/player/' + result[0].src[0], result[0].title);
           });
-          const firstfilm = document.getElementById('first_info');
-          firstfilm.addEventListener('click', function(ev) {
+          const firstFilm = document.getElementById('first_info');
+          firstFilm.addEventListener('click', function(ev) {
             ev.preventDefault();
             Router.go('/film/' + result[0].id, result[0].title);
           });
@@ -135,3 +151,16 @@ export const showGenresFilmsList = (genre) => {
     console.log(error);
   });
 };
+
+const Genres = [
+  {id: 'comedy', name: 'Комедии', src: 'comedy.png'},
+  {id: 'fiantsy', name: 'Фэнтези', src: 'fantasy.png'},
+  {id: 'detective', name: 'Детективы', src: 'detective.png'},
+  {id: 'drama', name: 'Драмы', src: 'drama.png'},
+  {id: 'fantasy', name: 'Фантастика', src: 'future.png'},
+  {id: 'thrillers', name: 'Триллеры', src: 'thrillers.png'},
+  {id: 'fighter', name: 'Боевики', src: 'fighters.png'},
+  {id: 'adventure', name: 'Приключения', src: 'journey.png'},
+  {id: 'horrors', name: 'Ужасы', src: 'horrors.png'},
+  {id: 'cartoons', name: 'Мультфильмы', src: 'mult.png'},
+];

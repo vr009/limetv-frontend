@@ -79,18 +79,6 @@ body {
     transform: scale(1.05);
 }
 
-.selection-label {
-    font: bold 24px/40px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
-    padding-left: 60px;
-    padding-bottom: 10px;
-    padding-top: 25px;
-    display: inline-block;
-    margin: 0;
-    color: azure;
-    /*background-image: url(../images/img.png);*/
-    /*background-image: url(../images/);*/
-}
-
 .registration_block {
     position: relative;
     z-index: 2;
@@ -503,7 +491,7 @@ label {
 
 /*----------------*/
 .selection-label {
-    font: bold 24px/40px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    font: bold 36px/46px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     padding-left: 60px;
     padding-bottom: 10px;
     padding-top: 25px;
