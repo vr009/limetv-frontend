@@ -67,7 +67,7 @@ const showFilm = (filmId) => {
 
         for (var i = 0; i < length(result.seasons); i++) {
             for (var j = 0; j < length(result.seasons[i].Pics); j++) {
-                const serie = document.getElementById(result.seasons[i].filmPic[j]+i+1);
+                const serie = document.getElementById(result.seasons[i].filmPic[j]+(i+1));
                 serie.addEventListener('click', function(event) {
                     event.preventDefault();
                     Router.go('/player/'+result.seasons[i].Pics[j], result.title);
