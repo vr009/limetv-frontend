@@ -1,2 +1,6 @@
 div.films-container
     h1.selection-genres #{genres}
+    div.contentFilm
+        each gen in genre
+            a(class="item")
+                img(src=gen.pic[0] id=gen.id style="border-radius: 15px;")

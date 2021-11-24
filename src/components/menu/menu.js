@@ -7,8 +7,6 @@ import menuPug from '../pages/menu/menu.pug';
 import {createSearchPage} from '../search/search.js';
 import searchPagePug from '../pages/search/search.pug';
 
-const genres = [['Horror', 'Movie', 'Comedy'],['SciFi', 'Documentary', 'Cartoons']];
-
 const application = document.getElementById('root');
 
 const goMain = () => {
@@ -30,7 +28,6 @@ const goLogin = () => {
 const goProfile = () => {
   Router.go('/profile', 'Профиль');
 };
-
 
 const goLogout = () => {
   Router.go('/logout', 'Выход', null, true, false);

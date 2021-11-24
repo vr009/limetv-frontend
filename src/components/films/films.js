@@ -4,7 +4,6 @@ import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
 import Router from '../../utils/router.js';
-import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 
@@ -70,7 +69,7 @@ const createBase = () => {
     const film = document.getElementById(Genres[i].id);
     film.addEventListener('click', function(event) {
       event.preventDefault();
-      Router.go('/genre/' + Genres[i].name, Genres[i].name);
+      Router.go('/genre/' + Genres[i].name, Genres[i].title);
     });
   }
 
@@ -123,52 +122,18 @@ export const showFilmsList = (relUrl, rootId, title) => {
   ).catch((error) => {
     console.log(error);
     showErrors(error);
-  },
-  );
-};
-
-
-export const showGenresFilmsList = (genre) => {
-  const url = serverLocate+'/films/genre/'+ genre;
-
-  fetchRequest(url, 'GET').then(
-      (response) => {
-        if (response.ok) {
-          response.json();
-        } else {
-          throw 'genre error';
-        }
-      }
-  ).then(
-      (result) => {
-        const root = document.getElementById('stuff');
-        root.innerHTML = listPug({
-          title: genre,
-          films: result,
-        });
-
-        for (let i = 1; i < result.length; i++) {
-          const film = document.getElementById(result[i].id);
-          film.addEventListener('click', function(event) {
-            event.preventDefault();
-            Router.go('/film/' + result[i].id.toString(), result[i].title);
-          });
-        }
-      },
-  ).catch((error) => {
-    console.log(error);
   });
 };
 
 const Genres = [
-  {id: 'comedy', name: 'Комедии', src: 'comedy.png'},
-  {id: 'fiantsy', name: 'Фэнтези', src: 'fantasy.png'},
-  {id: 'detective', name: 'Детективы', src: 'detective.png'},
-  {id: 'drama', name: 'Драмы', src: 'drama.png'},
-  {id: 'fantasy', name: 'Фантастика', src: 'future.png'},
-  {id: 'thrillers', name: 'Триллеры', src: 'thrillers.png'},
-  {id: 'fighter', name: 'Боевики', src: 'fighters.png'},
-  {id: 'adventure', name: 'Приключения', src: 'journey.png'},
-  {id: 'horrors', name: 'Ужасы', src: 'horrors.png'},
-  {id: 'cartoons', name: 'Мультфильмы', src: 'mult.png'},
+  {id: 'comedy', title: 'Комедии', name: 'Комедия', src: 'comedy.png'},
+  {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.png'},
+  {id: 'detective', title: 'Детективы', name: 'Детектив', src: 'detective.png'},
+  {id: 'drama', title: 'Драмы', name: 'Драма', src: 'drama.png'},
+  {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
+  {id: 'thrillers', title: 'Триллеры', name: 'Триллер', src: 'thrillers.png'},
+  {id: 'fighter', title: 'Боевики', name: 'Боевик', src: 'fighters.png'},
+  {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.png'},
+  {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
+  {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},
 ];
