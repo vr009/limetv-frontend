@@ -61,12 +61,37 @@ const showFilm = (filmId) => {
         });
 
 
-        const likeBtn = document.getElementById('re-like');
-        likeBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            likeFilm(filmId);
-            likeBtn.classList.toggle('re-btn-unwatch');
-        });
+        const url = serverLocate+'/films/starred/'+ filmId;
+        fetchRequest(url, 'GET', null).then(
+            (res) => {
+                if (res.ok) {
+                    const likeBtn = document.getElementById('re-like');
+                    likeBtn.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        dislikeFilm(filmId);
+                        likeBtn.classList.toggle('re-btn-unwatch');
+                    });
+                } else {
+                    const likeBtn = document.getElementById('re-like');
+                    likeBtn.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        likeFilm(filmId);
+                        likeBtn.classList.toggle('re-btn-unwatch');
+                    });
+                }
+
+            }).catch((error) => {
+                console.log(error);
+                showErrors(error);
+              },
+          );
+
+        // const likeBtn = document.getElementById('re-like');
+        // likeBtn.addEventListener('click', function (event) {
+        //     event.preventDefault();
+        //     likeFilm(filmId);
+        //     likeBtn.classList.toggle('re-btn-unwatch');
+        // });
 
 
         const wlBtn = document.getElementById('wl');
@@ -83,6 +108,18 @@ const showFilm = (filmId) => {
   },
   );
 };
+
+const isStarred = (filmId) => {
+    const url = serverLocate+'/films/starred/'+ filmId;
+    fetchRequest(url, 'GET', null).then(
+        (res) => {
+            return res.ok;
+        }).catch((error) => {
+            console.log(error);
+            showErrors(error);
+        },
+    );
+}
 
 const showActors = (actors) => {
   const url = serverLocate+'/actors/film';
