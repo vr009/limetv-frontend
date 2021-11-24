@@ -61,13 +61,17 @@ const showFilm = (filmId) => {
           event.preventDefault();
           Router.go('/player/'+result.src[0], result.title);
         });
+
+
         const likeBtn = document.getElementById('re-like');
-        likeBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          likeFilm(filmId);
+        likeBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            likeFilm(filmId);
+            likeBtn.classList.toggle('re-btn-unwatch');
         });
 
-        const wlBtn = document.getElementById('re-like');
+
+        const wlBtn = document.getElementById('wl');
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
           watchLater(filmId);
@@ -148,6 +152,11 @@ const showActors = (actors) => {
 const likeFilm = (filmId) => {
   const url = serverLocate + '/films/starred/' + filmId;
   fetchRequest(url);
+};
+
+const dislikeFilm = (filmId) => {
+    const url = serverLocate + '/films/starred/' + filmId;
+    fetchRequest(url, 'DELETE');
 };
 
 const watchLater = (filmId) => {
