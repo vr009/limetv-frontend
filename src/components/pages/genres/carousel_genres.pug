@@ -1,0 +1,6 @@
+div.films-container
+    h1.selection-label Жанры
+    div.contentGenres
+        each genre in genres
+            a(class="itemGenres")
+                img(src=genre.src id=genre.id)

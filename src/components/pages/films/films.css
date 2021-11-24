@@ -6,7 +6,16 @@
     /*background: url(../images/micro.svg);*/
     /*background: url(../images/play-white.svg);*/
     /*background: url(../images/heart.svg);*/
-    /*background-image: url(../images/eye.svg);*/
+    background-image: url(../images/fighters.png);
+    background-image: url(../images/comedy.png);
+    background-image: url(../images/detective.png);
+    background-image: url(../images/drama.png);
+    background-image: url(../images/fantasy.png);
+    background-image: url(../images/future.png);
+    background-image: url(../images/horrors.png);
+    background-image: url(../images/journey.png);
+    background-image: url(../images/mult.png);
+    background-image: url(../images/thrillers.png);
 }
 
 .input-icon {
@@ -80,7 +89,7 @@
     left: 115px;
     max-width: 40%;
     padding-top: 20%;
-    font-size: 62px;
+    font-size: 52px;
     color: white;
 }
 
@@ -96,4 +105,37 @@
 
 .point {
     cursor: pointer;
+}
+
+.contentGenres {
+    display: flex;
+    overflow-x: scroll;
+    padding-top: 35px;
+    overflow-y: hidden;
+    padding-left: 55px;
+    height: 340px;
+}
+
+.itemGenres {
+    display: block;
+    transition: transform 350ms;
+    margin: 6px;
+    width: 305px;
+    height: 200px;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+.contentGenres .itemGenres:focus,
+.contentGenres .itemGenres:hover {
+    transform: scale(1.06);;
+    z-index: 1;
+}
+
+.itemGenres img {
+    display: block;
+    max-width: 300px;
+    height: 140%;
+    object-fit: cover;
+    border-radius: 15px;
 }

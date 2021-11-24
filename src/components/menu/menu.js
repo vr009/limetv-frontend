@@ -1,10 +1,10 @@
 'use strict';
 import {createElements} from './elements.js';
 import {serverLocate} from '../../utils/locale.js';
-import Router from '../../utils/router';
+import Router from '../../utils/router.js';
 import '../pages/menu/menu.css';
 import menuPug from '../pages/menu/menu.pug';
-import {createSearchPage} from '../search/search';
+import {createSearchPage} from '../search/search.js';
 import searchPagePug from '../pages/search/search.pug';
 
 const genres = [['Horror', 'Movie', 'Comedy'],['SciFi', 'Documentary', 'Cartoons']];

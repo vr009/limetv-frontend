@@ -1,5 +1,5 @@
-import {createProfilePage} from '../../view/createProfilePage';
-import Router from '../../utils/router';
+import {createProfilePage} from '../../view/createProfilePage.js';
+import Router from '../../utils/router.js';
 
 const authElements = {
   profile: 'Профиль',
