@@ -65,7 +65,6 @@ const showFilm = (filmId) => {
           likeFilm(filmId);
         });
 
-
         const wlBtn = document.getElementById('re-like');
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
