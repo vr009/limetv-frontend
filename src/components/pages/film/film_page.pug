@@ -89,6 +89,6 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                     div.films-container
                         h1.selection-label Сезон #{i++}
                         div.contentFilm
-                            each filmPic in season.Src
+                            - for (var j = 0; j < length(season.Src); j++)
                                 a(class="item")
-                                    img(src=filmPic id=filmPic+season.Num style="border-radius: 15px;")
+                                    img(src=season.Src[j] id=season.Pics[j]+season.Num style="border-radius: 15px;")
