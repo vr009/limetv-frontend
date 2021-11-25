@@ -8,6 +8,7 @@ import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu.js';
+import {v4 as uuidv4} from 'uuid';
 
 /**
  * Модуль создания страницы фильма
@@ -62,12 +63,24 @@ const showFilm = (filmId) => {
           Router.go('/player/'+result.src[0], result.title);
         });
 
+        // временно уникальное название видео и картинок
+        if (result.is_series) {
+          for (let i = 0; i < result.seasons.length; i++) {
+            for (let j = 0; j < result.seasons[i].Pics.length; j++) {
+              const actorContainer = document.getElementById(result.seasons[i].Src[j]);
+              actorContainer.addEventListener('click', function(event) {
+                event.preventDefault();
+                Router.go('/player/'+result.seasons[i].Pics[j], result.title);
+              });
+            }
+          }
+        }
 
         const likeBtn = document.getElementById('re-like');
-        likeBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            likeFilm(filmId);
-            likeBtn.classList.toggle('re-btn-unwatch');
+        likeBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          likeFilm(filmId);
+          likeBtn.classList.toggle('re-btn-unwatch');
         });
 
 
@@ -155,8 +168,8 @@ const likeFilm = (filmId) => {
 };
 
 const dislikeFilm = (filmId) => {
-    const url = serverLocate + '/films/starred/' + filmId;
-    fetchRequest(url, 'DELETE');
+  const url = serverLocate + '/films/starred/' + filmId;
+  fetchRequest(url, 'DELETE');
 };
 
 const watchLater = (filmId) => {
