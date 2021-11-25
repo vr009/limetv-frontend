@@ -8,7 +8,6 @@ import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu.js';
-import {v4 as uuidv4} from 'uuid';
 
 /**
  * Модуль создания страницы фильма
@@ -76,11 +75,29 @@ const showFilm = (filmId) => {
           }
         }
 
+        const url = serverLocate+'/films/starred/'+ filmId;
+        fetchRequest(url, 'GET', null).then(
+            (res) => {
+              if (res.ok) {
+                    const likeBtn = document.getElementById('re-like');
+                    likeBtn.classList.toggle('re-btn-unwatch');
+                }
+            }).catch((error) => {
+                console.log(error);
+                showErrors(error);
+              },
+          );
+
         const likeBtn = document.getElementById('re-like');
-        likeBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          likeFilm(filmId);
-          likeBtn.classList.toggle('re-btn-unwatch');
+        likeBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            const isStarred = likeBtn.classList.contains('re-btn-unwatch');
+            if (isStarred) {
+                dislikeFilm(filmId);
+            } else {
+                likeFilm(filmId);
+            }
+            likeBtn.classList.toggle('re-btn-unwatch');
         });
 
 
@@ -168,8 +185,8 @@ const likeFilm = (filmId) => {
 };
 
 const dislikeFilm = (filmId) => {
-  const url = serverLocate + '/films/starred/' + filmId;
-  fetchRequest(url, 'DELETE');
+    const url = serverLocate + '/films/starred/' + filmId;
+    fetchRequest(url, 'DELETE');
 };
 
 const watchLater = (filmId) => {
