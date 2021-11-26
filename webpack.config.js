@@ -23,7 +23,7 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/',
     }, {
-      test: /\.(png|jpg|gif|svg|mp4)$/,
+      test: /\.(png|jpg|gif|svg|mp4|ico)$/,
       loader: 'file-loader',
       options: {
         path: __dirname + '/dist/',
@@ -83,7 +83,7 @@ module.exports = {
       maximumFileSizeToCacheInBytes: 5000000000,
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js',
-      include: [/\.jpg$/, /\.png$/, /\.jpeg$/,
+      include: [/\.jpg$/, /\.ico$/, /\.png$/, /\.jpeg$/,
         /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
     }),
     new CleanWebpackPlugin(),
