@@ -126,13 +126,13 @@ export const showFilmsList = (relUrl, rootId, title) => {
 };
 
 const Genres = [
-  {id: 'comedy', title: 'Комедии', name: 'Комедия', src: 'comedy.png'},
+  {id: 'comedy', title: 'Комедии', name: 'Комедии', src: 'comedy.png'},
   {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.png'},
   {id: 'detective', title: 'Детективы', name: 'Детектив', src: 'detective.png'},
-  {id: 'drama', title: 'Драмы', name: 'Драма', src: 'drama.png'},
+  {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.png'},
   {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
-  {id: 'thrillers', title: 'Триллеры', name: 'Триллер', src: 'thrillers.png'},
-  {id: 'fighter', title: 'Боевики', name: 'Боевик', src: 'fighters.png'},
+  {id: 'thrillers', title: 'Триллеры', name: 'Триллеры', src: 'thrillers.png'},
+  {id: 'fighter', title: 'Боевики', name: 'Боевики', src: 'fighters.png'},
   {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.png'},
   {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
   {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},
