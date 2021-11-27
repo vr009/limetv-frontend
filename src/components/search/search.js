@@ -40,28 +40,3 @@ export const createSearchPage = (keyword) => {
   },
   );
 };
-
-
-const addListeners = (result) => {
-  const root = document.getElementById('search_results');
-  for (let i = 0; i < result.films.length; i++) {
-    const element = document.getElementById(result.films[i].id);
-    element.addEventListener('click', function(evt) {
-      evt.preventDefault();
-      Router.go('/film/' + result.films[i].id, result.films[i].title);
-    });
-  }
-
-
-  for (let i = 0; i < result.actors.length; i++) {
-    const element = document.getElementById(result.actors[i].id);
-    element.addEventListener('click', function(evt) {
-      evt.preventDefault();
-      Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
-    });
-  }
-
-  //TODO: profiles
-
-
-};

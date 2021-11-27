@@ -494,9 +494,10 @@ label {
     margin-left: 9%;
     margin-right: 9%;
     letter-spacing: 1px;
-    color: #a79ea6;
+    color: #a1979d;
     text-transform: uppercase;
     padding-left: 5px;
+    text-shadow: 1px 0 1px #3636367d, 0 1px 1px #3636367d, -1px 0 1px #3636367d, 0 -1px 1px #3636367d;
 }
 
 /*----------------*/
