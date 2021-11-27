@@ -24,10 +24,12 @@ const createBase = (id) => {
     root.innerHTML = '';
     const stuff = document.createElement('div');
     stuff.setAttribute('id', 'stuff');
+    stuff.setAttribute('class', 'stuff');
     root.appendChild(stuff);
   }
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
+  stuff.setAttribute('class', 'stuff');
 
   const rootFilm = document.createElement('div');
   rootFilm.setAttribute('id', 'root-film');

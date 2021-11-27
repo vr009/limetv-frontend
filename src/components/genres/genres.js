@@ -16,6 +16,7 @@ export const createGenres = (genre) => {
   }
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
+  stuff.setAttribute('class', 'stuff');
 
   showGenresFilms(genre);
 };

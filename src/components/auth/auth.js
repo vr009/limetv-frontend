@@ -48,6 +48,7 @@ export const authModule = {
 export const renderAuth = () => {
   const root = document.getElementById('stuff');
   root.innerHTML = '';
+  root.setAttribute('class', 'reg-auth');
 
   const reg = document.createElement('div');
   root.appendChild(reg);
@@ -131,6 +132,7 @@ const renderProfile = () => {
 export const renderRegistration = () => {
   const root = document.getElementById('stuff');
   root.innerHTML = '';
+  root.setAttribute('class', 'reg-auth');
 
   const block = document.createElement('img');
   block.setAttribute('class', 'registration-back');

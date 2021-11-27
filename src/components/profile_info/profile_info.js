@@ -13,6 +13,7 @@ export const createUserInfoPage = () => {
   if (root != null) {
     root.innerHTML = '';
   }
+  root.setAttribute('class', 'stuff');
 
   const user = document.createElement('div');
   user.setAttribute('id', 'one_user');
