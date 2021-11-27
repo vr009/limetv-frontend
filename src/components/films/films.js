@@ -6,6 +6,7 @@ import '../pages/films/films.css';
 import Router from '../../utils/router.js';
 import {createMenu} from '../menu/menu.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
+import filmProfile from '../pages/films/filmsProfile.pug';
 
 /**
  * Модуль создания экрана фильмов
@@ -90,11 +91,20 @@ export const showFilmsList = (relUrl, rootId, title) => {
   ).then(
       (result) => {
         const root = document.getElementById(rootId);
-        root.innerHTML = listPug({
-          title: title,
-          films: result,
-          salt: rootId,
-        });
+        if (rootId === 'selection-profile-3' || rootId === 'selection-profile-4') {
+          root.innerHTML = filmProfile({
+            title: title,
+            films: result,
+            salt: rootId,
+          });
+        } else {
+          root.innerHTML = listPug({
+            title: title,
+            films: result,
+            salt: rootId,
+          });
+        }
+
         if (rootId === 'new-root') {
           const tRoot = document.getElementById('first-root');
           tRoot.innerHTML = firstFilmPug({

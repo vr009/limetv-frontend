@@ -1,0 +1,7 @@
+if films.length !== 0
+    div.films-container
+        h1.selection-label-film #{title}
+        div.contentFilm
+            each film in films
+                a(class="item")
+                    img(src=film.pic[0] id=film.id+salt style="border-radius: 15px;")
