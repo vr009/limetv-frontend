@@ -36,6 +36,9 @@ const showUserInfo = () => {
   ).then(
       (result) => {
         const root = document.getElementById('one_user');
+        if (result.about === 'no data') {
+          result.about = '—';
+        }
         root.innerHTML = userInfoPug({
           login: result.login,
           about: result.about,
