@@ -42,8 +42,29 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
             div(class="col-2" style="width: 54%;")
                 p(class="short-text")
                     span #{result.description}
-        div.selection-3
+
+        if result.is_series
             div(class="row" style="padding-bottom: 50px;")
+            div.selection-3
+                div.about
+                    div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 183px;; margin-bottom: -2px;")
+                        div(class="row" style="padding-bottom: 10px;") Сезоны и серии
+                div(style="margin-left: 6%; margin-right: 6%;")
+                    div.seasons-container
+                        - var i = 1;
+                        each season in seasons
+                            div.films-container
+                                h1.selection-label-film Сезон #{i++}
+                                div.contentFilm
+                                    - var j = 1;
+                                    each filmPic in season.Src
+                                        a(class="item")
+                                            div.div-series
+                                                span.series #{j++} серия
+                                            img(src=filmPic id=filmPic style="border-radius: 15px;")
+
+        div.selection-3
+            div(class="row" style="padding-bottom: 70px;")
             div.full-grid(style="margin-left: 6%; margin-right: 6%;")
                 div.col-grid
                     h2.name-col Информация
@@ -88,14 +109,3 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                     div(class="grey-info")
                         div Качество
                         span(class="pug-text") SD, HD, Full HD
-        div
-        if result.is_series
-            div.seasons-container
-                - var i = 1;
-                each season in seasons
-                    div.films-container
-                        h1.selection-label Сезон #{i++}
-                        div.contentFilm
-                            each filmPic in season.Src
-                                a(class="item")
-                                    img(src=filmPic id=filmPic style="border-radius: 15px;")

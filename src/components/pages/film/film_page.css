@@ -65,16 +65,16 @@
             rgb(20 20 20) 18.91%,
             rgb(20 20 20) 25.31%,
             rgb(20 20 20 / 99%) 27.52%,
-            rgb(20 20 20 / 97%) 29.71%,
-            rgb(20 20 20 / 93%) 31.52%,
-            rgb(20 20 20 / 91%) 33%,
-            rgb(20 20 20 / 90%) 34.11%,
-            rgb(20 20 20 / 85%) 38.52%,
-            rgb(20 20 20 / 70%) 42.92%,
-            rgb(20 20 20 / 64%) 45.52%,
-            rgb(20 20 20 / 50%) 47.32%,
-            rgb(20 20 20 / 35%) 51.72%,
-            rgb(20 20 20 / 15%) 56.12%,
+            rgb(20 20 20 / 98%) 29.71%,
+            rgb(20 20 20 / 97%) 31.52%,
+            rgb(20 20 20 / 95%) 33%,
+            rgb(20 20 20 / 93%) 34.11%,
+            rgb(20 20 20 / 90%) 38.52%,
+            rgb(20 20 20) 42.92%,
+            rgb(20 20 20 / 91%) 45.52%,
+            rgb(20 20 20 / 92%) 47.32%,
+            rgb(20 20 20 / 81%) 51.72%,
+            rgb(20 20 20 / 61%) 56.12%,
             rgb(0 0 0 / 0%) 68.32%),
     linear-gradient(
             180deg,
@@ -126,14 +126,6 @@
 .film-back {
     background: url(../images/micro.svg);
 }
-
-/*div.film-note Язык:  #{result.language}*/
-/*div.film-note Время:  #{result.duration}*/
-/*div.film-note Дата релиза:  #{result.release.slice(0, 10)}*/
-
-/*div.film-note Авторы сценария: #{result.authors}*/
-/*div.film-note Бюджет: #{result.budget}*/
-/*div.film-note Жанр: #{result.genres}*/
 
 .actor-h {
     color: white;
@@ -269,4 +261,21 @@
     font-size: 18px;
     color: white;
     line-height: 40px;
+}
+
+.div-series {
+    position: absolute;
+    background: #3e3e3e73;
+    width: 81px;
+    margin-left: 203px;
+    height: 19px;
+    margin-top: 13px;
+}
+
+.series {
+    position: absolute;
+    padding-left: 11px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 15px;
 }
