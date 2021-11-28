@@ -10,12 +10,12 @@ div.menu
                         a(href="/")
                             i(class="gg-film")
                     div(class="col-for-logo-2")
-                        a(href="/")
+                        a(id="log")
                             span LimeTV
                 div.wrapper
                     form(id="search-form" name="search" method="get" action="/")
                         div.container-search
-                            input#text_search(type="search" class="input-text" placeholder="Название фильма или актера")
+                            input#text_search(type="text" class="input-text" maxlength="30" placeholder="Название фильма или актера")
 
 
                 div(id="menu-items")

@@ -50,6 +50,12 @@ const createTemplate = () => {
   // обработка отправки формы
   const search = document.getElementById('text_search');
 
+  const log = document.getElementById('log');
+  log.addEventListener('click', function(event) {
+    event.preventDefault();
+    Router.go('/', 'LimeTV');
+  });
+
   search.addEventListener('focus', function(event) {
     event.preventDefault();
     if (document.getElementById('close_focus') == null) {
@@ -61,16 +67,18 @@ const createTemplate = () => {
       const root = document.getElementById('close_focus');
       // временно
       const result = {'actors': [], 'films': []};
-      root.innerHTML = searchPagePug({result: result});
+      root.innerHTML = searchPagePug({result: result, isResult: false});
+
+      const closeSearch = document.getElementById('cl-search');
+      closeSearch.addEventListener('click', function(event) {
+        event.preventDefault();
+        const search = document.getElementById('close_focus');
+        search.parentNode.removeChild(search);
+        const searchForm = document.getElementById('text_search');
+        searchForm.value = '';
+      });
     }
   });
-
-  // не придумал
-  // search.addEventListener('blur', function(event) {
-  //   event.preventDefault();
-  //   const search = document.getElementById('close_focus');
-  //   search.parentNode.removeChild(search);
-  // });
 
   const searchForm = document.getElementById('search-form');
   searchForm.addEventListener('input', function(event) {

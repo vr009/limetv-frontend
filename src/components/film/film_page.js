@@ -7,7 +7,6 @@ import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
-import {createMenu} from '../menu/menu.js';
 
 /**
  * Модуль создания страницы фильма
@@ -18,7 +17,6 @@ export const createFilmPage = (id) => {
 };
 
 const createBase = (id) => {
-  createMenu();
   if (document.getElementById('stuff') === null) {
     const root = document.getElementById('root');
     root.innerHTML = '';

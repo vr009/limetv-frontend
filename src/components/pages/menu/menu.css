@@ -449,7 +449,7 @@ label {
     color: #2ec614;
 }
 .stuff {
-    padding-top: 79px;
+    padding-top: 90px;
 }
 
 .reg-auth {
@@ -496,7 +496,6 @@ label {
     letter-spacing: 1px;
     color: #a1979d;
     text-transform: uppercase;
-    padding-left: 5px;
     text-shadow: 1px 0 1px #3636367d, 0 1px 1px #3636367d, -1px 0 1px #3636367d, 0 -1px 1px #3636367d;
 }
 
@@ -568,4 +567,17 @@ label {
     color: #e7e7e7;
     font-size: 24px;
     padding-top: 10px;
+}
+
+#log {
+    cursor: pointer;
+}
+
+.search-title {
+    margin-left: 9%;
+    margin-right: 9%;
+}
+
+.null {
+    top: 0;
 }

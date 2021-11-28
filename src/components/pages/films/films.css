@@ -2,6 +2,8 @@
     color: #fff;
     background-image: url(../images/img.png);
     background-image: url(../images/settings.ico);
+    background-image: url(../images/favicon.ico);
+    background-image: url(../images/close-search.ico);
     /*background: url(../images/help_info.svg);*/
     /*background: url(../images/play.svg);*/
     /*background: url(../images/micro.svg);*/
@@ -47,6 +49,27 @@
 
 .play-button {
     width: 40px;
+}
+
+.close-s {
+    float: right;
+    margin: 30px 18%;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+}
+
+.close-s:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.height-close {
+    height: 46px;
+}
+
+.cont-res {
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .info-text {

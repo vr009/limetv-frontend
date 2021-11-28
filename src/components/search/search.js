@@ -15,6 +15,7 @@ export const createSearchPage = (keyword) => {
         root.innerHTML = searchPagePug({
           result: result,
           salt: 'close_focus',
+          isResult: true,
         });
         const res = ['actors', 'films'];
         for (let j = 0; j <= 1; j++) {
@@ -28,12 +29,21 @@ export const createSearchPage = (keyword) => {
                 } else {
                   Router.go('/film/' + result[res[j]][i].id.toString(), result[res[j]][i].name+' '+result[res[j]][i].surname);
                 }
+                const searchForm = document.getElementById('text_search');
+                searchForm.value = '';
               });
             }
           }
         }
+        const closeSearch = document.getElementById('cl-search');
+        closeSearch.addEventListener('click', function(event) {
+          event.preventDefault();
+          const search = document.getElementById('close_focus');
+          search.parentNode.removeChild(search);
+          const searchForm = document.getElementById('text_search');
+          searchForm.value = '';
+        });
       },
-      // добавить листенеры
   ).catch((error) => {
     console.log(error);
     showErrors(error);

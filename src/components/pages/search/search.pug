@@ -1,7 +1,12 @@
 div.search-results
-    h1.title-search Результаты поиска
+    div.search-title
+        div.col-1-2
+            h1.title-search Результаты поиска
+        div.col-1-2
+            div.close-s(id="cl-search")
+                img(src="close-search.ico" class="height-close")
     if result.films.length !== 0
-        div.films-container(style="padding-top: 10px")
+        div.films-container.cont-res(style="padding-top: 10px")
             h3.tit-in-search Фильмы
             div.contentFilms
                 each film in result.films
@@ -12,7 +17,7 @@ div.search-results
                         span.name-film #{' (' + film.year+')'}
 
     if result.actors.length !== 0
-        div.films-container(style="padding-top: 10px")
+        div.films-container.cont-res(style="padding-top: 10px")
             h3.tit-in-search Актеры
             div.contentFilms
                 each actor in result.actors
@@ -22,7 +27,7 @@ div.search-results
                         span.name-film #{actor.name + ' '}
                         span.name-film #{actor.surname}
 
-
-    if result.actors.length === 0 && result.films.length === 0
-        div.films-container(style="padding-top: 10px")
-            h3.tit-in-search Ничего не найдено
+    if isResult === true
+        if result.actors.length === 0 && result.films.length === 0
+            div.films-container.cont-res(style="padding-top: 10px")
+                h3.tit-in-search Ничего не найдено

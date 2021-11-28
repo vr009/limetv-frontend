@@ -12,6 +12,7 @@ export const createActor = (state) => {
   if (rootGlobal != null) {
     rootGlobal.innerHTML = '';
   }
+  rootGlobal.setAttribute('class', 'stuff');
 
   const actor = document.createElement('div');
   actor.setAttribute('id', 'one_actor');

@@ -4,7 +4,6 @@ import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
 import '../pages/films/films.css';
 import Router from '../../utils/router.js';
-import {createMenu} from '../menu/menu.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';
 
@@ -17,7 +16,6 @@ export const createFilms = () => {
 };
 
 const createBase = () => {
-  createMenu();
   if (document.getElementById('stuff') === null) {
     const root = document.getElementById('root');
     root.innerHTML = '';
@@ -27,6 +25,7 @@ const createBase = () => {
   }
   const stuff = document.getElementById('stuff');
   stuff.innerHTML = '';
+  stuff.setAttribute('class', 'null');
 
   // стартовый фильм
   const first = document.createElement('div');
