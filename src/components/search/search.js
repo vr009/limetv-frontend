@@ -27,7 +27,7 @@ export const createSearchPage = (keyword) => {
                 if (j === 0) {
                   Router.go('/actor/' + result[res[j]][i].id.toString(), result[res[j]][i].name+' '+result[res[j]][i].surname);
                 } else {
-                  Router.go('/film/' + result[res[j]][i].id.toString(), result[res[j]][i].name+' '+result[res[j]][i].surname);
+                  Router.go('/film/' + result[res[j]][i].id.toString(), result[res[j]][i].title);
                 }
                 const searchForm = document.getElementById('text_search');
                 searchForm.value = '';
