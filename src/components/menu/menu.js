@@ -85,6 +85,10 @@ const createTemplate = () => {
     event.preventDefault();
     createSearchPage(search.value);
   });
+
+  searchForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+  });
 };
 
 
