@@ -76,7 +76,7 @@ function getFilmsByActor(state) {
   ).then(
       (result) => {
         const rootFilm = document.getElementById('selection-profile-5');
-        for (let i=0; i < result.length; i++) {
+        for (let i = 0; i < result.length; i++) {
           result[i].title = result[i].title+' ('+result[i].year+')';
           result[i].director = result[i].director[0];
           result[i].duration = result[i].duration+'м';
@@ -85,7 +85,7 @@ function getFilmsByActor(state) {
           films: result,
         });
 
-        for (let i=0; i < result.length; i++) {
+        for (let i = 0; i < result.length; i++) {
           const t = document.getElementById(result[i].id);
           t.addEventListener('click', function(event) {
             event.preventDefault();
