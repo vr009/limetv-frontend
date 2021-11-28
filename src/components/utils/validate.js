@@ -96,3 +96,16 @@ export function sklonenieSeries(number, txt) {
   const cases = [2, 0, 1, 1, 1, 2];
   return txt[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 };
+
+export const Genres = [
+  {id: 'comedy', title: 'Комедии', name: 'Комедии', src: 'comedy.png'},
+  {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.png'},
+  {id: 'detective', title: 'Детективы', name: 'Детектив', src: 'detective.png'},
+  {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.png'},
+  {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
+  {id: 'thrillers', title: 'Триллеры', name: 'Триллеры', src: 'thrillers.png'},
+  {id: 'fighter', title: 'Боевики', name: 'Боевики', src: 'fighters.png'},
+  {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.png'},
+  {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
+  {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},
+];

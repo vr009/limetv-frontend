@@ -6,6 +6,7 @@ import '../pages/films/films.css';
 import Router from '../../utils/router.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';
+import {Genres} from '../utils/validate';
 
 /**
  * Модуль создания экрана фильмов
@@ -133,16 +134,3 @@ export const showFilmsList = (relUrl, rootId, title) => {
     showErrors(error);
   });
 };
-
-const Genres = [
-  {id: 'comedy', title: 'Комедии', name: 'Комедии', src: 'comedy.png'},
-  {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.png'},
-  {id: 'detective', title: 'Детективы', name: 'Детектив', src: 'detective.png'},
-  {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.png'},
-  {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
-  {id: 'thrillers', title: 'Триллеры', name: 'Триллеры', src: 'thrillers.png'},
-  {id: 'fighter', title: 'Боевики', name: 'Боевики', src: 'fighters.png'},
-  {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.png'},
-  {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
-  {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},
-];

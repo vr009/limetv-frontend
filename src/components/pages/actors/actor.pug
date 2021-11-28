@@ -29,9 +29,9 @@ div.films-container
                                 each val in genres
                                     if flag
                                         span ,
-                                        a(id=val + salt class="actor-h") #{val}
+                                        a(id=val class="actor-h") #{val}
                                     else
-                                        a(id=val + salt class="actor-h") #{val}
+                                        a(id=val class="actor-h") #{val}
                                     - flag = true
 
                 div(class="grey-info-actor")

@@ -4,7 +4,7 @@ import actorPagePug from '../pages/actors/actor.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
 import '../pages/actors/actor.css';
 import Router from '../../utils/router.js';
-import {getMonth} from '../utils/validate.js';
+import {Genres, getMonth} from '../utils/validate.js';
 
 
 export const createActor = (state) => {
@@ -48,6 +48,15 @@ const showActor = (state) => {
           height: result.height,
           id: result.id,
         });
+
+        for (let i = 0; i < result.genres.length; i++) {
+          const film = document.getElementById(result.genres[i]);
+          film.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/genre/' + result.genres[i], result.genres[i]);
+          });
+        }
+
         getFilmsByActor(state);
       },
   ).catch((error) => {

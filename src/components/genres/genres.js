@@ -1,4 +1,3 @@
-import {createMenu} from '../menu/menu';
 import Router from '../../utils/router.js';
 import {serverLocate} from '../../utils/locale.js';
 import genresPage from '../pages/genres/genres.pug';
@@ -6,7 +5,6 @@ import {fetchRequest} from '../network/fetch';
 import '../pages/menu/menu.css';
 
 export const createGenres = (genre) => {
-  createMenu();
   if (document.getElementById('stuff') === null) {
     const root = document.getElementById('root');
     root.innerHTML = '';
@@ -32,7 +30,6 @@ const showGenresFilms = (genre) => {
       (result) => {
         const root = document.getElementById('stuff');
         root.innerHTML = genresPage({
-          genres: genre,
           genre: result,
         });
 
