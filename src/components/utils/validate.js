@@ -100,7 +100,7 @@ export function sklonenieSeries(number, txt) {
 export const Genres = [
   {id: 'comedy', title: 'Комедии', name: 'Комедии', src: 'comedy.png'},
   {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.png'},
-  {id: 'detective', title: 'Детективы', name: 'Детектив', src: 'detective.png'},
+  {id: 'detective', title: 'Детективы', name: 'Детективы', src: 'detective.png'},
   {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.png'},
   {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
   {id: 'thrillers', title: 'Триллеры', name: 'Триллеры', src: 'thrillers.png'},

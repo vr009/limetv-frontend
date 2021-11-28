@@ -30,6 +30,7 @@ const showGenresFilms = (genre) => {
       (result) => {
         const root = document.getElementById('stuff');
         root.innerHTML = genresPage({
+          genres: genre,
           genre: result,
         });
 
