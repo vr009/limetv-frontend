@@ -86,6 +86,7 @@ const createTemplate = () => {
     createSearchPage(search.value);
   });
 
+  // Enter заблокирован тк у нас уже событие input
   searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
   });

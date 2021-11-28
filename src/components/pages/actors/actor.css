@@ -158,3 +158,42 @@
     color: white;
     padding-left: 50px;
 }
+
+
+.prof_actor_pic img {
+    width: 300px;
+    height: 450px;
+    border-radius: 7px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.name-col-actor {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.prof_actor_pic {
+    display: inline-block;
+    position: relative;
+    margin-left: 20px;
+    width: 300px;
+    height: 450px;
+    background-color: unset;
+    border: 2px solid #8bbf51;
+    border-radius: 10px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.selection-actor-1 {
+    padding-top: 250px;
+    width: 100%;
+}
+
+.active-actors {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-bottom: 2px solid #e5e5e5cc;
+    width: 217px;
+    margin-bottom: -2px;
+}

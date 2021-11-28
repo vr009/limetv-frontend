@@ -18,13 +18,7 @@ export const createActor = (state) => {
   actor.setAttribute('id', 'one_actor');
   rootGlobal.appendChild(actor);
 
-  const film = document.createElement('div');
-  film.setAttribute('id', 'one_film');
-
-  rootGlobal.appendChild(film);
-
   showActor(state);
-  getFilmsByActor(state);
 };
 
 const showActor = (state) => {
@@ -54,6 +48,7 @@ const showActor = (state) => {
           height: result.height,
           id: result.id,
         });
+        getFilmsByActor(state);
       },
   ).catch((error) => {
     console.log(error);
@@ -71,7 +66,7 @@ function getFilmsByActor(state) {
       (response) => response.json(),
   ).then(
       (result) => {
-        const rootFilm = document.getElementById('one_film');
+        const rootFilm = document.getElementById('selection-profile-5');
         for (let i=0; i < result.length; i++) {
           result[i].title = result[i].title+' ('+result[i].year+')';
           result[i].director = result[i].director[0];

@@ -92,6 +92,12 @@
     color: hsla(0,0%,100%,.56);
 }
 
+.grey-info-actor {
+    font-size: 18px;
+    margin-top: 22px;
+    color: hsla(0,0%,100%,.56);
+}
+
 .pug-text-profile {
     font-size: 24px;
     color: white;

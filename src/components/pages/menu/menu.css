@@ -37,7 +37,7 @@ body {
     margin: 0 auto;
     z-index: 5;
     position: fixed;
-    background: rgb(0 0 0 / 61%);
+    background: rgb(0 0 0 / 75%);
 }
 
 .col-2 {
@@ -511,7 +511,7 @@ label {
 }
 
 .selection-label-film {
-    font: bold 22px/10px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    font: bold 20px/10px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     text-transform: uppercase;
     padding-top: 60px;
     display: inline-block;
