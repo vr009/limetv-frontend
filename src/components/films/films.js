@@ -7,6 +7,7 @@ import Router from '../../utils/router.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';
 import {Genres} from '../utils/validate';
+import userInfoPug from "../pages/profile_info/profile_info.pug";
 
 /**
  * Модуль создания экрана фильмов
@@ -80,7 +81,7 @@ const createBase = () => {
 };
 
 
-export const showFilmsList = (relUrl, rootId, title) => {
+export const showFilmsList = (relUrl, rootId, title, empty) => {
   const url = serverLocate+'/films'+relUrl;
   fetch(url, {
     method: 'GET',
@@ -97,6 +98,11 @@ export const showFilmsList = (relUrl, rootId, title) => {
             films: result,
             salt: rootId,
           });
+
+          const notEmpty = document.getElementById('empty-film-profile');
+          if (result.length !== 0) {
+            notEmpty.innerHTML = '';
+          }
         } else {
           root.innerHTML = listPug({
             title: title,
