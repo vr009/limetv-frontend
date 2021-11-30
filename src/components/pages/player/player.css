@@ -80,7 +80,7 @@ video {
     left: 0;
     right: 0;
     height: 2px;
-    background: #455945;
+    background: #c964bc;
 }
 
 .timeline-current {
@@ -89,7 +89,7 @@ video {
     left: 0;
     right: 0;
     height: 2px;
-    background: green;
+    background: #1fd71f;
 }
 
 button {
