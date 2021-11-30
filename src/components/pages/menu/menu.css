@@ -536,6 +536,10 @@ label {
     padding-bottom: 60px;
 }
 
+.film-main {
+    border-radius: 15px;
+}
+
 @media (min-width: 319px) and (max-width: 1020px) {
     .selection-empty-profile {
         font: bold 23px/56px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
@@ -570,6 +574,10 @@ label {
         display: inline-block;
         margin: 0;
         color: azure;
+    }
+    .film-main {
+        border-radius: 15px;
+        height: 80%;
     }
 }
 
