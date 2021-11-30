@@ -265,7 +265,6 @@
 }
 
 .div-series {
-    position: absolute;
     background: #3e3e3e73;
     width: 81px;
     margin-left: 203px;
@@ -274,7 +273,6 @@
 }
 
 .series {
-
     padding-left: 11px;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
