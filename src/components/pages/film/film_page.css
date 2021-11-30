@@ -346,4 +346,10 @@
         font-size: 1px;
         color: rgba(0, 0, 0, 0);
     }
+    .div-series {
+        width: 81px;
+        margin-left: 203px;
+        height: 19px;
+        margin-top: 13px;
+    }
 }

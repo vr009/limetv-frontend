@@ -867,6 +867,15 @@ label {
     #navbar .navbar-link:last-child {
         margin-right: 0;
     }
+
+    .contentFilm {
+        display: flex;
+        overflow-x: scroll;
+        padding-top: 35px;
+        overflow-y: hidden;
+        padding-left: 5px;
+    }
+
 }
 
 #options {
