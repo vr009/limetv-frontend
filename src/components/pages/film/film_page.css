@@ -311,6 +311,11 @@
     }
 }
 
+.btns {
+    font-size: 18px;
+    padding-top: 60px;
+}
+
 @media  (min-width: 319px) and (max-width: 1020px) {
     .age-pic {
         background: #bb0e7d78;
@@ -366,5 +371,10 @@
     .watch {
         vertical-align: middle;
         width: 28px;
+    }
+    .btns {
+        font-size: 18px;
+        padding-top: 60px;
+        display:flex;
     }
 }
