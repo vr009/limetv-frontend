@@ -127,3 +127,23 @@
     margin-right: 9%;
     margin-left: 9%;
 }
+
+@media (min-width: 319px) and (max-width: 600px) {
+    .block-left {
+        padding-left: 9%;
+        padding-top: 40px;
+        width: 500px;
+        height: 370px;
+        float:left;
+        display: contents;
+    }
+
+    .block-right{
+        padding-right: 9%;
+        padding-top: 40px;
+        width: auto;
+        height: 370px;
+        margin-left: 3em;
+    }
+
+}
