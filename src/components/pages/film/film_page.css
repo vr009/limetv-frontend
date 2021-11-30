@@ -290,6 +290,12 @@
     padding-top: 100px;
 }
 
+.watch {
+    vertical-align: middle;
+    padding-left: 20px;
+    width: 28px;
+}
+
 @media  (min-width: 319px) and (max-width: 1020px) {
     .name-col {
         margin-bottom: 40px;
@@ -355,5 +361,10 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: lighter;
         font-size: 15px;
+    }
+
+    .watch {
+        vertical-align: middle;
+        width: 28px;
     }
 }
