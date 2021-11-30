@@ -369,17 +369,9 @@
     }
 
     .watch {
-        -moz-appearance: none;
-        padding: 15px 15px 15px 15px;
-        border-radius: 9px;
-        cursor: pointer;
-        margin-right: 28px;
-        text-decoration: none;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 18px;
         vertical-align: middle;
         width: 28px;
+        padding-left: 10px;
     }
     .btns {
         font-size: 18px;
