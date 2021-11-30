@@ -546,6 +546,19 @@ label {
         padding-left: 50px;
         padding-bottom: 60px;
     }
+    .tit-in-search {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        line-height: 14px;
+        margin-left: 9%;
+        margin-right: 9%;
+        letter-spacing: 1px;
+        color: #a1979d;
+        text-transform: uppercase;
+        text-shadow: 1px 0 1px #3636367d, 0 1px 1px #3636367d, -1px 0 1px #3636367d, 0 -1px 1px #3636367d;
+        width: 200px;
+        padding-left: 15px;
+    }
 }
 
 .selection-genres {
@@ -876,20 +889,6 @@ label {
         padding-top: 35px;
         overflow-y: hidden;
         padding-left: 5px;
-    }
-
-    .tit-in-search {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        line-height: 14px;
-        margin-left: 9%;
-        margin-right: 9%;
-        letter-spacing: 1px;
-        color: #a1979d;
-        text-transform: uppercase;
-        text-shadow: 1px 0 1px #3636367d, 0 1px 1px #3636367d, -1px 0 1px #3636367d, 0 -1px 1px #3636367d;
-        width: 200px;
-        padding-left: 15px;
     }
 
 }
