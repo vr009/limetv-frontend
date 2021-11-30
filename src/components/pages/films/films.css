@@ -1,25 +1,25 @@
 .first-film {
     color: #fff;
-    background-image: url(../images/img.png);
-    background-image: url(../images/settings.ico);
-    background-image: url(../images/favicon.ico);
-    background-image: url(../images/close-search.ico);
-    background-image: url(../images/pt.png);
-    /*background: url(../images/help_info.svg);*/
-    /*background: url(../images/play.svg);*/
-    /*background: url(../images/micro.svg);*/
-    /*background: url(../images/play-white.svg);*/
-    /*background: url(../images/heart.svg);*/
-    background-image: url(../images/fighters.png);
-    background-image: url(../images/comedy.png);
-    background-image: url(../images/detective.png);
-    background-image: url(../images/drama.png);
-    background-image: url(../images/fantasy.png);
-    background-image: url(../images/future.png);
-    background-image: url(../images/horrors.png);
-    background-image: url(../images/journey.png);
-    background-image: url(../images/mult.png);
-    background-image: url(../images/thrillers.png);
+    /*background-image: url(../images/img.png);*/
+    /*background-image: url(../images/settings.ico);*/
+    /*background-image: url(../images/favicon.ico);*/
+    /*background-image: url(../images/close-search.ico);*/
+    /*background-image: url(../images/pt.png);*/
+    /*!*background: url(../images/help_info.svg);*!*/
+    /*!*background: url(../images/play.svg);*!*/
+    /*!*background: url(../images/micro.svg);*!*/
+    /*!*background: url(../images/play-white.svg);*!*/
+    /*!*background: url(../images/heart.svg);*!*/
+    /*background-image: url(../images/fighters.png);*/
+    /*background-image: url(../images/comedy.png);*/
+    /*background-image: url(../images/detective.png);*/
+    /*background-image: url(../images/drama.png);*/
+    /*background-image: url(../images/fantasy.png);*/
+    /*background-image: url(../images/future.png);*/
+    /*background-image: url(../images/horrors.png);*/
+    /*background-image: url(../images/journey.png);*/
+    /*background-image: url(../images/mult.png);*/
+    /*background-image: url(../images/thrillers.png);*/
 }
 
 .input-icon {
