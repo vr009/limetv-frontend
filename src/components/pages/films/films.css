@@ -165,6 +165,9 @@
     border-radius: 15px;
 }
 
+.genres-container {
+    margin-top: 10em;
+}
 
 @media (min-width: 319px) and (max-width: 1020px) {
     .itemGenres img {
