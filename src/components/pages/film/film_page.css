@@ -352,4 +352,10 @@
         height: 19px;
         margin-top: 13px;
     }
+
+    .series {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+        font-size: 15px;
+    }
 }
