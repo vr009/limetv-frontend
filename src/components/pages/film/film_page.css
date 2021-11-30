@@ -285,6 +285,13 @@
 
 }
 
+.main {
+    position: absolute;
+    padding-left: 100px;
+    z-index: 3;
+    padding-top: 100px;
+}
+
 @media  (min-width: 319px) and (max-width: 1020px) {
     .name-col {
         margin-bottom: 40px;
@@ -318,5 +325,11 @@
         padding-top: 22px;
         border-top: 2px solid hsla(0,0%,100%,.1);
         grid-gap: 40px;
+    }
+    .main {
+        position: absolute;
+        padding-left: 20px;
+        z-index: 3;
+        padding-top: 100px;
     }
 }
