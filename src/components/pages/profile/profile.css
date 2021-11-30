@@ -128,5 +128,6 @@
     .profile_title {
         font-size: 40px;
         line-height: normal;
+        padding-left: 5px;
     }
 }
