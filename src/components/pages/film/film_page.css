@@ -279,3 +279,22 @@
     font-weight: lighter;
     font-size: 15px;
 }
+
+.btn-container {
+
+}
+
+@media  (min-width: 319px) and (max-width: 1020px) {
+    .name-col {
+        margin-bottom: 40px;
+        font-size: 25px;
+        line-height: 38px;
+    }
+    .fon-pic  {
+        /*max-width: 100%;*/
+        position: absolute;
+        height: auto;
+        z-index: 0;
+        display: none;
+    }
+}
