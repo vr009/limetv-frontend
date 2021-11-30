@@ -115,3 +115,18 @@
     width: 110%;
     color: white;
 }
+
+.profile_title {
+    font-size: 40px;
+    line-height: normal;
+    padding-bottom: 45px;
+    padding-left: 65px;
+}
+
+
+@media (min-width: 319px) and (max-width: 1020px) {
+    .profile_title {
+        font-size: 40px;
+        line-height: normal;
+    }
+}
