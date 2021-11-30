@@ -1,24 +1,17 @@
-//- меню
-div.menu
-    //- контейнер c элементами
-    div.menu-el-container
-        //- отдельные элементы
-        div(class="cont")
-            div(class="row" style="padding-bottom: 20px;")
-                div(class="logo col-2" id="logo-start")
-                    div(class="col-for-logo-2" style="padding-top: 16px; padding-left: 60px; padding-right: 10px;")
-                        a(href="/")
-                            i(class="gg-film")
-                    div(class="col-for-logo-2")
-                        a(id="log")
-                            span LimeTV
-                div.wrapper
-                    form(id="search-form" name="search" method="get" action="/")
-                        div.container-search
-                            input#text_search(type="text" class="input-text" maxlength="30" placeholder="Название фильма или актера")
+div(id="navbar")
+    nav(class="navbar-container container-new")
+        a(class="home-link" id="logo-start")
+            div(class="col-for-logo-2")
+                i(class="gg-film")
+            div(class="logo col-for-logo-2")
+                span LimeTV
 
+        button(type="button" class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-menu")
+            span( class="icon-bar")
+            span( class="icon-bar")
+            span( class="icon-bar")
+        div(class="detached" id="navbar-menu")
 
-                div(id="menu-items")
 
 div(id="stuff")
     img(class="registration-back" src="registration.png")

@@ -23,13 +23,8 @@ body {
 }
 
 .logo {
-    background-size: cover;
-}
-
-.logo a {
-    font: bold 30px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    font: bold 22px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     color: #2cc713;
-    text-decoration: none;
 }
 
 .cont {
@@ -319,11 +314,10 @@ label {
 }
 
 .col-for-logo-2 {
-    padding-top: 8px;
     padding-left: 20px;
     float: left;
     text-align: center;
-    --ggs: 2;
+    --ggs: 1.7;
 }
 
 .col-for-logo-2-s {
@@ -342,7 +336,6 @@ label {
     border-radius: 9px;
     color: #fff;
     cursor: pointer;
-    margin-right: 28px;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -378,8 +371,8 @@ label {
     vertical-align: bottom;
     display: inline-block;
     position: relative;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background-color: unset;
     border: solid  #23e007;
     border-radius: 62%;
@@ -387,10 +380,38 @@ label {
 }
 
 .ava img {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    .ava img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ava {
+        width: 30px;
+        height: 30px;
+    }
+
+    .btn-in {
+        -moz-appearance: none;
+        border: 3px solid rgba(199, 62, 119, 0);
+        border-radius: 9px;
+        color: #fff;
+    }
+    .btn-in:hover, .btn-in:focus {
+        color: rgba(35, 224, 7, 0);
+        outline: 0;
+    }
+
+    .first:hover {
+        box-shadow: 0 0 40px 40px rgba(199, 62, 119, 0) inset;
+        border: 3px solid rgba(46, 198, 20, 0);
+    }
 }
 
 .left-menu {
@@ -589,4 +610,269 @@ label {
 
 .null {
     top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+    --navbar-bg-color: rgb(12 12 12 / 93%);
+    --navbar-text-color: hsl(0deg 0% 87%);
+    --navbar-text-color-focus: white;
+}
+
+.container-new{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 700px) {
+    .container-new{
+        padding-left: 1.3rem;
+        padding-right: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+#navbar {
+    --navbar-height: 76px;
+    height: var(--navbar-height);
+    left: 0;
+    right: 0;
+    z-index: 5;
+    position: fixed;
+    background: rgb(12 12 12 / 93%);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.home-link,
+.navbar-link {
+    color: var(--navbar-text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.home-link:focus,
+.home-link:hover {
+    color: var(--navbar-text-color-focus);
+}
+
+.navbar-link {
+    justify-content: center;
+    padding: 0.4em 0.8em;
+    border-radius: 5px;
+}
+
+.navbar-link:focus,
+.navbar-link:hover {
+    color: var(--navbar-text-color-focus);
+    background-color: var(--navbar-bg-contrast);
+}
+
+.navbar-logo {
+    background-color: var(--navbar-text-color-focus);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5em;
+}
+
+.navbar-toggle {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.icon-bar {
+    display: block;
+    width: 25px;
+    height: 4px;
+    margin: 2px;
+    transition: background-color 0.2s ease-in-out,
+    transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+    background-color: var(--navbar-text-color);
+}
+
+.navbar-toggle:focus .icon-bar,
+.navbar-toggle:hover .icon-bar {
+    background-color: var(--navbar-text-color-focus);
+}
+
+
+#navbar.opened .navbar-toggle .icon-bar:first-child,
+#navbar.opened .navbar-toggle .icon-bar:last-child {
+    position: absolute;
+    margin: 0;
+    width: 30px;
+}
+
+#navbar.opened .navbar-toggle .icon-bar:first-child {
+    transform: rotate(45deg);
+}
+
+#navbar.opened .navbar-toggle .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+
+#navbar.opened .navbar-toggle .icon-bar:last-child {
+    transform: rotate(-45deg);
+}
+
+#navbar-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    bottom: 0;
+    transition: opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out,
+    left 0.2s ease-in-out,
+    right 0.2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#navbar-menu.sidebar,
+#navbar-menu.sidebar.left {
+    left: -1000px;
+    right: 0;
+}
+
+#navbar-menu.sidebar.right {
+    right: -1000px;
+    left: 0;
+}
+
+#navbar-menu.detached,
+#navbar-menu.attached {
+    left: 0;
+    right: 0;
+}
+
+#navbar.opened #navbar-menu {
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    visibility: visible;
+}
+
+#navbar.opened #navbar-menu.sidebar.left {
+    left: 0;
+}
+
+#navbar.opened #navbar-menu.sidebar.right {
+    right: 0;
+}
+
+.navbar-links {
+    list-style-type: none;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: var(--navbar-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#navbar.opened .navbar-links {
+    padding: 1em;
+    max-height: none;
+}
+
+.sidebar .navbar-links {
+    top: 0;
+    bottom: 0;
+}
+
+.left.sidebar .navbar-links {
+    left: 0;
+    right: unset;
+    box-shadow: 5px 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+.right.sidebar .navbar-links {
+    right: 0;
+    left: unset;
+    box-shadow: -5px 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+.detached .navbar-links {
+    left: 0;
+    right: 0;
+    margin: 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.attached .navbar-links {
+    left: 0;
+    right: 0;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-item {
+    margin: 0.4em;
+    width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+    .navbar-toggle {
+        display: none;
+    }
+
+    #navbar #navbar-menu,
+    #navbar.opened #navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        display: block;
+        height: 100%;
+    }
+
+    #navbar .navbar-links,
+    #navbar.opened .navbar-links {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        position: static;
+        flex-direction: row;
+        list-style-type: none;
+        max-height: max-content;
+        width: 100%;
+        height: 100%;
+    }
+
+    #navbar .navbar-link:last-child {
+        margin-right: 0;
+    }
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
 }
