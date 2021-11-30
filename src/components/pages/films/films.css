@@ -187,3 +187,17 @@
         height: 255px;
     }
 }
+
+
+
+@media  (min-width: 319px) and (max-width: 720px) {
+    .start-text {
+        position: absolute;
+        font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+        left: 1em;
+        max-width: 40%;
+        padding-top: 27%;
+        font-size: 52px;
+        color: white;
+    }
+}
