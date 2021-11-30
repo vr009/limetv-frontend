@@ -48,48 +48,48 @@ const createTemplate = () => {
   const root = document.getElementById('root');
   root.innerHTML = menuPug();
   // обработка отправки формы
-  const search = document.getElementById('text_search');
-
-  const log = document.getElementById('log');
-  log.addEventListener('click', function(event) {
-    event.preventDefault();
-    Router.go('/', 'LimeTV');
-  });
-
-  search.addEventListener('focus', function(event) {
-    event.preventDefault();
-    if (document.getElementById('close_focus') == null) {
-      const search = document.getElementById('stuff');
-      const me = document.createElement('div');
-      me.setAttribute('class', 'back-search-fon');
-      me.setAttribute('id', 'close_focus');
-      search.appendChild(me);
-      const root = document.getElementById('close_focus');
-      // временно
-      const result = {'actors': [], 'films': []};
-      root.innerHTML = searchPagePug({result: result, isResult: false});
-
-      const closeSearch = document.getElementById('cl-search');
-      closeSearch.addEventListener('click', function(event) {
-        event.preventDefault();
-        const search = document.getElementById('close_focus');
-        search.parentNode.removeChild(search);
-        const searchForm = document.getElementById('text_search');
-        searchForm.value = '';
-      });
-    }
-  });
-
-  const searchForm = document.getElementById('search-form');
-  searchForm.addEventListener('input', function(event) {
-    event.preventDefault();
-    createSearchPage(search.value);
-  });
-
-  // Enter заблокирован тк у нас уже событие input
-  searchForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-  });
+  // const search = document.getElementById('text_search');
+  //
+  // const log = document.getElementById('log');
+  // log.addEventListener('click', function(event) {
+  //   event.preventDefault();
+  //   Router.go('/', 'LimeTV');
+  // });
+  //
+  // search.addEventListener('focus', function(event) {
+  //   event.preventDefault();
+  //   if (document.getElementById('close_focus') == null) {
+  //     const search = document.getElementById('stuff');
+  //     const me = document.createElement('div');
+  //     me.setAttribute('class', 'back-search-fon');
+  //     me.setAttribute('id', 'close_focus');
+  //     search.appendChild(me);
+  //     const root = document.getElementById('close_focus');
+  //     // временно
+  //     const result = {'actors': [], 'films': []};
+  //     root.innerHTML = searchPagePug({result: result, isResult: false});
+  //
+  //     const closeSearch = document.getElementById('cl-search');
+  //     closeSearch.addEventListener('click', function(event) {
+  //       event.preventDefault();
+  //       const search = document.getElementById('close_focus');
+  //       search.parentNode.removeChild(search);
+  //       const searchForm = document.getElementById('text_search');
+  //       searchForm.value = '';
+  //     });
+  //   }
+  // });
+  //
+  // const searchForm = document.getElementById('search-form');
+  // searchForm.addEventListener('input', function(event) {
+  //   event.preventDefault();
+  //   createSearchPage(search.value);
+  // });
+  //
+  // // Enter заблокирован тк у нас уже событие input
+  // searchForm.addEventListener('submit', function(event) {
+  //   event.preventDefault();
+  // });
 };
 
 

@@ -26,19 +26,15 @@ export const createProfilePage = (draw) => {
   ).then(
       (result) => {
         if (draw) {
-          const rootAva = document.getElementById('me-av');
-          if (!rootAva) {
-            const root = document.getElementById('menu-items');
-            const name = document.createElement('a');
-            name.setAttribute('id', 'me-av');
-            name.addEventListener('click', function(ev) {
+          const rootAva = document.getElementById('/profile');
+          if (rootAva) {
+            rootAva.addEventListener('click', function(ev) {
               ev.preventDefault();
               Router.go('/profile', 'Профиль');
             });
-            name.innerHTML = avatarPug({
+            rootAva.innerHTML = avatarPug({
               login: result,
             });
-            root.appendChild(name);
           }
         } else {
           const root = document.getElementById('stuff');
