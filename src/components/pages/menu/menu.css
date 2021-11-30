@@ -503,6 +503,8 @@ label {
     color: #a1979d;
     text-transform: uppercase;
     text-shadow: 1px 0 1px #3636367d, 0 1px 1px #3636367d, -1px 0 1px #3636367d, 0 -1px 1px #3636367d;
+    width: 200px;
+    padding-left: 100px;
 }
 
 /*----------------*/
