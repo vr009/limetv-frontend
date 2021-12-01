@@ -943,7 +943,7 @@ nav form .search-data{
     font-weight: 500;
     background: none;
 }
-
+nav .cancel-icon,
 nav .search-icon{
     width: 40px;
     text-align: center;
@@ -953,26 +953,14 @@ nav .search-icon{
     display: none;
     right: 18vh;
     position: absolute;
-    padding: 4px 86px 0;
 }
 
-nav .cancel-icon {
-    width: 40px;
-    text-align: center;
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
-    display: none;
-    right: 18vh;
-    position: absolute;
-    margin: 4px 86px 0;
-}
 @media (max-width: 1000px) {
     nav .cancel-icon,
     nav .search-icon{
         color: #fff;
         cursor: pointer;
-        right: 60vh;
+        right: 85vh;
         position: absolute;
         padding-top: 4px;
     }
