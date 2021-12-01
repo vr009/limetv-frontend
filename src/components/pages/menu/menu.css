@@ -896,11 +896,14 @@ label {
         padding: 0;
         box-shadow: none;
         position: static;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
         flex-direction: row;
         list-style-type: none;
-        max-height: max-content;
-        width: 100%;
+        max-height: -webkit-max-content;
         height: 100%;
+        top: 100%;
+        transform: translate(0%, 0%);
     }
 
     #navbar .navbar-link:last-child {
