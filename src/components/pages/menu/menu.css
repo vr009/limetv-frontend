@@ -860,7 +860,9 @@ label {
     right: 0;
     margin: 1.4rem;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+    background: #1c1c1ccf;
+    box-shadow: 0 0 20px rgb(58 56 56 / 84%);
 }
 
 .attached .navbar-links {
@@ -969,7 +971,7 @@ nav .search-icon{
 @media (max-width: 699px) {
     nav .cancel-icon,
     nav .search-icon{
-        right: -4vh;
+        right: 18vh;
         position: absolute;
         padding-top: 4px;
     }
