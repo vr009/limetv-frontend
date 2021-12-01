@@ -951,6 +951,7 @@ nav form .search-data{
     border: none;
     font-weight: 500;
     background: none;
+    z-index: 6;
 }
 
 nav .cancel-icon,
