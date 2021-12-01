@@ -828,7 +828,6 @@ label {
     max-height: 0;
     overflow: hidden;
     position: absolute;
-    background-color: var(--navbar-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
