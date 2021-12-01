@@ -316,6 +316,10 @@
     padding-top: 60px;
 }
 
+.text-about {
+    width: 54%;
+}
+
 @media  (min-width: 319px) and (max-width: 1020px) {
     .age-pic {
         background: #bb0e7d78;
@@ -378,5 +382,8 @@
         font-size: 18px;
         padding-top: 60px;
         display:flex;
+    }
+    .text-about {
+        width: 90%;
     }
 }
