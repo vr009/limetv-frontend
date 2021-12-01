@@ -463,7 +463,7 @@ label {
 }
 
 .back-search-fon {
-    margin-top: 75px;
+    margin-top: 0;
     width: 100vw;
     position: fixed;
     background-color: rgba(0,0,0,.3);
@@ -472,7 +472,7 @@ label {
 }
 
 .search-results {
-    padding-top: 100px;
+    padding-top: 135px;
 }
 
 .title-search {
@@ -944,18 +944,28 @@ nav form .search-data{
     background: none;
 }
 
-nav .cancel-icon,
 nav .search-icon{
     width: 40px;
     text-align: center;
-    margin: 0 86px;
     font-size: 18px;
     color: #fff;
     cursor: pointer;
     display: none;
     right: 18vh;
     position: absolute;
-    padding-top: 4px;
+    padding: 4px 86px 0;
+}
+
+nav .cancel-icon {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    right: 18vh;
+    position: absolute;
+    margin: 4px 86px 0;
 }
 @media (max-width: 1000px) {
     nav .cancel-icon,
