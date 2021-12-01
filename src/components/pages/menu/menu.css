@@ -463,26 +463,16 @@ label {
 }
 
 .back-search-fon {
+    margin-top: 75px;
     width: 100vw;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    top: 0;
-    position: absolute;
+    position: fixed;
     background-color: rgba(0,0,0,.3);
-    /* нужно подумать*/
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     height: 100%;
-    box-shadow: 0 20px 20px 7px rgb(0 0 0 / 21%), 0 20px 20px 7px rgb(0 0 0 / 9%), 0 20px 20px 20px rgb(0 0 0 / 10%);
-    transform: translateZ(1px);
-    transition: .1s;
 }
 
 .search-results {
     padding-top: 100px;
-    position: absolute;
-    z-index: 2;
 }
 
 .title-search {
@@ -953,7 +943,6 @@ nav form .search-data{
     border: none;
     font-weight: 500;
     background: none;
-    z-index: 6;
 }
 
 nav .cancel-icon,
@@ -983,7 +972,7 @@ nav .search-icon{
 @media (max-width: 699px) {
     nav .cancel-icon,
     nav .search-icon{
-        right: 3vh;
+        right: 10vh;
         position: absolute;
         padding-top: 4px;
     }
