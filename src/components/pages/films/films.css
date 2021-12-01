@@ -47,6 +47,7 @@
 
 .info-button {
     width: 40px;
+    vertical-align: text-bottom;
 }
 
 .play-button {
