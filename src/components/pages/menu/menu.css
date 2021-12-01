@@ -948,7 +948,7 @@ nav .cancel-icon,
 nav .search-icon{
     width: 40px;
     text-align: center;
-    margin: 0 50px;
+    margin: 0 86px;
     font-size: 18px;
     color: #fff;
     cursor: pointer;
@@ -971,7 +971,7 @@ nav .search-icon{
 @media (max-width: 699px) {
     nav .cancel-icon,
     nav .search-icon{
-        right: 10vh;
+        right: -4vh;
         position: absolute;
         padding-top: 4px;
     }
