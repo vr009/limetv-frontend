@@ -980,6 +980,16 @@ nav .search-icon{
         position: absolute;
         padding-top: 4px;
     }
+    .title-search {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .height-close {
+        height: 33px;
+    }
+    .close-s {
+        margin: 23px 28%;
+    }
 }
 
 nav .cancel-icon,
