@@ -990,6 +990,9 @@ nav .search-icon{
     .close-s {
         margin: 23px 28%;
     }
+    .tit-in-search {
+        font-size: 14px;
+    }
 }
 
 nav .cancel-icon,
