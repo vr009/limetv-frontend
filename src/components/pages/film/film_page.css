@@ -27,7 +27,7 @@
 }
 
 .film-page-container {
-    padding-top: 4px;
+    margin-top: -12px;
     display: flex;
     padding-bottom: 30px;
 }
