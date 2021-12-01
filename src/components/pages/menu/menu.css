@@ -666,6 +666,7 @@ label {
     padding-right: 3rem;
     margin-left: auto;
     margin-right: auto;
+    z-index: 7;
 }
 
 @media (max-width: 700px) {
