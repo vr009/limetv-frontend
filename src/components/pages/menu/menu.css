@@ -230,6 +230,13 @@ label {
     cursor: pointer;
 }
 
+@media  (min-width: 320px) and (max-width: 800px) {
+    .item img {
+        display: block;
+        max-width: 278px;
+    }
+}
+
 .containerFilm:focus-within .item,
 .containerFilm:hover .item {
     transform: translateX(-25%);
