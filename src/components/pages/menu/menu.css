@@ -466,9 +466,9 @@ label {
     width: 100vw;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 4;
     top: 0;
-    position: absolute;
+    position: fixed;
     background-color: rgba(0,0,0,.3);
     /* нужно подумать*/
     -webkit-backdrop-filter: blur(10px);
@@ -666,7 +666,8 @@ label {
     padding-right: 3rem;
     margin-left: auto;
     margin-right: auto;
-    z-index: 7;
+    position: absolute;
+    z-index: 5;
 }
 
 @media (max-width: 700px) {
