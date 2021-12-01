@@ -481,6 +481,8 @@ label {
 
 .search-results {
     padding-top: 100px;
+    position: absolute;
+    z-index: 2;
 }
 
 .title-search {
