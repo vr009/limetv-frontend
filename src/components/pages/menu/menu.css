@@ -476,6 +476,7 @@ label {
 
 .search-results {
     padding-top: 135px;
+    overflow-y: auto;
 }
 
 .title-search {
