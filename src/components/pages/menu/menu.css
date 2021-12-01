@@ -466,9 +466,9 @@ label {
     width: 100vw;
     left: 0;
     right: 0;
-    z-index: 4;
+    z-index: 1;
     top: 0;
-    position: fixed;
+    position: absolute;
     background-color: rgba(0,0,0,.3);
     /* нужно подумать*/
     -webkit-backdrop-filter: blur(10px);
