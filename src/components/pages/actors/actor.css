@@ -197,3 +197,10 @@
     width: 217px;
     margin-bottom: -2px;
 }
+
+@media (min-width: 319px) and (max-width: 1020px) {
+    .title {
+        font-size: 40px;
+        line-height: normal;
+    }
+}

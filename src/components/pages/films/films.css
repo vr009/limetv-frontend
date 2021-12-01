@@ -165,3 +165,40 @@
     object-fit: cover;
     border-radius: 15px;
 }
+
+.genres-container {
+    margin-top: 10em;
+}
+
+@media (min-width: 319px) and (max-width: 1020px) {
+    .itemGenres img {
+        display: block;
+        max-width: 300px;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .contentGenres {
+        display: flex;
+        overflow-x: scroll;
+        padding-top: 35px;
+        overflow-y: hidden;
+        padding-left: 55px;
+        height: 200px;
+    }
+}
+
+
+
+@media  (min-width: 319px) and (max-width: 720px) {
+    .start-text {
+        position: absolute;
+        font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+        left: 1em;
+        max-width: 40%;
+        padding-top: 27%;
+        font-size: 35px;
+        color: white;
+    }
+}
