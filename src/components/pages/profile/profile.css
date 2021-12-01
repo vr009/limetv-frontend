@@ -130,4 +130,22 @@
         line-height: normal;
         padding-left: 5px;
     }
+
+    .profile_bio{
+        display: table-caption;
+        background: unset;
+        border-radius: 21px;
+        border: solid #8bbf51;
+        width: 99%;
+        color: white;
+    }
+
+    .profile_pass {
+        background: unset;
+        border-radius: 15px;
+        border: solid #8bbf51;
+        width: 99%;
+        height: 26px;
+        color: white;
+    }
 }
