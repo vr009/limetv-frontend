@@ -2,12 +2,15 @@
   "name": "2021_2_a06367",
   "version": "1.0.0",
   "description": "Проект Netflix команды \"A06367\"",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "dev2": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src DEBUG=http",
-    "dev": "http-server",
-    "lint": "eslint --fix --ext .js,.jsx ."
+    "dev": "webpack-dev-server .",
+    "hi": "webpack-dev-server ./webpack.config.js",
+    "lint": "eslint --ignore-pattern 'dist/*' --fix --ext .js,.jsx .",
+    "wp": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,16 +23,38 @@
   },
   "homepage": "https://github.com/frontend-park-mail-ru/2021_2_A06367#readme",
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "cookie-parser": "^1.4.5",
+    "css-loader": "^6.5.0",
     "express": "^4.17.1",
+    "file-loader": "^6.2.0",
     "http-server": "^13.0.2",
+    "loader": "^2.1.1",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
-    "pug": "^3.0.2",
-    "pug-html-loader": "^1.1.5"
+    "postcss-preset-env": "^6.7.0",
+    "pug-html-loader": "^1.0.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "uuid": "^8.3.2",
+    "workbox-core": "^6.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
     "eslint": "^7.32.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1",
+    "workbox-strategies": "^6.3.0",
+    "workbox-webpack-plugin": "^6.3.0"
   }
 }

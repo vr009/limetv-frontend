@@ -1,0 +1,237 @@
+.first-film {
+    color: #fff;
+    /*background-image: url(../images/img.png);*/
+    /*background-image: url(../images/settings.ico);*/
+    /*background-image: url(../images/favicon.ico);*/
+    /*background-image: url(../images/close-search.ico);*/
+    /*background-image: url(../images/canceled.svg);*/
+    /*background-image: url(../images/search.svg);*/
+    /*!*background: url(../images/help_info.svg);*!*/
+    /*!*background: url(../images/play.svg);*!*/
+    /*!*background: url(../images/micro.svg);*!*/
+    /*!*background: url(../images/play-white.svg);*!*/
+    /*!*background: url(../images/heart.svg);*!*/
+    /*background-image: url(../images/fighters.png);*/
+    /*background-image: url(../images/comedy.png);*/
+    /*background-image: url(../images/detective.png);*/
+    /*background-image: url(../images/drama.png);*/
+    /*background-image: url(../images/fantasy.png);*/
+    /*background-image: url(../images/future.png);*/
+    /*background-image: url(../images/horrors.png);*/
+    /*background-image: url(../images/journey.png);*/
+    /*background-image: url(../images/mult.png);*/
+    background-image: url(../images/search.ico);
+}
+.first-pic {
+    float: left;
+    max-width: 100%;
+    height: auto;
+}
+
+.input-icon {
+    width: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: all .4s ease;
+    right: 0;
+    float: right;
+    margin-top: -43px;
+    z-index: 3;
+    position: relative;
+    margin-right: 30px;
+}
+
+.input-icon.selected {
+    background-color: #dd3279ab;
+    border-radius: 10px;
+}
+
+.input-icon img {
+    max-width: 20px;
+}
+
+.info-button {
+    width: 40px;
+}
+
+.play-button {
+    width: 40px;
+}
+
+
+@media (max-width: 721px) {
+    .play-button, .info-button {
+        vertical-align: text-bottom;
+    }
+}
+
+
+.close-s {
+    float: right;
+    margin: 30px 18%;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+}
+
+.close-s:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.height-close {
+    height: 46px;
+}
+
+.cont-res {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.info-text {
+    position: absolute;
+    left: 115px;
+    text-transform: uppercase;
+    background: rgb(137 137 137 / 58%);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+}
+
+.play-text {
+    position: absolute;
+
+    text-transform: uppercase;
+    background: rgb(255, 255, 255);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+    /*font: bold 24px/34px Helvetica, Sans-Serif;*/
+}
+
+.info-text:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.play-text:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.start-text {
+    position: absolute;
+    font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    left: 115px;
+    max-width: 40%;
+    padding-top: 27%;
+    font-size: 52px;
+    color: white;
+}
+
+.selection {
+    position: absolute;
+    padding-top: 45%;
+    pointer-events: none;
+}
+
+.selection-film {
+    pointer-events: all;
+}
+
+.point {
+    cursor: pointer;
+}
+
+.contentGenres {
+    display: flex;
+    overflow-x: scroll;
+    padding-top: 35px;
+    overflow-y: hidden;
+    padding-left: 55px;
+    height: 340px;
+}
+
+.itemGenres {
+    display: block;
+    transition: transform 350ms;
+    margin: 6px;
+    width: 305px;
+    height: 200px;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+.contentGenres .itemGenres:focus,
+.contentGenres .itemGenres:hover {
+    transform: scale(1.06);;
+    z-index: 1;
+}
+
+.itemGenres img {
+    display: block;
+    max-width: 300px;
+    height: 140%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.genres-container {
+    margin-top: 10em;
+}
+
+@media (min-width: 319px) and (max-width: 1020px) {
+    .itemGenres img {
+        display: block;
+        max-width: 300px;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .contentGenres {
+        display: flex;
+        overflow-x: scroll;
+        padding-top: 35px;
+        overflow-y: hidden;
+        padding-left: 55px;
+        height: 200px;
+    }
+}
+
+
+
+@media  (min-width: 319px) and (max-width: 720px) {
+    .start-text {
+        position: absolute;
+        font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+        left: 1em;
+        max-width: 40%;
+        padding-top: 27%;
+        font-size: 35px;
+        color: white;
+    }
+}
+
+@media  (min-width: 319px) and (max-width: 380px) {
+    .first-pic {
+        float: left;
+        left: 0;
+        max-width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+@media  (min-width: 381px) and (max-width: 616px) {
+    .first-pic {
+        float: left;
+        left: 0;
+        max-width: 100%;
+        height: 515px;
+        object-fit: cover;
+    }
+}

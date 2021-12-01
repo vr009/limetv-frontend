@@ -1,0 +1,47 @@
+div.films-container
+    h1.selection-profile Актер
+
+    div(class="block-left")
+        div.contentAvatar
+            div(class="prof_actor_pic")
+                img(src=avatar)
+
+    div(class="block-right" style="padding-top: 0;")
+        div.profile-grid(style="grid-template-columns: auto; padding-top: 10px;")
+            div(style="color: white;")
+                h2.name-col-actor О персоне
+                div(class="grey-info-actor")
+                    div Имя и фамилия:
+                    span(class="pug-text") #{name} #{surname}
+
+                div(class="grey-info-actor")
+                    div Дата рождения:
+                    span(class="pug-text") #{date_of_birth}
+
+                div(class="grey-info-actor")
+                    div Рост:
+                    span(class="pug-text") #{height}м
+
+                div(class="grey-info-actor")
+                    div Жанры:
+                        div(class="pug-text")
+                            -  let flag = false;
+                                each val in genres
+                                    if flag
+                                        span ,
+                                        a(id=val class="actor-h") #{val}
+                                    else
+                                        a(id=val class="actor-h") #{val}
+                                    - flag = true
+
+                div(class="grey-info-actor")
+                    div Подробнее:
+                    span(class="pug-text") #{description}
+
+
+section.selection-actor-1
+    div.about-your
+            div(class="row active-actors") Активность актера
+
+section.selection-profile-2
+    div.about-your-active#selection-profile-5

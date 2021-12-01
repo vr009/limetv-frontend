@@ -1,0 +1,36 @@
+div.films-container
+    h1.selection-profile Профиль
+
+    div(class="block-left")
+        div.contentAvatar
+            div(class="prof_pic")
+                img(src=avatar class="avatar")
+            i(id="settings_btn" class="settings_btn")
+                img(src="settings.ico" class="set")
+    div(class="block-right")
+        div.profile-grid
+            div.col-grid-profile
+                div(class="grey-info-profile")
+                    div Имя пользователя:
+                    span(class="pug-text-profile") #{login}
+
+                div(class="grey-info-profile")
+                    div О себе:
+                    span(class="pug-text-profile") #{about}
+
+section.selection-profile-2
+    div.about-your
+        div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 200px; margin-bottom: -2px;")
+            div(class="row" style="padding-bottom: 10px;") Ваша активность
+
+section.selection-profile-2
+    div.about-your-active#selection-profile-3
+
+section.selection-profile-2
+    div.about-your-active#selection-profile-4
+
+
+section.selection-profile-2
+    div.about-your-active
+        div.films-container#empty-film-profile
+            h1.selection-empty-profile — Добавьте в избранные или отложенные фильмы и сериалы
