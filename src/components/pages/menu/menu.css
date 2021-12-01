@@ -981,7 +981,7 @@ nav .search-icon{
 @media (max-width: 699px) {
     nav .cancel-icon,
     nav .search-icon{
-        right: 10vh;
+        right: 3vh;
         position: absolute;
         padding-top: 4px;
     }
