@@ -872,7 +872,7 @@ label {
     margin: 1.4rem;
     border-radius: 5px;
     -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 30%);
-    background: rgba(0, 0, 0, 0.81);
+    background: rgb(12 12 12 / 93%);
     box-shadow: 0 0 20px rgba(71, 70, 70, 0.84);
 }
 
