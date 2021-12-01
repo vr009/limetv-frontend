@@ -145,5 +145,8 @@
         height: 370px;
         margin-left: 3em;
     }
-
+    .profile {
+        color: white;
+        margin-left: 15px;
+    }
 }
