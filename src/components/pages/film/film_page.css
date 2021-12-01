@@ -162,8 +162,14 @@
     transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
 }
 
-.btn-watch:hover {
-    /*border: 4px solid #cb3a76;*/
+.watch:hover {
+    border: 4px solid #cb3a76;
+}
+
+.watch-btn-img {
+    vertical-align: middle;
+    padding-left: 20px;
+    width: 28px;
 }
 
 .re-btn-watch {
@@ -376,7 +382,7 @@
         vertical-align: middle;
         width: 28px;
         padding-left: 10px;
-        padding-right: 25px;
+        padding-right: 47px;
     }
     .btns {
         font-size: 18px;
