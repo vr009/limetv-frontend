@@ -81,15 +81,9 @@ const createTemplate = () => {
       const closeSearch = document.getElementById('cl-search');
       closeSearch.addEventListener('click', function(event) {
         event.preventDefault();
-        const search = document.getElementById('close_focus');
-        search.parentNode.removeChild(search);
-        const searchForm = document.getElementById('text_search');
-        searchForm.value = '';
-      });
-
-      const closeS = document.getElementById('cl-s');
-      closeS.addEventListener('click', function(event) {
-        event.preventDefault();
+        searchBtn.classList.remove('hide');
+        cancelBtn.classList.remove('show');
+        form.classList.remove('active');
         const search = document.getElementById('close_focus');
         search.parentNode.removeChild(search);
         const searchForm = document.getElementById('text_search');
@@ -97,39 +91,6 @@ const createTemplate = () => {
       });
     }
   });
-
-  // openSearch.addEventListener('click', function(event) {
-  //   event.preventDefault();
-  //   if (document.getElementById('close_focus') == null) {
-  //     const search = document.getElementById('stuff');
-  //     const me = document.createElement('div');
-  //     me.setAttribute('class', 'back-search-fon');
-  //     me.setAttribute('id', 'close_focus');
-  //     search.appendChild(me);
-  //     const root = document.getElementById('close_focus');
-  //     // временно
-  //     const result = {'actors': [], 'films': []};
-  //     root.innerHTML = searchPagePug({result: result, isResult: false});
-  //
-  //     const closeSearch = document.getElementById('cl-search');
-  //     closeSearch.addEventListener('click', function(event) {
-  //       event.preventDefault();
-  //       const search = document.getElementById('close_focus');
-  //       search.parentNode.removeChild(search);
-  //       const searchForm = document.getElementById('text_search');
-  //       searchForm.value = '';
-  //     });
-  //
-  //     const closeS = document.getElementById('cl-s');
-  //     closeS.addEventListener('click', function(event) {
-  //       event.preventDefault();
-  //       const search = document.getElementById('close_focus');
-  //       search.parentNode.removeChild(search);
-  //       const searchForm = document.getElementById('text_search');
-  //       searchForm.value = '';
-  //     });
-  //   }
-  // });
 
   const searchForm = document.getElementById('search-form');
   searchForm.addEventListener('input', function(event) {
