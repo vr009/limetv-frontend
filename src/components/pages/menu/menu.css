@@ -47,44 +47,6 @@ body {
     clear: both;
 }
 
-/*#auth_btn, #registration_btn {*/
-/*    text-align: center;*/
-/*    color: white;*/
-/*    cursor: pointer;*/
-/*    width: 96%;*/
-/*    text-decoration: none;*/
-/*    text-decoration-thickness: initial;*/
-/*    padding: 10px;*/
-/*    -webkit-text-decoration-color: initial;*/
-/*    text-decoration-color: initial;*/
-/*    border: solid #2cc713;*/
-/*    background: #2cc713;*/
-/*    -webkit-transition: .5s;*/
-/*    transition: .2s;*/
-/*    margin: 30px 5px 10px;*/
-/*    border-radius: 4px;*/
-/*    font: bold 16px/16px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;*/
-/*}*/
-
-/*.registration_btn:hover {*/
-/*    transform: scale(1.05);*/
-/*}*/
-
-/*.registration_btn:hover {*/
-/*    transform: scale(1.05);*/
-/*}*/
-
-/*.registration_block {*/
-/*    position: relative;*/
-/*    z-index: 2;*/
-/*    margin: 30px auto;*/
-/*    width:430px;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    padding: 60px 35px 35px 45px;*/
-/*    background: rgb(0 0 0 / 69%);*/
-/*}*/
-
 .input_block {
     width: 100%;
     padding: 5px 5px 5px 5px;
@@ -102,9 +64,9 @@ body {
 }
 
 .input_block input:-webkit-autofill {
-    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
     outline:none;
-    -webkit-box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
+    box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
     font-size: 18px;
     width: 93%;
     border: none;
@@ -209,9 +171,9 @@ label {
     padding-left: 50px;
 }
 
-::-webkit-scrollbar {
-    width: 0;
-}
+/*::sc {*/
+/*    width: 0;*/
+/*}*/
 
 .contentFilm {
     display: flex;
@@ -319,7 +281,8 @@ label {
 }
 
 .none-auth {
-    float: right; display: -webkit-box;
+    float: right;
+    display: -webkit-box;
 }
 
 .btn-in {
@@ -339,7 +302,6 @@ label {
 }
 
 .first {
-    -webkit-transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
     transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
 }
 
@@ -452,7 +414,6 @@ label {
     outline: none;
     text-transform: uppercase;
     font-weight: bold;
-    -webkit-transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
     transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
 }
 
@@ -476,7 +437,6 @@ label {
     top: 0;
     z-index: 4;
     background-color: rgba(0,0,0,.3);
-    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     height: 100%;
 }
@@ -871,7 +831,6 @@ label {
     right: 0;
     margin: 1.4rem;
     border-radius: 5px;
-    -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 30%);
     background: rgb(12 12 12 / 93%);
     box-shadow: 0 0 20px rgba(71, 70, 70, 0.84);
 }
@@ -909,8 +868,8 @@ label {
         padding: 0;
         box-shadow: none;
         position: static;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
+        box-orient: horizontal;
+        box-direction: normal;
         flex-direction: row;
         list-style-type: none;
         max-height: -webkit-max-content;
@@ -941,8 +900,6 @@ label {
 
 
 nav form{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     height: 36px;
     padding: 2px;

@@ -13,6 +13,7 @@
     padding-bottom: 5px;
     font-family: 'Montserrat', sans-serif;
     line-height: 26px;
+    /*svelt*/
 }
 
 .profile_pic {
@@ -37,7 +38,6 @@
     opacity: 0;
     background: rgba( 255, 255, 255, 0.2 );
     backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
     position: absolute;
     left: 0;
     width: 100px;

@@ -69,7 +69,6 @@
 .close-s {
     float: right;
     margin: 30px 18%;
-    -webkit-transition: 0.15s;
     transition: 0.15s;
 }
 

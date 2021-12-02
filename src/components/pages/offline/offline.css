@@ -23,8 +23,7 @@ a.blubtn {
     cursor: pointer;
     text-decoration: none;
     border-radius: 10px;
-    -webkit-transition: .5s;
-    transition: .3s;
+    transition: .4s;
     font-family: 'Montserrat', sans-serif;
     border: solid #c73e77;
     padding: 11px 11px;
