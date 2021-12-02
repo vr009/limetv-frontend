@@ -64,7 +64,7 @@ body {
 }
 
 .input_block input:-webkit-autofill {
-    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
     outline:none;
     box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
     font-size: 18px;
