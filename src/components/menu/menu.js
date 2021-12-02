@@ -92,10 +92,12 @@ const createTemplate = () => {
     }
   });
 
+  let time;
   const searchForm = document.getElementById('search-form');
   searchForm.addEventListener('input', function(event) {
     event.preventDefault();
-    createSearchPage(search.value);
+    clearTimeout(time);
+    time = setTimeout(createSearchPage, 400, search.value);
   });
 
   // Enter заблокирован тк у нас уже событие input
