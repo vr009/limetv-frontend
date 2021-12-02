@@ -28,8 +28,8 @@ div.films-container
                             -  let flag = false;
                                 each val in genres
                                     if flag
-                                        span ,
-                                        a(id=val class="actor-h") #{' '+val}
+                                        span #{' ,'}
+                                        a(id=val class="actor-h") #{val}
                                     else
                                         a(id=val class="actor-h") #{val}
                                     - flag = true
