@@ -579,12 +579,7 @@ label {
     max-width: 180px;
 }
 
-@media (min-width: 319px) and (max-width: 1020px) {
-    .items img {
-        display: block;
-        max-width: 148px;
-    }
-}
+
 
 .div-search-film {
     display: flex;
@@ -597,6 +592,21 @@ label {
     background-color: hsla(0,0%,100%,.1);
     cursor: pointer;
     border-radius: 10px;
+}
+
+@media (min-width: 319px) and (max-width: 1020px) {
+    .items img {
+        display: block;
+        max-width: 144px;
+    }
+
+    .div-search-film {
+        display: flex;
+        max-width: 320px;
+        width: 30%;
+        height: 124px;
+    }
+
 }
 
 .name-film {
