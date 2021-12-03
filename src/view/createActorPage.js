@@ -3,7 +3,6 @@ import {fetchRequest} from '../components/network/fetch.js';
 import {showErrors} from '../components/utils/errors.js';
 
 export const createActorPage = (state) => {
-  document.title = 'Actor page';
   const url = serverLocate+':8000/actors/actor/'+state.id;
 
   fetchRequest(url, 'GET', null).then(

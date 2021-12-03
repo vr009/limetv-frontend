@@ -9,10 +9,6 @@ import '../components/pages/profile/profile.css';
 
 
 export const createProfilePage = (draw) => {
-  if (!draw) {
-    document.title = 'Profile';
-  }
-
   const url = serverLocate+'/users/profile';
 
   fetchRequest(url, 'GET', null).then(
@@ -28,10 +24,6 @@ export const createProfilePage = (draw) => {
         if (draw) {
           const rootAva = document.getElementById('/profile');
           if (rootAva) {
-            rootAva.addEventListener('click', function(ev) {
-              ev.preventDefault();
-              Router.go('/profile', 'Профиль');
-            });
             rootAva.innerHTML = avatarPug({
               login: result,
             });

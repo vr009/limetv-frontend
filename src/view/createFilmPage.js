@@ -4,7 +4,6 @@ import {createFilm} from '../components/films/single.js';
 import {serverLocate} from '../utils/locale.js';
 
 export const createFilmPage = (state) => {
-  document.title = 'Film';
   const url = serverLocate+':8000/films/film/'+state.id;
 
   fetchRequest(url, 'GET', null).then(

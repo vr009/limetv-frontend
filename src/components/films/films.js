@@ -7,8 +7,7 @@ import Router from '../../utils/router.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';
 import {Genres} from '../utils/validate';
-import userInfoPug from "../pages/profile_info/profile_info.pug";
-import {createMenu} from "../menu/menu";
+import {createMenu} from '../menu/menu';
 
 /**
  * Модуль создания экрана фильмов
