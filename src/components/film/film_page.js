@@ -79,7 +79,7 @@ const showFilm = (filmId) => {
           }
         }
 
-        const url = serverLocate+'/films/starred/'+ filmId;
+        const url = serverLocate+'/films/starred/check/'+ filmId;
         fetchRequest(url, 'GET', null).then(
             (res) => {
               if (res.ok) {
