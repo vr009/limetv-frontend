@@ -64,7 +64,7 @@
 
 .profile_pass {
     background: unset;
-    border-radius: 15px;
+    border-radius: 7px;
     border: solid #8bbf51;
     width: 110%;
     height: 26px;
@@ -115,7 +115,7 @@
 .profile_bio{
     display: table-caption;
     background: unset;
-    border-radius: 21px;
+    border-radius: 8px;
     border: solid #8bbf51;
     width: 110%;
     color: white;
@@ -139,7 +139,7 @@
     .profile_bio{
         display: table-caption;
         background: unset;
-        border-radius: 21px;
+        border-radius: 8px;
         border: solid #8bbf51;
         width: 80%;
         color: white;
@@ -147,7 +147,7 @@
 
     .profile_pass {
         background: unset;
-        border-radius: 15px;
+        border-radius: 7px;
         border: solid #8bbf51;
         width: 80%;
         height: 26px;
