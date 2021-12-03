@@ -323,6 +323,11 @@
     width: 54%;
 }
 
+
+.btn-unwatch-later {
+    background: #601cbb;
+}
+
 @media  (min-width: 319px) and (max-width: 1020px) {
     .age-pic {
         background: #bb0e7d78;

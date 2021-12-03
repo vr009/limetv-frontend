@@ -79,7 +79,7 @@ const showFilm = (filmId) => {
           }
         }
 
-        const url = serverLocate+'/films/starred/'+ filmId;
+        const url = serverLocate+'/films/starred/check/'+ filmId;
         fetchRequest(url, 'GET', null).then(
             (res) => {
               if (res.ok) {
@@ -109,6 +109,7 @@ const showFilm = (filmId) => {
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
           watchLater(filmId);
+          wlBtn.classList.toggle('btn-unwatch-later');
         });
 
         showActors(result.actors);

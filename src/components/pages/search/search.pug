@@ -8,7 +8,7 @@ div.search-results
     if result.films.length !== 0
         div.films-container.cont-res(style="padding-top: 10px")
             h3.tit-in-search Фильмы
-            div.contentFilms
+            div.contentFilms(style="display:block; flex-wrap: nowrap;")
                 each film in result.films
                     div(id=film.id + salt).div-search-film
                         a(class="items")
@@ -19,7 +19,7 @@ div.search-results
     if result.actors.length !== 0
         div.films-container.cont-res(style="padding-top: 10px")
             h3.tit-in-search Актеры
-            div.contentFilms
+            div.contentFilms(style="display:flex; flex-wrap: nowrap;")
                 each actor in result.actors
                     div(id=actor.id + salt).div-search-film(style="height: 170px;")
                         a(class="items" style="width: 130px;")
