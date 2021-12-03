@@ -74,7 +74,15 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
 
                     div(class="grey-info")
                         div Жанр
-                        span(class="pug-text") #{result.genres}
+                        div(class="pug-text")
+                            -  let flag = false;
+                                each val in result.genres
+                                    if flag
+                                        span #{', '}
+                                        a(id=val class="actor-h") #{val}
+                                    else
+                                        a(id=val class="actor-h") #{val}
+                                    - flag = true
 
                     div(class="grey-info")
                         div Премьера в России

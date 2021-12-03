@@ -7,7 +7,7 @@ import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
-import {createMenu} from "../menu/menu";
+import {createMenu} from '../menu/menu';
 
 /**
  * Модуль создания страницы фильма
@@ -77,6 +77,14 @@ const showFilm = (filmId) => {
               });
             }
           }
+        }
+
+        for (let i = 0; i < result.genres.length; i++) {
+          const film = document.getElementById(result.genres[i]);
+          film.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/genre/' + result.genres[i], result.genres[i]);
+          });
         }
 
         const url = serverLocate+'/films/starred/check/'+ filmId;
