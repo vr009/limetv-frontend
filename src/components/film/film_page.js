@@ -109,6 +109,7 @@ const showFilm = (filmId) => {
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
           watchLater(filmId);
+          wlBtn.classList.toggle('btn-unwatch-later');
         });
 
         showActors(result.actors);
