@@ -581,6 +581,15 @@ label {
         border-radius: 15px;
         height: 80%;
     }
+
+    .cont-res {
+        margin-left: -5%;
+        margin-right: -5%;
+    }
+    .items img {
+        display: block;
+        max-width: 148px;
+    }
 }
 
 .selection-genres {
