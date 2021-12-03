@@ -24,7 +24,7 @@
 }
 .first-pic {
     float: left;
-    max-width: 100%;
+    width: -webkit-fill-available;
     height: auto;
 }
 
