@@ -6,11 +6,9 @@
     text-decoration: none;
     text-decoration-thickness: initial;
     padding: 10px;
-    -webkit-text-decoration-color: initial;
     text-decoration-color: initial;
     border: solid #2cc713;
     background: #2cc713;
-    -webkit-transition: .5s;
     transition: .2s;
     margin: 30px 5px 10px;
     border-radius: 4px;
@@ -61,7 +59,7 @@
 .input_block input:-webkit-autofill {
     -webkit-text-fill-color: #ffffff;
     outline:none;
-    -webkit-box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
+    box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
     font-size: 18px;
     width: 93%;
     border: none;

@@ -47,44 +47,6 @@ body {
     clear: both;
 }
 
-/*#auth_btn, #registration_btn {*/
-/*    text-align: center;*/
-/*    color: white;*/
-/*    cursor: pointer;*/
-/*    width: 96%;*/
-/*    text-decoration: none;*/
-/*    text-decoration-thickness: initial;*/
-/*    padding: 10px;*/
-/*    -webkit-text-decoration-color: initial;*/
-/*    text-decoration-color: initial;*/
-/*    border: solid #2cc713;*/
-/*    background: #2cc713;*/
-/*    -webkit-transition: .5s;*/
-/*    transition: .2s;*/
-/*    margin: 30px 5px 10px;*/
-/*    border-radius: 4px;*/
-/*    font: bold 16px/16px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;*/
-/*}*/
-
-/*.registration_btn:hover {*/
-/*    transform: scale(1.05);*/
-/*}*/
-
-/*.registration_btn:hover {*/
-/*    transform: scale(1.05);*/
-/*}*/
-
-/*.registration_block {*/
-/*    position: relative;*/
-/*    z-index: 2;*/
-/*    margin: 30px auto;*/
-/*    width:430px;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    padding: 60px 35px 35px 45px;*/
-/*    background: rgb(0 0 0 / 69%);*/
-/*}*/
-
 .input_block {
     width: 100%;
     padding: 5px 5px 5px 5px;
@@ -104,7 +66,7 @@ body {
 .input_block input:-webkit-autofill {
     -webkit-text-fill-color: #ffffff;
     outline:none;
-    -webkit-box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
+    box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
     font-size: 18px;
     width: 93%;
     border: none;
@@ -209,9 +171,9 @@ label {
     padding-left: 50px;
 }
 
-::-webkit-scrollbar {
-    width: 0;
-}
+/*::sc {*/
+/*    width: 0;*/
+/*}*/
 
 .contentFilm {
     display: flex;
@@ -228,6 +190,13 @@ label {
     width: 305px;
     height: 200px;
     cursor: pointer;
+}
+
+@media  (min-width: 320px) and (max-width: 800px) {
+    .item img {
+        display: block;
+        max-width: 278px;
+    }
 }
 
 .containerFilm:focus-within .item,
@@ -312,7 +281,8 @@ label {
 }
 
 .none-auth {
-    float: right; display: -webkit-box;
+    float: right;
+    display: -webkit-box;
 }
 
 .btn-in {
@@ -332,7 +302,6 @@ label {
 }
 
 .first {
-    -webkit-transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
     transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
 }
 
@@ -445,7 +414,6 @@ label {
     outline: none;
     text-transform: uppercase;
     font-weight: bold;
-    -webkit-transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
     transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
 }
 
@@ -463,26 +431,19 @@ label {
 }
 
 .back-search-fon {
+    margin-top: 0;
     width: 100vw;
-    left: 0;
-    right: 0;
-    z-index: 3;
+    position: fixed;
     top: 0;
-    position: absolute;
+    z-index: 4;
     background-color: rgba(0,0,0,.3);
-    /* нужно подумать*/
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     height: 100%;
-    box-shadow: 0 20px 20px 7px rgb(0 0 0 / 21%), 0 20px 20px 7px rgb(0 0 0 / 9%), 0 20px 20px 20px rgb(0 0 0 / 10%);
-    transform: translateZ(1px);
-    transition: .1s;
 }
 
 .search-results {
-    padding-top: 100px;
-    position: absolute;
-    z-index: 2;
+    padding-top: 135px;
+    overflow-y: auto;
 }
 
 .title-search {
@@ -847,7 +808,6 @@ label {
     max-height: 0;
     overflow: hidden;
     position: absolute;
-    background-color: var(--navbar-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -880,7 +840,8 @@ label {
     right: 0;
     margin: 1.4rem;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background: rgb(12 12 12 / 93%);
+    box-shadow: 0 0 20px rgba(71, 70, 70, 0.84);
 }
 
 .attached .navbar-links {
@@ -890,7 +851,9 @@ label {
 }
 
 .navbar-item {
-    margin: 0.4em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-right: 0.6em;
     width: 100%;
 }
 
@@ -914,11 +877,14 @@ label {
         padding: 0;
         box-shadow: none;
         position: static;
+        box-orient: horizontal;
+        box-direction: normal;
         flex-direction: row;
         list-style-type: none;
-        max-height: max-content;
-        width: 100%;
+        max-height: -webkit-max-content;
         height: 100%;
+        top: 100%;
+        transform: translate(0%, 0%);
     }
 
     #navbar .navbar-link:last-child {
@@ -943,8 +909,6 @@ label {
 
 
 nav form{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     height: 36px;
     padding: 2px;
@@ -962,28 +926,25 @@ nav form .search-data{
     border: none;
     font-weight: 500;
     background: none;
-    z-index: 6;
 }
-
 nav .cancel-icon,
 nav .search-icon{
     width: 40px;
     text-align: center;
-    margin: 0 50px;
     font-size: 18px;
     color: #fff;
     cursor: pointer;
     display: none;
     right: 18vh;
     position: absolute;
-    padding-top: 4px;
 }
+
 @media (max-width: 1000px) {
     nav .cancel-icon,
     nav .search-icon{
         color: #fff;
         cursor: pointer;
-        right: 110vh;
+        right: 88vh;
         position: absolute;
         padding-top: 4px;
     }
@@ -992,9 +953,22 @@ nav .search-icon{
 @media (max-width: 699px) {
     nav .cancel-icon,
     nav .search-icon{
-        right: 3vh;
+        right: 10vh;
         position: absolute;
         padding-top: 4px;
+    }
+    .title-search {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .height-close {
+        height: 33px;
+    }
+    .close-s {
+        margin: 23px 28%;
+    }
+    .tit-in-search {
+        font-size: 14px;
     }
 }
 

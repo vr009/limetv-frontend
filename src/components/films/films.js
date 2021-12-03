@@ -8,6 +8,7 @@ import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';
 import {Genres} from '../utils/validate';
 import userInfoPug from "../pages/profile_info/profile_info.pug";
+import {createMenu} from "../menu/menu";
 
 /**
  * Модуль создания экрана фильмов
@@ -18,6 +19,9 @@ export const createFilms = () => {
 };
 
 const createBase = () => {
+  if (document.getElementById('navbar') === null) {
+    createMenu();
+  }
   if (document.getElementById('stuff') === null) {
     const root = document.getElementById('root');
     root.innerHTML = '';
