@@ -100,25 +100,9 @@ const showFilm = (filmId) => {
         },
         );
 
-        const likeBtn = document.getElementById('re-like');
-        likeBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          const isStarred = likeBtn.classList.contains('re-btn-unwatch');
-          if (isStarred) {
-            dislikeFilm(filmId);
-          } else {
-            likeFilm(filmId);
-          }
-          likeBtn.classList.toggle('re-btn-unwatch');
-        });
-
-
-        const wlBtn = document.getElementById('wl');
-        wlBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          watchLater(filmId);
-          wlBtn.classList.toggle('btn-unwatch-later');
-        });
+        // авторизован ли пользователь или нет,
+        // отрисовываем по разному кнопки лайка и отложенного просмотра
+        checkAuth(filmId);
 
         showActors(result.actors);
       },
@@ -173,16 +157,6 @@ const showActors = (actors) => {
           actors: result,
           salt: salt,
         });
-
-        for (let i = 0; i < result.length; i++) {
-          const actorContainer = document.getElementById(result[i].id+salt);
-          actorContainer.addEventListener('click', function(event) {
-            event.preventDefault();
-            const rootPage = document.getElementById('stuff');
-            rootPage.innerHTML = '';
-            Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
-          });
-        }
       },
   ).catch((error) => {
     console.log(error);
@@ -205,4 +179,47 @@ const dislikeFilm = (filmId) => {
 const watchLater = (filmId) => {
   const url = serverLocate + '/films/wl/' + filmId;
   fetchRequest(url);
+};
+
+
+const checkAuth = (filmId) => {
+  const url = serverLocate+'/users/auth';
+  fetch(url, {
+    method: 'GET',
+    credentials: 'include',
+  },
+  ).then(
+      (response) => {
+        if (!response.ok) {
+          throw error;
+        }
+      },
+  ).then(
+      (result) => {
+        const likeBtn = document.getElementById('re-like');
+        likeBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          const isStarred = likeBtn.classList.contains('re-btn-unwatch');
+          if (isStarred) {
+            dislikeFilm(filmId);
+          } else {
+            likeFilm(filmId);
+          }
+          likeBtn.classList.toggle('re-btn-unwatch');
+        });
+
+        const wlBtn = document.getElementById('wl');
+        wlBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          watchLater(filmId);
+          wlBtn.classList.toggle('btn-unwatch-later');
+        });
+      },
+  ).catch((error) => {
+    const likeBtn = document.getElementById('re-like');
+    likeBtn.classList.add('info-b');
+    const wlBtn = document.getElementById('wl');
+    wlBtn.classList.add('info-b');
+  },
+  );
 };

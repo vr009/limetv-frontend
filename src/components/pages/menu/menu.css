@@ -1111,3 +1111,56 @@ nav .logo.space{
 .content .space{
     margin: 10px 0;
 }
+
+
+.info-b {
+    line-height: 1.5em;
+    margin: 1.4em auto;
+    max-width: 49rem;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+/** Code for hover info **/
+
+.info-b {
+    background: rgba(0,0,0,0.2);
+    border-bottom: dashed 1px rgba(0,0,0,0.8);
+    padding: 0 0.4em;
+    cursor: pointer;
+    font-style: normal;
+    position: relative;
+
+}
+.info-b::after {
+    content: attr(data-info);
+    display: inline;
+    position: absolute;
+    top: 22px; left: 0;
+    opacity: 0;
+    width: 230px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5em;
+    padding: 0.5em 0.8em;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    pointer-events: none; /* This prevents the box from apearing when hovered. */
+    transition: opacity 250ms, top 250ms;
+}
+.info-b::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 12px; left: 20px;
+    opacity: 0;
+    width: 0; height: 0;
+    border: solid transparent 5px;
+    border-bottom-color: rgba(0,0,0,0.8);
+    transition: opacity 250ms, top 250ms;
+}
+.info-b:focus {z-index: 2;}
+.info-b:focus::after,
+.info-b:focus::before {opacity: 1;}
+.info-b:focus::after {top: 30px;}
+.info-b:focus::before {top: 20px;}
