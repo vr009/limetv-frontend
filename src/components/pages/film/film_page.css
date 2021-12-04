@@ -383,11 +383,10 @@
         vertical-align: middle;
         width: 28px;
         padding-left: 10px;
-        /*padding-right: 47px;*/
+        padding-right: 30px;
     }
     .watch-btn-img {
-        padding-left: 10px;
-        padding-top: 4px;
+        padding-left: 11px;
         width: 28px;
     }
     .btns {
