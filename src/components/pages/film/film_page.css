@@ -385,6 +385,9 @@
         padding-left: 10px;
         padding-right: 30px;
     }
+    .info-b::after {
+        width: 108px;
+    }
     .watch-btn-img {
         padding-left: 11px;
         width: 28px;
