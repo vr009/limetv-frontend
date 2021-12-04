@@ -1147,6 +1147,12 @@ nav .logo.space{
     pointer-events: none; /* This prevents the box from apearing when hovered. */
     transition: opacity 250ms, top 250ms;
 }
+.info-b:active, .info-b:focus {
+    outline: none;
+}
+.info-b::-moz-focus-inner {
+    border: 0;
+}
 .info-b::before {
     content: '';
     display: block;
