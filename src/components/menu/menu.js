@@ -70,7 +70,7 @@ const createTemplate = () => {
     if (document.getElementById('close_focus') == null) {
       const search = document.getElementById('stuff');
       const me = document.createElement('div');
-      me.setAttribute('class', 'back-search-fon');
+      me.setAttribute('class', 'root__search');
       me.setAttribute('id', 'close_focus');
       search.appendChild(me);
       const root = document.getElementById('close_focus');
