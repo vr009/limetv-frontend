@@ -12,19 +12,19 @@ div(class="search")
             div(class="carousel__content" style="display: block;")
                 each film in result.films
                     div(id=film.id + salt class="carousel-content__item")
-                        a(class="items")
-                            img(src=film.pic[0] style="border-radius: 7px;")
+                        a(class="carousel-item__icon")
+                            img(src=film.pic[0])
                         span(class="carousel-item__text") #{film.title+' '}
                         span(class="carousel-item__text") #{' (' + film.year+')'}
 
     if result.actors.length !== 0
         div(class="films carousel")
             h3(class="carousel__title") Актеры
-            div(class="carousel__content" style="display: flex;")
+            div(class="carousel__content")
                 each actor in result.actors
                     div(id=actor.id+salt class="carousel-content__item" style="height: 170px;")
-                        a(class="items" style="width: 130px;")
-                            img(src=actor.avatar style="border-radius: 7px; max-width: 100px;")
+                        a(class="carousel-item__icon" style="width: 130px;")
+                            img(src=actor.avatar style="max-width: 100px;")
                         span(class="carousel-item__text") #{actor.name + ' '}
                         span(class="carousel-item__text") #{actor.surname}
 
