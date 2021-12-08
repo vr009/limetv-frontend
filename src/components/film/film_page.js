@@ -1,5 +1,5 @@
-import '../pages/film/film_page.css';
-import '../../components/pages/menu/menu.css';
+import '../pages/film/film_page.scss';
+import '../pages/menu/menu.scss';
 import {showErrors} from '../utils/errors.js';
 import filmPagePug from '../pages/film/film_page.pug';
 import actorsLinePug from '../pages/film/actorsLine.pug';

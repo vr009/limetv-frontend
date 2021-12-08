@@ -9,15 +9,13 @@
     margin-left: -11px;
     border-radius: 15px;
     transition: .3s;
+&:hover {
+     border: 3px solid #5adb1a;
+     border-radius: 30px;
+     transition: .3s;
+     transform: scale(1.15);
+ }
 }
-
-.settings_btn:hover {
-    border: 3px solid #5adb1a;
-    border-radius: 30px;
-    transition: .3s;
-    transform: scale(1.15);
-}
-
 .prof_pic {
     display: inline-block;
     position: relative;
@@ -25,27 +23,20 @@
     width: 250px;
     height: 250px;
     background-color: unset;
-    border: solid  #8bbf51;
+    border: solid #8bbf51;
     border-radius: 62%;
     object-fit: cover;
-}
-
-.prof_pic img {
+img {
     width: 250px;
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
 }
-
-.note {
-    color: white;
 }
-
 .profile {
     color: white;
     margin-left: 40px;
 }
-
 .selection-profile {
     font-family: 'Montserrat', sans-serif;
     padding-left: 9%;
@@ -54,29 +45,25 @@
     padding-top: 25px;
     color: azure;
 }
-
 .block-left {
     padding-left: 9%;
     padding-top: 40px;
     width: 500px;
     height: 370px;
-    float:left;
+    float: left;
 }
-
-.block-right{
+.block-right {
     padding-right: 9%;
     padding-top: 40px;
     width: auto;
     height: 370px;
 }
-
 .set {
     padding-top: 2px;
     height: 30px;
     margin-top: 2px;
     margin-left: 4px;
 }
-
 .profile-grid {
     font-family: 'Montserrat', sans-serif;
     display: grid;
@@ -85,60 +72,51 @@
     padding-top: 22px;
     grid-gap: 40px;
 }
-
 .grey-info-profile {
     font-size: 24px;
     margin-top: 20px;
     color: hsla(0,0%,100%,.56);
 }
-
 .grey-info-actor {
     font-size: 18px;
     margin-top: 22px;
     color: hsla(0,0%,100%,.56);
 }
-
 .pug-text-profile {
     font-size: 24px;
     color: white;
     line-height: 50px;
 }
-
 .col-grid-profile {
     padding-bottom: 60px;
+&:first-child {
+     grid-column: 1/8;
+ }
 }
-.col-grid-profile:first-child {
-    grid-column: 1/8;
-}
-
 .selection-profile-2 {
     width: 100%;
 }
-
 .about-your {
     color: white;
     border-bottom: 2px solid #3a3a3a;
     margin-right: 9%;
     margin-left: 9%;
 }
-
 .about-your-active {
     color: white;
     margin-right: 9%;
     margin-left: 9%;
 }
-
 @media (min-width: 319px) and (max-width: 600px) {
     .block-left {
         padding-left: 9%;
         padding-top: 40px;
         width: 500px;
         height: 370px;
-        float:left;
+        float: left;
         display: contents;
     }
-
-    .block-right{
+    .block-right {
         padding-right: 9%;
         padding-top: 40px;
         width: auto;

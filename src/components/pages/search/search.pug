@@ -1,33 +1,33 @@
-div.search-results
-    div.search-title
-        div.col-1-2
-            h1.title-search Результаты:
-        div.col-1-2
-            div.close-s(id="cl-search")
+div(class="search-results")
+    div(class="search-title")
+        div(class="col-1-2")
+            h1(class="title-search") Результаты:
+        div(class="col-1-2")
+            div(class="close-s" id="cl-search")
                 img(src="close-search.ico" class="height-close")
     if result.films.length !== 0
-        div.films-container.cont-res(style="padding-top: 10px")
-            h3.tit-in-search Фильмы
-            div.contentFilms(style="display:block; flex-wrap: nowrap;")
+        div(class="films-container cont-res")
+            h3(class="tit-in-search") Фильмы
+            div(class="contentFilms" style="display: block;")
                 each film in result.films
-                    div(id=film.id + salt).div-search-film
+                    div(id=film.id + salt class="div-search-film")
                         a(class="items")
                             img(src=film.pic[0] style="border-radius: 7px;")
-                        span.name-film #{film.title+' '}
-                        span.name-film #{' (' + film.year+')'}
+                        span(class="name-film") #{film.title+' '}
+                        span(class="name-film") #{' (' + film.year+')'}
 
     if result.actors.length !== 0
-        div.films-container.cont-res(style="padding-top: 10px")
-            h3.tit-in-search Актеры
-            div.contentFilms(style="display:flex; flex-wrap: nowrap;")
+        div(class="films-container cont-res")
+            h3(class="tit-in-search") Актеры
+            div(class="contentFilms" style="display: flex;")
                 each actor in result.actors
-                    div(id=actor.id + salt).div-search-film(style="height: 170px;")
+                    div(id=actor.id+salt class="div-search-film" style="height: 170px;")
                         a(class="items" style="width: 130px;")
                             img(src=actor.avatar style="border-radius: 7px; max-width: 100px;")
-                        span.name-film #{actor.name + ' '}
-                        span.name-film #{actor.surname}
+                        span(class="name-film") #{actor.name + ' '}
+                        span(class="name-film") #{actor.surname}
 
     if isResult === true
         if result.actors.length === 0 && result.films.length === 0
-            div.films-container.cont-res(style="padding-top: 10px")
-                h3.tit-in-search Ничего не найдено
+            div(class="films-container cont-res")
+                h3(class="tit-in-search") Ничего не найдено

@@ -1,15 +1,15 @@
-div.films-container
-    h1.selection-profile Актер
+div(class="films-container")
+    h1(class="selection-profile") Актер
 
     div(class="block-left")
-        div.contentAvatar
+        div(class="contentAvatar")
             div(class="prof_actor_pic")
                 img(src=avatar)
 
     div(class="block-right" style="padding-top: 0;")
-        div.profile-grid(style="grid-template-columns: auto; padding-top: 10px;")
+        div(class="profile-grid" style="grid-template-columns: auto; padding-top: 10px;")
             div(style="color: white;")
-                h2.name-col-actor О персоне
+                h2(class="name-col-actor") О персоне
                 div(class="grey-info-actor")
                     div Имя и фамилия:
                     span(class="pug-text") #{name} #{surname}
@@ -39,9 +39,9 @@ div.films-container
                     span(class="pug-text") #{description}
 
 
-section.selection-actor-1
-    div.about-your
+section(class="selection-actor-1")
+    div(class="about-your")
             div(class="row active-actors") Активность актера
 
-section.selection-profile-2
-    div.about-your-active#selection-profile-5
+section(class="selection-profile-2")
+    div(class="about-your-active" id="selection-profile-5")

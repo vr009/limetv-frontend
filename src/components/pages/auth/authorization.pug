@@ -1,10 +1,10 @@
-div.registration_block
-     div.name-register Вход
+div(class="registration_block")
+     div(class="name-register") Вход
      div#error
      form(id="form" name="authorization" method="post" action="/")
-         div.input_block
+         div(class="input_block")
              input#login_field(type="text" placeholder="Логин")
-         div.input_block
+         div(class="input_block")
              input#password_field(type="password" placeholder="Пароль")
              div(class="input-icon" id="icon")
                  img(src="eye.ico" style="padding-top: 3px; margin-bottom: -1px;")

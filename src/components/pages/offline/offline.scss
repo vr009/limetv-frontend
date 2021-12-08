@@ -10,11 +10,9 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
-
 .offline_page_ul {
     padding-bottom: 25px;
 }
-
 a.blubtn {
     width: 150px;
     text-align: center;
@@ -28,14 +26,13 @@ a.blubtn {
     border: solid #c73e77;
     padding: 11px 11px;
     margin: 0 auto;
-}
-
-a.blubtn:hover {
-    background: #c73e77;
-    display: block;
-    color: #2ec614;
-    cursor: pointer;
-    transition: .5s;
-    border-radius: 10px;
-    border: solid #2ec614;
+    &:hover {
+         background: #c73e77;
+         display: block;
+         color: #2ec614;
+         cursor: pointer;
+         transition: .5s;
+         border-radius: 10px;
+         border: solid #2ec614;
+    }
 }

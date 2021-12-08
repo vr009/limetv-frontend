@@ -2,7 +2,7 @@ import Router from '../../utils/router.js';
 import {serverLocate} from '../../utils/locale.js';
 import genresPage from '../pages/genres/genres.pug';
 import {fetchRequest} from '../network/fetch';
-import '../pages/menu/menu.css';
+import '../pages/menu/menu.scss';
 
 export const createGenres = (genre) => {
   if (document.getElementById('stuff') === null) {

@@ -1,0 +1,176 @@
+.first-film {
+    color: #fff;
+}
+.first-pic {
+    float: left;
+    width: available;
+    height: auto;
+}
+.input-icon {
+    width: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: all .4s ease;
+    right: 0;
+    float: right;
+    margin-top: -43px;
+    z-index: 3;
+    position: relative;
+    margin-right: 30px;
+    img {
+        max-width: 20px;
+    }
+}
+.input-icon.selected {
+    background-color: #dd3279ab;
+    border-radius: 10px;
+}
+.info-button {
+    width: 40px;
+}
+.play-button {
+    width: 40px;
+}
+.close-s {
+    float: right;
+    margin: 30px 18%;
+    transition: 0.15s;
+    &:hover {
+         transform: scale(1.1);
+         cursor: pointer;
+    }
+}
+.height-close {
+    height: 46px;
+}
+.cont-res {
+    padding-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.info-text {
+    position: absolute;
+    left: 115px;
+    text-transform: uppercase;
+    background: rgb(137 137 137 / 58%);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+    &:hover {
+         transform: scale(1.05);
+         cursor: pointer;
+    }
+}
+.play-text {
+    position: absolute;
+    text-transform: uppercase;
+    background: rgb(255, 255, 255);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+    &:hover {
+         transform: scale(1.05);
+         cursor: pointer;
+    }
+}
+.start-text {
+    position: absolute;
+    font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    left: 115px;
+    max-width: 40%;
+    padding-top: 27%;
+    font-size: 52px;
+    color: white;
+}
+.selection {
+    position: absolute;
+    padding-top: 45%;
+    pointer-events: none;
+}
+.selection-film {
+    pointer-events: all;
+}
+.point {
+    cursor: pointer;
+}
+.contentGenres {
+    display: flex;
+    overflow-x: scroll;
+    padding-top: 35px;
+    overflow-y: hidden;
+    padding-left: 55px;
+    height: 340px;
+    .itemGenres {
+        &:focus {
+             transform: scale(1.06);
+             z-index: 1;
+        }
+        &:hover {
+             transform: scale(1.06);
+             z-index: 1;
+        }
+    }
+}
+.itemGenres {
+    display: block;
+    transition: transform 350ms;
+    margin: 6px;
+    width: 305px;
+    height: 200px;
+    cursor: pointer;
+    padding-right: 30px;
+    img {
+        display: block;
+        max-width: 300px;
+        height: 140%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+}
+.genres-container {
+    margin-top: 10em;
+}
+@media (max-width: 721px) {
+    .play-button {
+        vertical-align: text-bottom;
+    }
+    .info-button {
+        vertical-align: text-bottom;
+    }
+}
+@media (min-width: 319px) and (max-width: 1020px) {
+    .itemGenres {
+        img {
+            height: 80%;
+        }
+    }
+    .contentGenres {
+        height: 200px;
+    }
+}
+@media (min-width: 319px) and (max-width: 720px) {
+    .start-text {
+        left: 1em;
+        font-size: 35px;
+    }
+}
+@media (min-width: 319px) and (max-width: 380px) {
+    .first-pic {
+        left: 0;
+        max-width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+@media (min-width: 381px) and (max-width: 616px) {
+    .first-pic {
+        left: 0;
+        max-width: 100%;
+        height: 515px;
+        object-fit: cover;
+    }
+}

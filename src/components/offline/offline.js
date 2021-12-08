@@ -1,5 +1,5 @@
 import Router from '../../utils/router.js';
-import '../pages/offline/offline.css';
+import '../pages/offline/offline.scss';
 import offlinePagePug from '../pages/offline/offline.pug';
 import {createMenu} from '../menu/menu.js';
 

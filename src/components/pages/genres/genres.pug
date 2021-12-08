@@ -1,6 +1,6 @@
-div.films-container
-    h1.selection-genres #{genres}
-    div.contentFilm
+div(class="films-container")
+    h1(class="selection-genres") #{genres}
+    div(class="contentFilm")
 
         if genre !== null
             each gen in genre
@@ -8,5 +8,5 @@ div.films-container
                     img(src=gen.pic[0] id=gen.id style="border-radius: 15px;")
 
         else
-            div.films-container(style="padding-top: 10px")
-                h3.tit-in-search(style="") Ничего не найдено
+            div(class="films-container" style="padding-top: 10px")
+                h3(class="tit-in-search") Ничего не найдено

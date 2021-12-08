@@ -1,5 +1,5 @@
-import '../pages/player/player.css';
-import '../pages/menu/menu.css';
+import '../pages/player/player.scss';
+import '../pages/menu/menu.scss';
 import playImg from './play.png';
 import pauseImg from './pause.png';
 import ffImg from './ff.png';

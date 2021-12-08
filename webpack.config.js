@@ -30,23 +30,20 @@ module.exports = {
         name: '[name].[ext]',
       },
     }, {
-      test: /\.css$/,
+      test: /\.s[ac]ss$/i,
       use: [
-        'style-loader',
         {
-          loader: 'css-loader',
-          options: {sourceMap: true},
+          loader: 'style-loader',
+          options: {injectType: 'singletonStyleTag'},
         },
         {
-          loader: 'postcss-loader',
+          loader: 'css-loader',
+          options: {url: false},
+        },
+        {
+          loader: 'sass-loader',
           options: {
-            postcssOptions: {
-              plugins: [
-                require('postcss-preset-env')({
-                  browsers: 'last 2 versions',
-                }),
-              ],
-            },
+            implementation: require('sass'),
           },
         },
       ],

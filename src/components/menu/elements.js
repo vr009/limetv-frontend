@@ -1,7 +1,7 @@
 'use strict';
 import {createProfilePage} from '../../view/createProfilePage.js';
 import Router from '../../utils/router.js';
-import '../pages/menu/menu.css';
+import '../pages/menu/menu.scss';
 
 const authElements = {
   logout: 'Выйти',

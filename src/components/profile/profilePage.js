@@ -3,7 +3,7 @@ import {fetchRequest} from '../network/fetch.js';
 import {createProfile} from './profile.js';
 import {serverLocate} from '../../utils/locale.js';
 import {showErrors} from '../utils/errors.js';
-import '../pages/profile/profile.css';
+import '../pages/profile/profile.scss';
 
 export const createProfileSettingsPage = () => {
   const url = serverLocate+'/users/profile';

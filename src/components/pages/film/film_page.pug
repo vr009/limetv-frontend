@@ -1,13 +1,13 @@
-div(class="film-page-container" style="min-height: 590px; min-width: 100%; color: white;")
+div(class="film-page-container")
     section
-        div.film-item-container
-            div.film-pic(style="position: absolute; float: left; width: 100%; height: 600px; z-index: 1;").film-n-pic
-            img(src="img.png").fon-pic(style="right: 0px; height: 600px;")
+        div(class="film-item-container")
+            div(class="film-pic").film-n-pic
+            img(src="img.png" class="fon-pic")
             div
-                div.age-pic(style="margin-top: 500px; margin-right: 100px;") #{result.age+'+'}
-            div.main(style="")
+                div(class="age-pic") #{result.age+'+'}
+            div(class="main")
                 div
-                    h1.film-title #{result.title}
+                    h1(class="film-title") #{result.title}
                 div(style="font-size: 18px; margin-top: 30px; color: hsla(0,0%,100%,.56); align-items: center;")
                     span(style="font-size: 18px; line-height: 22px;") #{result.year} · #{result.genres+' · '}
                         if countSeries
@@ -24,50 +24,50 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                 div(style="font-size: 18px; line-height: 42px; color: hsla(0,0%,100%,.56);")
                     span #{'Актеры: '}
                     span(id="root-actors")
-                div.btns(style="")
+                div(class="btns")
                     a(class="btn-watch watch") Смотреть
-                        img.watch-btn-img(src="play-white.ico" style="")
+                        img(class="watch-btn-img")(src="play-white.ico")
                     a(class="btn-watch watch" tabindex="0" data-info="Только для авторизованных пользователей." id="wl") Смотреть позже
-                        img.watch-btn-img(src="wl.ico" style="")
+                        img(class="watch-btn-img")(src="wl.ico")
 
                     a(class="re-btn-watch re-like" tabindex="0" data-info="Только для авторизованных пользователей." id="re-like")
                         img(src="heart.ico" style="vertical-align: middle; width: 30px;")
-    section.selection-2
-        div.about
+    section(class="selection-2")
+        div(class="about")
             div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 125px; margin-bottom: -2px;")
                 if result.is_series === true
                     div(class="row" style="padding-bottom: 10px;") О сериале
                 else
                     div(class="row" style="padding-bottom: 10px;") О фильме
-            div.text-about(class="col-2" style="")
+            div(class="text-about col-2")
                 p(class="short-text")
                     span #{result.description}
 
         if result.is_series
             div(class="row" style="padding-bottom: 50px;")
-            div.selection-3
-                div.about
+            div(class="selection-3")
+                div(class="about")
                     div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 183px;; margin-bottom: -2px;")
                         div(class="row" style="padding-bottom: 10px;") Сезоны и серии
                 div(style="margin-left: 6%; margin-right: 6%;")
-                    div.seasons-container
+                    div(class="seasons-container")
                         - var i = 1;
                         each season in seasons
-                            div.films-container
-                                h1.selection-label-film Сезон #{i++}
-                                div.contentFilm
+                            div(class="films-container")
+                                h1(class="selection-label-film") Сезон #{i++}
+                                div(class="contentFilm")
                                     - var j = 1;
                                     each filmPic in season.Src
                                         a(class="item")
-                                            div.div-series
-                                                span.series #{j++} серия
+                                            div(class="div-series")
+                                                span(class="series") #{j++} серия
                                             img(src=filmPic id=filmPic style="border-radius: 15px;")
 
-        div.selection-3
+        div(class="selection-3")
             div(class="row" style="padding-bottom: 70px;")
-            div.full-grid(style="margin-left: 6%; margin-right: 6%;")
-                div.col-grid
-                    h2.name-col Информация
+            div(class="full-grid" style="margin-left: 6%; margin-right: 6%;")
+                div(class="col-grid")
+                    h2(class="name-col") Информация
                     div(class="grey-info")
                         div Страна
                         span(class="pug-text") #{result.country}
@@ -95,8 +95,8 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                     div(class="grey-info")
                         div Бюджет
                         span(class="pug-text") #{result.budget}
-                div.col-grid
-                    h2.name-col Съёмочная группа
+                div
+                    h2(class="name-col") Съёмочная группа
                     div(class="grey-info")
                         div Режиссёр
                         span(class="pug-text") #{result.director}
@@ -108,8 +108,8 @@ div(class="film-page-container" style="min-height: 590px; min-width: 100%; color
                     div(class="grey-info")
                         div Сценаристы
                         span(class="pug-text") #{result.authors}
-                div.col-grid
-                    h2.name-col Звук и субтитры
+                div(class="col-grid")
+                    h2(class="name-col") Звук и субтитры
                     div(class="grey-info")
                         div Аудиодорожки
                         span(class="pug-text") #{result.language}

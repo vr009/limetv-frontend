@@ -2,7 +2,7 @@ import {showErrors} from '../utils/errors.js';
 import {serverLocate} from '../../utils/locale.js';
 import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
-import '../pages/films/films.css';
+import '../pages/films/films.scss';
 import Router from '../../utils/router.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';

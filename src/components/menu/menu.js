@@ -2,7 +2,7 @@
 import {createElements} from './elements.js';
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router.js';
-import '../pages/menu/menu.css';
+import '../pages/menu/menu.scss';
 import menuPug from '../pages/menu/menu.pug';
 import {createSearchPage} from '../search/search.js';
 import searchPagePug from '../pages/search/search.pug';

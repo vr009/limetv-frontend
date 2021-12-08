@@ -6,35 +6,29 @@
     color: white;
     margin-left: 40px;
 }
-
 .profile_login {
     color: hsla(0,0%,100%,.56);
     margin-top: -3px;
     padding-bottom: 5px;
     font-family: 'Montserrat', sans-serif;
     line-height: 26px;
-    /*svelt*/
 }
-
 .profile_pic {
     display: inline-block;
     position: relative;
     width: 100px;
     height: 100px;
     background-color: unset;
-    border: solid  #8bbf51;
+    border: solid #8bbf51;
     border-radius: 62%;
     object-fit: cover;
-}
-
-.profile_pic img {
+img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
 }
-
-.profile_pic input {
+input {
     opacity: 0;
     background: rgba( 255, 255, 255, 0.2 );
     backdrop-filter: blur( 4px );
@@ -46,22 +40,19 @@
     transition: opacity 1s;
     border-width: 0;
     object-fit: cover;
-}
-
-.profile_pic input:hover {
-    opacity: 100%;
+&:hover {
+     opacity: 100%;
  }
-
+}
+}
 .profile_settings {
     display: table-caption;
     position: relative;
     margin-left: 20px;
+* {
+    position: center;
 }
-
-.profile_settings * {
-    position: center  ;
 }
-
 .profile_pass {
     background: unset;
     border-radius: 7px;
@@ -70,7 +61,6 @@
     height: 26px;
     color: white;
 }
-
 .des_btn {
     -moz-appearance: none;
     border: 3px solid #f7227c;
@@ -86,33 +76,7 @@
     margin-top: 12px;
     margin-bottom: 12px;
 }
-
-.custom_btn {
-    text-align: center;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    text-decoration-thickness: initial;
-    text-decoration-style: initial;
-    padding: 10px;
-    text-decoration-color: initial;
-    border-radius: 50px;
-    border: solid  #8bbf51;
-    transition: .5s;
-    margin: 5px auto;
-    max-width: 100px;
-    background: unset;
-}
-.custom_input {
-    background: unset;
-    border: #8bc34a 2px solid;
-    border-radius: 14px;
-    min-height: 35px;
-    width: 420px;
-    margin-top: 30px;
-}
-
-.profile_bio{
+.profile_bio {
     display: table-caption;
     background: unset;
     border-radius: 8px;
@@ -120,23 +84,8 @@
     width: 110%;
     color: white;
 }
-
-.profile_title {
-    font-size: 40px;
-    line-height: normal;
-    padding-bottom: 45px;
-    padding-left: 65px;
-}
-
-
 @media (min-width: 319px) and (max-width: 1020px) {
-    .profile_title {
-        font-size: 40px;
-        line-height: normal;
-        padding-left: 5px;
-    }
-
-    .profile_bio{
+    .profile_bio {
         display: table-caption;
         background: unset;
         border-radius: 8px;
@@ -144,7 +93,6 @@
         width: 80%;
         color: white;
     }
-
     .profile_pass {
         background: unset;
         border-radius: 7px;

@@ -7,7 +7,7 @@ import {createElements} from '../menu/elements.js';
 import Router from '../../utils/router.js';
 import RegistrationPug from '../pages/auth/registration.pug';
 import AuthPug from '../pages/auth/authorization.pug';
-import '../pages/auth/auth.css';
+import '../pages/auth/auth.scss';
 
 const prefixUrlDEBUG = 'http://localhost';
 const prefixUrlDEPLOY = 'http://3.67.182.34';

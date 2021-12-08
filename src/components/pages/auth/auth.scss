@@ -39,37 +39,8 @@
     padding: 60px 35px 35px 45px;
     background: rgb(0 0 0 / 69%);
 }
-
-.input_block {
-    width: 100%;
-    padding: 5px 5px 5px 5px;
-    margin: 20px auto;
-}
-
-.input_block input {
-    width: 93%;
-    border: none;
-    background: #333333;
-    font-size: 18px;
-    padding: 20px 10px 20px 5px;
-    text-indent: 30px;
-    color: #ffffff;
-}
-
-.input_block input:-webkit-autofill {
-    -webkit-text-fill-color: #ffffff;
-    outline:none;
-    box-shadow: inset 35px 35px 99px #18181c, inset -35px -35px 99px #18181c;
-    font-size: 18px;
-    width: 93%;
-    border: none;
-    background: #dedede;
-    padding: 20px 10px 20px 5px;
-    text-indent: 30px;
-}
-
 .registration-back {
-    background-image: url(../images/registration.png);
+    /*background-image: url(../images/registration.png);*/
     position: absolute;
     right: 0;
     bottom: 0;
@@ -96,7 +67,7 @@
         padding-left: 5px;
     }
     .registration-back {
-        background-image: url(../images/registration.png);
+        /*background-image: url(../images/registration.png);*/
         position: fixed;
         right: 0;
         bottom: 0;

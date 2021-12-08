@@ -1,7 +1,7 @@
 if films.length !== 0
-    div.films-container
-        h1.selection-label-film #{title}
-        div.contentFilm
+    div(class="films-container")
+        h1(class="selection-label-film") #{title}
+        div(class="contentFilm")
             each film in films
                 a(class="item")
-                    img.film-main(src=film.pic[0] id=film.id+salt style="")
+                    img(class="film-main" src=film.pic[0] id=film.id+salt style="")

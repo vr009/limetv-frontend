@@ -1,18 +1,16 @@
-.player_block{
+.player_block {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 }
-
 video {
     width: 100%;
     top: 0;
     height: 100%;
     left: 0;
 }
-
 .player_panel {
     background: rgba( 255, 255, 255, 0.2 );
     box-shadow: 0 8px 32px 0 rgb(66, 62, 62);
@@ -26,17 +24,14 @@ video {
     left: 0;
     right: 0;
     transition: opacity 1s;
+&:hover {
+     opacity: 100%;
+ }
 }
-
-.player_panel:hover{
-    opacity: 100%;
-}
-
 .buttons_holder {
     justify-content: center;
     display: flex;
 }
-
 .timeline_holder {
     z-index: 10;
     border-radius: 10px;
@@ -48,29 +43,24 @@ video {
     right: 0;
     transition: opacity 1s;
 }
-
 .duration_holder {
     color: white;
 }
-
 .volume_holder {
     margin: 0 15px;
-}
-.volume_holder em {
+em {
     display: inline-block;
     height: 16px;
     width: 2px;
     margin: 2px;
 }
-
+}
 .volume-white {
-
     background-color: #4e6c4e;
 }
 .volume-gray {
     background-color: green;
 }
-
 .timeline {
     position: absolute;
     bottom: 30px;
@@ -79,7 +69,6 @@ video {
     height: 2px;
     background: #455945;
 }
-
 .timeline-current {
     position: absolute;
     bottom: 30px;
@@ -88,15 +77,13 @@ video {
     height: 2px;
     background: green;
 }
-
 button {
     all: unset;
     background: transparent;
-}
-
-button img {
+img {
     padding: 0 10px;
     vertical-align: center;
     max-height: 10px;
     max-width: 10px;
+}
 }

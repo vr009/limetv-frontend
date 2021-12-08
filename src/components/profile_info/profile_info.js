@@ -3,8 +3,8 @@ import {serverLocate} from '../../utils/locale.js';
 import {fetchRequest} from '../network/fetch.js';
 import {showFilmsList} from '../films/films.js';
 import userInfoPug from '../pages/profile_info/profile_info.pug';
-import '../pages/profile_info/profile_info.css';
-import '../pages/actors/actor.css';
+import '../pages/profile_info/profile_info.scss';
+import '../pages/actors/actor.scss';
 import Router from '../../utils/router.js';
 
 
