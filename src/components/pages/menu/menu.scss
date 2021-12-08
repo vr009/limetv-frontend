@@ -300,6 +300,7 @@ label {
 }
 .carousel__content {
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     padding-top: 10px;
     padding-left: 9%;
@@ -749,7 +750,7 @@ nav {
     }
     .carousel-content__item {
         max-width: 320px;
-        width: 220px;
+        width: 190px;
     }
 }
 @media screen and (min-width: 700px) {
