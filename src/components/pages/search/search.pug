@@ -1,33 +1,34 @@
-div(class="search-results")
-    div(class="search-title")
-        div(class="col-1-2")
-            h1(class="title-search") Результаты:
-        div(class="col-1-2")
-            div(class="close-s" id="cl-search")
-                img(src="close-search.ico" class="height-close")
+div(class="search")
+    div(class="search__row")
+        div(class="search__column")
+            h1(class="search-title__text") Результаты:
+        div(class="search__column")
+            div(class="search-title__icon" id="cl-search")
+                img(class="search-icon__ico" src="close-search.ico")
+
     if result.films.length !== 0
-        div(class="films-container cont-res")
-            h3(class="tit-in-search") Фильмы
-            div(class="contentFilms" style="display: block;")
+        div(class="films carousel")
+            h3(class="carousel__title") Фильмы
+            div(class="carousel__content" style="display: block;")
                 each film in result.films
-                    div(id=film.id + salt class="div-search-film")
+                    div(id=film.id + salt class="carousel-content__item")
                         a(class="items")
                             img(src=film.pic[0] style="border-radius: 7px;")
-                        span(class="name-film") #{film.title+' '}
-                        span(class="name-film") #{' (' + film.year+')'}
+                        span(class="carousel-item__text") #{film.title+' '}
+                        span(class="carousel-item__text") #{' (' + film.year+')'}
 
     if result.actors.length !== 0
-        div(class="films-container cont-res")
-            h3(class="tit-in-search") Актеры
-            div(class="contentFilms" style="display: flex;")
+        div(class="films carousel")
+            h3(class="carousel__title") Актеры
+            div(class="carousel__content" style="display: flex;")
                 each actor in result.actors
-                    div(id=actor.id+salt class="div-search-film" style="height: 170px;")
+                    div(id=actor.id+salt class="carousel-content__item" style="height: 170px;")
                         a(class="items" style="width: 130px;")
                             img(src=actor.avatar style="border-radius: 7px; max-width: 100px;")
-                        span(class="name-film") #{actor.name + ' '}
-                        span(class="name-film") #{actor.surname}
+                        span(class="carousel-item__text") #{actor.name + ' '}
+                        span(class="carousel-item__text") #{actor.surname}
 
     if isResult === true
         if result.actors.length === 0 && result.films.length === 0
-            div(class="films-container cont-res")
-                h3(class="tit-in-search") Ничего не найдено
+            div(class="films carousel")
+                h3(class="carousel__title") Ничего не найдено

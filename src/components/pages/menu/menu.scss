@@ -76,7 +76,7 @@ label {
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
 }
-.films-container {
+.films {
     max-width: 100vw;
 }
 .contentFilm {
@@ -241,7 +241,7 @@ label {
     padding-top: 135px;
     overflow-y: auto;
 }
-.title-search {
+.search-title__text {
     font-family: 'Montserrat', sans-serif;
     font-size: 38px;
     line-height: 50px;
@@ -250,7 +250,7 @@ label {
     margin-right: 9%;
     padding-left: 5px;
 }
-.tit-in-search {
+.carousel__title {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 14px;
@@ -302,7 +302,7 @@ label {
     padding-top: 25px;
     color: azure;
 }
-.contentFilms {
+.carousel__content {
     display: flex;
     padding-top: 10px;
     padding-left: 9%;
@@ -319,7 +319,7 @@ label {
         max-width: 180px;
     }
 }
-.div-search-film {
+.carousel-content__item {
     display: flex;
     max-width: 400px;
     width: 30%;
@@ -330,13 +330,13 @@ label {
         border-radius: 10px;
     }
 }
-.name-film {
+.carousel-item__text {
     padding-right: 6px;
     color: #e7e7e7;
     font-size: 24px;
     padding-top: 10px;
 }
-.search-title {
+.search__row {
     margin-left: 9%;
     margin-right: 9%;
 }
@@ -735,10 +735,10 @@ nav {
         font: bold 23px/56px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
         padding-left: 28px;
     }
-    .tit-in-search {
+    .carousel__title {
         padding-left: 15px;
     }
-    .films-container {
+    .films {
         max-width: 100vw;
     }
     .selection-label {
@@ -747,7 +747,7 @@ nav {
     .film-main {
         height: 80%;
     }
-    .cont-res {
+    .carousel {
         margin-left: -5%;
         margin-right: -5%;
     }
@@ -756,7 +756,7 @@ nav {
             max-width: 144px;
         }
     }
-    .div-search-film {
+    .carousel-content__item {
         max-width: 320px;
     }
 }
@@ -927,17 +927,17 @@ nav {
             padding-top: 4px;
         }
     }
-    .title-search {
+    .search-title__text {
         font-size: 18px;
         line-height: 30px;
     }
-    .height-close {
+    .search-icon__ico {
         height: 33px;
     }
-    .close-s {
+    .search-title__icon {
         margin: 23px 28%;
     }
-    .tit-in-search {
+    .carousel__title {
         font-size: 14px;
     }
 }

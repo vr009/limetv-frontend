@@ -1,4 +1,4 @@
-div(class="films-container")
+div(class="films")
     h1(class="selection-genres") #{genres}
     div(class="contentFilm")
 
@@ -8,5 +8,5 @@ div(class="films-container")
                     img(src=gen.pic[0] id=gen.id style="border-radius: 15px;")
 
         else
-            div(class="films-container" style="padding-top: 10px")
-                h3(class="tit-in-search") Ничего не найдено
+            div(class="films" style="padding-top: 10px")
+                h3(class="carousel__title") Ничего не найдено
