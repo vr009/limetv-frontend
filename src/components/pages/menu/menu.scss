@@ -236,8 +236,7 @@ label {
     top: 0;
     z-index: 4;
     background-color: rgba(0,0,0,.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter: blur(12px);
     height: 100%;
 }
 .search-results {
@@ -777,7 +776,7 @@ nav {
             box-direction: normal;
             flex-direction: row;
             list-style-type: none;
-            max-height: -webkit-max-content;
+            max-height: max-content;
             height: 100%;
             top: 100%;
             transform: translate(0%, 0%);
@@ -805,7 +804,7 @@ nav {
             box-direction: normal;
             flex-direction: row;
             list-style-type: none;
-            max-height: -webkit-max-content;
+            max-height: max-content;
             height: 100%;
             top: 100%;
             transform: translate(0%, 0%);

@@ -31,8 +31,7 @@ img {
 input {
     opacity: 0;
     background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter: blur(12px);
     position: absolute;
     left: 0;
     width: 100px;
