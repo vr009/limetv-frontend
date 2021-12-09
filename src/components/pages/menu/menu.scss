@@ -465,7 +465,7 @@ label {
         right: 0;
     }
     .navbar-links {
-        padding: 1em;
+        padding: 1em 2em 1em 2em;
         max-height: none;
     }
 }
@@ -546,7 +546,6 @@ label {
 .navbar-item {
     margin-top: 1em;
     margin-bottom: 1em;
-    margin-right: 0.6em;
     width: 100%;
 }
 #options {
@@ -582,7 +581,6 @@ nav {
         display: none;
         right: 18vh;
         position: absolute;
-        display: none;
     }
     .search-icon {
         width: 40px;
@@ -593,7 +591,6 @@ nav {
         display: none;
         right: 18vh;
         position: absolute;
-        display: none;
     }
     .logo.space {
         color: red;
@@ -606,19 +603,12 @@ nav {
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
     header {
-        font-size: 30px;
-        font-weight: 700;
         font-size: 30px;
         font-weight: 700;
     }
     .text {
-        font-size: 30px;
-        font-weight: 700;
         font-size: 30px;
         font-weight: 700;
     }
@@ -706,23 +696,6 @@ nav {
         width: 30px;
         height: 30px;
     }
-    .btn-in {
-        border: 3px solid rgba(199, 62, 119, 0);
-        &:hover {
-            color: rgba(35, 224, 7, 0);
-            outline: 0;
-        }
-        &:focus {
-            color: rgba(35, 224, 7, 0);
-            outline: 0;
-        }
-    }
-    .first {
-        &:hover {
-            box-shadow: 0 0 40px 40px rgba(199, 62, 119, 0) inset;
-            border: 3px solid rgba(46, 198, 20, 0);
-        }
-    }
     .container-new {
         padding-left: 0.5rem;
         padding-right: 1rem;
@@ -788,31 +761,13 @@ nav {
             }
         }
     }
-    #navbar.opened {
-        #navbar-menu {
-            visibility: visible;
-            opacity: 1;
-            position: static;
-            display: block;
-            height: 100%;
-        }
-        .navbar-links {
-            margin: 0;
-            padding: 0;
-            box-shadow: none;
-            position: static;
-            box-orient: horizontal;
-            box-direction: normal;
-            flex-direction: row;
-            list-style-type: none;
-            max-height: max-content;
-            height: 100%;
-            top: 100%;
-            transform: translate(0%, 0%);
-        }
-    }
     .contentFilm {
         padding-left: 5px;
+    }
+}
+@media (min-width: 700px) {
+    .navbar-item {
+        padding-right: 1em;
     }
 }
 @media (max-width: 1000px) {
@@ -911,6 +866,9 @@ nav {
     }
 }
 @media (max-width: 699px) {
+    .navbar-links {
+        border: 2px solid #9b9b9b52;
+    }
     nav {
         .cancel-icon {
             right: 10vh;

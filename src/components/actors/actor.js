@@ -66,7 +66,7 @@ const showActor = (state) => {
   );
 };
 
-function getFilmsByActor(state) {
+const getFilmsByActor = (state) => {
   const url = serverLocate+'/films/selection/actor/' + state;
   fetch(url, {
     method: 'GET',
@@ -100,4 +100,4 @@ function getFilmsByActor(state) {
     showErrors(error);
   },
   );
-}
+};

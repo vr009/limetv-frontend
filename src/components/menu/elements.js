@@ -81,19 +81,20 @@ export const createElements = (authed) => {
   menu();
 };
 
-function menu() {
+const menu = () => {
   const navbar = document.getElementById('navbar');
   const navbarToggle = navbar.querySelector('.navbar-toggle');
+  const area = document.getElementById('navbar-menu');
 
-  function openMobileNavbar() {
+  const openMobileNavbar = () => {
     navbar.classList.add('opened');
     navbarToggle.setAttribute('aria-expanded', 'true');
-  }
+  };
 
-  function closeMobileNavbar() {
+  const closeMobileNavbar = () => {
     navbar.classList.remove('opened');
     navbarToggle.setAttribute('aria-expanded', 'false');
-  }
+  };
 
   navbarToggle.addEventListener('click', () => {
     if (navbar.classList.contains('opened')) {
@@ -103,9 +104,14 @@ function menu() {
     }
   });
 
+  area.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeMobileNavbar();
+  });
+
   const navbarLinksContainer = navbar.querySelector('.navbar-links');
 
   navbarLinksContainer.addEventListener('click', (clickEvent) => {
     clickEvent.stopPropagation();
   });
-}
+};

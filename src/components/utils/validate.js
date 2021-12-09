@@ -48,7 +48,7 @@ export const getTimeFromMins = (mins) => {
   return hours + ' ч ' + minutes + ' мин';
 };
 
-export function getMonth(birth) {
+export const getMonth = (birth) => {
   let birthDay = birth.getDate();
   switch (birth.getMonth()) {
     case 0:
@@ -90,9 +90,9 @@ export function getMonth(birth) {
   }
   birthDay += birth.getFullYear();
   return birthDay;
-}
+};
 
-export function sklonenieSeries(number, txt) {
+export const sklonenieSeries = (number, txt) => {
   const cases = [2, 0, 1, 1, 1, 2];
   return txt[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 };
@@ -109,34 +109,3 @@ export const Genres = [
   {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
   {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},
 ];
-//
-// function translit(word){
-//   var answer = '';
-//   var converter = {
-//     'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
-//     'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
-//     'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
-//     'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
-//     'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
-//     'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
-//     'э': 'e', 'ю': 'yu', 'я': 'ya',
-//
-//     'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
-//     'Е': 'E', 'Ё': 'E', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
-//     'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
-//     'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
-//     'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'Ch',
-//     'Ш': 'Sh', 'Щ': 'Sch', 'Ь': '', 'Ы': 'Y', 'Ъ': '',
-//     'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya',
-//   };
-//
-//   for (let i = 0; i < word.length; ++i ) {
-//     if (converter[word[i]] === undefined){
-//       answer += word[i];
-//     } else {
-//       answer += converter[word[i]];
-//     }
-//   }
-//
-//   return answer;
-// }
