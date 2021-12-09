@@ -15,7 +15,7 @@ div(class="search")
                         a(class="carousel-item__icon")
                             img(src=film.pic[0])
                         span(class="carousel-item__text") #{film.title+' '}
-                        span(class="carousel-item__text") #{' (' + film.year+')'}
+                            span(style="color: grey;") #{' (' + film.year+')'}
 
     if result.actors.length !== 0
         div(class="films carousel")
