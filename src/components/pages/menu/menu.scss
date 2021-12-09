@@ -252,13 +252,13 @@ label {
     padding-left: 5px;
 }
 .carousel__title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
     line-height: 14px;
     letter-spacing: 1px;
     color: #a1979d;
     text-transform: uppercase;
-    text-shadow: 1px 0 1px #3636367d, 0 1px 1px #3636367d, -1px 0 1px #3636367d, 0 -1px 1px #3636367d;
+    text-shadow: 1px 0 1px #363636a6, 0 1px 1px #363636a6, -1px 0 1px #363636a6, 0 -1px 1px #363636a6;
     width: 200px;
     padding-left: 9%;
 }
@@ -335,6 +335,8 @@ label {
     color: #e7e7e7;
     font-size: 24px;
     padding-top: 10px;
+    width: 100%;
+    padding-left: 30px;
 }
 .search__row {
     margin-left: 9%;
@@ -922,11 +924,12 @@ nav {
         }
     }
     .search-title__text {
-        font-size: 22px;
+        font-size: 24px;
         line-height: 30px;
     }
     .carousel-item__text {
-        font-size: 18px;
+        font-size: 20px;
+        padding-left: 10px;
     }
     .search-icon__ico {
         height: 33px;
@@ -935,7 +938,7 @@ nav {
         margin: 14px 28%;
     }
     .carousel__title {
-        font-size: 14px;
+        font-size: 17px;
     }
 }
 @media (max-width: 1245px) {
