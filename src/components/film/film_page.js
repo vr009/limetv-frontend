@@ -100,6 +100,19 @@ const showFilm = (filmId) => {
         },
         );
 
+        const WLurl = serverLocate+'/films/wl/check/'+ filmId;
+        fetchRequest(WLurl, 'GET', null).then(
+            (res) => {
+              if (res.ok) {
+                const wlBtn = document.getElementById('wl');
+                wlBtn.classList.toggle('btn-unwatch-later');
+              }
+            }).catch((error) => {
+                console.log(error);
+                showErrors(error);
+            },
+        );
+
         // авторизован ли пользователь или нет,
         // отрисовываем по разному кнопки лайка и отложенного просмотра
         checkAuth(filmId);
@@ -181,6 +194,11 @@ const watchLater = (filmId) => {
   fetchRequest(url);
 };
 
+const unwatchLater = (filmId) => {
+  const url = serverLocate + '/films/wl/' + filmId;
+  fetchRequest(url, 'DELETE');
+};
+
 
 const checkAuth = (filmId) => {
   const url = serverLocate+'/users/auth';
@@ -211,7 +229,12 @@ const checkAuth = (filmId) => {
         const wlBtn = document.getElementById('wl');
         wlBtn.addEventListener('click', function(event) {
           event.preventDefault();
-          watchLater(filmId);
+          const isInWatchList = wlBtn.classList.contains('btn-unwatch-later');
+          if (isInWatchList) {
+            unwatchLater(filmId);
+          } else {
+            watchLater(filmId);
+          }
           wlBtn.classList.toggle('btn-unwatch-later');
         });
       },

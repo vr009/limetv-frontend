@@ -127,7 +127,11 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
           const firstFilm = document.getElementById('first_info');
           firstFilm.addEventListener('click', function(ev) {
             ev.preventDefault();
-            Router.go('/film/' + result[0].id, result[0].title);
+            const film = {
+              title: result[0].title,
+              slug: result[0].slug,
+            };
+            Router.go('/film/' + result[0].id, film);
           });
         }
         for (let i = 0; i < result.length; i++) {
