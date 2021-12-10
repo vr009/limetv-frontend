@@ -13,10 +13,6 @@ export const createSearchPage = (keyword) => {
       (result) => {
         const searchForm = document.getElementById('text_search');
         const root = document.getElementById('close_focus');
-        if (searchForm.value === '') {
-          const result = {'actors': [], 'films': []};
-          root.innerHTML = searchPagePug({result: result, isResult: false});
-        }
         root.innerHTML = searchPagePug({
           result: result,
           salt: 'close_focus',
@@ -54,9 +50,13 @@ export const createSearchPage = (keyword) => {
           searchForm.value = '';
         });
       },
-  ).catch((error) => {
-    console.log(error);
-    showErrors(error);
+  ).catch(() => {
+    const searchForm = document.getElementById('text_search');
+    const root = document.getElementById('close_focus');
+    if (searchForm.value === '') {
+      const result = {'actors': [], 'films': []};
+      root.innerHTML = searchPagePug({result: result, isResult: false});
+    }
   },
   );
 };
