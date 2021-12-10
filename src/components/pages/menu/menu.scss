@@ -259,7 +259,7 @@ label {
     color: #a1979d;
     text-transform: uppercase;
     text-shadow: 1px 0 1px #363636a6, 0 1px 1px #363636a6, -1px 0 1px #363636a6, 0 -1px 1px #363636a6;
-    width: 200px;
+    width: 220px;
     padding-left: 9%;
 }
 .selection-label {
@@ -822,7 +822,7 @@ nav {
                 position: absolute;
                 content: "";
                 top: -12px;
-                right: 33px;
+                right: 23px;
                 width: 0;
                 height: 0;
                 z-index: -1;
@@ -893,7 +893,7 @@ nav {
         height: 33px;
     }
     .search-title__icon {
-        margin: 14px 28%;
+        margin: 15px;
     }
     .carousel__title {
         font-size: 17px;
