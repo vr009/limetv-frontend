@@ -61,9 +61,15 @@ const createTemplate = () => {
     cancelBtn.classList.add('show');
   };
 
-  // обработка отправки формы
   const search = document.getElementById('text_search');
-  // const openSearch = document.getElementById('open-s');
+  const openSearch = document.getElementById('open-s');
+  openSearch.addEventListener('click', function(event) {
+    event.preventDefault();
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = navbar.querySelector('.navbar-toggle');
+    navbar.classList.remove('opened');
+    navbarToggle.setAttribute('aria-expanded', 'false');
+  });
 
   search.addEventListener('focus', function(event) {
     event.preventDefault();
@@ -74,7 +80,6 @@ const createTemplate = () => {
       me.setAttribute('id', 'close_focus');
       search.appendChild(me);
       const root = document.getElementById('close_focus');
-      // временно
       const result = {'actors': [], 'films': []};
       root.innerHTML = searchPagePug({result: result, isResult: false});
 
