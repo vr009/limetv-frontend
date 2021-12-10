@@ -95,7 +95,7 @@ div(class="film-page-container")
                     div(class="grey-info")
                         div Бюджет
                         span(class="pug-text") #{result.budget}
-                div
+                div(class="col-grid")
                     h2(class="name-col") Съёмочная группа
                     div(class="grey-info")
                         div Режиссёр
@@ -112,7 +112,10 @@ div(class="film-page-container")
                     h2(class="name-col") Звук и субтитры
                     div(class="grey-info")
                         div Аудиодорожки
-                        span(class="pug-text") #{result.language}
+                            if result.language == null || result.language === undefined || result.language === ''
+                                span(class="pug-text") Русский
+                            else
+                                span(class="pug-text") #{result.language}
 
                     div(class="grey-info")
                         div Качество
