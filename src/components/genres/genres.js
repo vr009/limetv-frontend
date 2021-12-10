@@ -38,7 +38,11 @@ const showGenresFilms = (genre) => {
           const film = document.getElementById(result[i].id);
           film.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/film/' + result[i].id.toString(), result[i].title);
+            const film = {
+              name: result[i].title,
+              slug: result[i].slug,
+            };
+            Router.go('/film/' + result[i].id.toString(), film);
           });
         }
       },

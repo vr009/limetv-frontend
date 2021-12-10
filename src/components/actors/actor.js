@@ -91,7 +91,11 @@ const getFilmsByActor = (state) => {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
-            Router.go('/film/' + result[i].id.toString(), result[i].title);
+            const film = {
+              name: result[i].title,
+              slug: result[i].slug,
+            };
+            Router.go('/film/' + result[i].id.toString(), film);
           });
         }
       },

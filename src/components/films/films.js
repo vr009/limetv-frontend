@@ -128,7 +128,7 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
           firstFilm.addEventListener('click', function(ev) {
             ev.preventDefault();
             const film = {
-              title: result[0].title,
+              name: result[0].title,
               slug: result[0].slug,
             };
             Router.go('/film/' + result[0].id, film);
@@ -138,7 +138,11 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
           const film = document.getElementById(result[i].id+rootId);
           film.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/film/' + result[i].id.toString(), result[i].title);
+            const film = {
+              name: result[i].title,
+              slug: result[i].slug,
+            };
+            Router.go('/film/' + result[i].id.toString(), film);
           });
         }
       },
