@@ -112,10 +112,10 @@ div(class="film-page-container")
                     h2(class="name-col") Звук и субтитры
                     div(class="grey-info")
                         div Аудиодорожки
-                            if result.language == null || result.language === undefined || result.language === ''
-                                span(class="pug-text") Русский
-                            else
-                                span(class="pug-text") #{result.language}
+                        if result.language == null || result.language === undefined || result.language === ''
+                            span(class="pug-text") Русский
+                        else
+                            span(class="pug-text") #{result.language}
 
                     div(class="grey-info")
                         div Качество
