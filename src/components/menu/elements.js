@@ -25,6 +25,10 @@ export const createElements = (authed) => {
   menuLogo.addEventListener('click', function(event) {
     event.preventDefault();
     Router.go('/', 'LimeTV', null, true, false);
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = navbar.querySelector('.navbar-toggle');
+    navbar.classList.remove('opened');
+    navbarToggle.setAttribute('aria-expanded', 'false');
   });
   const root = document.getElementById('navbar-menu');
   root.innerHTML = '';
