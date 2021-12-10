@@ -559,6 +559,7 @@ nav {
         padding: 2px;
         background: rgb(46 46 46 / 68%);
         min-width: 18% !important;
+        margin-left: 50px;
         border: 2px solid rgba(217, 90, 140, 0.8);
         border-radius: 7px;
         .search-data {
@@ -871,12 +872,12 @@ nav {
     }
     nav {
         .cancel-icon {
-            right: 8vh;
+            right: 58px;
             position: absolute;
             padding-top: 4px;
         }
         .search-icon {
-            right: 8vh;
+            right: 58px;
             position: absolute;
             padding-top: 4px;
         }
