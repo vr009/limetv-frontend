@@ -105,6 +105,12 @@ const menu = () => {
       closeMobileNavbar();
     } else {
       openMobileNavbar();
+      const searchBtn = document.querySelector('.search-icon');
+      const cancelBtn = document.querySelector('.cancel-icon');
+      const form = document.querySelector('form');
+      searchBtn.classList.remove('hide');
+      cancelBtn.classList.remove('show');
+      form.classList.remove('active');
     }
   });
 
