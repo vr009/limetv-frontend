@@ -44,8 +44,7 @@ export const createSearchPage = (keyword) => {
         const closeSearch = document.getElementById('cl-search');
         closeSearch.addEventListener('click', function(event) {
           event.preventDefault();
-          const search = document.getElementById('close_focus');
-          search.parentNode.removeChild(search);
+          root.parentNode.removeChild(root);
           const searchForm = document.getElementById('text_search');
           searchForm.value = '';
         });
@@ -56,6 +55,20 @@ export const createSearchPage = (keyword) => {
     if (searchForm.value === '') {
       const result = {'actors': [], 'films': []};
       root.innerHTML = searchPagePug({result: result, isResult: false});
+      const form = document.querySelector('form');
+      const closeSearch = document.getElementById('cl-search');
+      const searchBtn = document.querySelector('.search-icon');
+      const cancelBtn = document.querySelector('.cancel-icon');
+      closeSearch.addEventListener('click', function(event) {
+        event.preventDefault();
+        searchBtn.classList.remove('hide');
+        cancelBtn.classList.remove('show');
+        form.classList.remove('active');
+        const search = document.getElementById('close_focus');
+        search.parentNode.removeChild(search);
+        const searchForm = document.getElementById('text_search');
+        searchForm.value = '';
+      });
     }
   },
   );
