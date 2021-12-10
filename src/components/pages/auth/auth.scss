@@ -56,10 +56,11 @@
         z-index: 2;
         margin: 30px auto;
         width: 80%;
+        overflow-x: hidden;
         justify-content: center;
         align-items: center;
-        padding: 60px 35px 35px 45px;
-        background: rgb(0 0 0 / 69%);
+        padding: 45px 20px 20px 20px;
+        background: rgba(0, 0, 0, 0.69);
     }
     .name-register {
         color: white;
