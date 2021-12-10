@@ -78,6 +78,15 @@ export class Router {
         createFilmPage(uuid);
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
+        let url = '';
+        if (state !== null) {
+          url += '/watch';
+        }
+        window.history.replaceState(
+            state, // объект состояния
+            state.title, // заголовок состояния
+            url, // URL новой записи (same origin)
+        );
         createPlayerPage(src);
       } else if (path.includes('/genre/')) {
         const genres = path.substring('/genre/'.length, path.length);
