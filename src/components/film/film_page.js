@@ -170,6 +170,15 @@ const showActors = (actors) => {
           actors: result,
           salt: salt,
         });
+        for (let i = 0; i < result.length; i++) {
+          const actorContainer = document.getElementById(result[i].id+salt);
+          actorContainer.addEventListener('click', function(event) {
+            event.preventDefault();
+            const rootPage = document.getElementById('stuff');
+            rootPage.innerHTML = '';
+            Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
+          });
+        }
       },
   ).catch((error) => {
     console.log(error);
