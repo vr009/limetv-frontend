@@ -1,36 +1,35 @@
 div(class="films")
-    h1(class="selection-profile") Профиль
+    h1(class="title-page__text") Профиль
 
-    div(class="block-left")
-        div(class="contentAvatar")
-            div(class="prof_pic")
-                img(src=avatar class="avatar")
-            i(id="settings_btn" class="settings_btn")
-                img(src="settings.ico" class="set")
-    div(class="block-right")
-        div(class="profile-grid")
-            div(class="col-grid-profile")
-                div(class="grey-info-profile")
+    div(class="page-left__column")
+        div(class="profile-ava__column")
+            img(src=avatar class="profile-ava__ico")
+        i(id="settings_btn" class="profile-settings__column")
+            img(src="settings.ico" class="profile-settings__ico")
+    div(class="page-right__column")
+        div(class="profile__grid")
+            div(class="profile-grid__column")
+                div(class="profile-grid__row")
                     div Имя пользователя:
-                    span(class="pug-text-profile") #{login}
+                    span(class="profile-grid__text") #{login}
 
-                div(class="grey-info-profile")
+                div(class="profile-grid__row")
                     div О себе:
-                    span(class="pug-text-profile") #{about}
+                    span(class="profile-grid__text") #{about}
 
-section(class="selection-profile-2")
-    div(class="about-your")
-        div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 200px; margin-bottom: -2px;")
+section(class="carousel__selection")
+    div(class="title-row")
+        div(class="carousel-your-active__title")
             div(class="row" style="padding-bottom: 10px;") Ваша активность
 
-section(class="selection-profile-2")
-    div(class="about-your-active" id="selection-profile-3")
+section(class="carousel__selection")
+    div(class="carousel-your-active__films" id="selection-profile-3")
 
-section(class="selection-profile-2")
-    div(class="about-your-active" id="selection-profile-4")
+section(class="carousel__selection")
+    div(class="carousel-your-active__films" id="selection-profile-4")
 
 
-section(class="selection-profile-2")
-    div(class="about-your-active")
+section(class="carousel__selection")
+    div(class="carousel-your-active__films")
         div(class="films" id="empty-film-profile")
-            h1(class="selection-empty-profile") — Добавьте в избранные или отложенные фильмы и сериалы
+            h1(class="carousel-empty__text") — Добавьте в избранные или отложенные фильмы и сериалы

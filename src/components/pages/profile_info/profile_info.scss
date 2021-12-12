@@ -1,4 +1,4 @@
-.settings_btn {
+.profile-settings__column {
     height: 38px;
     width: 38px;
     position: absolute;
@@ -16,7 +16,7 @@
      transform: scale(1.15);
  }
 }
-.prof_pic {
+.profile-ava__column {
     display: inline-block;
     position: relative;
     margin-left: 20px;
@@ -37,7 +37,7 @@ img {
     color: white;
     margin-left: 40px;
 }
-.selection-profile {
+.title-page__text {
     font-family: 'Montserrat', sans-serif;
     padding-left: 9%;
     letter-spacing: -.5px;
@@ -45,26 +45,26 @@ img {
     padding-top: 25px;
     color: azure;
 }
-.block-left {
+.page-left__column {
     padding-left: 9%;
     padding-top: 40px;
     width: 500px;
     height: 370px;
     float: left;
 }
-.block-right {
+.page-right__column {
     padding-right: 9%;
     padding-top: 40px;
     width: auto;
     height: 370px;
 }
-.set {
+.profile-settings__ico {
     padding-top: 2px;
     height: 30px;
     margin-top: 2px;
     margin-left: 4px;
 }
-.profile-grid {
+.profile__grid {
     font-family: 'Montserrat', sans-serif;
     display: grid;
     grid-template-columns: repeat(15,1fr);
@@ -72,7 +72,7 @@ img {
     padding-top: 22px;
     grid-gap: 40px;
 }
-.grey-info-profile {
+.profile-grid__row {
     font-size: 24px;
     margin-top: 20px;
     color: hsla(0,0%,100%,.56);
@@ -82,41 +82,43 @@ img {
     margin-top: 22px;
     color: hsla(0,0%,100%,.56);
 }
-.pug-text-profile {
+.profile-grid__text {
     font-size: 24px;
     color: white;
     line-height: 50px;
 }
-.col-grid-profile {
+.profile-grid__column {
     padding-bottom: 60px;
 &:first-child {
      grid-column: 1/8;
  }
 }
-.selection-profile-2 {
+.carousel__selection {
     width: 100%;
 }
-.about-your {
+.title-row {
     color: white;
     border-bottom: 2px solid #3a3a3a;
     margin-right: 9%;
     margin-left: 9%;
 }
-.about-your-active {
+.carousel-your-active__films {
     color: white;
     margin-right: 9%;
     margin-left: 9%;
 }
+.carousel-your-active__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-bottom: 2px solid #e5e5e5cc;
+    width: 200px;
+    margin-bottom: -2px;
+}
 @media (min-width: 319px) and (max-width: 600px) {
-    .block-left {
-        padding-left: 9%;
-        padding-top: 40px;
-        width: 500px;
-        height: 370px;
-        float: left;
+    .page-left__column {
         display: contents;
     }
-    .block-right {
+    .page-right__column {
         padding-right: 9%;
         padding-top: 40px;
         width: auto;
