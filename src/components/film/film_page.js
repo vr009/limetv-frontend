@@ -105,7 +105,7 @@ const showFilm = (filmId) => {
         ).then(
             (res) => {
               console.log(res.body);
-              const rating = res.rating;
+              const rating = res.rating%6;
               for (let j = 1; j <= rating; j++) {
                 const starSec = document.getElementById('rating-star-' + j);
                 if (!starSec.classList.contains('star-select')) {
