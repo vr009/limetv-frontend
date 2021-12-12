@@ -3,6 +3,10 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
 .logo {
     font: bold 22px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     color: #2cc713;
