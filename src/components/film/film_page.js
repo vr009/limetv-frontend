@@ -99,7 +99,7 @@ const showFilm = (filmId) => {
           });
         }
 
-        const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating';
+        const ratingUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
         fetchRequest(ratingUrl, 'GET', null).then(
             (response) => response.json(),
         ).then(
