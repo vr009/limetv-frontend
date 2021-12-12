@@ -78,6 +78,26 @@ const showFilm = (filmId) => {
             }
           }
         }
+        for (let i = 1; i <= 5; i++) {
+          const star = document.getElementById('rating-star-' + i);
+          star.addEventListener('click', function(event) {
+            event.preventDefault();
+            for (let j = 1; j <= i; j++) {
+              const starSec = document.getElementById('rating-star-' + j);
+              if (!starSec.classList.contains('star-select')) {
+                starSec.classList.toggle('star-select');
+              }
+            }
+            for (let j = i+1; j <= 5; j++) {
+              const starSec = document.getElementById('rating-star-' + j);
+              if (starSec.classList.contains('star-select')) {
+                starSec.classList.toggle('star-select');
+              }
+            }
+            const ratingUrl = serverLocate + serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
+            fetchRequest(ratingUrl, 'POST');
+          });
+        }
 
         for (let i = 0; i < result.genres.length; i++) {
           const film = document.getElementById(result.genres[i]);
