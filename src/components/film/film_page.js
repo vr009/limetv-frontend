@@ -99,6 +99,31 @@ const showFilm = (filmId) => {
           });
         }
 
+        const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating';
+        fetchRequest(ratingUrl, 'GET', null).then(
+            (res) => {
+              if (res.ok) {
+                console.log(res.body);
+                const rating = res.body.rating % 6;
+                for (let j = 1; j <= rating; j++) {
+                  const starSec = document.getElementById('rating-star-' + j);
+                  if (!starSec.classList.contains('star-select')) {
+                    starSec.classList.toggle('star-select');
+                  }
+                }
+                for (let j = rating + 1; j <= 5; j++) {
+                  const starSec = document.getElementById('rating-star-' + j);
+                  if (starSec.classList.contains('star-select')) {
+                    starSec.classList.toggle('star-select');
+                  }
+                }
+              }
+            }).catch((error) => {
+              console.log(error);
+              showErrors(error);
+            },
+        );
+
         for (let i = 0; i < result.genres.length; i++) {
           const film = document.getElementById(result.genres[i]);
           film.addEventListener('click', function(event) {
