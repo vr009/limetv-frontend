@@ -78,7 +78,7 @@ export class Router {
 
         let url = '';
         if (state !== null) {
-          url += state.title.slug + '/info';
+          url += state.title.slug;
         }
 
         document.title = state.title.name;
