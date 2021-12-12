@@ -94,7 +94,7 @@ const showFilm = (filmId) => {
                 starSec.classList.toggle('star-select');
               }
             }
-            const ratingUrl = serverLocate + serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
+            const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
             fetchRequest(ratingUrl, 'POST');
           });
         }
