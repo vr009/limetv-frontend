@@ -28,12 +28,11 @@ div(class="film-block")
             em(id="rating-star-5" class="rating-star__text") ☆
         div(class="film-about-btn__row")
             a(class="btn-watch watch") Смотреть
-                img(class="watch-btn-img")(src="play-white.ico")
-            a(class="btn-watch watch" tabindex="0" data-info="Только для авторизованных пользователей." id="wl") Смотреть позже
-                img(class="watch-btn-img")(src="wl.ico")
-
-            a(class="re-btn-watch re-like" tabindex="0" data-info="Только для авторизованных пользователей." id="re-like")
-                img(src="heart.ico" style="vertical-align: middle; width: 30px;")
+                img(class="watch-btn__ico" src="play-white.ico")
+            a(id="wl" class="btn-watch watch" tabindex="0" data-info="Только для авторизованных пользователей.") Смотреть позже
+                img(class="watch-btn__ico" src="wl.ico")
+            a(id="re-like" class="re-btn-watch re-like" tabindex="0" data-info="Только для авторизованных пользователей.")
+                img(class="re-watch-btn__ico" src="heart.ico")
     section(class="selection-2")
         div(class="about")
             div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 125px; margin-bottom: -2px;")
