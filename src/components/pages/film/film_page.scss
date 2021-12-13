@@ -1,4 +1,4 @@
-.film-page-container {
+.film-block {
     margin-top: -13px;
     display: flex;
     padding-bottom: 30px;
@@ -7,18 +7,49 @@
     min-width: 100%;
     color: white;
 }
-
-.star-rating {
+.film-about-short__column {
+    font-size: 18px;
+    margin-top: 30px;
+    color: hsla(0,0%,100%,.56);
+    align-items: center;
+}
+.film-about-series__text {
+    letter-spacing: 1px;
+    color: #bbbbbb;
+}
+.film-about-micro__ico {
+    width: 13px;
+}
+.film-about-lang__text {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: .03em;
+}
+.film-about-additionally__column {
+    font-size: 18px;
+    line-height: 42px;
+    color: hsla(0,0%,100%,.56);
+}
+.film-about-rating__column {
+    color: white;
+    font-size: 30px;
+    line-height: 42px;
+    color: hsla(0,0%,100%,.56);
+    width: 1em;
+}
+.film-about-short__text {
+    font-size: 18px;
+    line-height: 22px;
+}
+.rating-star__text {
     font-style: normal;
     cursor: pointer;
 }
-
 .star-select {
     font-style: normal;
     cursor: pointer;
     color: gold;
 }
-
 .film-pic {
     position: absolute;
     float: left;
@@ -67,13 +98,13 @@
             rgb(20 20 20 / 93%) 96.52%,
             rgb(20 20 20 / 99%) 98.90%);
 }
-.fon-pic {
+.film-block__picture {
     position: absolute;
     z-index: 0;
     right: 0;
     height: 600px;
 }
-.age-pic {
+.film-age__text {
     margin-top: 500px;
     margin-right: 100px;
     background: #bb0e7d78;
@@ -85,7 +116,7 @@
     font-size: 32px;
     right: 0;
 }
-.film-title {
+.film-about-title__text {
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
     line-height: 48px;
@@ -228,13 +259,13 @@
     font-weight: lighter;
     font-size: 15px;
 }
-.main {
+.film-about {
     position: absolute;
     padding-left: 100px;
     z-index: 3;
     padding-top: 100px;
 }
-.btns {
+.film-about-btn__row {
     font-size: 18px;
     padding-top: 60px;
 }
@@ -248,16 +279,16 @@
     .name-col {
         font-size: 25px;
     }
-    .fon-pic {
+    .film-block__picture {
         display: none;
     }
-    .age-pic {
+    .film-age__text {
         right: -2em;
     }
     .full-grid {
         display: inline-block;
     }
-    .main {
+    .film-about {
         padding-left: 20px;
     }
     .btn-watch {
@@ -279,7 +310,7 @@
         padding-left: 11px;
         width: 28px;
     }
-    .btns {
+    .film-about-btn__row {
         display: flex;
     }
     .text-about {
