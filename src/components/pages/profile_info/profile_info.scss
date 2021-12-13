@@ -37,7 +37,7 @@ img {
     color: white;
     margin-left: 40px;
 }
-.title-page__text {
+.page-title__text {
     font-family: 'Montserrat', sans-serif;
     padding-left: 9%;
     letter-spacing: -.5px;
@@ -72,14 +72,20 @@ img {
     padding-top: 22px;
     grid-gap: 40px;
 }
+.about-actor {
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: flex-start;
+    padding-top: 10px;
+    grid-gap: 40px;
+}
+.actor__row {
+    color: white;
+}
 .profile-grid__row {
     font-size: 24px;
     margin-top: 20px;
-    color: hsla(0,0%,100%,.56);
-}
-.grey-info-actor {
-    font-size: 18px;
-    margin-top: 22px;
     color: hsla(0,0%,100%,.56);
 }
 .profile-grid__text {
@@ -96,7 +102,7 @@ img {
 .carousel__selection {
     width: 100%;
 }
-.title-row {
+.title__row {
     color: white;
     border-bottom: 2px solid #3a3a3a;
     margin-right: 9%;

@@ -1,30 +1,29 @@
 div(class="films")
-    h1(class="title-page__text") Актер
+    h1(class="page-title__text") Актер
 
     div(class="page-left__column")
-        div(class="contentAvatar")
-            div(class="prof_actor_pic")
-                img(src=avatar)
+        div(class="page-actor__picture")
+            img(src=avatar)
 
     div(class="page-right__column" style="padding-top: 0;")
-        div(class="profile__grid" style="grid-template-columns: auto; padding-top: 10px;")
-            div(style="color: white;")
-                h2(class="name-col-actor") О персоне
-                div(class="grey-info-actor")
+        div(class="about-actor")
+            div(class="actor__row")
+                h2(class="actor-title__text") О персоне
+                div(class="actor__column")
                     div Имя и фамилия:
-                    span(class="pug-text") #{name} #{surname}
+                    span(class="val__text") #{name} #{surname}
 
-                div(class="grey-info-actor")
+                div(class="actor__column")
                     div Дата рождения:
-                    span(class="pug-text") #{date_of_birth}
+                    span(class="val__text") #{date_of_birth}
 
-                div(class="grey-info-actor")
+                div(class="actor__column")
                     div Рост:
-                    span(class="pug-text") #{height}м
+                    span(class="val__text") #{height}м
 
-                div(class="grey-info-actor")
+                div(class="actor__column")
                     div Жанры:
-                        div(class="pug-text")
+                        div(class="val__text")
                             -  let flag = false;
                                 each val in genres
                                     if flag
@@ -34,14 +33,14 @@ div(class="films")
                                         a(id=val class="actor-name__text") #{val}
                                     - flag = true
 
-                div(class="grey-info-actor")
+                div(class="actor__column")
                     div Подробнее:
-                    span(class="pug-text") #{description}
+                    span(class="val__text") #{description}
 
 
-section(class="selection-actor-1")
-    div(class="title-row")
-            div(class="row active-actors") Активность актера
+section(class="actor-active__selection")
+    div(class="title__row")
+            div(class="row actor-active__text") Активность актера
 
 section(class="carousel__selection")
-    div(class="carousel-your-active__films" id="selection-profile-5")
+    div(id="carousel-actor" class="carousel-your-active__films")

@@ -75,7 +75,7 @@ const getFilmsByActor = (state) => {
       (response) => response.json(),
   ).then(
       (result) => {
-        const rootFilm = document.getElementById('selection-profile-5');
+        const rootFilm = document.getElementById('carousel-actor');
         for (let i = 0; i < result.length; i++) {
           result[i].title = result[i].title+' ('+result[i].year+')';
           result[i].director = result[i].director[0];

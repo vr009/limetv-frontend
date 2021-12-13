@@ -21,8 +21,8 @@ export const createUserInfoPage = () => {
 
   showUserInfo();
 
-  showFilmsList('/wl', 'selection-profile-3', 'Смотреть позже');
-  showFilmsList('/starred', 'selection-profile-4', 'Избранное');
+  showFilmsList('/wl', 'selection-watch-list', 'Смотреть позже');
+  showFilmsList('/starred', 'selection-liked', 'Избранное');
 };
 
 const showUserInfo = () => {

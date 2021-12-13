@@ -30,6 +30,7 @@ body {
     text-align: center;
 }
 .row {
+    padding-bottom: 10px;
     &:after {
         content: "";
         display: table;

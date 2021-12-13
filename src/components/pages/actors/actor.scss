@@ -83,6 +83,7 @@
     height: 400px;
 }
 .row {
+    padding-bottom: 10px;
     &:after {
         content: "";
         display: table;
@@ -140,7 +141,7 @@
     color: white;
     padding-left: 50px;
 }
-.prof_actor_pic {
+.page-actor__picture {
     img {
         width: 300px;
         height: 450px;
@@ -159,15 +160,20 @@
     -o-object-fit: cover;
     object-fit: cover;
 }
-.name-col-actor {
+.actor__column {
+    font-size: 18px;
+    margin-top: 22px;
+    color: hsla(0,0%,100%,.56);
+}
+.actor-title__text {
     font-size: 32px;
     margin-bottom: 30px;
 }
-.selection-actor-1 {
+.actor-active__selection {
     padding-top: 250px;
     width: 100%;
 }
-.active-actors {
+.actor-active__text {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     border-bottom: 2px solid #e5e5e5cc;

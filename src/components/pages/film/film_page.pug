@@ -43,9 +43,9 @@ div(class="film-page-container")
         div(class="about")
             div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 125px; margin-bottom: -2px;")
                 if result.is_series === true
-                    div(class="row" style="padding-bottom: 10px;") О сериале
+                    div(class="row") О сериале
                 else
-                    div(class="row" style="padding-bottom: 10px;") О фильме
+                    div(class="row") О фильме
             div(class="text-about col-2")
                 p(class="short-text")
                     span #{result.description}
@@ -77,11 +77,11 @@ div(class="film-page-container")
                     h2(class="name-col") Информация
                     div(class="grey-info")
                         div Страна
-                        span(class="pug-text") #{result.country}
+                        span(class="val__text") #{result.country}
 
                     div(class="grey-info")
                         div Жанр
-                        div(class="pug-text")
+                        div(class="val__text")
                             -  let flag = false;
                                 each val in result.genres
                                     if flag
@@ -93,37 +93,37 @@ div(class="film-page-container")
 
                     div(class="grey-info")
                         div Премьера в России
-                        span(class="pug-text") #{result.release_rus}
+                        span(class="val__text") #{result.release_rus}
 
                     div(class="grey-info")
                         div Премьера в мире
-                        span(class="pug-text") #{result.release}
+                        span(class="val__text") #{result.release}
 
                     div(class="grey-info")
                         div Бюджет
-                        span(class="pug-text") #{result.budget}
+                        span(class="val__text") #{result.budget}
                 div(class="col-grid")
                     h2(class="name-col") Съёмочная группа
                     div(class="grey-info")
                         div Режиссёр
-                        span(class="pug-text") #{result.director}
+                        span(class="val__text") #{result.director}
 
                     div(class="grey-info")
                         div Актёры
-                        span(class="pug-text" id="many-actors")
+                        span(class="val__text" id="many-actors")
 
                     div(class="grey-info")
                         div Сценаристы
-                        span(class="pug-text") #{result.authors}
+                        span(class="val__text") #{result.authors}
                 div(class="col-grid")
                     h2(class="name-col") Звук и субтитры
                     div(class="grey-info")
                         div Аудиодорожки
                         if result.language == null || result.language === undefined || result.language === ''
-                            span(class="pug-text") Русский
+                            span(class="val__text") Русский
                         else
-                            span(class="pug-text") #{result.language}
+                            span(class="val__text") #{result.language}
 
                     div(class="grey-info")
                         div Качество
-                        span(class="pug-text") SD, HD, Full HD
+                        span(class="val__text") SD, HD, Full HD

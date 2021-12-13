@@ -1,5 +1,5 @@
 div(class="films")
-    h1(class="title-page__text") Профиль
+    h1(class="page-title__text") Профиль
 
     div(class="page-left__column")
         div(class="profile-ava__column")
@@ -18,18 +18,18 @@ div(class="films")
                     span(class="profile-grid__text") #{about}
 
 section(class="carousel__selection")
-    div(class="title-row")
+    div(class="title__row")
         div(class="carousel-your-active__title")
-            div(class="row" style="padding-bottom: 10px;") Ваша активность
+            div(class="row") Ваша активность
 
 section(class="carousel__selection")
-    div(class="carousel-your-active__films" id="selection-profile-3")
+    div(id="selection-watch-list" class="carousel-your-active__films")
 
 section(class="carousel__selection")
-    div(class="carousel-your-active__films" id="selection-profile-4")
+    div(id="selection-liked" class="carousel-your-active__films")
 
 
 section(class="carousel__selection")
     div(class="carousel-your-active__films")
-        div(class="films" id="empty-film-profile")
+        div(id="empty-film-profile" class="films")
             h1(class="carousel-empty__text") — Добавьте в избранные или отложенные фильмы и сериалы

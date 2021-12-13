@@ -95,7 +95,7 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
   ).then(
       (result) => {
         const root = document.getElementById(rootId);
-        if (rootId === 'selection-profile-3' || rootId === 'selection-profile-4') {
+        if (rootId === 'selection-watch-list' || rootId === 'selection-liked') {
           root.innerHTML = filmProfile({
             title: title,
             films: result,
