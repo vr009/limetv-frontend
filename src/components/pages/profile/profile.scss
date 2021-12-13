@@ -57,7 +57,7 @@
         position: center;
     }
 }
-.profile_pass {
+.profile-info-pass__input {
     background: unset;
     border-radius: 7px;
     border: solid #8bbf51;
@@ -65,7 +65,7 @@
     height: 26px;
     color: white;
 }
-.des_btn {
+.profile-info-save__btn {
     -moz-appearance: none;
     border: 3px solid #f7227c;
     border-radius: 9px;
@@ -80,7 +80,7 @@
     margin-top: 12px;
     margin-bottom: 12px;
 }
-.profile_bio {
+.profile-info-bio__textarea {
     display: table-caption;
     background: unset;
     border-radius: 8px;
@@ -89,7 +89,7 @@
     color: white;
 }
 @media (min-width: 319px) and (max-width: 1020px) {
-    .profile_bio {
+    .profile-info-bio__textarea {
         display: table-caption;
         background: unset;
         border-radius: 8px;
@@ -97,7 +97,7 @@
         width: 80%;
         color: white;
     }
-    .profile_pass {
+    .profile-info-pass__input {
         background: unset;
         border-radius: 7px;
         border: solid #8bbf51;

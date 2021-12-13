@@ -10,9 +10,9 @@ div(class="profile")
                 span(class="profile-info-login-name__text") #{' '+login}
             form(id="profile-info-pass__form")
                 div
-                    input(type="password" placeholder="Пароль" class="profile_pass")
-                    input(type="submit" class="des_btn" name="password" value="Сохранить" style="margin-bottom: 30px;")
+                    input(type="password" placeholder="Пароль" class="profile-info-pass__input")
+                    input(type="submit" class="profile-info-save__btn" name="password" value="Сохранить" style="margin-bottom: 30px;")
             form(id="profile-info-bio__form")
                 div
-                    textarea(placeholder=" О себе" maxlength="512" rows="12" cols="33" class="profile_bio") #{about}
-                    input(type="submit" class="des_btn" name="login" value="Сохранить")
+                    textarea(placeholder=" О себе" maxlength="512" rows="12" cols="33" class="profile-info-bio__textarea") #{about}
+                    input(type="submit" class="profile-info-save__btn" name="login" value="Сохранить")
