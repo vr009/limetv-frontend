@@ -1,4 +1,4 @@
-.offline_page_div {
+.offline {
     --pin-bg-color: #0000006e;
     background: var(--pin-bg-color);
     margin-left: auto;
@@ -10,10 +10,10 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
-.offline_page_ul {
+.offline-acton__stack {
     padding-bottom: 25px;
 }
-a.blubtn {
+a.offline-update__btn {
     width: 150px;
     text-align: center;
     display: block;

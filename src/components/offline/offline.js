@@ -7,7 +7,7 @@ export const offline = (path, title, state, needPush) => {
   const root = document.getElementById('root');
   root.innerHTML = offlinePagePug();
 
-  const offlinePageMsg = document.getElementById('offline_page');
+  const offlinePageMsg = document.getElementById('offline-title__text');
 
   const reloadBtn = document.getElementById('reload_page');
   reloadBtn.addEventListener('click', (evt) => {
