@@ -1,4 +1,5 @@
 div(class="film-block")
+    div(class="film-pic").film-n-pic
     img(src="img.png" class="film-block__picture")
     div(class="film-age__text") #{result.age+'+'}
     div(class="film-about")
@@ -33,7 +34,7 @@ div(class="film-block")
                 img(class="watch-btn__ico" src="wl.ico")
             a(id="re-like" class="re-btn-watch re-like" tabindex="0" data-info="Только для авторизованных пользователей.")
                 img(class="re-watch-btn__ico" src="heart.ico")
-    section(class="selection-2")
+    section(class="about-film")
         div(class="about")
             div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 125px; margin-bottom: -2px;")
                 if result.is_series === true
