@@ -38,17 +38,20 @@ section(class="carousel__selection")
             h1(class="carousel-empty__text") — Добавьте в избранные или отложенные фильмы и сериалы
 
 div(class="page-left__column")
-    h1(class="subscription__payment-text") Оформите подписку на месяц за 5₽
+    h1(class="subscription__payment-text") Оформите подписку на месяц за 2 ₽
     a(class="subscription__subpayment-text") Наличие подписки открывает доступ ко всем фильмам и сериалам
     form(class="payment-form" method="POST" action="https://yoomoney.ru/quickpay/confirm.xml")
         input(type="hidden" name="receiver" value="4100117405347318")
-        input(type="hidden" name="label" value=login)
+        input(type="hidden" name="label" value="123")
         input(type="hidden" name="quickpay-form" value="donate")
         input(type="hidden" name="targets" value="Подписка LimeTV")
-        input(type="hidden" name="sum" value="5" data-type="number")
+        input(type="hidden" name="sum" value="2" data-type="number")
         input(type="hidden" name="need-fio" value="false")
-        input(type="hidden" name="need-email" value="true")
-        input(type="hidden" name="need-phone" value="true")
+        input(type="hidden" name="need-email" value="false")
+        input(type="hidden" name="need-phone" value="false")
+        input(type="hidden" name="formcomment" value="123")
+        input(type="hidden" name="comment" value="123")
+        input(type="hidden" name="targets" value="123")
         input(type="hidden" name="need-address" value="false")
         input(type="hidden" name="successURL" value="https://a06367.ru")
         label(class="subscription__radio-title radio-color-PC")
