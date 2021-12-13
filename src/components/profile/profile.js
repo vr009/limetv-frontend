@@ -10,10 +10,10 @@ export const createProfile = (profile) => {
   const text = document.querySelector('textarea');
   text.addEventListener('keydown', submitBio);
 
-  const form = document.getElementById('pass_form');
+  const form = document.getElementById('profile-info-pass__form');
   form.addEventListener('submit', updateUserPassword);
 
-  const form2 = document.getElementById('bio_form');
+  const form2 = document.getElementById('profile-info-bio__form');
   form2.addEventListener('submit', updateUserBio);
 };
 
@@ -62,7 +62,7 @@ const updateUserPic = (event) => {
  */
 const updateUserPassword = (event) => {
   event.preventDefault();
-  const form = document.getElementById('pass_form');
+  const form = document.getElementById('profile-info-pass__form');
   const password = form.querySelector('input').value;
 
   if (password !== '' && password !== undefined) {
@@ -90,7 +90,7 @@ const updateUserPassword = (event) => {
  */
 const updateUserBio = (event) => {
   event.preventDefault();
-  const form = document.getElementById('bio_form');
+  const form = document.getElementById('profile-info-bio__form');
   const bio = form.querySelector('textarea').value;
   if (bio !== '' && bio !== undefined) {
     const data = {

@@ -1,18 +1,18 @@
 div(class="profile")
     h1(class="title-page__text") Настройки профиля
     div(id="error")
-    div(class="settings")
-        div(class="profile_pic")
+    div(class="profile-info-settings__row")
+        div(class="profile-info-picture__column")
             img(src=avatar id="avatar")
-            input(type="submit" class="" name="pic" value="Изменить" id="new_avatar")
-        div(class="profile_settings")
-            h3(class="profile_login") Пользователь:
-                span(style="color: azure;") #{' '+login}
-            form(id="pass_form")
+            input(type="submit" name="pic" value="Изменить" id="new_avatar")
+        div(class="profile-info-settings__column")
+            h3(class="profile-info-login-title__text") Пользователь:
+                span(class="profile-info-login-name__text") #{' '+login}
+            form(id="profile-info-pass__form")
                 div
-                    input(type="password" placeholder="Пароль" class="profile_pass profile_field")
-                    input(type="submit" class="des_btn" name="password" value="Сохранить" id="submit_pass" style="margin-bottom: 30px;")
-            form(id="bio_form")
+                    input(type="password" placeholder="Пароль" class="profile_pass")
+                    input(type="submit" class="des_btn" name="password" value="Сохранить" style="margin-bottom: 30px;")
+            form(id="profile-info-bio__form")
                 div
-                    textarea(placeholder=" О себе" maxlength="512" rows="12" cols="33" class="profile_bio profile_field") #{about}
-                    input(type="submit" class="des_btn" name="login" value="Сохранить" id="submit_save")
+                    textarea(placeholder=" О себе" maxlength="512" rows="12" cols="33" class="profile_bio") #{about}
+                    input(type="submit" class="des_btn" name="login" value="Сохранить")

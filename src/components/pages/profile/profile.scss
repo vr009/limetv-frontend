@@ -1,4 +1,4 @@
-.settings {
+.profile-info-settings__row {
     display: flex;
     padding-top: 40px;
 }
@@ -6,14 +6,17 @@
     color: white;
     margin-left: 40px;
 }
-.profile_login {
+.profile-info-login-title__text {
     color: hsla(0,0%,100%,.56);
     margin-top: -3px;
     padding-bottom: 5px;
     font-family: 'Montserrat', sans-serif;
     line-height: 26px;
 }
-.profile_pic {
+.profile-info-login-name__text {
+    color: azure;
+}
+.profile-info-picture__column {
     display: inline-block;
     position: relative;
     width: 100px;
@@ -46,7 +49,7 @@
         }
     }
 }
-.profile_settings {
+.profile-info-settings__column {
     display: table-caption;
     position: relative;
     margin-left: 20px;
