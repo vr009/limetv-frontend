@@ -66,14 +66,14 @@ div(class="film-block")
 
         div(class="film-selection__block")
             div(class="row" style="padding-bottom: 70px;")
-            div(class="full-grid" style="margin-left: 6%; margin-right: 6%;")
-                div(class="col-grid")
-                    h2(class="name-col") Информация
-                    div(class="grey-info")
+            div(class="full-grid film-info__selection")
+                div(class="film-info__column")
+                    h2(class="film-info-title__text") Информация
+                    div(class="film-info__row")
                         div Страна
                         span(class="val__text") #{result.country}
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Жанр
                         div(class="val__text")
                             -  let flag = false;
@@ -85,39 +85,39 @@ div(class="film-block")
                                         a(id=val class="actor-name__text") #{val}
                                     - flag = true
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Премьера в России
                         span(class="val__text") #{result.release_rus}
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Премьера в мире
                         span(class="val__text") #{result.release}
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Бюджет
                         span(class="val__text") #{result.budget}
-                div(class="col-grid")
-                    h2(class="name-col") Съёмочная группа
-                    div(class="grey-info")
+                div(class="film-info__column")
+                    h2(class="film-info-title__text") Съёмочная группа
+                    div(class="film-info__row")
                         div Режиссёр
                         span(class="val__text") #{result.director}
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Актёры
                         span(class="val__text" id="many-actors")
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Сценаристы
                         span(class="val__text") #{result.authors}
-                div(class="col-grid")
-                    h2(class="name-col") Звук и субтитры
-                    div(class="grey-info")
+                div(class="film-info__column")
+                    h2(class="film-info-title__text") Звук и субтитры
+                    div(class="film-info__row")
                         div Аудиодорожки
                         if result.language == null || result.language === undefined || result.language === ''
                             span(class="val__text") Русский
                         else
                             span(class="val__text") #{result.language}
 
-                    div(class="grey-info")
+                    div(class="film-info__row")
                         div Качество
                         span(class="val__text") SD, HD, Full HD

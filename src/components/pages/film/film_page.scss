@@ -229,6 +229,10 @@
     padding-top: 20px;
     font-family: 'Montserrat', sans-serif;
 }
+.film-info__selection {
+    margin-left: 6%;
+    margin-right: 6%;
+}
 .full-grid {
     display: grid;
     grid-template-columns: repeat(15,1fr);
@@ -237,7 +241,7 @@
     border-top: 2px solid hsla(0,0%,100%,.1);
     grid-gap: 40px;
 }
-.col-grid {
+.film-info__column {
     padding-bottom: 60px;
     &:first-child {
         grid-column: 1/6;
@@ -249,12 +253,12 @@
         grid-column: 11/15;
     }
 }
-.name-col {
+.film-info-title__text {
     margin-bottom: 40px;
     font-size: 32px;
     line-height: 38px;
 }
-.grey-info {
+.film-info__row {
     font-size: 18px;
     margin-top: 30px;
     color: hsla(0,0%,100%,.56);
@@ -308,7 +312,7 @@
     .film-series__row {
         margin-left: 188px;
     }
-    .name-col {
+    .film-info-title__text {
         font-size: 25px;
     }
     .film-block__picture {
