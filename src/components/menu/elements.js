@@ -21,7 +21,7 @@ const unauthElements = {
  */
 // создание элементов для меню
 export const createElements = (authed) => {
-  const menuLogo = document.getElementById('logo-start');
+  const menuLogo = document.getElementById('container-new-logo__column');
   menuLogo.addEventListener('click', function(event) {
     event.preventDefault();
     Router.go('/', 'LimeTV', null, true, false);

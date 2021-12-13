@@ -12,7 +12,7 @@ body {
     font: bold 22px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     color: #2cc713;
 }
-.cont {
+.navbar {
     width: 100%;
     margin: 0 auto;
     z-index: 5;
@@ -375,7 +375,7 @@ label {
     height: 100%;
     align-items: center;
 }
-.home-link {
+.container-new-logo__column {
     color: var(--navbar-text-color);
     text-decoration: none;
     display: flex;

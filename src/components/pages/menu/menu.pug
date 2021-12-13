@@ -1,6 +1,6 @@
-div(id="navbar" class="cont")
+div(id="navbar" class="navbar")
     nav(class="navbar-container container-new")
-        a(class="home-link" id="logo-start")
+        a(id="container-new-logo__column" class="container-new-logo__column")
             div(class="col-for-logo-2")
                 i(class="gg-film")
             div(class="logo col-for-logo-2")
@@ -9,17 +9,17 @@ div(id="navbar" class="cont")
         form(id="search-form" name="search" method="get" action="/")
             input#text_search(type="text" class="search-data" maxlength="30" placeholder="Фильм или актер")
 
-        div(class="search-icon" id="open-s")
+        div(id="open-s" class="search-icon")
             img(src="search.ico" style="height: 34px;")
 
-        div(class="cancel-icon" id="cl-s" style="padding-right: 10px;")
+        div(id="cl-s" class="cancel-icon" style="padding-right: 10px;")
             img(src="canceled.ico" style="height: 62px;")
 
         button(type="button" class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-menu")
             span( class="icon-bar")
             span( class="icon-bar")
             span( class="icon-bar")
-        div(class="detached" id="navbar-menu")
+        div(id="navbar-menu" class="detached")
 
 
 div(id="stuff")
