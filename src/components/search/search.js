@@ -11,7 +11,7 @@ export const createSearchPage = (keyword) => {
       (response) => response.json(),
   ).then(
       (result) => {
-        const searchForm = document.getElementById('text_search');
+        const searchForm = document.getElementById('text-search');
         const root = document.getElementById('close_focus');
         root.innerHTML = searchPagePug({
           result: result,
@@ -49,12 +49,12 @@ export const createSearchPage = (keyword) => {
         closeSearch.addEventListener('click', function(event) {
           event.preventDefault();
           root.parentNode.removeChild(root);
-          const searchForm = document.getElementById('text_search');
+          const searchForm = document.getElementById('text-search');
           searchForm.value = '';
         });
       },
   ).catch(() => {
-    const searchForm = document.getElementById('text_search');
+    const searchForm = document.getElementById('text-search');
     const root = document.getElementById('close_focus');
     if (searchForm.value === '') {
       const result = {'actors': [], 'films': []};
@@ -70,7 +70,7 @@ export const createSearchPage = (keyword) => {
         form.classList.remove('active');
         const search = document.getElementById('close_focus');
         search.parentNode.removeChild(search);
-        const searchForm = document.getElementById('text_search');
+        const searchForm = document.getElementById('text-search');
         searchForm.value = '';
       });
     }

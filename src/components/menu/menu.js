@@ -61,7 +61,7 @@ const createTemplate = () => {
     cancelBtn.classList.add('show');
   };
 
-  const search = document.getElementById('text_search');
+  const search = document.getElementById('text-search');
   const openSearch = document.getElementById('open-s');
   openSearch.addEventListener('click', function(event) {
     event.preventDefault();
@@ -91,7 +91,7 @@ const createTemplate = () => {
         form.classList.remove('active');
         const search = document.getElementById('close_focus');
         search.parentNode.removeChild(search);
-        const searchForm = document.getElementById('text_search');
+        const searchForm = document.getElementById('text-search');
         searchForm.value = '';
       });
     }
