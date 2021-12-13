@@ -270,6 +270,7 @@
     margin-left: 203px;
     height: 19px;
     margin-top: 13px;
+    position: absolute;
 }
 .film-series__text {
     padding-left: 11px;
@@ -304,6 +305,9 @@
     background: #601cbb;
 }
 @media (min-width: 319px) and (max-width: 1020px) {
+    .film-series__row {
+        margin-left: 188px;
+    }
     .name-col {
         font-size: 25px;
     }

@@ -117,6 +117,7 @@ label {
     width: 305px;
     height: 200px;
     cursor: pointer;
+    position: relative;
     &:focus {
         ~ {
             .films-content__column {
