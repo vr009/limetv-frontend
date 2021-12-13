@@ -119,7 +119,7 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
           tRoot.innerHTML = firstFilmPug({
             films: result[0],
           });
-          const playBtn = document.querySelector('.play-text');
+          const playBtn = document.querySelector('.film-first-play__btn');
           playBtn.addEventListener('click', function(event) {
             event.preventDefault();
             Router.go('/player/' + result[0].src[0], result[0].title);

@@ -1,7 +1,7 @@
-.first-film {
+.film-first__column {
     color: #fff;
 }
-.first-pic {
+.first-film__picture {
     float: left;
     width: 100%;
     height: auto;
@@ -25,10 +25,10 @@
     background-color: #dd3279ab;
     border-radius: 10px;
 }
-.info-button {
+.film-first-info__ico {
     width: 40px;
 }
-.play-button {
+.film-first-play__ico {
     width: 40px;
 }
 .search-title__icon {
@@ -46,7 +46,7 @@
 .carousel {
     padding-top: 10px;
 }
-.info-text {
+.film-first-info__btn {
     position: absolute;
     left: 115px;
     text-transform: uppercase;
@@ -61,7 +61,7 @@
          cursor: pointer;
     }
 }
-.play-text {
+.film-first-play__btn {
     position: absolute;
     text-transform: uppercase;
     background: rgb(255, 255, 255);
@@ -75,7 +75,7 @@
          cursor: pointer;
     }
 }
-.start-text {
+.film-first-title__column {
     position: absolute;
     font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     left: 115px;
@@ -132,11 +132,14 @@
 .genres-container {
     margin-top: 10em;
 }
+.film-first-title__text {
+    padding-bottom: 20px;
+}
 @media (max-width: 721px) {
-    .play-button {
+    .film-first-play__ico {
         vertical-align: text-bottom;
     }
-    .info-button {
+    .film-first-info__ico {
         vertical-align: text-bottom;
     }
 }
@@ -151,13 +154,13 @@
     }
 }
 @media (min-width: 319px) and (max-width: 720px) {
-    .start-text {
+    .film-first-title__column {
         left: 1em;
         font-size: 35px;
     }
 }
 @media (min-width: 319px) and (max-width: 380px) {
-    .first-pic {
+    .first-film__picture {
         left: 0;
         max-width: 100%;
         height: 400px;
@@ -165,7 +168,7 @@
     }
 }
 @media (min-width: 381px) and (max-width: 616px) {
-    .first-pic {
+    .first-film__picture {
         left: 0;
         max-width: 100%;
         height: 515px;
