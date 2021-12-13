@@ -1,4 +1,4 @@
-.film-page-container {
+.film-block {
     margin-top: -13px;
     display: flex;
     padding-bottom: 30px;
@@ -7,18 +7,49 @@
     min-width: 100%;
     color: white;
 }
-
-.star-rating {
+.film-about-short__column {
+    font-size: 18px;
+    margin-top: 30px;
+    color: hsla(0,0%,100%,.56);
+    align-items: center;
+}
+.film-about-series__text {
+    letter-spacing: 1px;
+    color: #bbbbbb;
+}
+.film-about-micro__ico {
+    width: 13px;
+}
+.film-about-lang__text {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: .03em;
+}
+.film-about-additionally__column {
+    font-size: 18px;
+    line-height: 42px;
+    color: hsla(0,0%,100%,.56);
+}
+.film-about-rating__column {
+    color: white;
+    font-size: 30px;
+    line-height: 42px;
+    color: hsla(0,0%,100%,.56);
+    width: 1em;
+}
+.film-about-short__text {
+    font-size: 18px;
+    line-height: 22px;
+}
+.rating-star__text {
     font-style: normal;
     cursor: pointer;
 }
-
 .star-select {
     font-style: normal;
     cursor: pointer;
     color: gold;
 }
-
 .film-pic {
     position: absolute;
     float: left;
@@ -33,8 +64,8 @@
             rgb(20 20 20) 15.11%,
             rgb(20, 20, 20) 16.51%,
             rgb(20, 20, 20) 17.51%,
-            rgb(20 20 20) 18.91%,
-            rgb(20 20 20) 20.91%,
+            rgb(20 20 20) 18%,
+            rgb(20 20 20) 18.21%,
             rgb(20 20 20) 18.91%,
             rgb(20 20 20) 25.31%,
             rgb(20 20 20 / 99%) 27.52%,
@@ -43,7 +74,7 @@
             rgb(20 20 20 / 95%) 33%,
             rgb(20 20 20 / 93%) 34.11%,
             rgb(20 20 20 / 91%) 38.52%,
-            rgb(20 20 20 / 90) 42.92%,
+            rgb(20 20 20 / 90%) 42.92%,
             rgb(20 20 20 / 89%) 45.52%,
             rgb(20 20 20 / 85%) 47.32%,
             rgb(20 20 20 / 81%) 51.72%,
@@ -67,13 +98,13 @@
             rgb(20 20 20 / 93%) 96.52%,
             rgb(20 20 20 / 99%) 98.90%);
 }
-.fon-pic {
+.film-block__picture {
     position: absolute;
     z-index: 0;
     right: 0;
     height: 600px;
 }
-.age-pic {
+.film-age__text {
     margin-top: 500px;
     margin-right: 100px;
     background: #bb0e7d78;
@@ -85,7 +116,7 @@
     font-size: 32px;
     right: 0;
 }
-.film-title {
+.film-about-title__text {
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
     line-height: 48px;
@@ -128,7 +159,7 @@
         border: 4px solid #cb3a76;
     }
 }
-.watch-btn-img {
+.watch-btn__ico {
     vertical-align: middle;
     padding-left: 20px;
     width: 28px;
@@ -162,7 +193,7 @@
     margin-right: 6%;
     margin-left: 6%;
 }
-.selection-2 {
+.about-film {
     width: 100%;
     position: absolute;
     padding-top: 600px;
@@ -228,18 +259,22 @@
     font-weight: lighter;
     font-size: 15px;
 }
-.main {
+.film-about {
     position: absolute;
     padding-left: 100px;
     z-index: 3;
     padding-top: 100px;
 }
-.btns {
+.film-about-btn__row {
     font-size: 18px;
     padding-top: 60px;
 }
 .text-about {
     width: 54%;
+}
+.re-watch-btn__ico {
+    vertical-align: middle;
+    width: 30px;
 }
 .btn-unwatch-later {
     background: #601cbb;
@@ -248,16 +283,16 @@
     .name-col {
         font-size: 25px;
     }
-    .fon-pic {
+    .film-block__picture {
         display: none;
     }
-    .age-pic {
+    .film-age__text {
         right: -2em;
     }
     .full-grid {
         display: inline-block;
     }
-    .main {
+    .film-about {
         padding-left: 20px;
     }
     .btn-watch {
@@ -275,11 +310,11 @@
             width: 108px;
         }
     }
-    .watch-btn-img {
+    .watch-btn__ico {
         padding-left: 11px;
         width: 28px;
     }
-    .btns {
+    .film-about-btn__row {
         display: flex;
     }
     .text-about {

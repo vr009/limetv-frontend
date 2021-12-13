@@ -1,45 +1,40 @@
-div(class="film-page-container")
-    section
-        div(class="film-item-container")
-            div(class="film-pic").film-n-pic
-            img(src="img.png" class="fon-pic")
-            div
-                div(class="age-pic") #{result.age+'+'}
-            div(class="main")
-                div
-                    h1(class="film-title") #{result.title}
-                div(style="font-size: 18px; margin-top: 30px; color: hsla(0,0%,100%,.56); align-items: center;")
-                    span(style="font-size: 18px; line-height: 22px;") #{result.year} · #{result.genres+' · '}
-                        if countSeries
-                            span(style="letter-spacing: 1px; color: #bbbbbb;") #{countSeries+' · '}
-                        else
-                            span #{result.duration} · #{" "+ ''}
-                    img(src="micro.ico" style="width: 13px;")
-                    span(style="font-size: 18px; line-height: 22px; letter-spacing: .03em;") #{" "+ 'RUS'}
+div(class="film-block")
+    div(class="film-pic").film-n-pic
+    img(src="img.png" class="film-block__picture")
+    div(class="film-age__text") #{result.age+'+'}
+    div(class="film-about")
+        h1(class="film-about-title__text") #{result.title}
+        div(class="film-about-short__column")
+            span(class="film-about-short__text") #{result.year} · #{result.genres+' · '}
+                if countSeries
+                    span(class="film-about-series__text") #{countSeries+' · '}
+                else
+                    span #{result.duration} · #{" "+ ''}
+            img(src="micro.ico" class="film-about-micro__ico")
+            span(class="film-about-lang__text") #{" "+ 'RUS'}
 
-                div(style="font-size: 18px; margin-top: 30px; color: hsla(0,0%,100%,.56);")
-                    span Режиссер:
-                    span(style="color: white;") #{" "+result.director}
+        div(class="film-about-short__column")
+            span Режиссер:
+            span(style="color: white;") #{" "+result.director}
 
-                div(style="font-size: 18px; line-height: 42px; color: hsla(0,0%,100%,.56);")
-                    span #{'Актеры: '}
-                    span(id="root-actors")
-                div(style="font-size: 18px; line-height: 42px; color: hsla(0,0%,100%,.56);") Рейтинг: #{Number(result.rating).toFixed(1)}
-                div(class="rating" style="color: white; font-size: 30px; line-height: 42px; color: hsla(0,0%,100%,.56); width: 1em;")
-                    em(id="rating-star-1" class="star-rating") ☆
-                    em(id="rating-star-2" class="star-rating") ☆
-                    em(id="rating-star-3" class="star-rating") ☆
-                    em(id="rating-star-4" class="star-rating") ☆
-                    em(id="rating-star-5" class="star-rating") ☆
-                div(class="btns")
-                    a(class="btn-watch watch") Смотреть
-                        img(class="watch-btn-img")(src="play-white.ico")
-                    a(class="btn-watch watch" tabindex="0" data-info="Только для авторизованных пользователей." id="wl") Смотреть позже
-                        img(class="watch-btn-img")(src="wl.ico")
-
-                    a(class="re-btn-watch re-like" tabindex="0" data-info="Только для авторизованных пользователей." id="re-like")
-                        img(src="heart.ico" style="vertical-align: middle; width: 30px;")
-    section(class="selection-2")
+        div(class="film-about-additionally__column")
+            span #{'Актеры: '}
+            span(id="root-actors")
+        div(class="film-about-additionally__column") Рейтинг: #{Number(result.rating).toFixed(1)}
+        div(class="film-about-rating__column rating")
+            em(id="rating-star-1" class="rating-star__text") ☆
+            em(id="rating-star-2" class="rating-star__text") ☆
+            em(id="rating-star-3" class="rating-star__text") ☆
+            em(id="rating-star-4" class="rating-star__text") ☆
+            em(id="rating-star-5" class="rating-star__text") ☆
+        div(class="film-about-btn__row")
+            a(class="btn-watch watch") Смотреть
+                img(class="watch-btn__ico" src="play-white.ico")
+            a(id="wl" class="btn-watch watch" tabindex="0" data-info="Только для авторизованных пользователей.") Смотреть позже
+                img(class="watch-btn__ico" src="wl.ico")
+            a(id="re-like" class="re-btn-watch re-like" tabindex="0" data-info="Только для авторизованных пользователей.")
+                img(class="re-watch-btn__ico" src="heart.ico")
+    section(class="about-film")
         div(class="about")
             div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 125px; margin-bottom: -2px;")
                 if result.is_series === true
