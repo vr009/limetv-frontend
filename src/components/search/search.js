@@ -35,8 +35,8 @@ export const createSearchPage = (keyword) => {
                   Router.go('/film/' + result[res[j]][i].id.toString(), film);
                 }
                 searchForm.value = '';
-                const searchBtn = document.querySelector('.search-icon');
-                const cancelBtn = document.querySelector('.cancel-icon');
+                const searchBtn = document.querySelector('.container-new-search__btn');
+                const cancelBtn = document.querySelector('.container-new-cancel__btn');
                 const form = document.querySelector('form');
                 searchBtn.classList.remove('hide');
                 cancelBtn.classList.remove('show');
@@ -61,8 +61,8 @@ export const createSearchPage = (keyword) => {
       root.innerHTML = searchPagePug({result: result, isResult: false});
       const form = document.querySelector('form');
       const closeSearch = document.getElementById('cl-search');
-      const searchBtn = document.querySelector('.search-icon');
-      const cancelBtn = document.querySelector('.cancel-icon');
+      const searchBtn = document.querySelector('.container-new-search__btn');
+      const cancelBtn = document.querySelector('.container-new-cancel__btn');
       closeSearch.addEventListener('click', function(event) {
         event.preventDefault();
         searchBtn.classList.remove('hide');

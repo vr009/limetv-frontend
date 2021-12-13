@@ -47,8 +47,8 @@ const menuRoutes = {
 const createTemplate = () => {
   const root = document.getElementById('root');
   root.innerHTML = menuPug();
-  const searchBtn = document.querySelector('.search-icon');
-  const cancelBtn = document.querySelector('.cancel-icon');
+  const searchBtn = document.querySelector('.container-new-search__btn');
+  const cancelBtn = document.querySelector('.container-new-cancel__btn');
   const form = document.querySelector('form');
   cancelBtn.onclick = ()=>{
     searchBtn.classList.remove('hide');
@@ -66,7 +66,7 @@ const createTemplate = () => {
   openSearch.addEventListener('click', function(event) {
     event.preventDefault();
     const navbar = document.getElementById('navbar');
-    const navbarToggle = navbar.querySelector('.navbar-toggle');
+    const navbarToggle = navbar.querySelector('.container-new__toggle');
     navbar.classList.remove('opened');
     navbarToggle.setAttribute('aria-expanded', 'false');
   });

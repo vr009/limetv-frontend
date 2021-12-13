@@ -26,11 +26,11 @@ export const createElements = (authed) => {
     event.preventDefault();
     Router.go('/', 'LimeTV', null, true, false);
     const navbar = document.getElementById('navbar');
-    const navbarToggle = navbar.querySelector('.navbar-toggle');
+    const navbarToggle = navbar.querySelector('.container-new__toggle');
     navbar.classList.remove('opened');
     navbarToggle.setAttribute('aria-expanded', 'false');
   });
-  const root = document.getElementById('navbar-menu');
+  const root = document.getElementById('navbar__btn');
   root.innerHTML = '';
 
   const ul = document.createElement('ul');
@@ -87,8 +87,8 @@ export const createElements = (authed) => {
 
 const menu = () => {
   const navbar = document.getElementById('navbar');
-  const navbarToggle = navbar.querySelector('.navbar-toggle');
-  const area = document.getElementById('navbar-menu');
+  const navbarToggle = navbar.querySelector('.container-new__toggle');
+  const area = document.getElementById('navbar__btn');
 
   const openMobileNavbar = () => {
     navbar.classList.add('opened');
@@ -105,8 +105,8 @@ const menu = () => {
       closeMobileNavbar();
     } else {
       openMobileNavbar();
-      const searchBtn = document.querySelector('.search-icon');
-      const cancelBtn = document.querySelector('.cancel-icon');
+      const searchBtn = document.querySelector('.container-new-search__btn');
+      const cancelBtn = document.querySelector('.container-new-cancel__btn');
       const form = document.querySelector('form');
       searchBtn.classList.remove('hide');
       cancelBtn.classList.remove('show');
