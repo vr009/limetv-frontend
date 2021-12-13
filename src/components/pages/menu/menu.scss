@@ -677,6 +677,18 @@ nav {
             top: 20px;
         }
     }
+    &:hover {
+        outline: none;
+        z-index: 2;
+        &::after {
+            opacity: 1;
+            top: 30px;
+        }
+        &::before {
+            opacity: 1;
+            top: 20px;
+        }
+    }
     &::-moz-focus-inner {
         border: 0;
     }
