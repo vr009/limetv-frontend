@@ -48,6 +48,17 @@
     width: 125px;
     margin-bottom: -2px;
 }
+.series-title__row {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-bottom: 2px solid #e5e5e5cc;
+    width: 183px;
+    margin-bottom: -2px;
+}
+.film-carousel__column {
+    margin-left: 6%;
+    margin-right: 6%;
+}
 .rating-star__text {
     font-style: normal;
     cursor: pointer;
@@ -214,7 +225,7 @@
     line-height: 36px;
     opacity: .78;
 }
-.selection-3 {
+.film-selection__block {
     padding-top: 20px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -253,18 +264,21 @@
     color: white;
     line-height: 40px;
 }
-.div-series {
+.film-series__row {
     background: #3e3e3e73;
     width: 81px;
     margin-left: 203px;
     height: 19px;
     margin-top: 13px;
 }
-.series {
+.film-series__text {
     padding-left: 11px;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
     font-size: 15px;
+}
+.film-series__picture {
+    border-radius: 15px;
 }
 .film-about {
     position: absolute;
