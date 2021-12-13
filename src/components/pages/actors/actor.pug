@@ -29,9 +29,9 @@ div(class="films")
                                 each val in genres
                                     if flag
                                         span #{', '}
-                                        a(id=val class="actor-h") #{val}
+                                        a(id=val class="actor-name__text") #{val}
                                     else
-                                        a(id=val class="actor-h") #{val}
+                                        a(id=val class="actor-name__text") #{val}
                                     - flag = true
 
                 div(class="grey-info-actor")
