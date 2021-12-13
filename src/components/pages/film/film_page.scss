@@ -41,6 +41,13 @@
     font-size: 18px;
     line-height: 22px;
 }
+.about-title__row {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    border-bottom: 2px solid #e5e5e5cc;
+    width: 125px;
+    margin-bottom: -2px;
+}
 .rating-star__text {
     font-style: normal;
     cursor: pointer;
@@ -198,7 +205,7 @@
     position: absolute;
     padding-top: 600px;
 }
-.short-text {
+.about-description__text {
     text-align: left;
     letter-spacing: .02em;
     font-size: 20px;
@@ -269,8 +276,11 @@
     font-size: 18px;
     padding-top: 60px;
 }
-.text-about {
+.about-row__column {
     width: 54%;
+    padding-top: 20px;
+    float: left;
+    text-align: center;
 }
 .re-watch-btn__ico {
     vertical-align: middle;
@@ -317,7 +327,7 @@
     .film-about-btn__row {
         display: flex;
     }
-    .text-about {
+    .about-row__column {
         width: 90%;
     }
 }
