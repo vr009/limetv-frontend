@@ -193,7 +193,7 @@ label {
         border: 3px solid #2ec614;
     }
 }
-.avatar-menu {
+.avatar-menu__text {
     margin-left: -10px;
     color: #fff;
     cursor: pointer;
@@ -203,7 +203,7 @@ label {
     font-weight: 600;
     font-size: 18px;
 }
-.ava {
+.avatar-menu__ico {
     vertical-align: bottom;
     display: inline-block;
     position: relative;
@@ -693,7 +693,7 @@ nav {
     }
 }
 @media (max-width: 700px) {
-    .ava {
+    .avatar-menu__ico {
         img {
             width: 30px;
             height: 30px;
