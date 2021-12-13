@@ -1,4 +1,4 @@
-.auth_btn, .registration_btn {
+.auth-signup__btn, .auth-registration__btn {
     text-align: center;
     color: white;
     cursor: pointer;
@@ -15,27 +15,23 @@
     font: bold 16px/16px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
 }
 @media (max-width: 700px) {
-    .auth_btn, .registration_btn {
+    .auth-signup__btn, .auth-registration__btn {
         padding: 0.8em 1.6em;
         border-radius: 1px;
     }
 }
-
-.registration_btn:hover {
+.auth-registration__btn:hover {
     transform: scale(1.05);
 }
-
-.registration_btn:hover {
+.auth-registration__btn:hover {
     transform: scale(1.05);
 }
-
-.name-register {
+.auth-title__text {
     color: white;
     font: bold 34px/42px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     padding-left: 5px;
 }
-
-.registration_block {
+.auth {
     position: relative;
     z-index: 2;
     margin: 30px auto;
@@ -45,8 +41,11 @@
     padding: 60px 35px 35px 45px;
     background: rgb(0 0 0 / 69%);
 }
+.auth-see__ico {
+    padding-top: 3px;
+    margin-bottom: -1px;
+}
 .registration-back {
-    /*background-image: url(../images/registration.png);*/
     position: absolute;
     right: 0;
     bottom: 0;
@@ -57,7 +56,7 @@
     height: auto;
 }
 @media (min-width: 319px) and (max-width: 1020px) {
-    .registration_block {
+    .auth {
         position: relative;
         z-index: 2;
         margin: 30px auto;
@@ -68,13 +67,12 @@
         padding: 45px 20px 20px 20px;
         background: rgba(0, 0, 0, 0.69);
     }
-    .name-register {
+    .auth-title__text {
         color: white;
         font: bold 23px/28px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
         padding-left: 5px;
     }
     .registration-back {
-        /*background-image: url(../images/registration.png);*/
         position: fixed;
         right: 0;
         bottom: 0;

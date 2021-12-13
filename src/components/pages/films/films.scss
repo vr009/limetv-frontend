@@ -6,7 +6,7 @@
     width: 100%;
     height: auto;
 }
-.input-icon {
+.auth-icon__column {
     width: 20px;
     cursor: pointer;
     padding: 0 4px;
@@ -21,7 +21,7 @@
         max-width: 20px;
     }
 }
-.input-icon.selected {
+.auth-icon__column.selected {
     background-color: #dd3279ab;
     border-radius: 10px;
 }

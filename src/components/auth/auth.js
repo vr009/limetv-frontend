@@ -59,7 +59,7 @@ export const renderAuth = () => {
   const eye = document.getElementById('icon');
   eye.addEventListener('click', function(event) {
     event.preventDefault();
-    const passField = document.getElementById('password_field');
+    const passField = document.getElementById('auth-password');
     const icon = document.getElementById('icon');
 
     if (passField.type === 'password') {
@@ -75,8 +75,8 @@ export const renderAuth = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const name = document.getElementById('login_field').value;
-    const pwd = document.getElementById('password_field').value;
+    const name = document.getElementById('auth-login').value;
+    const pwd = document.getElementById('auth-password').value;
 
     let msg = '';
     if (!validators.username(name)) {
@@ -152,7 +152,7 @@ export const renderRegistration = () => {
   const eye = document.getElementById('icon');
   eye.addEventListener('click', function(event) {
     event.preventDefault();
-    const passField = document.getElementById('password_field');
+    const passField = document.getElementById('auth-password');
     const icon = document.getElementById('icon');
 
     if (passField.type === 'password') {
@@ -168,8 +168,8 @@ export const renderRegistration = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const name = document.getElementById('login_field').value;
-    const pwd = document.getElementById('password_field').value;
+    const name = document.getElementById('auth-login').value;
+    const pwd = document.getElementById('auth-password').value;
     let msg = '';
     if (!validators.username(name)) {
       msg += 'Имя должно быть длинее 3 символов. ';
