@@ -1,11 +1,11 @@
 div(class="films")
-    h1(class="selection-genres") #{genres}
-    div(class="contentFilm")
+    h1(class="films-genres-title__text") #{genres}
+    div(class="films-content__row")
 
         if genre !== null
             each gen in genre
-                a(class="item")
-                    img(src=gen.pic[0] id=gen.id style="border-radius: 15px;")
+                a(class="films-content__column")
+                    img(id=gen.id src=gen.pic[0] class="films-content__img")
 
         else
             div(class="films" style="padding-top: 10px")

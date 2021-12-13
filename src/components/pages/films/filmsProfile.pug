@@ -1,7 +1,7 @@
 if films.length !== 0
     div(class="films")
         h1(class="selection-label-film") #{title}
-        div(class="contentFilm")
+        div(class="films-content__row")
             each film in films
-                a(class="item")
+                a(class="films-content__column")
                     img(class="film-main" src=film.pic[0] id=film.id+salt style="")

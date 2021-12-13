@@ -62,10 +62,10 @@ div(class="film-page-container")
                         each season in seasons
                             div(class="films")
                                 h1(class="selection-label-film") Сезон #{i++}
-                                div(class="contentFilm")
+                                div(class="films-content__row")
                                     - var j = 1;
                                     each filmPic in season.Src
-                                        a(class="item")
+                                        a(class="films-content__column")
                                             div(class="div-series")
                                                 span(class="series") #{j++} серия
                                             img(src=filmPic id=filmPic style="border-radius: 15px;")
