@@ -18,7 +18,7 @@ export class Player {
   /** Инициализация пустого объекта */
   constructor() {
     // сам компонент с видео
-    this.videoBlock = document.querySelector('.player_block');
+    this.videoBlock = document.querySelector('.player');
     this.video = this.videoBlock.querySelector('video');
     // компонент с названием
     this.title = document.querySelector('title');
@@ -40,17 +40,17 @@ export class Player {
   /** Добавление всех листенеров для видеоблока*/
   addVideoBlockListeners() {
     // проигрывание по клику на кнопку
-    this.videoBlock.querySelector('.start_stop_btn').
+    this.videoBlock.querySelector('.player-start-stop__btn').
         addEventListener('click', this.toggleVideoPlaying.bind(this));
     // отматывание влево или вправо
-    this.videoBlock.querySelector('.move_left_btn').
+    this.videoBlock.querySelector('.player-move-left__btn').
         addEventListener('click', this.changeTimelineLeft.bind(this));
-    this.videoBlock.querySelector('.move_right_btn').
+    this.videoBlock.querySelector('.player-move-right__btn').
         addEventListener('click', this.changeTimelineRight.bind(this));
     // изменение громкости
-    this.videoBlock.querySelector('.prev_button').
+    this.videoBlock.querySelector('.player-prev__btn').
         addEventListener('click', this.previousEpisode.bind(this));
-    this.videoBlock.querySelector('.next_button').
+    this.videoBlock.querySelector('.player-next__btn').
         addEventListener('click', this.nextEpisode.bind(this));
     // обновление линии времени
     this.video.addEventListener('mousemove',
@@ -88,7 +88,7 @@ export class Player {
   changePlayButton() {
     // изменение иконок
 
-    const btn = this.videoBlock.querySelector('.start_stop_btn');
+    const btn = this.videoBlock.querySelector('.player-start-stop__btn');
     const img = btn.querySelector('img');
     if (this.statusPlaying) {
       img.src = toggle.pause;
@@ -119,7 +119,7 @@ export class Player {
           nodes[j].classList = ['volume-gray'];
         }
         for (let j = index+1; j < nodes.length; j++) {
-          nodes[j].classList = ['volume-white'];
+          nodes[j].classList = ['player-volume__strip'];
         }
         this.video.volume = (index+1).toFixed()*10/100;
       });
@@ -129,9 +129,9 @@ export class Player {
   /** Обновление таймлайна по времени */
   changeTimelineLine() {
     this.changeVideoDuration();
-    const timeline = document.querySelector('.timeline-current');
+    const timeline = document.querySelector('.player-timeline-current__row');
 
-    const full = document.querySelector('.timeline');
+    const full = document.querySelector('.player-timeline__row');
     const percent = this.video.currentTime.toFixed() /
         this.video.duration.toFixed();
     timeline.style.width = `${percent.toFixed(2)*full.getBoundingClientRect().width}px`;
@@ -139,7 +139,7 @@ export class Player {
 
   /** Обновление таймлайна по клику */
   changeTimelineButton() {
-    const timeline = document.querySelector('.timeline_holder');
+    const timeline = document.querySelector('.player-timeline__holder');
     timeline.addEventListener('click', (event) => {
       const percent = (event.clientX /
         event.target.getBoundingClientRect().right );
@@ -158,7 +158,7 @@ export class Player {
     if (!isNaN(time) && !isNaN(currentTime)) {
       formatted = `${this.timeHelper(currentTime)} / ${this.timeHelper(time)}`;
     }
-    const holder = this.videoBlock.querySelector('.duration_holder');
+    const holder = this.videoBlock.querySelector('.player-duration__text');
     holder.innerHTML = formatted;
   }
 
