@@ -1,5 +1,5 @@
 div(class="film-block")
-    div(class="film-pic").film-n-pic
+    div(class="film-pic")
     img(src="img.png" class="film-block__picture")
     div(class="film-age__text") #{result.age+'+'}
     div(class="film-about")
@@ -36,36 +36,35 @@ div(class="film-block")
                 img(class="re-watch-btn__ico" src="heart.ico")
     section(class="about-film")
         div(class="about")
-            div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 125px; margin-bottom: -2px;")
+            div(class="about-title__row")
                 if result.is_series === true
                     div(class="row") О сериале
                 else
                     div(class="row") О фильме
-            div(class="text-about col-2")
-                p(class="short-text")
+            div(class="about-row__column")
+                p(class="about-description__text")
                     span #{result.description}
 
         if result.is_series
             div(class="row" style="padding-bottom: 50px;")
-            div(class="selection-3")
+            div(class="film-selection__block")
                 div(class="about")
-                    div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 183px;; margin-bottom: -2px;")
+                    div(class="series-title__row")
                         div(class="row" style="padding-bottom: 10px;") Сезоны и серии
-                div(style="margin-left: 6%; margin-right: 6%;")
-                    div(class="seasons-container")
-                        - var i = 1;
-                        each season in seasons
-                            div(class="films")
-                                h1(class="films-label__text") Сезон #{i++}
-                                div(class="films-content__row")
-                                    - var j = 1;
-                                    each filmPic in season.Src
-                                        a(class="films-content__column")
-                                            div(class="div-series")
-                                                span(class="series") #{j++} серия
-                                            img(src=filmPic id=filmPic style="border-radius: 15px;")
+                div(class="film-carousel__column")
+                    - var i = 1;
+                    each season in seasons
+                        div(class="films")
+                            h1(class="films-label__text") Сезон #{i++}
+                            div(class="films-content__row")
+                                - var j = 1;
+                                each filmPic in season.Src
+                                    a(class="films-content__column")
+                                        div(class="film-series__row")
+                                            span(class="film-series__text") #{j++} серия
+                                        img(id=filmPic class="film-series__picture" src=filmPic)
 
-        div(class="selection-3")
+        div(class="film-selection__block")
             div(class="row" style="padding-bottom: 70px;")
             div(class="full-grid" style="margin-left: 6%; margin-right: 6%;")
                 div(class="col-grid")
