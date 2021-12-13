@@ -1,6 +1,6 @@
 div(class="films genres-container")
-    h1(class="selection-label") Жанры
-    div(class="contentGenres")
+    h1(class="films-container__text") Жанры
+    div(class="genres-content__row")
         each genre in genres
-            a(class="itemGenres")
-                img(src=genre.src id=genre.id)
+            a(class="genres-content__column")
+                img(id=genre.id src=genre.src)

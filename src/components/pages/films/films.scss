@@ -95,14 +95,14 @@
 .point {
     cursor: pointer;
 }
-.contentGenres {
+.genres-content__row {
     display: flex;
     overflow-x: scroll;
     padding-top: 35px;
     overflow-y: hidden;
     padding-left: 55px;
     height: 340px;
-    .itemGenres {
+    .genres-content__column {
         &:focus {
              transform: scale(1.06);
              z-index: 1;
@@ -113,7 +113,7 @@
         }
     }
 }
-.itemGenres {
+.genres-content__column {
     display: block;
     transition: transform 350ms;
     margin: 6px;
@@ -141,12 +141,12 @@
     }
 }
 @media (min-width: 319px) and (max-width: 1020px) {
-    .itemGenres {
+    .genres-content__column {
         img {
             height: 80%;
         }
     }
-    .contentGenres {
+    .genres-content__row {
         height: 200px;
     }
 }

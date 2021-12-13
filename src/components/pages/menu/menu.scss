@@ -269,7 +269,7 @@ label {
     width: 220px;
     padding-left: 9%;
 }
-.selection-label {
+.films-container__text {
     font: bold 36px/46px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     padding-left: 60px;
     padding-bottom: 10px;
@@ -728,7 +728,7 @@ nav {
     .films {
         max-width: 100vw;
     }
-    .selection-label {
+    .films-container__text {
         padding-left: 40px;
     }
     .film-main {
