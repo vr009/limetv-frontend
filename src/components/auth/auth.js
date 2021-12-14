@@ -26,30 +26,17 @@ export const authModule = {
    * @return {null}
    */
   renderRegistration: () => renderRegistration(),
-  /**
-   * Удаление текущей сессии пользователя
-   * @function
-   * @return {null}
-   */
-  logOut: () => logOut(),
-  /**
-   * To be Done
-   * @function
-   * @return {null}
-   */
-  renderProfile: () => renderProfile,
-  /**
-   * Вспомогательная функция работы с куки
-   * @function
-   * @return {boolean} - Статус сессии пользователя
-   */
-  authHelper: () => isAuthed(false),
 };
 
 export const renderAuth = () => {
   const root = document.getElementById('stuff');
   root.innerHTML = '';
   root.setAttribute('class', 'reg-auth');
+
+  const block = document.createElement('img');
+  block.setAttribute('class', 'registration-back');
+  block.setAttribute('src', 'signin.png');
+  root.appendChild(block);
 
   const reg = document.createElement('div');
   root.appendChild(reg);
@@ -198,9 +185,3 @@ export const renderRegistration = () => {
     }
   });
 };
-
-const isAuthed = (code) => {
-  return (code === 200);
-};
-
-
