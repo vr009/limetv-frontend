@@ -135,7 +135,6 @@
     }
 }
 .profile-icon__column {
-    width: 20px;
     cursor: pointer;
     padding: 0 4px;
     transition: all 0.4s ease;
@@ -144,6 +143,11 @@
     margin-top: -38px;
     z-index: 3;
     position: relative;
+}
+@media (min-width: 319px) and (max-width: 700px) {
+    .profile-icon__column {
+        margin-right: 26%;
+    }
 }
 .profile-ava__column {
     display: inline-block;
