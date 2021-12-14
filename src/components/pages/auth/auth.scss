@@ -9,24 +9,14 @@
     border: solid #2cc713;
     background: #2cc713;
     margin: 30px 5px 10px;
-    -webkit-padding-top: 0.4em;
-    -webkit-padding-bottom: 0.4em;
-    -webkit-padding-right: 0.8em;
-    -webkit-padding-left: 0.8em;
-    -webkit-border-radius: 5px;
     padding: 0.4em 0.8em;
     border-radius: 5px;
     font: bold 16px/16px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
 }
 @media (max-width: 700px) {
     .auth-signup__btn, .auth-registration__btn {
-        padding: 0.8em 1.6em!important;
-        border-radius: 5px!important;
-        -webkit-padding-top: 0.8em!important;
-        -webkit-padding-bottom: 0.8em!important;
-        -webkit-padding-right: 1.6em!important;
-        -webkit-padding-left: 1.6em!important;
-        -webkit-border-radius: 5px!important;
+        padding: 0.8em 1.6em;
+        border-radius: 5px;
     }
 }
 .auth-title__text {
