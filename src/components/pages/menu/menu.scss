@@ -311,6 +311,7 @@ label {
     display: flex;
     padding-top: 10px;
     padding-left: 9%;
+    padding-right: 9%;
     flex-wrap: nowrap;
 }
 .carousel-item__icon {
@@ -326,7 +327,7 @@ label {
     }
 }
 .carousel-content__item {
-    display: flex;
+    display: inline-flex;
     max-width: 400px;
     width: 30%;
     height: 124px;
