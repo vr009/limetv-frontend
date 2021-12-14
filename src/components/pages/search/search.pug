@@ -6,7 +6,7 @@ div(class="search")
             div(class="search-title__icon" id="cl-search")
                 img(class="search-icon__ico" src="close-search.ico")
 
-    if result.films.length !== 0
+    if result.films !== null && result.films.length !== 0
         div(class="films carousel")
             h3(class="carousel__title") Фильмы
             div(class="carousel__content" style="display: block;")
@@ -17,7 +17,7 @@ div(class="search")
                         span(class="carousel-item__text") #{film.title+' '}
                             span(style="color: #e5e5e59c;") #{' (' + film.year+')'}
 
-    if result.actors.length !== 0
+    if result.actors !=null && result.actors.length !== 0
         div(class="films carousel")
             h3(class="carousel__title") Актеры
             div(class="carousel__content")
