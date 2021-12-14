@@ -91,15 +91,15 @@
     border: solid #8bbf51;
     width: 100%;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     padding: 10px 0 10px 20px;
 }
 @media (min-width: 319px) and (max-width: 1020px) {
     .profile-info-bio__textarea {
-        width: 60%;
+        width: 70%;
     }
     .profile-info-pass__input {
-        width: 60%;
+        width: 70%;
     }
 }
