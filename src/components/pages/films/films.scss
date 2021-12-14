@@ -21,7 +21,7 @@
         max-width: 20px;
     }
 }
-.auth-icon__column.selected {
+.auth-icon__column.selected, .profile-icon__column.selected {
     background-color: #dd3279ab;
     border-radius: 10px;
 }

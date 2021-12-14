@@ -24,6 +24,20 @@ export const createProfileSettingsPage = () => {
           about: result.about,
           avatar: result.avatar,
         });
+          const eye = document.getElementById('icon');
+          eye.addEventListener('click', function(event) {
+              event.preventDefault();
+              const passField = document.getElementById('change-password');
+              const icon = document.getElementById('icon');
+
+              if (passField.type === 'password') {
+                  passField.type = 'text';
+                  icon.classList.add('selected');
+              } else {
+                  passField.type = 'password';
+                  icon.classList.remove('selected');
+              }
+          });
         createProfile(result);
       },
   ).catch(function() {

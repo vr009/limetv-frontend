@@ -134,8 +134,17 @@
         }
     }
 }
-
-
+.profile-icon__column {
+    width: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: all 0.4s ease;
+    right: 0;
+    float: right;
+    margin-top: -38px;
+    z-index: 3;
+    position: relative;
+}
 .profile-ava__column {
     display: inline-block;
     position: relative;

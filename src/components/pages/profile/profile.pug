@@ -10,7 +10,9 @@ div(class="profile")
                 span(class="profile-info-login-name__text") #{' '+login}
             form(id="profile-info-pass__form")
                 div
-                    input(type="password" placeholder="Пароль" class="profile-info-pass__input")
+                    input(id="change-password" type="password" placeholder="Пароль" class="profile-info-pass__input")
+                    div(class="profile-icon__column" id="icon")
+                        img(class="auth-see__ico" src="eye.ico")
                     input(type="submit" class="profile-info-save__btn" name="password" value="Сохранить" style="margin-bottom: 30px;")
             form(id="profile-info-bio__form")
                 div
