@@ -9,12 +9,12 @@
     margin-left: -11px;
     border-radius: 15px;
     transition: .3s;
-&:hover {
-     border: 3px solid #5adb1a;
-     border-radius: 30px;
-     transition: .3s;
-     transform: scale(1.15);
- }
+    &:hover {
+         border: 3px solid #5adb1a;
+         border-radius: 30px;
+         transition: .3s;
+         transform: scale(1.15);
+     }
 }
 
 .subscription {
@@ -25,16 +25,13 @@
     align-items: center;
     width: auto;
     display: flex;
-
     &__main-title {
         margin-top: 15px;
         font-size: 30pt;
     }
-
     .payment-form {
         display: contents;
     }
-
     &__payment-text {
         font-family: 'Montserrat', sans-serif;
         letter-spacing: -.5px;
@@ -42,7 +39,6 @@
         padding-top: 25px;
         color: azure;
     }
-
     &__subpayment-text {
         font-family: 'Montserrat', sans-serif;
         letter-spacing: -.5px;
@@ -50,7 +46,6 @@
         padding-top: 25px;
         color: hsla(0,0%,100%,.56);
     }
-
     &__labels {
         max-width: 550px;
         text-align: center;
@@ -65,7 +60,6 @@
             font-size: 12pt;
         }
     }
-
     &__radio-title {
         cursor: pointer;
         padding: 20px;
@@ -79,19 +73,16 @@
             cursor: pointer;
         }
     }
-
     .radio-color-PC {
         background-color: black;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
     }
-
     .radio-color-AC {
         background-color: black;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
     }
-
     &__button {
         cursor: pointer;
         background: none;
@@ -110,7 +101,6 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
     }
-
     @media (max-width: 700px) {
         &__payment-text {
             font-family: 'Montserrat', sans-serif;
@@ -121,7 +111,6 @@
             width: 63%;
             margin-left: 1em;
         }
-
         &__subpayment-text {
             font-family: 'Montserrat', sans-serif;
             letter-spacing: -.5px;
@@ -159,12 +148,12 @@
     border: solid #8bbf51;
     border-radius: 62%;
     object-fit: cover;
-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+    img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 }
 .profile {
     color: white;
@@ -175,7 +164,6 @@ img {
     padding-left: 9%;
     letter-spacing: -.5px;
     font-size: 3.0em;
-    //padding-top: 25px;
     color: azure;
 }
 .page-left__column {
