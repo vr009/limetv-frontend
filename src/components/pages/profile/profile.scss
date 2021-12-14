@@ -65,7 +65,7 @@
     width: 100%;
     height: 26px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     padding: 10px 0 10px 20px;
 }
@@ -93,16 +93,11 @@
     color: white;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    padding: 10px 20px;
+    padding: 10px 0 10px 20px;
 }
 @media (min-width: 319px) and (max-width: 1020px) {
     .profile-info-bio__textarea {
-        display: table-caption;
-        background: unset;
-        border-radius: 8px;
-        border: solid #8bbf51;
-        width: 80%;
-        color: white;
+        width: 60%;
     }
     .profile-info-pass__input {
         width: 60%;
