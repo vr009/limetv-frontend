@@ -329,7 +329,7 @@ label {
 .carousel-content__item {
     display: inline-flex;
     min-width: 375px;
-    width: 31%;
+    width: 32%;
     height: 124px;
     margin-right: 15px;
     margin-top: 15px;
@@ -754,11 +754,13 @@ nav {
         height: 80%;
     }
     .carousel-item__icon {
+        height: 0;
         img {
             max-width: 144px;
         }
     }
     .carousel-content__item {
+        height: 100px;
         max-width: 320px;
         width: auto;
     }
