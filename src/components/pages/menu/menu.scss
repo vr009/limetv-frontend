@@ -102,11 +102,11 @@ label {
     //}
     .films-content__column {
         &:focus {
-            transform: scale(1.1);
+            transform: scale(1.13);
             z-index: 1;
         }
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.13);
             z-index: 1;
         }
     }
@@ -114,7 +114,7 @@ label {
 .films-content__column {
     display: block;
     transition: transform 350ms;
-    margin: 14px;
+    margin-right: 28px;
     width: 305px;
     height: 200px;
     cursor: pointer;
