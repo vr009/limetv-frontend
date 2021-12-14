@@ -330,6 +330,11 @@ label {
     max-width: 400px;
     width: 30%;
     height: 124px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     &:hover {
         background-color: hsla(0,0%,100%,.1);
         cursor: pointer;
