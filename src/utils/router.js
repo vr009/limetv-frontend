@@ -9,7 +9,7 @@ import {logOut} from '../components/auth/auth.js';
 import {createPlayerPage} from '../components/player/player.js';
 import {createGenres} from '../components/genres/genres.js';
 import {createUserInfoPage} from '../components/profile_info/profile_info.js';
-import {createProfileSettingsPage} from '../components/profile/profilePage.js';
+import {createProfileSettingsPage} from '../view/createProfileSettingsPage.js';
 
 export class Router {
   constructor() {

@@ -1,9 +1,9 @@
-import profilePug from '../pages/profile/profile.pug';
-import {fetchRequest} from '../network/fetch.js';
-import {createProfile} from './profile.js';
-import {serverLocate} from '../../utils/locale.js';
-import {showErrors} from '../utils/errors.js';
-import '../pages/profile/profile.scss';
+import profilePug from '../components/pages/profile/profile.pug';
+import {fetchRequest} from '../components/network/fetch.js';
+import {createProfile} from '../components/profile/profile.js';
+import {serverLocate} from '../utils/locale.js';
+import {showErrors} from '../components/utils/errors.js';
+import '../components/pages/profile/profile.scss';
 
 export const createProfileSettingsPage = () => {
   const url = serverLocate+'/users/profile';
