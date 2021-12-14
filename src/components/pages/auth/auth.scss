@@ -14,12 +14,18 @@
     padding-bottom: 0.4em;
     padding-right: 0.8em;
     padding-left: 0.8em;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     font: bold 16px/16px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
 }
 @media (max-width: 700px) {
     .auth-signup__btn, .auth-registration__btn {
-        padding: 0.8em 1.6em;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+        padding-right: 1.6em;
+        padding-left: 1.6em;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
