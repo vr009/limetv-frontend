@@ -26,11 +26,11 @@
     }
     display: inline-block;
     position: relative;
-    margin-left: 20px;
+    //margin-left: 20px;
     width: 300px;
     height: 450px;
     background-color: unset;
-    border: 2px solid #8bbf51;
+    border: 2px solid #90909075;
     border-radius: 10px;
     -o-object-fit: cover;
     object-fit: cover;
@@ -54,6 +54,11 @@
     border-bottom: 2px solid #e5e5e5cc;
     width: 217px;
     margin-bottom: -2px;
+}
+@media (max-width: 600px) {
+    .page-actor__picture {
+        margin-left: 50px;
+    }
 }
 @media (min-width: 319px) and (max-width: 1020px) {
     .title {
