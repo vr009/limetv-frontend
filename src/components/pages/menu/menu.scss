@@ -120,18 +120,18 @@ label {
     cursor: pointer;
     position: relative;
     &:focus {
-        ~ {
-            .films-content__column {
-                transform: translateX(25%);
-            }
-        }
+        //~ {
+        //    .films-content__column {
+        //        transform: translateX(25%);
+        //    }
+        //}
     }
     &:hover {
-        ~ {
-            .films-content__column {
-                transform: translateX(25%);
-            }
-        }
+        //~ {
+        //    .films-content__column {
+        //        transform: translateX(25%);
+        //    }
+        //}
     }
     img {
         display: block;
