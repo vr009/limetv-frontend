@@ -20,7 +20,7 @@ export const createSearchPage = (keyword) => {
         });
         const res = ['actors', 'films'];
         for (let j = 0; j <= 1; j++) {
-          if (result[res[j]].length !== null && result[res[j]].length !== 0) {
+          if (result[res[j]] !== null && result[res[j]].length !== 0) {
             for (let i = 0; i < result[res[j]].length; i++) {
               const film = document.getElementById(result[res[j]][i].id + 'close_focus');
               film.addEventListener('click', function(event) {
