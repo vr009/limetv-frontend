@@ -328,8 +328,8 @@ label {
 }
 .carousel-content__item {
     display: inline-flex;
-    max-width: 400px;
-    width: 30%;
+    min-width: 375px;
+    width: 31%;
     height: 124px;
     margin-right: 15px;
     margin-top: 15px;
