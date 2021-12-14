@@ -10,6 +10,14 @@
     background: #2cc713;
     transition: .2s;
     margin: 30px 5px 10px;
+    -webkit-padding-top: 0.4em;
+    -webkit-padding-bottom: 0.4em;
+    -webkit-padding-right: 0.8em;
+    -webkit-padding-left: 0.8em;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
     padding-right: 0.8em;
@@ -30,6 +38,14 @@
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        -webkit-padding-top: 0.8em;
+        -webkit-padding-bottom: 0.8em;
+        -webkit-padding-right: 1.6em;
+        -webkit-padding-left: 1.6em;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
     }
 }
 .auth-title__text {
