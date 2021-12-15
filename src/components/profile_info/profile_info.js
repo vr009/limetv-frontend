@@ -28,16 +28,20 @@ export const createUserInfoPage = () => {
 const subscribtionCheck = () => {
   const url = serverLocate + '/licenses/check';
   fetchRequest(url, 'GET', null).then(
-    (res) => {
-      return res.ok ? res : Promise.reject(res);
-    },
+      (res) => {
+        return res.ok ? res : Promise.reject(res);
+      },
   ).then(
-    (response) => response.json(),
+      (response) => response.json(),
   ).then(
-    (result) => {
-      const root = document.getElementById('subscribe_period');
-      root.innerText = result.ExpDate.slice(0, 10);
-    }).catch((error) => {
+      (result) => {
+        const now = new Date();
+        const expDate = Date.parse(result.ExpDate.slice(0, 10));
+        if (expDate > now) {
+          const root = document.getElementById('subscribe_period');
+          root.innerText = 'До' + expDate;
+        }
+      }).catch((error) => {
     console.log(error);
   });
 };
