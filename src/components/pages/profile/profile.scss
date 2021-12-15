@@ -108,10 +108,21 @@
     }
     .profile-info-settings__column {
         display: block;
-        padding-top: 60px;
+        padding-top: 50px;
         width: 100%;
     }
     .profile-info-picture__column {
-        left: 29%;
+        left: 18%;
+        width: 150px;
+        height: 150px;
+    }
+    .profile-info-picture__column {
+        input {
+            width: 150px;
+            height: 150px;
+            &:focus {
+                opacity: 100%;
+            }
+        }
     }
 }
