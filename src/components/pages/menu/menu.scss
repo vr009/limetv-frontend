@@ -642,12 +642,13 @@ nav {
     margin: 10px 0;
 }
 .film-first-block__shadow {
-    background: #2c2c2c40;
+    background: #0c0c0c9e;
     display: block;
     margin-bottom: 49px;
     padding: 15px 15px 80px;
     border-radius: 15px;
     min-width: 220px;
+    box-shadow: 0 0 15px 13px #0c0c0ca1;
 }
 .info-b {
     line-height: 1.5em;
