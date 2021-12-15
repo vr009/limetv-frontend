@@ -1,7 +1,7 @@
 if films.length !== 0
     div(class="films")
-        h1(class="films-label__text" style="padding-left: 9%;") #{title}
-        div(class="films-content__row")
+        h1(class="films-label__text films-pad") #{title}
+        div(class="films-content__row films-mar")
             each film in films
-                a(class="films-content__column" style="margin-left: 9%;")
+                a(class="films-content__column")
                     img(id=film.id+salt class="films-content__picture" src=film.pic[0])
