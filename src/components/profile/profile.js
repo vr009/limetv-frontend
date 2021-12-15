@@ -59,8 +59,10 @@ const updateUserPic = (event) => {
           return response.json();
         },
         ).then((result) => {
-          const userpic = document.getElementById('avatar');
-          userpic.src = result.avatar;
+          const userPic = document.getElementById('avatar');
+          const newUserPic = document.getElementById('new_avatar');
+          userPic.src = result.avatar;
+          newUserPic.src = result.avatar;
         },
         ).catch(function() {
           showErrors('Ошибка отправки запроса');
