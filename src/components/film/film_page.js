@@ -85,7 +85,7 @@ const showFilm = (filmId) => {
           for (let i = 0; i < result.seasons.length; i++) {
             for (let j = 0; j < result.seasons[i].Pics.length; j++) {
               // eslint-disable-next-line max-len
-              const actorContainer = document.querySelector('films-content__column');
+              const actorContainer = document.getElementById(result.seasons[i].Src[j]+'info');
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
                 actorContainer.classList.add('info-b');
