@@ -25,6 +25,23 @@ export const createUserInfoPage = () => {
   showFilmsList('/starred', 'selection-liked', 'Избранное');
 };
 
+const subscribtionCheck = () => {
+  const url = serverLocate + '/api/check/check';
+  fetchRequest(url, 'GET', null).then(
+    (res) => {
+      return res.ok ? res : Promise.reject(res);
+    },
+  ).then(
+    (response) => response.json(),
+  ).then(
+    (result) => {
+      const root = document.getElementById('profile-grid__text');
+      root.innerText = result.ExpDate;
+    }).catch((error) => {
+    console.log(error);
+  });
+};
+
 const showUserInfo = () => {
   const url = serverLocate+'/users/profile';
 
@@ -54,11 +71,10 @@ const showUserInfo = () => {
           rootPage.innerHTML = '';
           Router.go('/settings', 'Настройки');
         });
+        subscribtionCheck();
       },
   ).catch((error) => {
     console.log(error);
     showErrors(error);
   });
 };
-
-

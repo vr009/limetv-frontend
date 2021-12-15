@@ -9,6 +9,7 @@ import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu';
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Модуль создания страницы фильма
  * @function
@@ -54,6 +55,7 @@ const showFilm = (filmId) => {
         result.duration = getTimeFromMins(result.duration);
         result.release = getMonth(new Date(result.release));
         result.release_rus = getMonth(new Date(result.release_rus));
+        // eslint-disable-next-line max-len
         const countSeries = (result.is_series) ? result.seasons.length+' '+sklonenieSeries(result.seasons.length, ['сезон', 'сезона', 'сезонов']) : '';
         rootFilm.innerHTML = filmPagePug({
           result: result,
@@ -69,6 +71,7 @@ const showFilm = (filmId) => {
         if (result.is_series) {
           for (let i = 0; i < result.seasons.length; i++) {
             for (let j = 0; j < result.seasons[i].Pics.length; j++) {
+              // eslint-disable-next-line max-len
               const actorContainer = document.getElementById(result.seasons[i].Src[j]);
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -140,6 +143,7 @@ const showFilm = (filmId) => {
         // авторизован ли пользователь или нет,
         // отрисовываем по разному кнопки лайка и отложенного просмотра
         checkAuth(filmId);
+        checkPayed(result.available);
 
         showActors(result.actors);
       },
@@ -181,6 +185,7 @@ const showActors = (actors) => {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
+            // eslint-disable-next-line max-len
             Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
           });
         }
@@ -200,6 +205,7 @@ const showActors = (actors) => {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
+            // eslint-disable-next-line max-len
             Router.go('/actor/'+result[i].id, result[i].name+' '+result[i].surname);
           });
         }
@@ -288,6 +294,7 @@ const checkAuth = (filmId) => {
                 starSec.classList.toggle('star-select');
               }
             }
+            // eslint-disable-next-line max-len
             const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
             fetchRequest(ratingUrl, 'POST');
           });
@@ -302,4 +309,36 @@ const checkAuth = (filmId) => {
     ratingBtn.classList.add('info-b');
   },
   );
+};
+
+const checkPayed = (mustPay) => {
+  if (!mustPay) {
+    return;
+  }
+  const url = serverLocate+'/users/profile';
+  fetch(url, {
+    method: 'GET',
+    credentials: 'include',
+  },
+  ).then(
+      (response) => {
+        if (!response.ok) {
+          throw error;
+        }
+      },
+  ).then(
+      (result) => {
+        if (result.IsValid) {
+          return;
+        }
+        const watchBtn = document.querySelector('.btn-watch');
+        watchBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          watchBtn.classList.add('info-b');
+        });
+      },
+  ).catch(() => {
+    const likeBtn = document.getElementById('re-like');
+    likeBtn.classList.add('info-b');
+  });
 };
