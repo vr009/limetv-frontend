@@ -64,6 +64,8 @@ div(class="film-block")
                                     a(class="films-content__column")
                                         div(class="film-series__row")
                                             span(class="film-series__text") #{j++} серия
+                                        if !result.available
+                                            img(src="pay.ico" class="film-pay__picture")
                                         img(id=filmPic class="film-series__picture" src=filmPic)
 
         div(class="film-selection__block")
