@@ -338,7 +338,7 @@ const checkPayed = (mustPay) => {
         });
       },
   ).catch(() => {
-    const likeBtn = document.getElementById('re-like');
-    likeBtn.classList.add('info-b');
+    const watchBtn = document.querySelector('.btn-watch');
+    watchBtn.classList.add('info-b');
   });
 };
