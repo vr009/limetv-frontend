@@ -112,11 +112,13 @@
         width: 100%;
     }
     .profile-info-picture__column {
-        left: 18%;
+        left: 19%;
         width: 150px;
         height: 150px;
-    }
-    .profile-info-picture__column {
+        img {
+            width: 150px;
+            height: 150px;
+        }
         input {
             width: 150px;
             height: 150px;
