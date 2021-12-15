@@ -331,7 +331,7 @@ const checkPayed = (mustPay) => {
         if (result.IsValid) {
           return;
         }
-        const watchBtn = document.querySelector('.btn-watch');
+        const watchBtn = document.getElementById('wb');
         watchBtn.addEventListener('click', function(event) {
           event.preventDefault();
           watchBtn.classList.add('info-b');
