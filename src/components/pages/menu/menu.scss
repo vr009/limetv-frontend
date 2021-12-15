@@ -676,11 +676,11 @@ nav {
         z-index: 2;
         &::after {
             opacity: 1;
-            top: 30px;
+            top: 40px;
         }
         &::before {
             opacity: 1;
-            top: 20px;
+            top: 34px;
         }
     }
     &:hover {
@@ -688,11 +688,11 @@ nav {
         z-index: 2;
         &::after {
             opacity: 1;
-            top: 30px;
+            top: 40px;
         }
         &::before {
             opacity: 1;
-            top: 20px;
+            top: 34px;
         }
     }
     &::-moz-focus-inner {
