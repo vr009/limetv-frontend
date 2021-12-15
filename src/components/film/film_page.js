@@ -313,8 +313,8 @@ const checkAuth = (filmId) => {
   );
 };
 
-const checkPayed = (mustPay) => {
-  if (!mustPay) {
+const checkPayed = (available) => {
+  if (available) {
     return;
   }
   const url = serverLocate+'/users/profile';
