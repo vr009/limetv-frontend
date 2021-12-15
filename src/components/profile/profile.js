@@ -53,7 +53,8 @@ const updateUserPic = (event) => {
     };
     reader.readAsDataURL(target.files[0]);
     const userpic = document.getElementById('avatar');
-    userpic.src = target.files[0].name;
+    userpic.setAttribute('src', target.files[0].name);
+    // userpic.src = target.files[0].name;
   }
 };
 
