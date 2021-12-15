@@ -49,6 +49,24 @@ const updateUserPic = (event) => {
           throw error;
         }
         showErrors('Успешно');
+        // перегружаем аватарку
+        const url = serverLocate+'/users/profile';
+        fetchRequest(url, 'GET', null).then(
+            (res) => {
+              return res.ok ? res : Promise.reject(res);
+            },
+        ).then((response) => {
+              return response.json();
+            },
+        ).then((result) => {
+              const rootAva = document.getElementById('/profile');
+              rootAva.innerHTML = avatarPug({
+                login: result,
+              });
+            },
+        ).catch(function() {
+          showErrors('Ошибка отправки запроса');
+        });
       }).catch(function(error) {
         showErrors('Не обновлено');
       });
