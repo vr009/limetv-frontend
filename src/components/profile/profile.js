@@ -51,29 +51,26 @@ const updateUserPic = (event) => {
         showErrors('Успешно');
         // перегружаем аватарку
         const url = serverLocate+'/users/profile';
-        fetchRequest(url, 'GET', null).then(
-            (res) => {
-              return res.ok ? res : Promise.reject(res);
-            },
+        fetchRequest(url, 'GET', null).then((res) => {
+          return res.ok ? res : Promise.reject(res);
+        },
         ).then((response) => {
-              return response.json();
-            },
+          return response.json();
+        },
         ).then((result) => {
-              const rootAva = document.getElementById('/profile');
-              rootAva.innerHTML = avatarPug({
-                login: result,
-              });
-            },
+          const userPic = document.getElementById('avatar');
+          const newUserPic = document.getElementById('profile-info-avatar');
+          userPic.src = result.avatar;
+          newUserPic.src = result.avatar;
+        },
         ).catch(function() {
           showErrors('Ошибка отправки запроса');
         });
-      }).catch(function(error) {
+      }).catch(function() {
         showErrors('Не обновлено');
       });
     };
     reader.readAsDataURL(target.files[0]);
-    const userpic = document.getElementById('avatar');
-    userpic.src = target.files[0].name;
   }
 };
 
