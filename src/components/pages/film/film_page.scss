@@ -302,6 +302,27 @@
     float: left;
     text-align: center;
 }
+.about-rating__column {
+    width: 46%;
+    float: left;
+    display: contents;
+}
+.about-rating__block {
+    margin-top: 70px;
+    margin-left: 200px;
+    background: #992d7c40;
+    padding: 38px 60px 38px 60px;
+    border-radius: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    float: left;
+    line-height: 34px;
+}
+@media (max-width: 1170px) and (min-width: 1020px) {
+    .about-rating__block {
+        margin-left: 134px;
+    }
+}
 .re-watch-btn__ico {
     vertical-align: middle;
     width: 30px;
@@ -323,7 +344,7 @@
         right: -2em;
     }
     .full-grid {
-        display: inline-block;
+        display: flow-root;
     }
     .film-about {
         padding-left: 20px;
@@ -352,5 +373,9 @@
     }
     .about-row__column {
         width: 90%;
+    }
+    .about-rating__block {
+        margin-top: 30px;
+        margin-left: 0;
     }
 }

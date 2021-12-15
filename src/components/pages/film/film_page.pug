@@ -20,13 +20,6 @@ div(class="film-block")
         div(class="film-about-additionally__column")
             span #{'Актеры: '}
             span(id="root-actors")
-        div(class="film-about-additionally__column") Рейтинг: #{Number(result.rating).toFixed(1)}
-        div(class="film-about-rating__column rating")
-            em(id="rating-star-1" class="rating-star__text") ☆
-            em(id="rating-star-2" class="rating-star__text") ☆
-            em(id="rating-star-3" class="rating-star__text") ☆
-            em(id="rating-star-4" class="rating-star__text") ☆
-            em(id="rating-star-5" class="rating-star__text") ☆
         div(class="film-about-btn__row")
             a(class="btn-watch watch") Смотреть
                 img(class="watch-btn__ico" src="play-white.ico")
@@ -44,6 +37,14 @@ div(class="film-block")
             div(class="about-row__column")
                 p(class="about-description__text")
                     span #{result.description}
+            div(class="about-rating__column")
+                div(class="about-rating__block") Рейтинг: #{Number(result.rating).toFixed(1)}
+                    div(class="film-about-rating__column rating")
+                        em(id="rating-star-1" class="rating-star__text") ☆
+                        em(id="rating-star-2" class="rating-star__text") ☆
+                        em(id="rating-star-3" class="rating-star__text") ☆
+                        em(id="rating-star-4" class="rating-star__text") ☆
+                        em(id="rating-star-5" class="rating-star__text") ☆
 
         if result.is_series
             div(class="row" style="padding-bottom: 50px;")
