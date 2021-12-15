@@ -69,7 +69,7 @@ const updateUserPic = (event) => {
         showErrors('Не обновлено');
       });
     };
-    // reader.readAsDataURL(target.files[0]);
+    reader.readAsDataURL(target.files[0]);
     // reader.onload()
     // const userpic = document.getElementById('avatar');
     // userpic.src = target.files[0].name;
