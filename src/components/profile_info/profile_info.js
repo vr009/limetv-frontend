@@ -39,7 +39,7 @@ const subscribtionCheck = () => {
         const expDate = Date.parse(result.ExpDate.slice(0, 10));
         if (expDate > now) {
           const root = document.getElementById('subscribe_period');
-          root.innerText = 'До' + expDate;
+          root.innerText = 'До ' + result.ExpDate.slice(0, 10);
         }
       }).catch((error) => {
     console.log(error);
