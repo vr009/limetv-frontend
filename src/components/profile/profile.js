@@ -2,6 +2,8 @@ import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchImage} from '../network/image.js';
 import {showErrors} from '../utils/errors.js';
+import avatarPug from "../pages/menu/avatar.pug";
+import profilePug from "../pages/profile/profile.pug";
 
 export const createProfile = (profile) => {
   const avatar = document.getElementById('new_avatar');
@@ -51,9 +53,25 @@ const updateUserPic = (event) => {
         showErrors('Не обновлено');
       });
     };
-    reader.readAsDataURL(target.files[0]);
-    const userpic = document.getElementById('avatar');
-    userpic.src = target.files[0].name;
+
+    // перегружаем аватарку
+    const url = serverLocate+'/users/profile';
+    fetchRequest(url, 'GET', null).then(
+        (res) => {
+          return res.ok ? res : Promise.reject(res);
+        },
+    ).then((response) => {
+      return response.json();
+    },
+    ).then((result) => {
+      const rootAva = document.getElementById('/profile');
+      rootAva.innerHTML = avatarPug({
+        login: result,
+      });
+    },
+    ).catch(function() {
+      showErrors('Ошибка отправки запроса');
+    });
   }
 };
 
