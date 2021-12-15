@@ -26,7 +26,7 @@ export const createUserInfoPage = () => {
 };
 
 const subscribtionCheck = () => {
-  const url = serverLocate + '/check/check';
+  const url = serverLocate + '/licenses/check';
   fetchRequest(url, 'GET', null).then(
     (res) => {
       return res.ok ? res : Promise.reject(res);
