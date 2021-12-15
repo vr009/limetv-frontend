@@ -59,7 +59,7 @@ const updateUserPic = (event) => {
         },
         ).then((result) => {
           const userPic = document.getElementById('avatar');
-          const newUserPic = document.getElementById('new_avatar');
+          const newUserPic = document.getElementById('profile-info-avatar');
           userPic.src = result.avatar;
           newUserPic.src = result.avatar;
         },
