@@ -41,11 +41,6 @@ const createBase = (id) => {
   showFilm(id);
 };
 
-const clickPlay = (event, result) => {
-  event.preventDefault();
-  Router.go('/player/'+result.src[0], result.title);
-};
-
 
 const showFilm = (filmId) => {
   const url = serverLocate+'/films/film/'+filmId;
@@ -68,7 +63,10 @@ const showFilm = (filmId) => {
           countSeries: countSeries,
         });
         const watchBtn = document.querySelector('.btn-watch');
-        watchBtn.addEventListener('click', clickPlay);
+        watchBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          Router.go('/player/'+result.src[0], result.title);
+        });
 
         if (result.is_series) {
           for (let i = 0; i < result.seasons.length; i++) {
@@ -337,12 +335,10 @@ const checkPayed = (mustPay) => {
         watchBtn.addEventListener('click', function(event) {
           event.preventDefault();
           watchBtn.classList.add('info-b');
-          watchBtn.removeListener('click', clickPlay);
         });
       },
   ).catch(() => {
     const watchBtn = document.querySelector('.btn-watch');
     watchBtn.classList.add('info-b');
-    watchBtn.removeListener('click', clickPlay);
   });
 };
