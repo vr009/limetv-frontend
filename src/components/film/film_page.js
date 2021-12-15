@@ -62,13 +62,15 @@ const showFilm = (filmId) => {
           seasons: result.seasons,
           countSeries: countSeries,
         });
-        const watchBtn = document.querySelector('.btn-watch');
-        watchBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          Router.go('/player/'+result.src[0], result.title);
-        });
+        if (result.available) {
+          const watchBtn = document.querySelector('.btn-watch');
+          watchBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            Router.go('/player/'+result.src[0], result.title);
+          });
+        }
 
-        if (result.is_series) {
+        if (result.is_series && result.available) {
           for (let i = 0; i < result.seasons.length; i++) {
             for (let j = 0; j < result.seasons[i].Pics.length; j++) {
               // eslint-disable-next-line max-len
