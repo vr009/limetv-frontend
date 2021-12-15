@@ -84,12 +84,6 @@ label {
 .films-content__img {
     border-radius: 15px;
 }
-.films-pad {
-    padding-left: 9%;
-}
-.films-mar {
-    margin-left: 9%
-}
 .films-content__row {
     display: flex;
     overflow-x: scroll;
@@ -292,6 +286,16 @@ label {
     margin: 0;
     color: #979797;
     padding-left: 6%;
+}
+.films-label-profile__text {
+    font: bold 20px/10px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    text-transform: uppercase;
+    padding-top: 50px;
+    display: inline-block;
+    padding-bottom: 20px;
+    margin: 0;
+    color: #979797;
+    padding-left: 9%;
 }
 .carousel-empty__text {
     font: bold 20px/10px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
