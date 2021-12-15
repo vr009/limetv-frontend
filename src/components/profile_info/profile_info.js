@@ -36,7 +36,7 @@ const subscribtionCheck = () => {
   ).then(
     (result) => {
       const root = document.getElementById('subscribe_period');
-      root.innerText = result.ExpDate.slice(0, length('2022-01-15'));
+      root.innerText = result.ExpDate.slice(0, 9);
     }).catch((error) => {
     console.log(error);
   });
