@@ -343,5 +343,6 @@ const checkPayed = (mustPay) => {
   ).catch(() => {
     const watchBtn = document.querySelector('.btn-watch');
     watchBtn.classList.add('info-b');
+    watchBtn.removeListener('click', clickPlay);
   });
 };
