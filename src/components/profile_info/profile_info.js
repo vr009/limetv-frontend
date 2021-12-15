@@ -35,7 +35,7 @@ const subscribtionCheck = () => {
     (response) => response.json(),
   ).then(
     (result) => {
-      const root = document.getElementById('profile-grid__text');
+      const root = document.getElementById('subscribe_period');
       root.innerText = result.ExpDate;
     }).catch((error) => {
     console.log(error);
