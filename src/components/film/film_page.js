@@ -297,6 +297,8 @@ const checkAuth = (filmId) => {
     likeBtn.classList.add('info-b');
     const wlBtn = document.getElementById('wl');
     wlBtn.classList.add('info-b');
+    const ratingBtn = document.getElementById('rating');
+    ratingBtn.classList.add('info-b');
   },
   );
 };

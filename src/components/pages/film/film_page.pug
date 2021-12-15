@@ -39,7 +39,7 @@ div(class="film-block")
                     span #{result.description}
             div(class="about-rating__column")
                 div(class="about-rating__block") Рейтинг: #{Number(result.rating).toFixed(1)}
-                    div(class="film-about-rating__column rating" tabindex="0" data-info="Только для авторизованных пользователей.")
+                    div(id="rating" class="film-about-rating__column rating" tabindex="0" data-info="Только для авторизованных пользователей.")
                         em(id="rating-star-1" class="rating-star__text") ☆
                         em(id="rating-star-2" class="rating-star__text") ☆
                         em(id="rating-star-3" class="rating-star__text") ☆
