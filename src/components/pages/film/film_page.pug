@@ -61,7 +61,7 @@ div(class="film-block")
                             div(class="films-content__row")
                                 - var j = 1;
                                 each filmPic in season.Src
-                                    a(class="films-content__column" tabindex="0" data-info="Только для авторизованных пользователей.")
+                                    a(class="films-content__column" id=filmPic+'info' tabindex="0" data-info="Только для авторизованных пользователей.")
                                         div(class="film-series__row")
                                             span(class="film-series__text") #{j++} серия
                                         if !result.available
