@@ -285,15 +285,16 @@ label {
     padding-bottom: 20px;
     margin: 0;
     color: #979797;
+    padding-left: 6%;
 }
 .carousel-empty__text {
     font: bold 20px/10px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     padding-top: 60px;
     display: inline-block;
-    margin: 0;
     color: #979797;
     padding-left: 50px;
     padding-bottom: 60px;
+    margin: 0 0 0 9%;
 }
 .films-content__picture {
     border-radius: 15px;
@@ -748,7 +749,7 @@ nav {
 }
 @media (min-width: 319px) and (max-width: 1020px) {
     .carousel-empty__text {
-        font: bold 23px/56px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+        font: bold 18px/56px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
         padding-left: 28px;
     }
     .films {
@@ -805,7 +806,6 @@ nav {
         }
     }
     .films-content__row {
-        padding-left: 4em;
         padding-top: 2em;
     }
 }
