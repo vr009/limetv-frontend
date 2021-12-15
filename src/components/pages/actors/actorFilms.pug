@@ -1,7 +1,7 @@
 if films.length !== 0
     div(class="films")
         h1(class="films-label__text") Фильмы с участием актера
-        div(class="films-content__row")
+        div(class="films-content__row" style="margin-left: 9%")
             each film in films
                 a(class="films-content__column")
                     img(id=film.id class="films-content__img" src=film.pic[0])
