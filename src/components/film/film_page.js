@@ -66,7 +66,6 @@ const showFilm = (filmId) => {
           Router.go('/player/'+result.src[0], result.title);
         });
 
-        // временно уникальное название видео и картинок
         if (result.is_series) {
           for (let i = 0; i < result.seasons.length; i++) {
             for (let j = 0; j < result.seasons[i].Pics.length; j++) {
@@ -77,26 +76,6 @@ const showFilm = (filmId) => {
               });
             }
           }
-        }
-        for (let i = 1; i <= 5; i++) {
-          const star = document.getElementById('rating-star-' + i);
-          star.addEventListener('click', function(event) {
-            event.preventDefault();
-            for (let j = 1; j <= i; j++) {
-              const starSec = document.getElementById('rating-star-' + j);
-              if (!starSec.classList.contains('star-select')) {
-                starSec.classList.toggle('star-select');
-              }
-            }
-            for (let j = i+1; j <= 5; j++) {
-              const starSec = document.getElementById('rating-star-' + j);
-              if (starSec.classList.contains('star-select')) {
-                starSec.classList.toggle('star-select');
-              }
-            }
-            const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
-            fetchRequest(ratingUrl, 'POST');
-          });
         }
 
         const ratingUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
@@ -119,9 +98,9 @@ const showFilm = (filmId) => {
                 }
               }
             }).catch((error) => {
-              console.log(error);
-              showErrors(error);
-            },
+          console.log(error);
+          showErrors(error);
+        },
         );
 
         for (let i = 0; i < result.genres.length; i++) {
@@ -153,9 +132,9 @@ const showFilm = (filmId) => {
                 wlBtn.classList.toggle('btn-unwatch-later');
               }
             }).catch((error) => {
-                console.log(error);
-                showErrors(error);
-            },
+          console.log(error);
+          showErrors(error);
+        },
         );
 
         // авторизован ли пользователь или нет,
@@ -291,8 +270,30 @@ const checkAuth = (filmId) => {
           }
           wlBtn.classList.toggle('btn-unwatch-later');
         });
+
+        // Ставить рейтинг может только авторизованный пользователь
+        for (let i = 1; i <= 5; i++) {
+          const star = document.getElementById('rating-star-' + i);
+          star.addEventListener('click', function(event) {
+            event.preventDefault();
+            for (let j = 1; j <= i; j++) {
+              const starSec = document.getElementById('rating-star-' + j);
+              if (!starSec.classList.contains('star-select')) {
+                starSec.classList.toggle('star-select');
+              }
+            }
+            for (let j = i+1; j <= 5; j++) {
+              const starSec = document.getElementById('rating-star-' + j);
+              if (starSec.classList.contains('star-select')) {
+                starSec.classList.toggle('star-select');
+              }
+            }
+            const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
+            fetchRequest(ratingUrl, 'POST');
+          });
+        }
       },
-  ).catch((error) => {
+  ).catch(() => {
     const likeBtn = document.getElementById('re-like');
     likeBtn.classList.add('info-b');
     const wlBtn = document.getElementById('wl');
