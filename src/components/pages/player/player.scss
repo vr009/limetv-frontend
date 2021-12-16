@@ -55,6 +55,12 @@ video {
 .player-back__icon {
     width: 120px;
 }
+@media (max-width: 700px) {
+    .player-back__icon {
+        margin-right: -60px;
+        margin-top: -20px;
+    }
+}
 .player-duration__text {
     color: white;
 }
