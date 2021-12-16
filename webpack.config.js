@@ -1,6 +1,10 @@
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const zlib = require('zlib');
 const path = require('path');
 
 module.exports = {
@@ -61,6 +65,20 @@ module.exports = {
         /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
     }),
     new CleanWebpackPlugin(),
+    new CompressionPlugin({
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
+    }),
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     onAfterSetupMiddleware: function(devServer) {
@@ -76,5 +94,16 @@ module.exports = {
         next('route');
       });
     },
+  },
+  devtool: "source-map",
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.cssoMinify,
+        // Uncomment this line for options
+        // minimizerOptions: { restructure: false },
+      }),
+    ],
   },
 };
