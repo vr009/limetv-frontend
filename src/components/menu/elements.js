@@ -50,8 +50,8 @@ export const createElements = (authed) => {
           createProfilePage(true);
         }
       } else {
-        menuItem.setAttribute('class', 'navbar-link btn-in first');
-        menuItem.textContent = authElements[key];
+        menuItem.setAttribute('class', 'menu-logout');
+        menuItem.src = 'exit.ico';
         menuItem.id = `/${key}`;
       }
       li.appendChild(menuItem);
