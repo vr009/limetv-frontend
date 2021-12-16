@@ -552,8 +552,8 @@ label {
 .menu-logout {
     cursor: pointer;
     width: 38px;
+    transition: 0.3s;
     &:hover {
-        transition: 0.3s;
         transform: scale(1.15);
     }
 }
