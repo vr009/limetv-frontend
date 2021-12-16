@@ -313,7 +313,7 @@ const checkAuth = (filmId) => {
             // eslint-disable-next-line max-len
             const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
             clearTimeout(time);
-            time = setTimeout(sendRating, 400, ratingUrl, filmId);
+            time = setTimeout(sendRating, 450, ratingUrl, filmId);
           });
         }
       },
