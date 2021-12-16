@@ -275,14 +275,14 @@ const checkAuth = (filmId) => {
             event.preventDefault();
             for (let j = 1; j <= i; j++) {
               const starSec = document.getElementById('rating-star-' + j);
-              if (!starSec.classList.contains('star-select')) {
-                starSec.classList.toggle('star-select');
+              if (!starSec.classList.contains('star-select-user')) {
+                starSec.classList.toggle('star-select-user');
               }
             }
             for (let j = i+1; j <= 5; j++) {
               const starSec = document.getElementById('rating-star-' + j);
-              if (starSec.classList.contains('star-select')) {
-                starSec.classList.toggle('star-select');
+              if (starSec.classList.contains('star-select-user')) {
+                starSec.classList.toggle('star-select-user');
               }
             }
             // eslint-disable-next-line max-len
@@ -300,14 +300,14 @@ const checkAuth = (filmId) => {
               const rating = res.rating%6;
               for (let j = 1; j <= rating; j++) {
                 const starSec = document.getElementById('rating-star-' + j);
-                if (!starSec.classList.contains('star-select')) {
-                  starSec.classList.toggle('star-select');
+                if (!starSec.classList.contains('star-select-user')) {
+                  starSec.classList.toggle('star-select-user');
                 }
               }
               for (let j = rating + 1; j <= 5; j++) {
                 const starSec = document.getElementById('rating-star-' + j);
-                if (starSec.classList.contains('star-select')) {
-                  starSec.classList.toggle('star-select');
+                if (starSec.classList.contains('star-select-user')) {
+                  starSec.classList.toggle('star-select-user');
                 }
               }
             }).catch((error) => {
