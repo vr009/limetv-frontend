@@ -54,6 +54,10 @@ video {
 }
 .player-back__icon {
     width: 120px;
+    transition: 0.3s;
+    &:hover {
+        transform: scale(1.14);
+    }
 }
 @media (max-width: 700px) {
     .player-back__icon {
@@ -103,10 +107,6 @@ button {
         vertical-align: center;
         max-height: 20px;
         max-width: 20px;
-        transition: 0.3s;
-        &:hover {
-            transform: scale(1.14);
-        }
     }
     @media (max-width: 700px) {
         max-height: 14px;
