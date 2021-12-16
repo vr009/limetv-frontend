@@ -196,17 +196,7 @@ export class Player {
       });
     } else {
       document.removeEventListener('keydown', (event) => {
-        switch (event.code) {
-          case 'ArrowLeft':
-            this.changeTimelineLeft();
-            break;
-          case 'ArrowRight':
-            this.changeTimelineRight();
-            break;
-          case 'Space':
-            this.toggleVideoPlaying();
-            break;
-        }
+        event.preventDefault();
       });
     }
   }
