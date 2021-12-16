@@ -55,6 +55,7 @@ video {
 .player-back__icon {
     width: 120px;
     transition: 0.3s;
+    cursor: pointer;
     &:hover {
         transform: scale(1.14);
     }
