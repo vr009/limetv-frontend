@@ -224,6 +224,8 @@ export const createPlayerPage = (src) => {
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
+    // eslint-disable-next-line new-cap
+    delete Player();
   });
   new Player();
 };
