@@ -554,7 +554,7 @@ label {
     width: 38px;
     transition: 0.3s;
     &:hover {
-        transform: scale(1.15);
+        transform: scale(1.12);
     }
 }
 .left.sidebar {
@@ -577,8 +577,12 @@ label {
         right: 0;
         margin: 1.4rem;
         border-radius: 5px;
-        background: rgb(12 12 12 / 93%);
         box-shadow: 0 0 20px rgba(71, 70, 70, 0.84);
+    }
+    @media (max-width: 700px) {
+        .navbar-links {
+            background: rgb(12 12 12 / 93%);
+        }
     }
 }
 .attached {
