@@ -51,7 +51,9 @@ export const createElements = (authed) => {
         }
       } else {
         menuItem.setAttribute('class', 'menu-logout');
-        menuItem.src = 'exit.ico';
+        const menuImg = document.createElement('img');
+        menuImg.src = 'exit.ico';
+        menuItem.appendChild(menuImg);
         menuItem.id = `/${key}`;
       }
       li.appendChild(menuItem);
