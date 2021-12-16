@@ -553,6 +553,7 @@ label {
     cursor: pointer;
     width: 38px;
     transition: 0.3s;
+    margin-right: -30px;
     &:hover {
         transform: scale(1.12);
     }
@@ -768,6 +769,9 @@ nav {
     }
 }
 @media (max-width: 700px) {
+    .menu-logout {
+        margin-right: 0;
+    }
     .avatar-menu__ico {
         img {
             width: 30px;
