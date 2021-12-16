@@ -155,8 +155,8 @@ const showFilm = (filmId) => {
 
         // авторизован ли пользователь или нет,
         // отрисовываем по разному кнопки лайка и отложенного просмотра
-        checkAuth(filmId);
         checkPayed(result.available);
+        checkAuth(filmId);
 
         showActors(result.actors);
       },
