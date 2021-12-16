@@ -8,7 +8,6 @@ import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu';
-import {createSearchPage} from '../search/search';
 
 // eslint-disable-next-line valid-jsdoc
 /**
@@ -294,9 +293,9 @@ const checkAuth = (filmId) => {
         });
 
         // Ставить рейтинг может только авторизованный пользователь
-        let time;
         for (let i = 1; i <= 5; i++) {
           const star = document.getElementById('rating-star-' + i);
+          let time;
           star.addEventListener('click', function(event) {
             event.preventDefault();
             for (let j = 1; j <= i; j++) {
@@ -314,21 +313,7 @@ const checkAuth = (filmId) => {
             // eslint-disable-next-line max-len
             const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
             clearTimeout(time);
-            time = setTimeout(
-                fetchRequest(ratingUrl, 'POST').then(() => {
-                  const ratingReUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
-                  fetchRequest(ratingReUrl, 'GET', null).then(
-                      (response) => response.json(),
-                  ).then(
-                      (res) => {
-                        const rating = res.rating%6;
-                        const idRating = document.getElementById('rating-num');
-                        idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
-                        console.log(rating);
-                      }).catch((error) => {
-                    showErrors(error);
-                  });
-                }), 400);
+            time = setTimeout(sendRating, 400, ratingUrl, filmId);
           });
         }
       },
@@ -341,6 +326,22 @@ const checkAuth = (filmId) => {
     ratingBtn.classList.add('info-b');
   },
   );
+};
+
+const sendRating = (ratingUrl, filmId) => {
+  fetchRequest(ratingUrl, 'POST').then(() => {
+    const ratingReUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
+    fetchRequest(ratingReUrl, 'GET', null).then(
+        (response) => response.json(),
+    ).then(
+        (res) => {
+          const rating = res.rating%6;
+          const idRating = document.getElementById('rating-num');
+          idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
+        }).catch((error) => {
+      showErrors(error);
+    });
+  });
 };
 
 const checkPayed = (available) => {
