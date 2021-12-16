@@ -2,11 +2,7 @@ import '../pages/player/player.scss';
 import '../pages/menu/menu.scss';
 import playImg from './play.png';
 import pauseImg from './pause.png';
-import ffImg from './ff.png';
-import nextImg from './next.png';
-import previousImg from './previous.png';
-import rewindImg from './rewind.png';
-import PlayerPug from '../pages/player/player.pug'
+import PlayerPug from '../pages/player/player.pug';
 
 const toggle = {
   play: playImg,
@@ -220,9 +216,14 @@ export class Player {
 
 
 export const createPlayerPage = (src) => {
-  const rootPage = document.getElementById('root'); //TODO в id закидывать параметр функции?
+  const rootPage = document.getElementById('root');
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
+  const close = document.getElementById('player-close');
+  close.addEventListener('click', function(event) {
+    event.preventDefault();
+    window.history.back();
+  });
   new Player();
-}
+};
