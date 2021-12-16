@@ -39,7 +39,7 @@ div(class="film-block")
                     span #{result.description}
             div(class="about-rating__column")
                 div(class="about-rating__block")
-                    span(class="about-rating-title__text") Рейтинг: #{Number(result.rating).toFixed(1)}
+                    span(id="rating-num" class="about-rating-title__text") Рейтинг: #{Number(result.rating).toFixed(1)}
                     div(id="rating" class="film-about-rating__column rating" tabindex="0" data-info="Только для авторизованных пользователей.")
                         em(id="rating-star-1" class="rating-star__text") ☆
                         em(id="rating-star-2" class="rating-star__text") ☆
@@ -53,7 +53,7 @@ div(class="film-block")
                 div(class="about")
                     div(class="series-title__row")
                         div(class="row" style="padding-bottom: 10px;") Сезоны и серии
-                div()
+                div
                     - var i = 1;
                     each season in seasons
                         div(class="films")
