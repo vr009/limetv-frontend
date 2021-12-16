@@ -101,8 +101,7 @@ module.exports = {
     minimizer: [
       new CssMinimizerPlugin({
         minify: CssMinimizerPlugin.cssoMinify,
-        // Uncomment this line for options
-        // minimizerOptions: { restructure: false },
+        minimizerOptions: {restructure: false},
       }),
     ],
   },
