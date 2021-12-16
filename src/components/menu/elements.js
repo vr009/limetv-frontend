@@ -50,8 +50,9 @@ export const createElements = (authed) => {
           createProfilePage(true);
         }
       } else {
-        menuItem.setAttribute('class', 'menu-logout');
+        menuItem.setAttribute('class', 'navbar-link');
         const menuImg = document.createElement('img');
+        menuImg.setAttribute('class', 'menu-logout');
         menuImg.src = 'exit.ico';
         menuItem.appendChild(menuImg);
         menuItem.id = `/${key}`;
