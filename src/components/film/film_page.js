@@ -335,6 +335,7 @@ const sendRating = (ratingUrl, filmId) => {
         (response) => response.json(),
     ).then(
         (res) => {
+          console.log(res.rating);
           const rating = res.rating%6;
           const idRating = document.getElementById('rating-num');
           idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
