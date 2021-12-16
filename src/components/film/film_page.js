@@ -82,14 +82,16 @@ const showFilm = (filmId) => {
             }
           }
         } else {
-          for (let i = 0; i < result.seasons.length; i++) {
-            for (let j = 0; j < result.seasons[i].Pics.length; j++) {
-              // eslint-disable-next-line max-len
-              const actorContainer = document.getElementById(result.seasons[i].Src[j]+'info');
-              actorContainer.addEventListener('click', function(event) {
-                event.preventDefault();
-                actorContainer.classList.add('info-b');
-              });
+          if (result.is_series) {
+            for (let i = 0; i < result.seasons.length; i++) {
+              for (let j = 0; j < result.seasons[i].Pics.length; j++) {
+                // eslint-disable-next-line max-len
+                const actorContainer = document.getElementById(result.seasons[i].Src[j] + 'info');
+                actorContainer.addEventListener('click', function(event) {
+                  event.preventDefault();
+                  actorContainer.classList.add('info-b');
+                });
+              }
             }
           }
         }
@@ -155,7 +157,7 @@ const showFilm = (filmId) => {
 
         // авторизован ли пользователь или нет,
         // отрисовываем по разному кнопки лайка и отложенного просмотра
-        checkPayed(result.available);
+        // checkPayed(result.available);
         checkAuth(filmId);
 
         showActors(result.actors);
