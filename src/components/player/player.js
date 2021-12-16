@@ -180,8 +180,9 @@ export class Player {
 
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
+    const playerPanel = document.querySelector('player-panel');
     if (flag) {
-      document.addEventListener('keydown', (event) => {
+      playerPanel.addEventListener('keydown', (event) => {
         switch (event.code) {
           case 'ArrowLeft':
             this.changeTimelineLeft();
@@ -195,7 +196,7 @@ export class Player {
         }
       });
     } else {
-      document.removeEventListener('keydown', (event) => {
+      playerPanel.removeEventListener('keydown', (event) => {
         event.preventDefault();
       });
     }
