@@ -324,7 +324,7 @@ const checkAuth = (filmId) => {
     const ratingBtn = document.getElementById('rating');
     ratingBtn.classList.add('info-b');
 
-    const ratingUrl = serverLocate+'/films/film/';
+    const ratingUrl = serverLocate+'/films/film/'+filmId;
     fetchRequest(ratingUrl, 'GET', null).then(
         (response) => response.json(),
     ).then(
