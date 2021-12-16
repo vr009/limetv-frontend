@@ -319,7 +319,7 @@ const checkAuth = (filmId) => {
                 (res) => {
                   const rating = res.rating%6;
                   const idRating = document.getElementById('rating-num');
-                  idRating.innerHTML = 'Рейтинг: '+Number(rating).toFixed(1);
+                  idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
                   console.log(rating);
                 }).catch((error) => {
               showErrors(error);
