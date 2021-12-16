@@ -30,7 +30,7 @@ export class Player {
     this.addVideoBlockListeners();
     // листенер для видео
     this.addVideoListeners();
-    this.changeTimelineGeneral();
+    this.changeTimelineGeneral(true);
   }
 
   /** Добавление всех листенеров для видеоблока*/
@@ -179,20 +179,36 @@ export class Player {
   }
 
   /** Листенеры на нажатие кнопок */
-  changeTimelineGeneral() {
-    document.addEventListener('keydown', (event) => {
-      switch (event.code) {
-        case 'ArrowLeft':
-          this.changeTimelineLeft();
-          break;
-        case 'ArrowRight':
-          this.changeTimelineRight();
-          break;
-        case 'Space':
-          this.toggleVideoPlaying();
-          break;
-      }
-    });
+  changeTimelineGeneral(flag) {
+    if (flag) {
+      document.addEventListener('keydown', (event) => {
+        switch (event.code) {
+          case 'ArrowLeft':
+            this.changeTimelineLeft();
+            break;
+          case 'ArrowRight':
+            this.changeTimelineRight();
+            break;
+          case 'Space':
+            this.toggleVideoPlaying();
+            break;
+        }
+      });
+    } else {
+      document.removeEventListener('keydown', (event) => {
+        switch (event.code) {
+          case 'ArrowLeft':
+            this.changeTimelineLeft();
+            break;
+          case 'ArrowRight':
+            this.changeTimelineRight();
+            break;
+          case 'Space':
+            this.toggleVideoPlaying();
+            break;
+        }
+      });
+    }
   }
 
   /** TODO: переключение эпизода */
@@ -220,12 +236,12 @@ export const createPlayerPage = (src) => {
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
+  const payer = new Player();
   const close = document.getElementById('player-close');
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
     // eslint-disable-next-line new-cap
-    delete Player();
+    payer.changeTimelineGeneral(false);
   });
-  new Player();
 };
