@@ -4,8 +4,8 @@ import Router from '../../utils/router.js';
 import '../pages/menu/menu.scss';
 
 const authElements = {
-  logout: 'Выйти',
   profile: 'Профиль',
+  logout: 'Выйти',
 };
 
 // элементы для незарегистрированных пользователей
