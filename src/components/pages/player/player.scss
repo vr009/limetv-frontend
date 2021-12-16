@@ -25,9 +25,9 @@ video {
     left: 0;
     right: 0;
     transition: opacity 450ms;
-&:hover {
-     opacity: 100%;
- }
+    &:hover {
+         opacity: 100%;
+    }
 }
 .player-buttons__holder {
     justify-content: center;
@@ -44,17 +44,27 @@ video {
     right: 0;
     transition: opacity 1s;
 }
+.player-back__column {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 50px;
+    padding-right: 50px;
+}
+.player-back__icon {
+    width: 40px;
+}
 .player-duration__text {
     color: white;
 }
 .player-volume__stack {
     margin: 0 15px;
-em {
-    display: inline-block;
-    height: 16px;
-    width: 2px;
-    margin: 2px;
-}
+    em {
+        display: inline-block;
+        height: 16px;
+        width: 2px;
+        margin: 2px;
+    }
 }
 .player-volume__strip {
     background-color: #4e6c4e;
@@ -81,10 +91,10 @@ em {
 button {
     all: unset;
     background: transparent;
-img {
-    padding: 0 10px;
-    vertical-align: center;
-    max-height: 10px;
-    max-width: 10px;
-}
+    img {
+        padding: 0 10px;
+        vertical-align: center;
+        max-height: 10px;
+        max-width: 10px;
+    }
 }
