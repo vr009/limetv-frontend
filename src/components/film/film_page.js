@@ -330,12 +330,11 @@ const checkAuth = (filmId) => {
 
 const sendRating = (ratingUrl, filmId) => {
   fetchRequest(ratingUrl, 'POST').then(() => {
-    const ratingReUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
+    const ratingReUrl = serverLocate+'/films/film/'+filmId;
     fetchRequest(ratingReUrl, 'GET', null).then(
         (response) => response.json(),
     ).then(
         (res) => {
-          console.log(res.rating);
           const rating = res.rating%6;
           const idRating = document.getElementById('rating-num');
           idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
