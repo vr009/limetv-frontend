@@ -180,7 +180,7 @@ export class Player {
 
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
-    const playerPanel = document.querySelector('player-panel');
+    const playerPanel = document.getElementById('player-panel');
     if (flag) {
       playerPanel.addEventListener('keydown', (event) => {
         switch (event.code) {
