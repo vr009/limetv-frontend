@@ -686,6 +686,7 @@ nav {
 }
 @media (max-width: 616px) {
     .film-first-block__shadow {
+        background: none;
         box-shadow: 0 0 15px 10px rgba(12, 12, 12, 0);
     }
 }
