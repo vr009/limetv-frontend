@@ -8,6 +8,7 @@ import Router from '../../utils/router.js';
 import {getMonth, getTimeFromMins, sklonenieSeries} from '../utils/validate.js';
 import {fetchRequest} from '../network/fetch.js';
 import {createMenu} from '../menu/menu';
+import {createSearchPage} from "../search/search";
 
 // eslint-disable-next-line valid-jsdoc
 /**
@@ -293,6 +294,7 @@ const checkAuth = (filmId) => {
         });
 
         // Ставить рейтинг может только авторизованный пользователь
+        let time;
         for (let i = 1; i <= 5; i++) {
           const star = document.getElementById('rating-star-' + i);
           star.addEventListener('click', function(event) {
@@ -311,6 +313,8 @@ const checkAuth = (filmId) => {
             }
             // eslint-disable-next-line max-len
             const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
+            clearTimeout(time);
+            time = setTimeout(createSearchPage, 400, search.value);
             fetchRequest(ratingUrl, 'POST').then(() => {
               const ratingReUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
               fetchRequest(ratingReUrl, 'GET', null).then(
