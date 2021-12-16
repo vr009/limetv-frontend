@@ -96,31 +96,6 @@ const showFilm = (filmId) => {
           }
         }
 
-        const ratingUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
-        fetchRequest(ratingUrl, 'GET', null).then(
-            (response) => response.json(),
-        ).then(
-            (res) => {
-              console.log(res.body);
-              const rating = res.rating%6;
-              for (let j = 1; j <= rating; j++) {
-                const starSec = document.getElementById('rating-star-' + j);
-                if (!starSec.classList.contains('star-select')) {
-                  starSec.classList.toggle('star-select');
-                }
-              }
-              for (let j = rating + 1; j <= 5; j++) {
-                const starSec = document.getElementById('rating-star-' + j);
-                if (starSec.classList.contains('star-select')) {
-                  starSec.classList.toggle('star-select');
-                }
-              }
-            }).catch((error) => {
-          console.log(error);
-          showErrors(error);
-        },
-        );
-
         for (let i = 0; i < result.genres.length; i++) {
           const film = document.getElementById(result.genres[i]);
           film.addEventListener('click', function(event) {
@@ -316,6 +291,30 @@ const checkAuth = (filmId) => {
             time = setTimeout(sendRating, 450, ratingUrl, filmId);
           });
         }
+
+        const ratingUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
+        fetchRequest(ratingUrl, 'GET', null).then(
+            (response) => response.json(),
+        ).then(
+            (res) => {
+              const rating = res.rating%6;
+              for (let j = 1; j <= rating; j++) {
+                const starSec = document.getElementById('rating-star-' + j);
+                if (!starSec.classList.contains('star-select')) {
+                  starSec.classList.toggle('star-select');
+                }
+              }
+              for (let j = rating + 1; j <= 5; j++) {
+                const starSec = document.getElementById('rating-star-' + j);
+                if (starSec.classList.contains('star-select')) {
+                  starSec.classList.toggle('star-select');
+                }
+              }
+            }).catch((error) => {
+          console.log(error);
+          showErrors(error);
+        },
+        );
       },
   ).catch(() => {
     const likeBtn = document.getElementById('re-like');
@@ -324,6 +323,30 @@ const checkAuth = (filmId) => {
     wlBtn.classList.add('info-b');
     const ratingBtn = document.getElementById('rating');
     ratingBtn.classList.add('info-b');
+
+    const ratingUrl = serverLocate+'/films/film/';
+    fetchRequest(ratingUrl, 'GET', null).then(
+        (response) => response.json(),
+    ).then(
+        (res) => {
+          const rating = res.rating%6;
+          for (let j = 1; j <= rating; j++) {
+            const starSec = document.getElementById('rating-star-' + j);
+            if (!starSec.classList.contains('star-select')) {
+              starSec.classList.toggle('star-select');
+            }
+          }
+          for (let j = rating + 1; j <= 5; j++) {
+            const starSec = document.getElementById('rating-star-' + j);
+            if (starSec.classList.contains('star-select')) {
+              starSec.classList.toggle('star-select');
+            }
+          }
+        }).catch((error) => {
+      console.log(error);
+      showErrors(error);
+    },
+    );
   },
   );
 };
