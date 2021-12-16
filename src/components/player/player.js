@@ -180,9 +180,8 @@ export class Player {
 
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
-    const playerPanel = document.getElementById('player-panel');
     if (flag) {
-      playerPanel.addEventListener('keydown', (event) => {
+      document.addEventListener('keydown', function handler(event) {
         switch (event.code) {
           case 'ArrowLeft':
             this.changeTimelineLeft();
@@ -194,10 +193,7 @@ export class Player {
             this.toggleVideoPlaying();
             break;
         }
-      });
-    } else {
-      playerPanel.removeEventListener('keydown', (event) => {
-        event.preventDefault();
+        this.removeEventListener('click', handler);
       });
     }
   }
