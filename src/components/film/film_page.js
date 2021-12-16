@@ -311,20 +311,21 @@ const checkAuth = (filmId) => {
             }
             // eslint-disable-next-line max-len
             const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
-            fetchRequest(ratingUrl, 'POST');
-            const ratingReUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
-            fetchRequest(ratingReUrl, 'GET', null).then(
-                (response) => response.json(),
-            ).then(
-                (res) => {
-                  const rating = res.rating%6;
-                  const idRating = document.getElementById('rating-num');
-                  idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
-                  console.log(rating);
-                }).catch((error) => {
-              showErrors(error);
-            },
-            );
+            fetchRequest(ratingUrl, 'POST').then(() => {
+              const ratingReUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
+              fetchRequest(ratingReUrl, 'GET', null).then(
+                  (response) => response.json(),
+              ).then(
+                  (res) => {
+                    const rating = res.rating%6;
+                    const idRating = document.getElementById('rating-num');
+                    idRating.innerHTML = 'Рейтинг: '+rating.toFixed(1);
+                    console.log(rating);
+                  }).catch((error) => {
+                showErrors(error);
+              },
+              );
+            });
           });
         }
       },
