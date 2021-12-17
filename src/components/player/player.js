@@ -197,11 +197,10 @@ export class Player {
     if (flag) {
       document.addEventListener('keydown', this.buttonsClick.bind(this), false);
     } else {
-      for (const key in document.getEventListeners(document)) {
-        document.getEventListeners(document)[key].forEach(function(c) {
-          c.remove();
-        });
-      }
+      document.removeEventListener('keydown', this.buttonsClick, false);
+      window.addEventListener(type, function(event) {
+        event.stopPropagation();
+      }, true);
     }
   }
 
