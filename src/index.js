@@ -22,11 +22,12 @@ import {Router} from './utils/router.js';
 // }
 
 
-new Router();
+const roter = new Router();
 const root = document.getElementById('root');
 const menu = document.createElement('div');
 menu.setAttribute('id', 'menu');
 root.innerHTML = '';
 root.appendChild(menu);
 createMenu();
-createFilms();
+roter.go(window.location);
+// createFilms();
