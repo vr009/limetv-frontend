@@ -194,10 +194,11 @@ export class Player {
 
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
+    const player = document.getElementById('player');
     if (flag) {
-      document.addEventListener('keydown', this.buttonsClick.bind(this), false);
+      player.addEventListener('keydown', this.buttonsClick.bind(this), false);
     } else {
-      document.removeEventListener('keydown', this.buttonsClick.bind(this), false);
+      player.removeEventListener('keydown', this.buttonsClick.bind(this), false);
     }
   }
 
