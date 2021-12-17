@@ -59,7 +59,7 @@ module.exports = {
       template: './src/view/index.html',
     }),
     new WorkboxPlugin.InjectManifest({
-      maximumFileSizeToCacheInBytes: 5000000000,
+      maximumFileSizeToCacheInBytes: 500000,
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js',
       include: [/\.jpg$/, /\.ico$/, /\.png$/, /\.jpeg$/,
@@ -96,6 +96,11 @@ module.exports = {
         next('route');
       });
     },
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   optimization: {
     minimize: true,
