@@ -459,6 +459,7 @@ label {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-right: 10px;
     &:focus {
         .container-new__strip {
             background-color: var(--navbar-text-color-focus);
