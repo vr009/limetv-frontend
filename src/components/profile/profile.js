@@ -2,6 +2,7 @@ import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchImage} from '../network/image.js';
 import {showErrors, showSuccess} from '../utils/errors.js';
+import {validators} from "../utils/validate";
 
 export const createProfile = (profile) => {
   const avatar = document.getElementById('new_avatar');
@@ -69,7 +70,7 @@ const updateUserPic = (event) => {
       }).catch(function() {
         const suc = document.getElementById('success');
         suc.innerHTML = '';
-        showErrors('Не обновлено');
+        showErrors('Большой размер фотографии');
       });
     };
     reader.readAsDataURL(target.files[0]);
@@ -83,8 +84,9 @@ const updateUserPassword = (event) => {
   event.preventDefault();
   const form = document.getElementById('profile-info-pass__form');
   const password = form.querySelector('input').value;
-
-  if (password !== '' && password !== undefined) {
+  if (!validators.password(password)) {
+    showErrors('Пароль должен быть от 6 до 16 символов. ');
+  } else if (password !== '' && password !== undefined) {
     const data = {
       'password': password,
     };
