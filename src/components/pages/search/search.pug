@@ -24,7 +24,7 @@ div(class="search")
                 each actor in result.actors
                     div(id=actor.id+salt class="carousel-content__item" style="height: 170px;")
                         a(class="carousel-item__icon" style="width: 130px;")
-                            img(src=actor.avatar style="max-width: 100px;")
+                            img(src=actor.avatar style="max-height: 158px;")
                         span(class="carousel-item__text") #{actor.name + ' '} #{actor.surname}
 
     if isResult === true
