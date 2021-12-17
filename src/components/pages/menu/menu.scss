@@ -563,6 +563,7 @@ label {
     width: 36px;
     transition: 0.3s;
     margin-right: -30px;
+    margin-left: -12px;
     &:hover {
         transform: scale(1.12);
     }
@@ -780,6 +781,7 @@ nav {
 @media (max-width: 700px) {
     .menu-logout {
         margin-right: 0;
+        margin-left: 0;
     }
     .avatar-menu__ico {
         img {
