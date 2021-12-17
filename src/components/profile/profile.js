@@ -1,9 +1,7 @@
 import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchImage} from '../network/image.js';
-import {showErrors} from '../utils/errors.js';
-import avatarPug from "../pages/menu/avatar.pug";
-import profilePug from "../pages/profile/profile.pug";
+import {showErrors, showSuccess} from '../utils/errors.js';
 
 export const createProfile = (profile) => {
   const avatar = document.getElementById('new_avatar');
@@ -48,7 +46,8 @@ const updateUserPic = (event) => {
         if (!result.ok) {
           throw error;
         }
-        showErrors('Успешно');
+        showSuccess('Успешно');
+        // success
         // перегружаем аватарку
         const url = serverLocate+'/users/profile';
         fetchRequest(url, 'GET', null).then((res) => {
@@ -91,12 +90,14 @@ const updateUserPassword = (event) => {
         (response) => {
           if (response.ok) {
             console.log('updated');
+            showSuccess('Пароль обновлен');
           } else {
             throw error;
           }
         },
-    ).catch(function(error) {
+    ).catch(function() {
       console.log('not updated');
+      showErrors('Пароль не обновлен');
     });
   }
 };
@@ -118,12 +119,14 @@ const updateUserBio = (event) => {
         (response) => {
           if (response.ok) {
             console.log('updated');
+            showSuccess('Сохранено');
           } else {
             throw error;
           }
         },
     ).catch(function(error) {
       console.log('not updated');
+      showErrors('Не сохранено');
     });
   }
 };
