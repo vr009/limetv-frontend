@@ -25,6 +25,7 @@ export const createElements = (authed) => {
   menuLogo.addEventListener('click', function(event) {
     event.preventDefault();
     Router.go('/', 'LimeTV', null, true, false);
+    closeMenu();
     const navbar = document.getElementById('navbar');
     const navbarToggle = navbar.querySelector('.container-new__toggle');
     navbar.classList.remove('opened');
@@ -63,6 +64,7 @@ export const createElements = (authed) => {
         Router.go(`/${key}`, authElements[key], null, true, false);
         const rt = document.getElementById('navbar');
         rt.setAttribute('class', '');
+        closeMenu();
       });
     });
   } else {
@@ -82,6 +84,7 @@ export const createElements = (authed) => {
         Router.go(`/${key}`, unauthElements[key], null, true, false);
         const rt = document.getElementById('navbar');
         rt.setAttribute('class', '');
+        closeMenu();
       });
     });
   }
@@ -108,12 +111,7 @@ const menu = () => {
       closeMobileNavbar();
     } else {
       openMobileNavbar();
-      const searchBtn = document.querySelector('.container-new-search__btn');
-      const cancelBtn = document.querySelector('.container-new-cancel__btn');
-      const form = document.querySelector('form');
-      searchBtn.classList.remove('hide');
-      cancelBtn.classList.remove('show');
-      form.classList.remove('active');
+      closeMenu();
     }
   });
 
@@ -127,4 +125,19 @@ const menu = () => {
   navbarLinksContainer.addEventListener('click', (clickEvent) => {
     clickEvent.stopPropagation();
   });
+};
+
+const closeMenu = () => {
+  const searchBtn = document.querySelector('.container-new-search__btn');
+  const cancelBtn = document.querySelector('.container-new-cancel__btn');
+  const form = document.querySelector('form');
+  searchBtn.classList.remove('hide');
+  cancelBtn.classList.remove('show');
+  form.classList.remove('active');
+  const search = document.getElementById('close_focus');
+  if (search) {
+    search.parentNode.removeChild(search);
+  }
+  const searchForm = document.getElementById('text-search');
+  searchForm.value = '';
 };
