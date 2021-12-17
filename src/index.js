@@ -3,6 +3,7 @@ import {offline} from './components/offline/offline.js';
 import {createMenu} from './components/menu/menu.js';
 import {createFilms} from './components/films/films.js';
 import {Router} from './utils/router.js';
+import Rout from './utils/router.js';
 
 // потом раскоментить
 // if ('serviceWorker' in navigator) {
@@ -21,13 +22,12 @@ import {Router} from './utils/router.js';
 //   });
 // }
 
-
-const roter = new Router();
+new Router();
 const root = document.getElementById('root');
 const menu = document.createElement('div');
 menu.setAttribute('id', 'menu');
 root.innerHTML = '';
 root.appendChild(menu);
 createMenu();
-roter.go(window.location);
+Rout.go(window.location);
 // createFilms();
