@@ -46,8 +46,9 @@ const updateUserPic = (event) => {
         if (!result.ok) {
           throw error;
         }
+        const err = document.getElementById('error');
+        err.innerHTML = '';
         showSuccess('Успешно');
-        // success
         // перегружаем аватарку
         const url = serverLocate+'/users/profile';
         fetchRequest(url, 'GET', null).then((res) => {
@@ -66,6 +67,8 @@ const updateUserPic = (event) => {
           showErrors('Ошибка отправки запроса');
         });
       }).catch(function() {
+        const suc = document.getElementById('success');
+        suc.innerHTML = '';
         showErrors('Не обновлено');
       });
     };
@@ -90,6 +93,8 @@ const updateUserPassword = (event) => {
         (response) => {
           if (response.ok) {
             console.log('updated');
+            const err = document.getElementById('error');
+            err.innerHTML = '';
             showSuccess('Пароль обновлен');
           } else {
             throw error;
@@ -97,6 +102,8 @@ const updateUserPassword = (event) => {
         },
     ).catch(function() {
       console.log('not updated');
+      const suc = document.getElementById('success');
+      suc.innerHTML = '';
       showErrors('Пароль не обновлен');
     });
   }
@@ -119,6 +126,8 @@ const updateUserBio = (event) => {
         (response) => {
           if (response.ok) {
             console.log('updated');
+            const err = document.getElementById('error');
+            err.innerHTML = '';
             showSuccess('Сохранено');
           } else {
             throw error;
@@ -126,6 +135,8 @@ const updateUserBio = (event) => {
         },
     ).catch(function(error) {
       console.log('not updated');
+      const suc = document.getElementById('success');
+      suc.innerHTML = '';
       showErrors('Не сохранено');
     });
   }
