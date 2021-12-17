@@ -195,7 +195,7 @@ export class Player {
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
     if (flag) {
-      document.addEventListener('keydown', this.buttonsClick.bind(this), false);
+      // document.addEventListener('keydown', this.buttonsClick.bind(this), false);
     }
   }
 
@@ -229,6 +229,6 @@ export const createPlayerPage = (src) => {
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
-    document.onkeydown = null;
+    // document.onkeydown = null;
   });
 };
