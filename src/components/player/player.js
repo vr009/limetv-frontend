@@ -229,6 +229,6 @@ export const createPlayerPage = (src) => {
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
-    document.body.innerHTML = document.body.innerHTML
+    document.documentElement.innerHTML = document.documentElement.innerHTML;
   });
 };
