@@ -186,16 +186,16 @@ export class Player {
       case 'ArrowRight':
         this.changeTimelineRight();
         break;
-      case 'Space':
-        this.toggleVideoPlaying();
-        break;
+      // case 'Space':
+      //   this.toggleVideoPlaying();
+      //   break;
     }
   }
 
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
     if (flag) {
-      // document.addEventListener('keydown', this.buttonsClick.bind(this), false);
+      document.addEventListener('keydown', this.buttonsClick.bind(this), false);
     }
   }
 
