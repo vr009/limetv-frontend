@@ -181,7 +181,7 @@ export class Player {
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
     if (flag) {
-      document.addEventListener('keydown', function handler(event) {
+      document.addEventListener('keydown', (event) =>{
         switch (event.code) {
           case 'ArrowLeft':
             this.changeTimelineLeft();
@@ -193,8 +193,7 @@ export class Player {
             this.toggleVideoPlaying();
             break;
         }
-        this.removeEventListener('click', handler);
-      });
+      }, {once: true});
     }
   }
 
@@ -223,12 +222,10 @@ export const createPlayerPage = (src) => {
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
-  const payer = new Player();
   const close = document.getElementById('player-close');
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
-    // eslint-disable-next-line new-cap
-    payer.changeTimelineGeneral(false);
   });
+  new Player();
 };
