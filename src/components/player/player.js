@@ -197,7 +197,6 @@ export class Player {
     if (flag) {
       document.addEventListener('keydown', this.buttonsClick.bind(this), false);
     } else {
-      document.removeEventListener('keydown', this.buttonsClick, false);
       window.addEventListener('keydown', function(event) {
         event.stopPropagation();
       }, true);
