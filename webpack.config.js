@@ -9,7 +9,7 @@ const path = require('path');
 // const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     bundle: path.join(__dirname, '/src/index.js'),
   },
@@ -97,7 +97,6 @@ module.exports = {
       });
     },
   },
-  devtool: 'source-map',
   optimization: {
     minimize: true,
     runtimeChunk: true,
