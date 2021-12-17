@@ -178,22 +178,27 @@ export class Player {
             this.video.currentTime + 15 : this.video.duration;
   }
 
+  buttonsClick(event) {
+    switch (event.code) {
+      case 'ArrowLeft':
+        this.changeTimelineLeft();
+        break;
+      case 'ArrowRight':
+        this.changeTimelineRight();
+        break;
+      case 'Space':
+        this.toggleVideoPlaying();
+        break;
+    }
+  }
+
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
+    const playerPanel = document.getElementById('player-panel');
     if (flag) {
-      document.addEventListener('keydown', (event) =>{
-        switch (event.code) {
-          case 'ArrowLeft':
-            this.changeTimelineLeft();
-            break;
-          case 'ArrowRight':
-            this.changeTimelineRight();
-            break;
-          case 'Space':
-            this.toggleVideoPlaying();
-            break;
-        }
-      }, {once: true});
+      playerPanel.addEventListener('keydown', this.buttonsClick, false);
+    } else {
+      playerPanel.removeEventListener('keydown', this.buttonsClick, false);
     }
   }
 
@@ -222,10 +227,11 @@ export const createPlayerPage = (src) => {
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
+  const player = new Player();
   const close = document.getElementById('player-close');
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
+    player.changeTimelineGeneral(false);
   });
-  new Player();
 };
