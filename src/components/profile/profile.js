@@ -85,6 +85,8 @@ const updateUserPassword = (event) => {
   const form = document.getElementById('profile-info-pass__form');
   const password = form.querySelector('input').value;
   if (!validators.password(password)) {
+    const suc = document.getElementById('success');
+    suc.innerHTML = '';
     showErrors('Пароль должен быть от 6 до 16 символов. ');
   } else if (password !== '' && password !== undefined) {
     const data = {
