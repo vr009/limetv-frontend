@@ -196,10 +196,6 @@ export class Player {
   changeTimelineGeneral(flag) {
     if (flag) {
       document.addEventListener('keydown', this.buttonsClick.bind(this), false);
-    } else {
-      document.addEventListener('keydown', function(event) {
-        event.stopPropagation();
-      }, true);
     }
   }
 
@@ -233,6 +229,6 @@ export const createPlayerPage = (src) => {
   close.addEventListener('click', function(event) {
     event.preventDefault();
     window.history.back();
-    player.changeTimelineGeneral(false);
+    document.body.innerHTML = document.body.innerHTML
   });
 };
