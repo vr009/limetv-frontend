@@ -68,20 +68,14 @@ module.exports = {
     }),
     // new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
     new CompressionPlugin({
-      filename: '[path][base].br',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: {
-        params: {
-          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
-        },
-      },
+      filename: '[path][base].gz',
+      algorithm: 'gzip',
+      test: /\.js$|\.scss$|\.html$/,
       threshold: 10240,
       minRatio: 0.8,
-      deleteOriginalAssets: false,
     }),
-    new MiniCssExtractPlugin(),
   ],
   devServer: {
     onAfterSetupMiddleware: function(devServer) {
