@@ -4,7 +4,7 @@
   "description": "Проект Netflix команды \"A06367\"",
   "main": "src/index.js",
   "scripts": {
-    "dev2": "webpack",
+    "dev2": "webpack -p --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src DEBUG=http",
     "dev": "webpack-dev-server .",
@@ -61,6 +61,7 @@
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.58.2",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1",
     "workbox-strategies": "^6.3.0",

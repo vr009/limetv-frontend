@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const zlib = require('zlib');
 const path = require('path');
+// const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: 'development',
@@ -64,6 +65,7 @@ module.exports = {
       include: [/\.jpg$/, /\.ico$/, /\.png$/, /\.jpeg$/,
         /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
     }),
+    // new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     new CompressionPlugin({
       filename: '[path][base].br',
@@ -98,6 +100,26 @@ module.exports = {
   devtool: 'source-map',
   optimization: {
     minimize: true,
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'async',
+      minSize: 1000,
+      minChunks: 2,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: false,
+      cacheGroups: {
+        default: {
+          minChunks: 1,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+      },
+    },
     minimizer: [
       new CssMinimizerPlugin({
         minify: CssMinimizerPlugin.cssoMinify,
