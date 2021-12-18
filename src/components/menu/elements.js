@@ -61,7 +61,11 @@ export const createElements = (authed) => {
       li.appendChild(menuItem);
       menuItem.addEventListener('click', function(event) {
         event.preventDefault();
-        Router.go(`/${key}`, authElements[key], null, true, false);
+        if (key === 'logout') {
+          Router.go(`/${key}`, authElements[key], null, true, true);
+        } else {
+          Router.go(`/${key}`, authElements[key], null, true, false);
+        }
         const rt = document.getElementById('navbar');
         rt.setAttribute('class', '');
         closeMenu();
