@@ -229,13 +229,17 @@ export const createPlayerPage = (src, title, pics, num) => {
   const prev = document.querySelector('.player-prev__btn');
   prev.addEventListener('click', function(event) {
     event.preventDefault();
-    Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
+    rootPage.innerHTML = PlayerPug({
+      videoSrc: pics[(num-1)%pics.length],
+    });
     // document.onkeydown = null;
   });
   const next = document.querySelector('.player-next__btn');
   next.addEventListener('click', function(event) {
     event.preventDefault();
-    Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
+    rootPage.innerHTML = PlayerPug({
+      videoSrc: pics[(num-1)%pics.length],
+    });
     // document.onkeydown = null;
   });
   const close = document.getElementById('player-close');
