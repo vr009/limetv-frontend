@@ -94,6 +94,9 @@ export class Router {
         if (state !== null) {
           url += '/watch';
         }
+        if (state.current !== null) {
+          url += '/series/' + state.current;
+        }
         window.history.replaceState(
             state, // объект состояния
             state.title, // заголовок состояния
