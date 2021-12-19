@@ -230,7 +230,7 @@ export const createPlayerPage = (src, title, pics, num) => {
   next.addEventListener('click', function(event) {
     event.preventDefault();
     if (num + 1 < pics.length) {
-      pics.current = (num-1)%pics.length;
+      pics.current = (num + 1) % pics.length;
       Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
     }
     // document.onkeydown = null;
@@ -239,7 +239,7 @@ export const createPlayerPage = (src, title, pics, num) => {
   prev.addEventListener('click', function(event) {
     event.preventDefault();
     if (num - 1 >= 0) {
-      pics.current = (num-1)%pics.length;
+      pics.current = (num - 1) % pics.length;
       Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
     }
     // document.onkeydown = null;
