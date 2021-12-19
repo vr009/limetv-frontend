@@ -91,7 +91,7 @@ export class Router {
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
         let url = '';
-        if (state !== null && state.current !== null) {
+        if (state !== null && state.current !== Nan) {
           url += '/series-' + (state.current + 1);
         } else if (state !== null) {
           url += '/movie';
