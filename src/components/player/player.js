@@ -229,15 +229,19 @@ export const createPlayerPage = (src, title, pics, num) => {
   const next = document.querySelector('.player-next__btn');
   next.addEventListener('click', function(event) {
     event.preventDefault();
-    pics.current = (num+1)%pics.length;
-    Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
+    if (num + 1 < pics.length) {
+      pics.current = (num-1)%pics.length;
+      Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
+    }
     // document.onkeydown = null;
   });
   const prev = document.querySelector('.player-prev__btn');
   prev.addEventListener('click', function(event) {
     event.preventDefault();
-    pics.current = (num-1)%pics.length;
-    Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
+    if (num - 1 >= 0) {
+      pics.current = (num-1)%pics.length;
+      Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
+    }
     // document.onkeydown = null;
   });
   const close = document.getElementById('player-close');
