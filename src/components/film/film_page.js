@@ -66,8 +66,12 @@ const showFilm = (filmId) => {
           const watchBtn = document.querySelector('.btn-watch');
           watchBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            result.seasons[0].Pics.current = 0;
-            Router.go('/player/'+result.src[0], result.title, result.seasons[0].Pics);
+            if (result.is_series){
+              result.seasons[0].Pics.current = 0;
+              Router.go('/player/' + result.src[0], result.title, result.seasons[0].Pics);
+            } else {
+              Router.go('/player/' + result.src[0], result.title);
+            }
           });
         }
 
