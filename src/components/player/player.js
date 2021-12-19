@@ -226,14 +226,14 @@ export const createPlayerPage = (src, title, pics, num) => {
     videoSrc: src,
   });
   const player = new Player();
-  const prev = document.querySelector('.player-prev__btn');
-  prev.addEventListener('click', function(event) {
+  const next = document.querySelector('.player-next__btn');
+  next.addEventListener('click', function(event) {
     event.preventDefault();
     Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
     // document.onkeydown = null;
   });
-  const next = document.querySelector('.player-next__btn');
-  next.addEventListener('click', function(event) {
+  const prev = document.querySelector('.player-prev__btn');
+  prev.addEventListener('click', function(event) {
     event.preventDefault();
     Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
     // document.onkeydown = null;
