@@ -94,7 +94,7 @@ export class Router {
         if (state !== null) {
           url += '/watch';
         }
-        if (state.current !== null) {
+        if (state.current !== undefined) {
           url += '-' + (state.current + 1);
         }
         window.history.replaceState(
