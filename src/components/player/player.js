@@ -235,6 +235,7 @@ export const createPlayerPage = (src, title, pics, num) => {
   const prev = document.querySelector('.player-prev__btn');
   prev.addEventListener('click', function(event) {
     event.preventDefault();
+    pics.current = num;
     Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
     // document.onkeydown = null;
   });
