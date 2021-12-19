@@ -3,6 +3,7 @@ import '../pages/menu/menu.scss';
 import playImg from './play.png';
 import pauseImg from './pause.png';
 import PlayerPug from '../pages/player/player.pug';
+import Router from '../../utils/router.js';
 
 const toggle = {
   play: playImg,
@@ -44,10 +45,10 @@ export class Player {
     this.videoBlock.querySelector('.player-move-right__btn').
         addEventListener('click', this.changeTimelineRight.bind(this));
     // изменение громкости
-    this.videoBlock.querySelector('.player-prev__btn').
-        addEventListener('click', this.previousEpisode.bind(this));
-    this.videoBlock.querySelector('.player-next__btn').
-        addEventListener('click', this.nextEpisode.bind(this));
+    // this.videoBlock.querySelector('.player-prev__btn').
+    //     addEventListener('click', this.previousEpisode.bind(this));
+    // this.videoBlock.querySelector('.player-next__btn').
+    //     addEventListener('click', this.nextEpisode.bind(this));
     // обновление линии времени
     this.video.addEventListener('mousemove',
         this.changeVideoDuration.bind(this));
@@ -219,12 +220,24 @@ export class Player {
 }
 
 
-export const createPlayerPage = (src) => {
+export const createPlayerPage = (src, title, pics, num) => {
   const rootPage = document.getElementById('root');
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
   const player = new Player();
+  const prev = document.querySelector('.player-prev__btn');
+  prev.addEventListener('click', function(event) {
+    event.preventDefault();
+    Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
+    // document.onkeydown = null;
+  });
+  const next = document.querySelector('.player-next__btn');
+  next.addEventListener('click', function(event) {
+    event.preventDefault();
+    Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
+    // document.onkeydown = null;
+  });
   const close = document.getElementById('player-close');
   close.addEventListener('click', function(event) {
     event.preventDefault();

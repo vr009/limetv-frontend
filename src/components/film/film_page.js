@@ -66,7 +66,7 @@ const showFilm = (filmId) => {
           const watchBtn = document.querySelector('.btn-watch');
           watchBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/player/'+result.src[0], result.title);
+            Router.go('/player/'+result.src[0], result.title, result.Pics);
           });
         }
 

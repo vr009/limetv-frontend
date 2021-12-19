@@ -99,7 +99,7 @@ export class Router {
             state.title, // заголовок состояния
             url, // URL новой записи (same origin)
         );
-        createPlayerPage(src);
+        createPlayerPage(src, title, state, 0);
       } else if (path.includes('/genre/')) {
         const genres = path.substring('/genre/'.length, path.length);
         createGenres(genres);
