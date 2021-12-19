@@ -91,10 +91,11 @@ export class Router {
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
         let url = '';
-        if (state !== null && state.current !== Nan) {
-          url += '/series-' + (state.current + 1);
-        } else if (state !== null) {
-          url += '/movie';
+        if (state !== null) {
+          url += '/watch';
+        }
+        if (state.current !== null) {
+          url += '-' + (state.current + 1);
         }
         window.history.replaceState(
             state, // объект состояния
