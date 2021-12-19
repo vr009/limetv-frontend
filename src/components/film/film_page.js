@@ -78,7 +78,8 @@ const showFilm = (filmId) => {
               const actorContainer = document.getElementById(result.seasons[i].Src[j]);
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
-                Router.go('/player/'+result.seasons[i].Pics[j], result.title);
+                result.seasons[i].Pics.current = j;
+                Router.go('/player/'+result.seasons[i].Pics[j], result.title, result.seasons[i].Pics);
               });
             }
           }
