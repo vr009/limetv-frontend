@@ -247,7 +247,7 @@ export const createPlayerPage = (src, title, pics, num) => {
   const close = document.getElementById('player-close');
   close.addEventListener('click', function(event) {
     event.preventDefault();
-    window.history.back();
+    Router.go('/', 'LimeTV');
     // document.onkeydown = null;
   });
 };
