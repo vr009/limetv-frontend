@@ -3,6 +3,9 @@
     padding-top: 40px;
     padding-left: 6%;
 }
+#auth-login, #auth-password {
+    outline: none;
+}
 .profile {
     color: white;
     margin-left: 40px;
@@ -60,6 +63,7 @@
     }
 }
 .profile-info-pass__input {
+    outline: none;
     background: unset;
     border-radius: 7px;
     border: solid #8bbf51;
@@ -86,6 +90,7 @@
     margin-bottom: 12px;
 }
 .profile-info-bio__textarea {
+    outline: none;
     display: table-caption;
     background: unset;
     border-radius: 8px;
