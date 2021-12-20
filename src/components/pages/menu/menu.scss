@@ -103,16 +103,6 @@ label {
     overflow-y: hidden;
     padding-left: 6em;
     padding-bottom: 1.1em;
-    //&:focus-within {
-    //    .films-content__column {
-    //        transform: translateX(-20%);
-    //    }
-    //}
-    //&:hover {
-    //    .films-content__column {
-    //        transform: translateX(-20%);
-    //    }
-    //}
     .films-content__column {
         &:focus {
             transform: scale(1.13);
@@ -132,20 +122,6 @@ label {
     height: 200px;
     cursor: pointer;
     position: relative;
-    &:focus {
-        //~ {
-        //    .films-content__column {
-        //        transform: translateX(25%);
-        //    }
-        //}
-    }
-    &:hover {
-        //~ {
-        //    .films-content__column {
-        //        transform: translateX(25%);
-        //    }
-        //}
-    }
     img {
         display: block;
         max-width: 300px;
@@ -781,7 +757,8 @@ nav {
     .films-content__column {
         img {
             display: block;
-            max-width: 278px;
+            max-width: 230px;
+            height: 160px;
         }
     }
 }
