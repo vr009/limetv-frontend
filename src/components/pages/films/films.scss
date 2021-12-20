@@ -80,7 +80,7 @@
     font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     left: 115px;
     max-width: 40%;
-    padding-top: 27%;
+    padding-top: 40%;
     font-size: 52px;
     color: white;
 }
@@ -88,6 +88,9 @@
     position: absolute;
     padding-top: 45%;
     pointer-events: none;
+    @media (max-width: 700px) {
+        padding-top: 62%;
+    }
 }
 .selection-film {
     pointer-events: all;
