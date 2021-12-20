@@ -31,6 +31,7 @@
     color: hsla(0,0%,100%,.56);
 }
 .film-about-rating__column {
+    outline: none;
     color: white;
     font-size: 32px;
     line-height: 50px;
@@ -157,6 +158,7 @@
     }
 }
 .btn-watch {
+    outline: none;
     appearance: none;
     border: 4px solid #601cbb;
     padding: 15px 15px 15px 20px;
@@ -170,6 +172,7 @@
     font-size: 18px;
 }
 .watch {
+    outline: none;
     transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
     vertical-align: middle;
     padding-left: 20px;
@@ -184,6 +187,7 @@
     width: 28px;
 }
 .re-btn-watch {
+    outline: none;
     -moz-appearance: none;
     border: 4px solid #34941e;
     padding: 15px 15px 15px 15px;

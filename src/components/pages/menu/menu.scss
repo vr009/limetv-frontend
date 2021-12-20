@@ -4,6 +4,9 @@ body {
     overflow-x: hidden;
     outline: none;
 }
+button {
+    outline: none;
+}
 ::-webkit-scrollbar {
     display: none; // Safari and Chrome
     width: 0;
@@ -639,6 +642,7 @@ nav {
             border: none;
             font-weight: 500;
             background: none;
+            outline: none;
         }
     }
     .container-new-cancel__btn {
@@ -704,6 +708,7 @@ nav {
     }
 }
 .info-b {
+    outline: none;
     line-height: 1.5em;
     max-width: 49rem;
     font-size: 1em;
