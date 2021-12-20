@@ -165,6 +165,10 @@
     .film-first-title__column {
         left: 1em;
         font-size: 35px;
+    }
+}
+@media (min-width: 319px) and (max-width: 616px) {
+    .film-first-title__column {
         padding-top: 50%;
     }
 }
