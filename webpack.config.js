@@ -4,7 +4,6 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const zlib = require('zlib');
 const path = require('path');
 // для просмотра карт
 // const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
