@@ -15,8 +15,5 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: npm ci
-      - uses: sibiraj-s/action-eslint@v2
-        with:
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
+      - name: linters
+        run: npm run lint
