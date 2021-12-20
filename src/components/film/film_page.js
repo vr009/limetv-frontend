@@ -66,8 +66,9 @@ const showFilm = (filmId) => {
           const watchBtn = document.querySelector('.btn-watch');
           watchBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            if (result.is_series){
+            if (result.is_series) {
               result.seasons[0].Pics.current = 0;
+              // eslint-disable-next-line max-len
               Router.go('/player/' + result.src[0], result.title, result.seasons[0].Pics);
             } else {
               Router.go('/player/' + result.src[0], result.title);
@@ -83,6 +84,7 @@ const showFilm = (filmId) => {
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
                 result.seasons[i].Pics.current = j;
+                // eslint-disable-next-line max-len
                 Router.go('/player/'+result.seasons[i].Pics[j], result.title, result.seasons[i].Pics);
               });
             }
@@ -244,81 +246,80 @@ const checkAuth = (filmId) => {
           throw error;
         }
       },
-  ).then(
-      (result) => {
-        const likeBtn = document.getElementById('re-like');
-        likeBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          const isStarred = likeBtn.classList.contains('re-btn-unwatch');
-          if (isStarred) {
-            dislikeFilm(filmId);
-          } else {
-            likeFilm(filmId);
-          }
-          likeBtn.classList.toggle('re-btn-unwatch');
-        });
+  ).then(() => {
+    const likeBtn = document.getElementById('re-like');
+    likeBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      const isStarred = likeBtn.classList.contains('re-btn-unwatch');
+      if (isStarred) {
+        dislikeFilm(filmId);
+      } else {
+        likeFilm(filmId);
+      }
+      likeBtn.classList.toggle('re-btn-unwatch');
+    });
 
-        const wlBtn = document.getElementById('wl');
-        wlBtn.addEventListener('click', function(event) {
-          event.preventDefault();
-          const isInWatchList = wlBtn.classList.contains('btn-unwatch-later');
-          if (isInWatchList) {
-            unwatchLater(filmId);
-          } else {
-            watchLater(filmId);
-          }
-          wlBtn.classList.toggle('btn-unwatch-later');
-        });
+    const wlBtn = document.getElementById('wl');
+    wlBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      const isInWatchList = wlBtn.classList.contains('btn-unwatch-later');
+      if (isInWatchList) {
+        unwatchLater(filmId);
+      } else {
+        watchLater(filmId);
+      }
+      wlBtn.classList.toggle('btn-unwatch-later');
+    });
 
-        // Ставить рейтинг может только авторизованный пользователь
-        for (let i = 1; i <= 5; i++) {
-          const star = document.getElementById('rating-star-' + i);
-          let time;
-          star.addEventListener('click', function(event) {
-            event.preventDefault();
-            for (let j = 1; j <= i; j++) {
-              const starSec = document.getElementById('rating-star-' + j);
-              if (!starSec.classList.contains('star-select-user')) {
-                starSec.classList.toggle('star-select-user');
-              }
-            }
-            for (let j = i+1; j <= 5; j++) {
-              const starSec = document.getElementById('rating-star-' + j);
-              if (starSec.classList.contains('star-select-user')) {
-                starSec.classList.toggle('star-select-user');
-              }
-            }
-            // eslint-disable-next-line max-len
-            const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
-            clearTimeout(time);
-            time = setTimeout(sendRating, 450, ratingUrl, filmId);
-          });
+    // Ставить рейтинг может только авторизованный пользователь
+    for (let i = 1; i <= 5; i++) {
+      const star = document.getElementById('rating-star-' + i);
+      let time;
+      star.addEventListener('click', function(event) {
+        event.preventDefault();
+        for (let j = 1; j <= i; j++) {
+          const starSec = document.getElementById('rating-star-' + j);
+          if (!starSec.classList.contains('star-select-user')) {
+            starSec.classList.toggle('star-select-user');
+          }
         }
+        for (let j = i+1; j <= 5; j++) {
+          const starSec = document.getElementById('rating-star-' + j);
+          if (starSec.classList.contains('star-select-user')) {
+            starSec.classList.toggle('star-select-user');
+          }
+        }
+        // eslint-disable-next-line max-len
+        const ratingUrl = serverLocate+'/films/film/' + filmId + '/rating?rating=' + i;
+        clearTimeout(time);
+        time = setTimeout(sendRating, 450, ratingUrl, filmId);
+      });
+    }
 
-        const ratingUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
-        fetchRequest(ratingUrl, 'GET', null).then(
-            (response) => response.json(),
-        ).then(
-            (res) => {
-              const rating = res.rating%6;
-              for (let j = 1; j <= rating; j++) {
-                const starSec = document.getElementById('rating-star-' + j);
-                if (!starSec.classList.contains('star-select-user')) {
-                  starSec.classList.toggle('star-select-user');
-                }
-              }
-              for (let j = rating + 1; j <= 5; j++) {
-                const starSec = document.getElementById('rating-star-' + j);
-                if (starSec.classList.contains('star-select-user')) {
-                  starSec.classList.toggle('star-select-user');
-                }
-              }
-            }).catch((error) => {
-          console.log(error);
-          showErrors(error);
-        },
-        );
-      },
+    const ratingUrl = serverLocate+'/films/film/' + filmId + '/user/rating';
+    fetchRequest(ratingUrl, 'GET', null).then(
+        (response) => response.json(),
+    ).then(
+        (res) => {
+          const rating = res.rating%6;
+          for (let j = 1; j <= rating; j++) {
+            const starSec = document.getElementById('rating-star-' + j);
+            if (!starSec.classList.contains('star-select-user')) {
+              starSec.classList.toggle('star-select-user');
+            }
+          }
+          for (let j = rating + 1; j <= 5; j++) {
+            const starSec = document.getElementById('rating-star-' + j);
+            if (starSec.classList.contains('star-select-user')) {
+              starSec.classList.toggle('star-select-user');
+            }
+          }
+        }).catch((error) => {
+      console.log(error);
+      showErrors(error);
+    },
+    );
+  },
   ).catch(() => {
     const likeBtn = document.getElementById('re-like');
     likeBtn.classList.add('info-b');

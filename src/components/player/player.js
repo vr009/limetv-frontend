@@ -131,6 +131,7 @@ export class Player {
     const full = document.querySelector('.player-timeline__row');
     const percent = this.video.currentTime.toFixed() /
         this.video.duration.toFixed();
+    // eslint-disable-next-line max-len
     timeline.style.width = `${percent.toFixed(2)*full.getBoundingClientRect().width}px`;
   }
 
@@ -159,6 +160,7 @@ export class Player {
     holder.innerHTML = formatted;
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /** Красивое форматирование времени
    ** @param {Object} time - время для форматирования
    *  @return {String} formatted - строка для холдера
@@ -179,6 +181,7 @@ export class Player {
             this.video.currentTime + 15 : this.video.duration;
   }
 
+  // eslint-disable-next-line require-jsdoc
   buttonsClick(event) {
     switch (event.code) {
       case 'ArrowLeft':
@@ -193,6 +196,7 @@ export class Player {
     }
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /** Листенеры на нажатие кнопок */
   changeTimelineGeneral(flag) {
     if (flag) {
@@ -210,6 +214,7 @@ export class Player {
     console.log('next');
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /** TODO: переключение эпизода
    ** @param {String} src - src следующей серии
    */
@@ -222,10 +227,11 @@ export class Player {
 
 export const createPlayerPage = (src, title, pics, num) => {
   const rootPage = document.getElementById('root');
+  // eslint-disable-next-line new-cap
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
-  const player = new Player();
+  new Player();
   const next = document.querySelector('.player-next__btn');
   next.addEventListener('click', function(event) {
     event.preventDefault();

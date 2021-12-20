@@ -9,9 +9,9 @@ import RegistrationPug from '../pages/auth/registration.pug';
 import AuthPug from '../pages/auth/authorization.pug';
 import '../pages/auth/auth.scss';
 
-const prefixUrlDEBUG = 'http://localhost';
-const prefixUrlDEPLOY = 'http://3.67.182.34';
-const port = ':8000';
+// const prefixUrlDEBUG = 'http://localhost';
+// const prefixUrlDEPLOY = 'http://3.67.182.34';
+// const port = ':8000';
 
 export const authModule = {
   /**
@@ -41,6 +41,7 @@ export const renderAuth = () => {
   const reg = document.createElement('div');
   root.appendChild(reg);
 
+  // eslint-disable-next-line new-cap
   reg.innerHTML = AuthPug();
 
   const eye = document.getElementById('icon');
@@ -83,10 +84,10 @@ export const renderAuth = () => {
           throw error;
         }
       }).then(
-          (result) => {
+          () => {
             Router.go('/', 'LimeTV', null, true, true);
           },
-      ).catch(function(error) {
+      ).catch(function() {
         showErrors('Неверный логин или пароль');
       });
     }
@@ -98,23 +99,16 @@ export const logOut = () => {
   const url = serverLocate+'/users/logout';
 
   fetchRequest(url, 'POST',
-  ).then((result)=>{
+  ).then(()=>{
     createElements();
     createFilms();
     Router.go('/', 'LimeTV', null, true, true);
-
-  }).catch(function(error) {
+  }).catch(function() {
     createElements();
     createFilms();
     Router.go('/', 'LimeTV', null, true, false);
   });
 };
-
-// отрисовка профиля
-const renderProfile = () => {
-  console.log('need fetch here');
-};
-
 
 // отрисовка формы регистрации
 export const renderRegistration = () => {
@@ -134,6 +128,7 @@ export const renderRegistration = () => {
   const reg = document.createElement('div');
   root.appendChild(reg);
 
+  // eslint-disable-next-line new-cap
   reg.innerHTML = RegistrationPug();
 
   const eye = document.getElementById('icon');
@@ -174,10 +169,9 @@ export const renderRegistration = () => {
         if (!result.ok) {
           throw error;
         }
-      }).then(
-          (result) => {
-            Router.go('/', 'LimeTV', null, true, true);
-          },
+      }).then(() => {
+        Router.go('/', 'LimeTV', null, true, true);
+      },
       ).catch(function() {
         showErrors('Пользователь с таким именем уже существует');
       },

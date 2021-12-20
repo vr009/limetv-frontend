@@ -11,7 +11,9 @@ import {createGenres} from '../components/genres/genres.js';
 import {createUserInfoPage} from '../components/profile_info/profile_info.js';
 import {createProfileSettingsPage} from '../view/createProfileSettingsPage.js';
 
+// eslint-disable-next-line require-jsdoc
 export class Router {
+  // eslint-disable-next-line require-jsdoc
   constructor() {
     this.routs = {
       '/': createFilms,
@@ -33,6 +35,7 @@ export class Router {
     });
   }
 
+  // eslint-disable-next-line require-jsdoc
   go(path, title, state=null, needPush=true, authedChanged=false) {
     if (!navigator.onLine) {
       offline(path, title, state=null, needPush);

@@ -2,9 +2,9 @@ import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchImage} from '../network/image.js';
 import {showErrors, showSuccess} from '../utils/errors.js';
-import {validators} from "../utils/validate";
+import {validators} from '../utils/validate';
 
-export const createProfile = (profile) => {
+export const createProfile = () => {
   const avatar = document.getElementById('new_avatar');
   avatar.addEventListener('click', createFileInput);
 
@@ -29,17 +29,17 @@ const createFileInput = () => {
   input.click();
 };
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Отправляет загруженный файл на сервер
  * При успехе меняет картинку
- * @param event
  */
 const updateUserPic = (event) => {
   event.preventDefault();
   const target = event.target;
   const reader = new FileReader();
   if (target.files && target.files.length > 0) {
-    reader.onload = (evt) => {
+    reader.onload = () => {
       const data = new FormData();
       data.append('pic', target.files[0]);
       const url = serverLocate+'/users/profile/settings/pic';
@@ -77,6 +77,7 @@ const updateUserPic = (event) => {
   }
 };
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Обновление пароля пользователя
  */
@@ -113,9 +114,9 @@ const updateUserPassword = (event) => {
   }
 };
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Обновление описания пользователя
- * @param event
  */
 const updateUserBio = (event) => {
   event.preventDefault();
@@ -137,7 +138,7 @@ const updateUserBio = (event) => {
             throw error;
           }
         },
-    ).catch(function(error) {
+    ).catch(function() {
       console.log('not updated');
       const suc = document.getElementById('success');
       suc.innerHTML = '';

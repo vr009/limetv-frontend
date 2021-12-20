@@ -1,7 +1,7 @@
 'use strict';
-import {offline} from './components/offline/offline.js';
+// import {offline} from './components/offline/offline.js';
 import {createMenu} from './components/menu/menu.js';
-import {createFilms} from './components/films/films.js';
+// import {createFilms} from './components/films/films.js';
 import {Router} from './utils/router.js';
 import Rout from './utils/router.js';
 

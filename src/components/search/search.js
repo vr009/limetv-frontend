@@ -1,6 +1,5 @@
 import {serverLocate} from '../../utils/locale.js';
 import searchPagePug from '../pages/search/search.pug';
-import {showErrors} from '../utils/errors.js';
 import Router from '../../utils/router';
 import {fetchRequest} from '../network/fetch';
 
@@ -22,10 +21,12 @@ export const createSearchPage = (keyword) => {
         for (let j = 0; j <= 1; j++) {
           if (result[res[j]] !== null && result[res[j]].length !== 0) {
             for (let i = 0; i < result[res[j]].length; i++) {
+              // eslint-disable-next-line max-len
               const film = document.getElementById(result[res[j]][i].id + 'close_focus');
               film.addEventListener('click', function(event) {
                 event.preventDefault();
                 if (j === 0) {
+                  // eslint-disable-next-line max-len
                   Router.go('/actor/' + result[res[j]][i].id.toString(), result[res[j]][i].name+' '+result[res[j]][i].surname);
                 } else {
                   const film = {
@@ -35,7 +36,9 @@ export const createSearchPage = (keyword) => {
                   Router.go('/film/' + result[res[j]][i].id.toString(), film);
                 }
                 searchForm.value = '';
+                // eslint-disable-next-line max-len
                 const searchBtn = document.querySelector('.container-new-search__btn');
+                // eslint-disable-next-line max-len
                 const cancelBtn = document.querySelector('.container-new-cancel__btn');
                 const form = document.querySelector('form');
                 searchBtn.classList.remove('hide');

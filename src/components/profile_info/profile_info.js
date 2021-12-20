@@ -58,7 +58,7 @@ const showUserInfo = () => {
   ).then(
       (result) => {
         const root = document.getElementById('one_user');
-        if (result.about === 'no data' || result.about === null || result.about === '') {
+        if (result.about === null || result.about === '') {
           result.about = '—';
         }
         root.innerHTML = userInfoPug({

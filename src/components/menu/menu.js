@@ -130,11 +130,9 @@ export const createMenu = () => {
           throw error;
         }
       },
-  ).then(
-      (result) => {
-        createElements(true);
-      },
-  ).catch((error) => {
+  ).then(() => {
+    createElements(true);
+  }).catch(() => {
     createElements(false);
   },
   );
