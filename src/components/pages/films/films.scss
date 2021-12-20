@@ -80,7 +80,7 @@
     font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
     left: 115px;
     max-width: 40%;
-    padding-top: 40%;
+    padding-top: 50%;
     font-size: 52px;
     color: white;
 }
@@ -165,6 +165,7 @@
     .film-first-title__column {
         left: 1em;
         font-size: 35px;
+        padding-top: 50%;
     }
 }
 @media (min-width: 319px) and (max-width: 380px) {
