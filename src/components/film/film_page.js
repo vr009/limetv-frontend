@@ -69,9 +69,10 @@ const showFilm = (filmId) => {
             if (result.is_series) {
               result.seasons[0].Pics.current = 0;
               // eslint-disable-next-line max-len
-              Router.go('/player/' + result.src[0], result.title, result.seasons[0].Pics);
+              Router.go('/player/' + result.src[0], result.title, result.seasons[0].Pics, true, false, result.slug);
             } else {
-              Router.go('/player/' + result.src[0], result.title);
+              // eslint-disable-next-line max-len
+              Router.go('/player/' + result.src[0], result.title, null, true, false, result.slug);
             }
           });
         }
@@ -84,6 +85,7 @@ const showFilm = (filmId) => {
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
                 result.seasons[i].Pics.current = j;
+                console.log(result.slug);
                 // eslint-disable-next-line max-len
                 Router.go('/player/'+result.seasons[i].Pics[j], result.title, result.seasons[i].Pics, true, false, result.slug);
               });
