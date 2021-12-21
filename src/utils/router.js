@@ -94,8 +94,8 @@ export class Router {
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
         let url = '';
-        if (state !== null && state.title !== undefined) {
-          url += '/' + state.title;
+        if (state !== null && state.slug !== undefined) {
+          url += '/' + state.slug;
         }
         if (state.current !== undefined) {
           url += '-' + (state.current + 1);
