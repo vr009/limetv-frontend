@@ -123,7 +123,7 @@ export const showFilmsList = (relUrl, rootId, title) => {
           playBtn.addEventListener('click', function(event) {
             event.preventDefault();
             Router.go('/player/' + result[0].src[0], result[0].title,
-                null, true, false, result.slug);
+                null, true, false, result[0].slug);
           });
           const firstFilm = document.getElementById('first_info');
           firstFilm.addEventListener('click', function(ev) {
