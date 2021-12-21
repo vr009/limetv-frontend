@@ -84,6 +84,7 @@ const showFilm = (filmId) => {
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
                 result.seasons[i].Pics.current = j;
+                result.seasons[i].Pics.title = result.title;
                 // eslint-disable-next-line max-len
                 Router.go('/player/'+result.seasons[i].Pics[j], result.title, result.seasons[i].Pics);
               });
