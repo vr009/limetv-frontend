@@ -35,8 +35,9 @@ export class Router {
     });
   }
 
-  // eslint-disable-next-line require-jsdoc
-  go(path, title, state=null, needPush=true, authedChanged=false, slug='film') {
+  // eslint-disable-next-line require-jsdoc,max-len
+  go(path, title, state=null, needPush=true, authedChanged=false, slugStr='film') {
+    console.log(slugStr);
     if (!navigator.onLine) {
       offline(path, title, state=null, needPush);
       return;
@@ -95,7 +96,7 @@ export class Router {
         const src = path.substring('/player/'.length, path.length);
         let url = '';
         if (state !== null ) {
-          url += '/' + slug;
+          url += '/' + slugStr;
         }
         if (state.current !== undefined) {
           url += '-' + (state.current + 1);
