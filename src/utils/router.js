@@ -36,7 +36,7 @@ export class Router {
   }
 
   // eslint-disable-next-line require-jsdoc
-  go(path, title, state=null, needPush=true, authedChanged=false) {
+  go(path, title, state=null, needPush=true, authedChanged=false, slug='film') {
     if (!navigator.onLine) {
       offline(path, title, state=null, needPush);
       return;
@@ -94,8 +94,8 @@ export class Router {
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
         let url = '';
-        if (state !== null && state.slug !== undefined) {
-          url += '/' + state.slug;
+        if (state !== null ) {
+          url += '/' + slug;
         }
         if (state.current !== undefined) {
           url += '-' + (state.current + 1);

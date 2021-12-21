@@ -84,9 +84,8 @@ const showFilm = (filmId) => {
               actorContainer.addEventListener('click', function(event) {
                 event.preventDefault();
                 result.seasons[i].Pics.current = j;
-                result.seasons[i].Pics.slug = result.slug;
                 // eslint-disable-next-line max-len
-                Router.go('/player/'+result.seasons[i].Pics[j], result.title, result.seasons[i].Pics);
+                Router.go('/player/'+result.seasons[i].Pics[j], result.title, result.seasons[i].Pics, result.slug);
               });
             }
           }
