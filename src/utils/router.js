@@ -108,7 +108,6 @@ export class Router {
         );
         createPlayerPage(src, title, state, state.current);
       } else if (path.includes('/genre/')) {
-        document.write(path);
         const genres = path.substring('/genre/'.length, path.length);
         decodeURIComponent(genres);
         createGenres(genres);
