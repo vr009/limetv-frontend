@@ -1,19 +1,20 @@
 import {fetchRequest} from '../network/fetch.js';
 import {serverLocate} from '../../utils/locale.js';
 import {fetchImage} from '../network/image.js';
-import {showErrors} from '../utils/errors.js';
+import {showErrors, showSuccess} from '../utils/errors.js';
+import {validators} from '../utils/validate';
 
-export const createProfile = (profile) => {
+export const createProfile = () => {
   const avatar = document.getElementById('new_avatar');
   avatar.addEventListener('click', createFileInput);
 
   const text = document.querySelector('textarea');
   text.addEventListener('keydown', submitBio);
 
-  const form = document.getElementById('pass_form');
+  const form = document.getElementById('profile-info-pass__form');
   form.addEventListener('submit', updateUserPassword);
 
-  const form2 = document.getElementById('bio_form');
+  const form2 = document.getElementById('profile-info-bio__form');
   form2.addEventListener('submit', updateUserBio);
 };
 
@@ -28,17 +29,17 @@ const createFileInput = () => {
   input.click();
 };
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Отправляет загруженный файл на сервер
  * При успехе меняет картинку
- * @param event
  */
 const updateUserPic = (event) => {
   event.preventDefault();
   const target = event.target;
   const reader = new FileReader();
   if (target.files && target.files.length > 0) {
-    reader.onload = (evt) => {
+    reader.onload = () => {
       const data = new FormData();
       data.append('pic', target.files[0]);
       const url = serverLocate+'/users/profile/settings/pic';
@@ -46,26 +47,49 @@ const updateUserPic = (event) => {
         if (!result.ok) {
           throw error;
         }
-        showErrors('Успешно');
-      }).catch(function(error) {
-        showErrors('Не обновлено');
+        const err = document.getElementById('error');
+        err.innerHTML = '';
+        showSuccess('Успешно');
+        // перегружаем аватарку
+        const url = serverLocate+'/users/profile';
+        fetchRequest(url, 'GET', null).then((res) => {
+          return res.ok ? res : Promise.reject(res);
+        },
+        ).then((response) => {
+          return response.json();
+        },
+        ).then((result) => {
+          const userPic = document.getElementById('avatar');
+          const newUserPic = document.getElementById('profile-info-avatar');
+          userPic.src = result.avatar;
+          newUserPic.src = result.avatar;
+        },
+        ).catch(function() {
+          showErrors('Ошибка отправки запроса');
+        });
+      }).catch(function() {
+        const suc = document.getElementById('success');
+        suc.innerHTML = '';
+        showErrors('Большой размер фотографии');
       });
     };
     reader.readAsDataURL(target.files[0]);
-    const userpic = document.getElementById('avatar');
-    userpic.src = target.files[0].name;
   }
 };
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Обновление пароля пользователя
  */
 const updateUserPassword = (event) => {
   event.preventDefault();
-  const form = document.getElementById('pass_form');
+  const form = document.getElementById('profile-info-pass__form');
   const password = form.querySelector('input').value;
-
-  if (password !== '' && password !== undefined) {
+  if (!validators.password(password)) {
+    const suc = document.getElementById('success');
+    suc.innerHTML = '';
+    showErrors('Пароль должен быть от 6 до 16 символов. ');
+  } else if (password !== '' && password !== undefined) {
     const data = {
       'password': password,
     };
@@ -74,23 +98,29 @@ const updateUserPassword = (event) => {
         (response) => {
           if (response.ok) {
             console.log('updated');
+            const err = document.getElementById('error');
+            err.innerHTML = '';
+            showSuccess('Пароль обновлен');
           } else {
             throw error;
           }
         },
-    ).catch(function(error) {
+    ).catch(function() {
       console.log('not updated');
+      const suc = document.getElementById('success');
+      suc.innerHTML = '';
+      showErrors('Пароль не обновлен');
     });
   }
 };
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * Обновление описания пользователя
- * @param event
  */
 const updateUserBio = (event) => {
   event.preventDefault();
-  const form = document.getElementById('bio_form');
+  const form = document.getElementById('profile-info-bio__form');
   const bio = form.querySelector('textarea').value;
   if (bio !== '' && bio !== undefined) {
     const data = {
@@ -101,12 +131,18 @@ const updateUserBio = (event) => {
         (response) => {
           if (response.ok) {
             console.log('updated');
+            const err = document.getElementById('error');
+            err.innerHTML = '';
+            showSuccess('Сохранено');
           } else {
             throw error;
           }
         },
-    ).catch(function(error) {
+    ).catch(function() {
       console.log('not updated');
+      const suc = document.getElementById('success');
+      suc.innerHTML = '';
+      showErrors('Не сохранено');
     });
   }
 };

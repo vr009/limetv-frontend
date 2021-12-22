@@ -1,16 +1,16 @@
 import Router from '../../utils/router.js';
-import '../pages/offline/offline.css';
+import '../pages/offline/offline.scss';
 import offlinePagePug from '../pages/offline/offline.pug';
 import {createMenu} from '../menu/menu.js';
 
-export function offline(path, title, state, needPush) {
+export const offline = (path, title, state, needPush) => {
   const root = document.getElementById('root');
   root.innerHTML = offlinePagePug();
 
-  const offlinePageMsg = document.getElementById('offline_page');
+  const offlinePageMsg = document.getElementById('offline-title__text');
 
   const reloadBtn = document.getElementById('reload_page');
-  reloadBtn.addEventListener('click', (evt)=>{
+  reloadBtn.addEventListener('click', () => {
     if (navigator.onLine) {
       createMenu(false);
       Router.go(path, title, state, needPush);
@@ -18,4 +18,4 @@ export function offline(path, title, state, needPush) {
       offlinePageMsg.innerText = 'Соединение пока потеряно :(';
     }
   });
-}
+};

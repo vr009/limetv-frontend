@@ -2,13 +2,12 @@ import {showErrors} from '../utils/errors.js';
 import {serverLocate} from '../../utils/locale.js';
 import listPug from '../pages/films/films.pug';
 import firstFilmPug from '../pages/films/firstFilm.pug';
-import '../pages/films/films.css';
+import '../pages/films/films.scss';
 import Router from '../../utils/router.js';
 import carouselGenres from '../pages/genres/carousel_genres.pug';
 import filmProfile from '../pages/films/filmsProfile.pug';
 import {Genres} from '../utils/validate';
-import userInfoPug from "../pages/profile_info/profile_info.pug";
-import {createMenu} from "../menu/menu";
+import {createMenu} from '../menu/menu';
 
 /**
  * Модуль создания экрана фильмов
@@ -85,7 +84,7 @@ const createBase = () => {
 };
 
 
-export const showFilmsList = (relUrl, rootId, title, empty) => {
+export const showFilmsList = (relUrl, rootId, title) => {
   const url = serverLocate+'/films'+relUrl;
   fetch(url, {
     method: 'GET',
@@ -96,7 +95,7 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
   ).then(
       (result) => {
         const root = document.getElementById(rootId);
-        if (rootId === 'selection-profile-3' || rootId === 'selection-profile-4') {
+        if (rootId === 'selection-watch-list' || rootId === 'selection-liked') {
           root.innerHTML = filmProfile({
             title: title,
             films: result,
@@ -120,22 +119,31 @@ export const showFilmsList = (relUrl, rootId, title, empty) => {
           tRoot.innerHTML = firstFilmPug({
             films: result[0],
           });
-          const playBtn = document.querySelector('.play-text');
+          const playBtn = document.querySelector('.film-first-play__btn');
           playBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/player/' + result[0].src[0], result[0].title);
+            Router.go('/player/' + result[0].src[0], result[0].title,
+                null, true, false, result[0].slug);
           });
           const firstFilm = document.getElementById('first_info');
           firstFilm.addEventListener('click', function(ev) {
             ev.preventDefault();
-            Router.go('/film/' + result[0].id, result[0].title);
+            const film = {
+              name: result[0].title,
+              slug: result[0].slug,
+            };
+            Router.go('/film/' + result[0].id, film);
           });
         }
         for (let i = 0; i < result.length; i++) {
           const film = document.getElementById(result[i].id+rootId);
           film.addEventListener('click', function(event) {
             event.preventDefault();
-            Router.go('/film/' + result[i].id.toString(), result[i].title);
+            const film = {
+              name: result[i].title,
+              slug: result[i].slug,
+            };
+            Router.go('/film/' + result[i].id.toString(), film);
           });
         }
       },

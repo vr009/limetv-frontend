@@ -1,7 +1,7 @@
 if films.length !== 0
-    div.films-container
-        h1.selection-label-film Фильмы с участием актера
-        div.contentFilm
+    div(class="films")
+        h1(class="films-label-actor__text") Фильмы с участием актера
+        div(class="films-content__row" style="padding-left: 11%;")
             each film in films
-                a(class="item")
-                    img(src=film.pic[0] id=film.id style="border-radius: 15px;")
+                a(class="films-content__column")
+                    img(id=film.id class="films-content__img" src=film.pic[0])

@@ -1,11 +1,11 @@
-div.registration_block
-     div.name-register Вход
+div(class="auth")
+     div(class="auth-title__text") Вход
      div#error
      form(id="form" name="authorization" method="post" action="/")
-         div.input_block
-             input#login_field(type="text" placeholder="Логин")
-         div.input_block
-             input#password_field(type="password" placeholder="Пароль")
-             div(class="input-icon" id="icon")
-                 img(src="eye.ico" style="padding-top: 3px; margin-bottom: -1px;")
-         input(type="submit" name="auth" value="Войти" id="auth_btn")
+         div(class="auth-input__column")
+             input(id="auth-login" type="text" placeholder="Логин")
+         div(class="auth-input__column")
+             input(id="auth-password" type="password" placeholder="Пароль")
+             div(class="auth-icon__column" id="icon")
+                 img(class="auth-see__ico" src="eye.ico")
+         input(type="submit" name="auth" value="Войти" class="auth-signup__btn")

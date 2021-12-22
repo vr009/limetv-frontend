@@ -1,0 +1,190 @@
+.film-first__column {
+    color: #fff;
+}
+.first-film__picture {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.auth-icon__column {
+    width: 20px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: all .4s ease;
+    right: 0;
+    float: right;
+    margin-top: -43px;
+    z-index: 3;
+    position: relative;
+    margin-right: 30px;
+    img {
+        max-width: 20px;
+    }
+}
+.auth-icon__column.selected, .profile-icon__column.selected {
+    background-color: #dd3279ab;
+    border-radius: 10px;
+}
+.film-first-info__ico {
+    width: 40px;
+}
+.film-first-play__ico {
+    width: 40px;
+}
+.search-title__icon {
+    float: right;
+    margin: 30px 18%;
+    transition: 0.15s;
+    &:hover {
+         transform: scale(1.1);
+         cursor: pointer;
+    }
+}
+.search-icon__ico {
+    height: 46px;
+}
+.carousel {
+    padding-top: 10px;
+}
+.film-first-info__btn {
+    position: absolute;
+    left: 135px;
+    text-transform: uppercase;
+    background: rgb(137 137 137 / 58%);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+    &:hover {
+         transform: scale(1.05);
+         cursor: pointer;
+    }
+}
+.film-first-play__btn {
+    position: absolute;
+    text-transform: uppercase;
+    background: rgb(255, 255, 255);
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    overflow: hidden;
+    &:hover {
+         transform: scale(1.05);
+         cursor: pointer;
+    }
+}
+.film-first-title__column {
+    position: absolute;
+    font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
+    left: 115px;
+    max-width: 40%;
+    padding-top: 21%;
+    font-size: 52px;
+    color: white;
+}
+.selection {
+    position: absolute;
+    padding-top: 27%;
+    pointer-events: none;
+    @media (max-width: 700px) {
+        padding-top: 62%;
+    }
+}
+.selection-film {
+    pointer-events: all;
+    padding-left: 10px;
+    @media (max-width: 700px) {
+        padding-left: 5px;
+    }
+}
+.point {
+    cursor: pointer;
+}
+.genres-content__row {
+    display: flex;
+    overflow-x: scroll;
+    padding-top: 35px;
+    overflow-y: hidden;
+    height: 340px;
+    padding-left: 5.6em;
+    .genres-content__column {
+        &:focus {
+             transform: scale(1.06);
+             z-index: 1;
+        }
+        &:hover {
+             transform: scale(1.06);
+             z-index: 1;
+        }
+    }
+}
+.genres-content__column {
+    display: block;
+    transition: transform 350ms;
+    margin: 6px;
+    width: 305px;
+    height: 200px;
+    cursor: pointer;
+    padding-right: 30px;
+    img {
+        display: block;
+        max-width: 300px;
+        height: 140%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+}
+.genres-container {
+    margin-top: 10em;
+}
+.film-first-title__text {
+    padding-bottom: 20px;
+}
+@media (max-width: 721px) {
+    .film-first-play__ico {
+        vertical-align: text-bottom;
+    }
+    .film-first-info__ico {
+        vertical-align: text-bottom;
+    }
+}
+@media (min-width: 319px) and (max-width: 1020px) {
+    .genres-content__column {
+        img {
+            height: 73%;
+        }
+    }
+    .genres-content__row {
+        height: 200px;
+        padding-left: 2em;
+    }
+}
+@media (min-width: 319px) and (max-width: 720px) {
+    .film-first-title__column {
+        left: 1em;
+        font-size: 35px;
+    }
+}
+@media (min-width: 319px) and (max-width: 616px) {
+    .film-first-title__column {
+        padding-top: 50%;
+    }
+}
+@media (min-width: 319px) and (max-width: 380px) {
+    .first-film__picture {
+        left: 0;
+        max-width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+@media (min-width: 381px) and (max-width: 616px) {
+    .first-film__picture {
+        left: 0;
+        max-width: 100%;
+        height: 515px;
+        object-fit: cover;
+    }
+}

@@ -1,4 +1,4 @@
-.offline_page_div {
+.offline {
     --pin-bg-color: #0000006e;
     background: var(--pin-bg-color);
     margin-left: auto;
@@ -10,12 +10,10 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
-
-.offline_page_ul {
+.offline-acton__stack {
     padding-bottom: 25px;
 }
-
-a.blubtn {
+a.offline-update__btn {
     width: 150px;
     text-align: center;
     display: block;
@@ -23,20 +21,18 @@ a.blubtn {
     cursor: pointer;
     text-decoration: none;
     border-radius: 10px;
-    -webkit-transition: .5s;
-    transition: .3s;
+    transition: .4s;
     font-family: 'Montserrat', sans-serif;
     border: solid #c73e77;
     padding: 11px 11px;
     margin: 0 auto;
-}
-
-a.blubtn:hover {
-    background: #c73e77;
-    display: block;
-    color: #2ec614;
-    cursor: pointer;
-    transition: .5s;
-    border-radius: 10px;
-    border: solid #2ec614;
+    &:hover {
+         background: #c73e77;
+         display: block;
+         color: #2ec614;
+         cursor: pointer;
+         transition: .5s;
+         border-radius: 10px;
+         border: solid #2ec614;
+    }
 }

@@ -1,12 +1,13 @@
-div.first-film
-    img(src=films.pic[0] class="first-pic")
+div(class="film-first__column")
+    img(src=films.pic[0] class="first-film__picture")
 
-    div.start-text
-        div(style="padding-bottom: 20px;")
-            b=films.title
+    div(class="film-first-title__column")
+        div(class="film-first-block__shadow")
+            div(class="film-first-title__text")
+                b=films.title
 
-        div.play-text
-            img(class="play-button" src="play.ico")
+            div(class="film-first-play__btn")
+                img(class="film-first-play__ico" src="play.ico")
 
-        div.info-text(id="first_info")
-            img(class="info-button" src="help_info.ico")
+            div(class="film-first-info__btn" id="first_info")
+                img(class="film-first-info__ico" src="help_info.ico")

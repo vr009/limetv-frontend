@@ -1,10 +1,15 @@
 const HTMLWebPackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const path = require('path');
+// для просмотра карт
+// const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     bundle: path.join(__dirname, '/src/index.js'),
   },
@@ -19,9 +24,15 @@ module.exports = {
         'pug-loader',
       ],
     }, {
-      test: /\.js$/,
-      loader: 'babel-loader',
-      exclude: '/node_modules/',
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-transform-runtime'],
+        },
+      },
     }, {
       test: /\.(png|jpg|gif|svg|mp4|ico)$/,
       loader: 'file-loader',
@@ -30,23 +41,20 @@ module.exports = {
         name: '[name].[ext]',
       },
     }, {
-      test: /\.css$/,
+      test: /\.s[ac]ss$/i,
       use: [
-        'style-loader',
         {
-          loader: 'css-loader',
-          options: {sourceMap: true},
+          loader: 'style-loader',
+          options: {injectType: 'singletonStyleTag'},
         },
         {
-          loader: 'postcss-loader',
+          loader: 'css-loader',
+          options: {url: false},
+        },
+        {
+          loader: 'sass-loader',
           options: {
-            postcssOptions: {
-              plugins: [
-                require('postcss-preset-env')({
-                  browsers: 'last 2 versions',
-                }),
-              ],
-            },
+            implementation: require('sass'),
           },
         },
       ],
@@ -56,37 +64,23 @@ module.exports = {
     new HTMLWebPackPlugin({
       template: './src/view/index.html',
     }),
-    // new WorkboxPlugin.GenerateSW({
-    //   // Do not precache images
-    //   exclude: [/\.(?:png|jpg|jpeg|svg|)$/],
-    //
-    //   // Define runtime caching rules.
-    //   runtimeCaching: [{
-    //     // Match any request that ends with .png, .jpg, .jpeg or .svg.
-    //     urlPattern: /\.(?:png|jpg|jpeg|svg|js|html|css)$/,
-    //
-    //     // Apply a cache-first strategy.
-    //     handler: 'CacheFirst',
-    //
-    //     options: {
-    //       // Use a custom cache name.
-    //       cacheName: 'LimeTV',
-    //
-    //       // Only cache 10 images.
-    //       expiration: {
-    //         maxEntries: 10,
-    //       },
-    //     },
-    //   }],
-    // }),
     new WorkboxPlugin.InjectManifest({
-      maximumFileSizeToCacheInBytes: 5000000000,
+      maximumFileSizeToCacheInBytes: 500000,
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js',
       include: [/\.jpg$/, /\.ico$/, /\.png$/, /\.jpeg$/,
         /\.svg$/, /\.html$/, /\.js$/, /\.css$/],
     }),
+    // new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new CompressionPlugin({
+      filename: '[path][base].gz',
+      algorithm: 'gzip',
+      test: /\.js$|\.scss$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ],
   devServer: {
     onAfterSetupMiddleware: function(devServer) {
@@ -102,5 +96,39 @@ module.exports = {
         next('route');
       });
     },
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
+  optimization: {
+    minimize: true,
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'async',
+      minSize: 1000,
+      minChunks: 2,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: false,
+      cacheGroups: {
+        default: {
+          minChunks: 1,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+      },
+    },
+    minimizer: [
+      new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.cssoMinify,
+        minimizerOptions: {restructure: false},
+      }),
+    ],
   },
 };

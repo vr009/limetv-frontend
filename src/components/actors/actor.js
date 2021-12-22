@@ -2,9 +2,9 @@ import {showErrors} from '../utils/errors.js';
 import {serverLocate} from '../../utils/locale.js';
 import actorPagePug from '../pages/actors/actor.pug';
 import actorFilmsPug from '../pages/actors/actorFilms.pug';
-import '../pages/actors/actor.css';
+import '../pages/actors/actor.scss';
 import Router from '../../utils/router.js';
-import {Genres, getMonth} from '../utils/validate.js';
+import {getMonth} from '../utils/validate.js';
 
 
 export const createActor = (state) => {
@@ -66,7 +66,7 @@ const showActor = (state) => {
   );
 };
 
-function getFilmsByActor(state) {
+const getFilmsByActor = (state) => {
   const url = serverLocate+'/films/selection/actor/' + state;
   fetch(url, {
     method: 'GET',
@@ -75,7 +75,7 @@ function getFilmsByActor(state) {
       (response) => response.json(),
   ).then(
       (result) => {
-        const rootFilm = document.getElementById('selection-profile-5');
+        const rootFilm = document.getElementById('carousel-actor');
         for (let i = 0; i < result.length; i++) {
           result[i].title = result[i].title+' ('+result[i].year+')';
           result[i].director = result[i].director[0];
@@ -91,7 +91,11 @@ function getFilmsByActor(state) {
             event.preventDefault();
             const rootPage = document.getElementById('stuff');
             rootPage.innerHTML = '';
-            Router.go('/film/' + result[i].id.toString(), result[i].title);
+            const film = {
+              name: result[i].title,
+              slug: result[i].slug,
+            };
+            Router.go('/film/' + result[i].id.toString(), film);
           });
         }
       },
@@ -100,4 +104,4 @@ function getFilmsByActor(state) {
     showErrors(error);
   },
   );
-}
+};

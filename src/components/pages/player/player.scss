@@ -1,0 +1,120 @@
+.player {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+video {
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0;
+    cursor: pointer;
+}
+.player-panel {
+    background: rgb(56 56 56 / 71%);
+    box-shadow: 0 0 32px 20px #000000d9;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    opacity: 0;
+    margin: 20px;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 450ms;
+    &:hover {
+         opacity: 100%;
+    }
+}
+.player-buttons__holder {
+    justify-content: center;
+    display: flex;
+}
+.player-timeline__holder {
+    z-index: 10;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    transition: opacity 1s;
+}
+.player-back__column {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 20px;
+    padding-right: 50px;
+
+}
+.player-back__icon {
+    width: 120px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.18);
+    }
+}
+@media (max-width: 700px) {
+    .player-back__icon {
+        margin-right: -60px;
+        margin-top: -20px;
+    }
+}
+.player-duration__text {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding-top: 1px;
+}
+.player-volume__stack {
+    margin: 0 15px;
+    em {
+        display: inline-block;
+        height: 16px;
+        width: 2px;
+        margin: 2px;
+    }
+}
+.player-volume__strip {
+    background-color: #4e6c4e;
+}
+.volume-gray {
+    background-color: green;
+}
+.player-timeline__row {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #455945;
+}
+.player-timeline-current__row {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: green;
+}
+button {
+    all: unset;
+    background: transparent;
+    img {
+        padding: 0 10px;
+        vertical-align: center;
+        max-height: 20px;
+        max-width: 20px;
+    }
+    @media (max-width: 700px) {
+        max-height: 14px;
+        max-width: 14px;
+    }
+}

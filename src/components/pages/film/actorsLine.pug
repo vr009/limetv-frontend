@@ -2,8 +2,8 @@ span
     -  let flag = false;
         each actor in actors
                 if flag
-                    span ,
-                    a(id=actor.id+salt class="actor-h") #{' '+actor.name}  #{actor.surname}
+                    span #{', '}
+                    a(id=actor.id+salt class="actor-name__text") #{' '+actor.name}  #{actor.surname}
                 else
-                    a(id=actor.id+salt class="actor-h") #{actor.name}  #{actor.surname}
+                    a(id=actor.id+salt class="actor-name__text") #{actor.name}  #{actor.surname}
                 - flag = true

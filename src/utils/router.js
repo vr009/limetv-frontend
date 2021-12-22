@@ -9,9 +9,11 @@ import {logOut} from '../components/auth/auth.js';
 import {createPlayerPage} from '../components/player/player.js';
 import {createGenres} from '../components/genres/genres.js';
 import {createUserInfoPage} from '../components/profile_info/profile_info.js';
-import {createProfileSettingsPage} from '../components/profile/profilePage.js';
+import {createProfileSettingsPage} from '../view/createProfileSettingsPage.js';
 
+// eslint-disable-next-line require-jsdoc
 export class Router {
+  // eslint-disable-next-line require-jsdoc
   constructor() {
     this.routs = {
       '/': createFilms,
@@ -33,7 +35,9 @@ export class Router {
     });
   }
 
-  go(path, title, state=null, needPush=true, authedChanged=false) {
+  // eslint-disable-next-line require-jsdoc,max-len
+  go(path, title, state=null, needPush=true, authedChanged=false, slugStr='film') {
+    console.log(slugStr);
     if (!navigator.onLine) {
       offline(path, title, state=null, needPush);
       return;
@@ -75,12 +79,37 @@ export class Router {
           console.log('error UUID from url films');
           window.history.back();
         }
+
+        // let url = '';
+        // if (state !== null) {
+        //   url += state.title.slug;
+        // }
+        //
+        // document.title = state.title.name;
+        // window.history.replaceState(
+        //     state, // объект состояния
+        //     state.title.name, // заголовок состояния
+        //     url, // URL новой записи (same origin)
+        // );
         createFilmPage(uuid);
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
-        createPlayerPage(src);
+        let url = '';
+        if (state !== null ) {
+          url += '/' + slugStr;
+        }
+        if (state.current !== undefined) {
+          url += '-' + (state.current + 1);
+        }
+        window.history.replaceState(
+            state, // объект состояния
+            state.title, // заголовок состояния
+            url, // URL новой записи (same origin)
+        );
+        createPlayerPage(src, title, state, state.current);
       } else if (path.includes('/genre/')) {
         const genres = path.substring('/genre/'.length, path.length);
+        decodeURIComponent(genres);
         createGenres(genres);
       } else {
         this.go('/', 'LimeTV', null, true, true);

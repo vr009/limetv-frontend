@@ -48,8 +48,8 @@ export const getTimeFromMins = (mins) => {
   return hours + ' ч ' + minutes + ' мин';
 };
 
-export function getMonth(birth) {
-  let birthDay = birth.getDay();
+export const getMonth = (birth) => {
+  let birthDay = birth.getDate();
   switch (birth.getMonth()) {
     case 0:
       birthDay += ' января ';
@@ -90,21 +90,24 @@ export function getMonth(birth) {
   }
   birthDay += birth.getFullYear();
   return birthDay;
-}
+};
 
-export function sklonenieSeries(number, txt) {
+export const sklonenieSeries = (number, txt) => {
   const cases = [2, 0, 1, 1, 1, 2];
+  // eslint-disable-next-line max-len
   return txt[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 };
 
 export const Genres = [
   {id: 'comedy', title: 'Комедия', name: 'Комедия', src: 'comedy.png'},
   {id: 'fiantsy', title: 'Фентези', name: 'Фентези', src: 'fantasy.png'},
+  // eslint-disable-next-line max-len
   {id: 'detective', title: 'Детективы', name: 'Детективы', src: 'detective.png'},
   {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.png'},
   {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
   {id: 'thrillers', title: 'Триллер', name: 'Триллер', src: 'thrillers.png'},
   {id: 'fighter', title: 'Боевики', name: 'Боевики', src: 'fighters.png'},
+  // eslint-disable-next-line max-len
   {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.png'},
   {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
   {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},

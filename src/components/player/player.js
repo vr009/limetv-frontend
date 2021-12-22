@@ -1,12 +1,9 @@
-import '../pages/player/player.css';
-import '../pages/menu/menu.css';
+import '../pages/player/player.scss';
+import '../pages/menu/menu.scss';
 import playImg from './play.png';
 import pauseImg from './pause.png';
-import ffImg from './ff.png';
-import nextImg from './next.png';
-import previousImg from './previous.png';
-import rewindImg from './rewind.png';
-import PlayerPug from '../pages/player/player.pug'
+import PlayerPug from '../pages/player/player.pug';
+import Router from '../../utils/router.js';
 
 const toggle = {
   play: playImg,
@@ -18,7 +15,7 @@ export class Player {
   /** Инициализация пустого объекта */
   constructor() {
     // сам компонент с видео
-    this.videoBlock = document.querySelector('.player_block');
+    this.videoBlock = document.querySelector('.player');
     this.video = this.videoBlock.querySelector('video');
     // компонент с названием
     this.title = document.querySelector('title');
@@ -34,24 +31,24 @@ export class Player {
     this.addVideoBlockListeners();
     // листенер для видео
     this.addVideoListeners();
-    this.changeTimelineGeneral();
+    this.changeTimelineGeneral(true);
   }
 
   /** Добавление всех листенеров для видеоблока*/
   addVideoBlockListeners() {
     // проигрывание по клику на кнопку
-    this.videoBlock.querySelector('.start_stop_btn').
+    this.videoBlock.querySelector('.player-start-stop__btn').
         addEventListener('click', this.toggleVideoPlaying.bind(this));
     // отматывание влево или вправо
-    this.videoBlock.querySelector('.move_left_btn').
+    this.videoBlock.querySelector('.player-move-left__btn').
         addEventListener('click', this.changeTimelineLeft.bind(this));
-    this.videoBlock.querySelector('.move_right_btn').
+    this.videoBlock.querySelector('.player-move-right__btn').
         addEventListener('click', this.changeTimelineRight.bind(this));
     // изменение громкости
-    this.videoBlock.querySelector('.prev_button').
-        addEventListener('click', this.previousEpisode.bind(this));
-    this.videoBlock.querySelector('.next_button').
-        addEventListener('click', this.nextEpisode.bind(this));
+    // this.videoBlock.querySelector('.player-prev__btn').
+    //     addEventListener('click', this.previousEpisode.bind(this));
+    // this.videoBlock.querySelector('.player-next__btn').
+    //     addEventListener('click', this.nextEpisode.bind(this));
     // обновление линии времени
     this.video.addEventListener('mousemove',
         this.changeVideoDuration.bind(this));
@@ -88,7 +85,7 @@ export class Player {
   changePlayButton() {
     // изменение иконок
 
-    const btn = this.videoBlock.querySelector('.start_stop_btn');
+    const btn = this.videoBlock.querySelector('.player-start-stop__btn');
     const img = btn.querySelector('img');
     if (this.statusPlaying) {
       img.src = toggle.pause;
@@ -119,7 +116,7 @@ export class Player {
           nodes[j].classList = ['volume-gray'];
         }
         for (let j = index+1; j < nodes.length; j++) {
-          nodes[j].classList = ['volume-white'];
+          nodes[j].classList = ['player-volume__strip'];
         }
         this.video.volume = (index+1).toFixed()*10/100;
       });
@@ -129,17 +126,18 @@ export class Player {
   /** Обновление таймлайна по времени */
   changeTimelineLine() {
     this.changeVideoDuration();
-    const timeline = document.querySelector('.timeline-current');
+    const timeline = document.querySelector('.player-timeline-current__row');
 
-    const full = document.querySelector('.timeline');
+    const full = document.querySelector('.player-timeline__row');
     const percent = this.video.currentTime.toFixed() /
         this.video.duration.toFixed();
+    // eslint-disable-next-line max-len
     timeline.style.width = `${percent.toFixed(2)*full.getBoundingClientRect().width}px`;
   }
 
   /** Обновление таймлайна по клику */
   changeTimelineButton() {
-    const timeline = document.querySelector('.timeline_holder');
+    const timeline = document.querySelector('.player-timeline__holder');
     timeline.addEventListener('click', (event) => {
       const percent = (event.clientX /
         event.target.getBoundingClientRect().right );
@@ -158,10 +156,11 @@ export class Player {
     if (!isNaN(time) && !isNaN(currentTime)) {
       formatted = `${this.timeHelper(currentTime)} / ${this.timeHelper(time)}`;
     }
-    const holder = this.videoBlock.querySelector('.duration_holder');
+    const holder = this.videoBlock.querySelector('.player-duration__text');
     holder.innerHTML = formatted;
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /** Красивое форматирование времени
    ** @param {Object} time - время для форматирования
    *  @return {String} formatted - строка для холдера
@@ -182,21 +181,27 @@ export class Player {
             this.video.currentTime + 15 : this.video.duration;
   }
 
+  // eslint-disable-next-line require-jsdoc
+  buttonsClick(event) {
+    switch (event.code) {
+      case 'ArrowLeft':
+        this.changeTimelineLeft();
+        break;
+      case 'ArrowRight':
+        this.changeTimelineRight();
+        break;
+      // case 'Space':
+      //   this.toggleVideoPlaying();
+      //   break;
+    }
+  }
+
+  // eslint-disable-next-line valid-jsdoc
   /** Листенеры на нажатие кнопок */
-  changeTimelineGeneral() {
-    document.addEventListener('keydown', (event) => {
-      switch (event.code) {
-        case 'ArrowLeft':
-          this.changeTimelineLeft();
-          break;
-        case 'ArrowRight':
-          this.changeTimelineRight();
-          break;
-        case 'Space':
-          this.toggleVideoPlaying();
-          break;
-      }
-    });
+  changeTimelineGeneral(flag) {
+    if (flag) {
+      document.addEventListener('keydown', this.buttonsClick.bind(this), false);
+    }
   }
 
   /** TODO: переключение эпизода */
@@ -209,6 +214,7 @@ export class Player {
     console.log('next');
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /** TODO: переключение эпизода
    ** @param {String} src - src следующей серии
    */
@@ -219,10 +225,35 @@ export class Player {
 }
 
 
-export const createPlayerPage = (src) => {
-  const rootPage = document.getElementById('root'); //TODO в id закидывать параметр функции?
+export const createPlayerPage = (src, title, pics, num) => {
+  const rootPage = document.getElementById('root');
+  // eslint-disable-next-line new-cap
   rootPage.innerHTML = PlayerPug({
     videoSrc: src,
   });
   new Player();
-}
+  const next = document.querySelector('.player-next__btn');
+  next.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (num + 1 < pics.length) {
+      pics.current = (num + 1) % pics.length;
+      Router.go('/player/'+pics[(num+1)%pics.length], title, pics);
+    }
+    // document.onkeydown = null;
+  });
+  const prev = document.querySelector('.player-prev__btn');
+  prev.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (num - 1 >= 0) {
+      pics.current = (num - 1) % pics.length;
+      Router.go('/player/'+pics[(num-1)%pics.length], title, pics);
+    }
+    // document.onkeydown = null;
+  });
+  const close = document.getElementById('player-close');
+  close.addEventListener('click', function(event) {
+    event.preventDefault();
+    Router.go('/', 'LimeTV');
+    // document.onkeydown = null;
+  });
+};

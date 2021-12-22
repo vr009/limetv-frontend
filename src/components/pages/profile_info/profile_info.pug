@@ -1,36 +1,74 @@
-div.films-container
-    h1.selection-profile Профиль
+div(class="films")
+    h1(class="page-title__text") Профиль
 
-    div(class="block-left")
-        div.contentAvatar
-            div(class="prof_pic")
-                img(src=avatar class="avatar")
-            i(id="settings_btn" class="settings_btn")
-                img(src="settings.ico" class="set")
-    div(class="block-right")
-        div.profile-grid
-            div.col-grid-profile
-                div(class="grey-info-profile")
+    div(class="page-left__column")
+        div(class="profile-ava__column")
+            img(src=avatar class="profile-ava__ico")
+        i(id="settings_btn" class="profile-settings__column")
+            img(src="settings.ico" class="profile-settings__ico")
+    div(class="page-right__column")
+        div(class="profile__grid")
+            div(class="profile-grid__column")
+                div(class="profile-grid__row")
                     div Имя пользователя:
-                    span(class="pug-text-profile") #{login}
-
-                div(class="grey-info-profile")
+                    span(class="profile-grid__text") #{login}
+                div(class="profile-grid__row")
+                    div Текущая подписка:
+                    span(id="subscribe_period" class="profile-grid__text") #{period='Активных подписок нет'}
+            div(class="profile-grid__column" style="padding-bottom: 40px;")
+                div(class="profile-grid__row")
                     div О себе:
-                    span(class="pug-text-profile") #{about}
+                    span(class="profile-grid__text") #{about}
 
-section.selection-profile-2
-    div.about-your
-        div(style="font-family: 'Montserrat', sans-serif; font-size: 24px; border-bottom: 2px solid #e5e5e5cc; width: 200px; margin-bottom: -2px;")
-            div(class="row" style="padding-bottom: 10px;") Ваша активность
+section(class="carousel__selection")
+    div(class="title__row")
+        div(class="carousel-your-active__title")
+            div(class="row") Ваша активность
 
-section.selection-profile-2
-    div.about-your-active#selection-profile-3
+section(class="carousel__selection")
+    div(id="selection-watch-list" class="carousel-your-active__films")
 
-section.selection-profile-2
-    div.about-your-active#selection-profile-4
+section(class="carousel__selection")
+    div(id="selection-liked" class="carousel-your-active__films")
 
 
-section.selection-profile-2
-    div.about-your-active
-        div.films-container#empty-film-profile
-            h1.selection-empty-profile — Добавьте в избранные или отложенные фильмы и сериалы
+section(class="carousel__selection")
+    div(class="carousel-your-active__films")
+        div(id="empty-film-profile" class="films")
+            h1(class="carousel-empty__text") — Добавьте в избранные или отложенные фильмы и сериалы
+
+div(class="payment-left__column")
+    h1(class="subscription__payment-text") Оформите подписку на месяц за 2 ₽
+    a(class="subscription__subpayment-text") Наличие подписки открывает доступ ко всем фильмам и сериалам
+    form(class="payment-form" method="POST" action="https://yoomoney.ru/quickpay/confirm.xml")
+        input(type="hidden" name="receiver" value="4100117405347318")
+        input(type="hidden" name="label" value=login)
+        input(type="hidden" name="quickpay-form" value="shop")
+        input(type="hidden" name="targets" value="Подписка LimeTV")
+        input(type="hidden" name="sum" value="2" data-type="number")
+        input(type="hidden" name="need-fio" value="false")
+        input(type="hidden" name="need-email" value="false")
+        input(type="hidden" name="need-phone" value="false")
+        input(type="hidden" name="formcomment" value="123")
+        input(type="hidden" name="comment" value="subscribe")
+        input(type="hidden" name="targets" value="Lime TV")
+        input(type="hidden" name="need-address" value="false")
+        input(type="hidden" name="successURL" value="https://a06367.ru")
+        div(class="cntr")
+            label(class="btn-radio")
+                input(id="radio-1" type="radio" name="paymentType" value="PC" checked)
+                svg(width="20px" height="20px" viewBox="0 0 20 20")
+                    circle(cx="10" cy="10" r="9")
+                    path(d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner")
+                    path(d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer")
+                span(class="btn-radio__text") YooMoney
+
+            label(class="btn-radio")
+                input(id="radio-2" type="radio" name="paymentType" value="AC")
+                svg(width="20px" height="20px" viewBox="0 0 20 20")
+                    circle(cx="10" cy="10" r="9")
+                    path(d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner")
+                    path(d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer")
+                span(class="btn-radio__text") Карта
+
+        input(class="subscription__button" type="submit" value="Перейти к оплате")

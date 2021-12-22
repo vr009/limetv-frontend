@@ -1,18 +1,21 @@
-div.profile
-    h1.selection-profile Настройки профиля
-    div#error(class="error")
-    div.settings
-        div(class="profile_pic")
-            img(src=avatar id="avatar")
-            input(type="submit" class="" name="pic" value="Изменить" id="new_avatar")
-        div(class="profile_settings")
-            h3.profile_login Пользователь:
-                span(style="color: azure;") #{' '+login}
-            form(id="pass_form")
+div(class="profile")
+    h1(class="page-title__text") Настройки
+    div(id="error")
+    div(id="success")
+    div(class="profile-info-settings__row")
+        div(class="profile-info-picture__column")
+            img(src=avatar id="profile-info-avatar")
+            input(type="submit" name="pic" value="Изменить" id="new_avatar")
+        div(class="profile-info-settings__column")
+            h3(class="profile-info-login-title__text") Пользователь:
+                span(class="profile-info-login-name__text") #{' '+login}
+            form(id="profile-info-pass__form")
                 div
-                    input(type="password" placeholder="Пароль" class="profile_pass profile_field")
-                    input(type="submit" class="des_btn" name="password" value="Сохранить" id="submit_pass" style="margin-bottom: 30px;")
-            form(id="bio_form")
+                    input(id="change-password" type="password" placeholder="Пароль" class="profile-info-pass__input")
+                    div(class="profile-icon__column" id="icon")
+                        img(class="auth-see__ico" src="eye.ico" style="width: 20px;")
+                    input(type="submit" class="profile-info-save__btn" name="password" value="Сохранить" style="margin-bottom: 30px;")
+            form(id="profile-info-bio__form")
                 div
-                    textarea(placeholder="О себе" maxlength="512" rows="14" cols="33" class="profile_bio profile_field") #{about}
-                    input(type="submit" class="des_btn" name="login" value="Сохранить" id="submit_save")
+                    textarea(placeholder=" О себе" maxlength="512" rows="12" cols="33" class="profile-info-bio__textarea") #{about}
+                    input(type="submit" class="profile-info-save__btn" name="login" value="Сохранить")

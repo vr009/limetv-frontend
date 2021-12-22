@@ -1,25 +1,26 @@
 'use strict';
-import {offline} from './components/offline/offline.js';
+// import {offline} from './components/offline/offline.js';
 import {createMenu} from './components/menu/menu.js';
-import {createFilms} from './components/films/films.js';
+// import {createFilms} from './components/films/films.js';
 import {Router} from './utils/router.js';
+import Rout from './utils/router.js';
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-        .then(() => {
-          console.log('sWorker register!');
-        })
-        .catch((err) => {
-          console.log('sWorker err:', err);
-        });
-    if (!navigator.onLine) {
-      console.log('offline load path:', window.location.pathname);
-      offline(window.location.pathname, document.title);
-    }
-  });
-}
-
+// потом раскоментить
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/sw.js')
+//         .then(() => {
+//           console.log('sWorker register!');
+//         })
+//         .catch((err) => {
+//           console.log('sWorker err:', err);
+//         });
+//     if (!navigator.onLine) {
+//       console.log('offline load path:', window.location.pathname);
+//       offline(window.location.pathname, document.title);
+//     }
+//   });
+// }
 
 new Router();
 const root = document.getElementById('root');
@@ -28,4 +29,5 @@ menu.setAttribute('id', 'menu');
 root.innerHTML = '';
 root.appendChild(menu);
 createMenu();
-createFilms();
+Rout.go(decodeURIComponent(window.location.pathname), document.title);
+// createFilms();

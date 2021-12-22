@@ -1,11 +1,11 @@
 'use strict';
 import {createProfilePage} from '../../view/createProfilePage.js';
 import Router from '../../utils/router.js';
-import '../pages/menu/menu.css';
+import '../pages/menu/menu.scss';
 
 const authElements = {
-  logout: 'Выйти',
   profile: 'Профиль',
+  logout: 'Выйти',
 };
 
 // элементы для незарегистрированных пользователей
@@ -21,12 +21,17 @@ const unauthElements = {
  */
 // создание элементов для меню
 export const createElements = (authed) => {
-  const menuLogo = document.getElementById('logo-start');
+  const menuLogo = document.getElementById('container-new-logo__column');
   menuLogo.addEventListener('click', function(event) {
     event.preventDefault();
     Router.go('/', 'LimeTV', null, true, false);
+    closeMenu();
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = navbar.querySelector('.container-new__toggle');
+    navbar.classList.remove('opened');
+    navbarToggle.setAttribute('aria-expanded', 'false');
   });
-  const root = document.getElementById('navbar-menu');
+  const root = document.getElementById('navbar__btn');
   root.innerHTML = '';
 
   const ul = document.createElement('ul');
@@ -46,16 +51,24 @@ export const createElements = (authed) => {
           createProfilePage(true);
         }
       } else {
-        menuItem.setAttribute('class', 'navbar-link btn-in first');
-        menuItem.textContent = authElements[key];
+        menuItem.setAttribute('class', 'navbar-link');
+        const menuImg = document.createElement('img');
+        menuImg.setAttribute('class', 'menu-logout');
+        menuImg.src = 'exit.ico';
+        menuItem.appendChild(menuImg);
         menuItem.id = `/${key}`;
       }
       li.appendChild(menuItem);
       menuItem.addEventListener('click', function(event) {
         event.preventDefault();
-        Router.go(`/${key}`, unauthElements[key], null, true, false);
+        if (key === 'logout') {
+          Router.go(`/${key}`, authElements[key], null, true, true);
+        } else {
+          Router.go(`/${key}`, authElements[key], null, true, false);
+        }
         const rt = document.getElementById('navbar');
         rt.setAttribute('class', '');
+        closeMenu();
       });
     });
   } else {
@@ -75,32 +88,40 @@ export const createElements = (authed) => {
         Router.go(`/${key}`, unauthElements[key], null, true, false);
         const rt = document.getElementById('navbar');
         rt.setAttribute('class', '');
+        closeMenu();
       });
     });
   }
   menu();
 };
 
-function menu() {
+const menu = () => {
   const navbar = document.getElementById('navbar');
-  const navbarToggle = navbar.querySelector('.navbar-toggle');
+  const navbarToggle = navbar.querySelector('.container-new__toggle');
+  const area = document.getElementById('navbar__btn');
 
-  function openMobileNavbar() {
+  const openMobileNavbar = () => {
     navbar.classList.add('opened');
     navbarToggle.setAttribute('aria-expanded', 'true');
-  }
+  };
 
-  function closeMobileNavbar() {
+  const closeMobileNavbar = () => {
     navbar.classList.remove('opened');
     navbarToggle.setAttribute('aria-expanded', 'false');
-  }
+  };
 
   navbarToggle.addEventListener('click', () => {
     if (navbar.classList.contains('opened')) {
       closeMobileNavbar();
     } else {
       openMobileNavbar();
+      closeMenu();
     }
+  });
+
+  area.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeMobileNavbar();
   });
 
   const navbarLinksContainer = navbar.querySelector('.navbar-links');
@@ -108,4 +129,19 @@ function menu() {
   navbarLinksContainer.addEventListener('click', (clickEvent) => {
     clickEvent.stopPropagation();
   });
-}
+};
+
+const closeMenu = () => {
+  const searchBtn = document.querySelector('.container-new-search__btn');
+  const cancelBtn = document.querySelector('.container-new-cancel__btn');
+  const form = document.querySelector('form');
+  searchBtn.classList.remove('hide');
+  cancelBtn.classList.remove('show');
+  form.classList.remove('active');
+  const search = document.getElementById('close_focus');
+  if (search) {
+    search.parentNode.removeChild(search);
+  }
+  const searchForm = document.getElementById('text-search');
+  searchForm.value = '';
+};

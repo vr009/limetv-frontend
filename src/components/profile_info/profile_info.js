@@ -3,8 +3,8 @@ import {serverLocate} from '../../utils/locale.js';
 import {fetchRequest} from '../network/fetch.js';
 import {showFilmsList} from '../films/films.js';
 import userInfoPug from '../pages/profile_info/profile_info.pug';
-import '../pages/profile_info/profile_info.css';
-import '../pages/actors/actor.css';
+import '../pages/profile_info/profile_info.scss';
+import '../pages/actors/actor.scss';
 import Router from '../../utils/router.js';
 
 
@@ -21,8 +21,29 @@ export const createUserInfoPage = () => {
 
   showUserInfo();
 
-  showFilmsList('/wl', 'selection-profile-3', 'Смотреть позже');
-  showFilmsList('/starred', 'selection-profile-4', 'Избранное');
+  showFilmsList('/wl', 'selection-watch-list', 'Смотреть позже');
+  showFilmsList('/starred', 'selection-liked', 'Избранное');
+};
+
+const subscribtionCheck = () => {
+  const url = serverLocate + '/licenses/check';
+  fetchRequest(url, 'GET', null).then(
+      (res) => {
+        return res.ok ? res : Promise.reject(res);
+      },
+  ).then(
+      (response) => response.json(),
+  ).then(
+      (result) => {
+        const now = new Date();
+        const expDate = Date.parse(result.ExpDate.slice(0, 10));
+        if (expDate > now) {
+          const root = document.getElementById('subscribe_period');
+          root.innerText = 'До ' + result.ExpDate.slice(0, 10);
+        }
+      }).catch((error) => {
+    console.log(error);
+  });
 };
 
 const showUserInfo = () => {
@@ -37,7 +58,7 @@ const showUserInfo = () => {
   ).then(
       (result) => {
         const root = document.getElementById('one_user');
-        if (result.about === 'no data') {
+        if (result.about === null || result.about === '') {
           result.about = '—';
         }
         root.innerHTML = userInfoPug({
@@ -54,11 +75,10 @@ const showUserInfo = () => {
           rootPage.innerHTML = '';
           Router.go('/settings', 'Настройки');
         });
+        subscribtionCheck();
       },
   ).catch((error) => {
     console.log(error);
     showErrors(error);
   });
 };
-
-

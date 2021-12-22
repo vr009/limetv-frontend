@@ -7,11 +7,11 @@ import {createElements} from '../menu/elements.js';
 import Router from '../../utils/router.js';
 import RegistrationPug from '../pages/auth/registration.pug';
 import AuthPug from '../pages/auth/authorization.pug';
-import '../pages/auth/auth.css';
+import '../pages/auth/auth.scss';
 
-const prefixUrlDEBUG = 'http://localhost';
-const prefixUrlDEPLOY = 'http://3.67.182.34';
-const port = ':8000';
+// const prefixUrlDEBUG = 'http://localhost';
+// const prefixUrlDEPLOY = 'http://3.67.182.34';
+// const port = ':8000';
 
 export const authModule = {
   /**
@@ -26,24 +26,6 @@ export const authModule = {
    * @return {null}
    */
   renderRegistration: () => renderRegistration(),
-  /**
-   * Удаление текущей сессии пользователя
-   * @function
-   * @return {null}
-   */
-  logOut: () => logOut(),
-  /**
-   * To be Done
-   * @function
-   * @return {null}
-   */
-  renderProfile: () => renderProfile,
-  /**
-   * Вспомогательная функция работы с куки
-   * @function
-   * @return {boolean} - Статус сессии пользователя
-   */
-  authHelper: () => isAuthed(false),
 };
 
 export const renderAuth = () => {
@@ -51,15 +33,21 @@ export const renderAuth = () => {
   root.innerHTML = '';
   root.setAttribute('class', 'reg-auth');
 
+  const block = document.createElement('img');
+  block.setAttribute('class', 'registration-back');
+  block.setAttribute('src', 'signin.png');
+  root.appendChild(block);
+
   const reg = document.createElement('div');
   root.appendChild(reg);
 
+  // eslint-disable-next-line new-cap
   reg.innerHTML = AuthPug();
 
   const eye = document.getElementById('icon');
   eye.addEventListener('click', function(event) {
     event.preventDefault();
-    const passField = document.getElementById('password_field');
+    const passField = document.getElementById('auth-password');
     const icon = document.getElementById('icon');
 
     if (passField.type === 'password') {
@@ -75,8 +63,8 @@ export const renderAuth = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const name = document.getElementById('login_field').value;
-    const pwd = document.getElementById('password_field').value;
+    const name = document.getElementById('auth-login').value;
+    const pwd = document.getElementById('auth-password').value;
 
     let msg = '';
     if (!validators.username(name)) {
@@ -96,10 +84,10 @@ export const renderAuth = () => {
           throw error;
         }
       }).then(
-          (result) => {
+          () => {
             Router.go('/', 'LimeTV', null, true, true);
           },
-      ).catch(function(error) {
+      ).catch(function() {
         showErrors('Неверный логин или пароль');
       });
     }
@@ -111,23 +99,16 @@ export const logOut = () => {
   const url = serverLocate+'/users/logout';
 
   fetchRequest(url, 'POST',
-  ).then((result)=>{
+  ).then(()=>{
     createElements();
     createFilms();
     Router.go('/', 'LimeTV', null, true, true);
-
-  }).catch(function(error) {
+  }).catch(function() {
     createElements();
     createFilms();
     Router.go('/', 'LimeTV', null, true, false);
   });
 };
-
-// отрисовка профиля
-const renderProfile = () => {
-  console.log('need fetch here');
-};
-
 
 // отрисовка формы регистрации
 export const renderRegistration = () => {
@@ -147,12 +128,13 @@ export const renderRegistration = () => {
   const reg = document.createElement('div');
   root.appendChild(reg);
 
+  // eslint-disable-next-line new-cap
   reg.innerHTML = RegistrationPug();
 
   const eye = document.getElementById('icon');
   eye.addEventListener('click', function(event) {
     event.preventDefault();
-    const passField = document.getElementById('password_field');
+    const passField = document.getElementById('auth-password');
     const icon = document.getElementById('icon');
 
     if (passField.type === 'password') {
@@ -168,8 +150,8 @@ export const renderRegistration = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const name = document.getElementById('login_field').value;
-    const pwd = document.getElementById('password_field').value;
+    const name = document.getElementById('auth-login').value;
+    const pwd = document.getElementById('auth-password').value;
     let msg = '';
     if (!validators.username(name)) {
       msg += 'Имя должно быть длинее 3 символов. ';
@@ -187,10 +169,9 @@ export const renderRegistration = () => {
         if (!result.ok) {
           throw error;
         }
-      }).then(
-          (result) => {
-            Router.go('/', 'LimeTV', null, true, true);
-          },
+      }).then(() => {
+        Router.go('/', 'LimeTV', null, true, true);
+      },
       ).catch(function() {
         showErrors('Пользователь с таким именем уже существует');
       },
@@ -198,9 +179,3 @@ export const renderRegistration = () => {
     }
   });
 };
-
-const isAuthed = (code) => {
-  return (code === 200);
-};
-
-

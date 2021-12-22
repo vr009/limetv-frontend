@@ -2,7 +2,7 @@
 import {createElements} from './elements.js';
 import {serverLocate} from '../../utils/locale.js';
 import Router from '../../utils/router.js';
-import '../pages/menu/menu.css';
+import '../pages/menu/menu.scss';
 import menuPug from '../pages/menu/menu.pug';
 import {createSearchPage} from '../search/search.js';
 import searchPagePug from '../pages/search/search.pug';
@@ -47,8 +47,8 @@ const menuRoutes = {
 const createTemplate = () => {
   const root = document.getElementById('root');
   root.innerHTML = menuPug();
-  const searchBtn = document.querySelector('.search-icon');
-  const cancelBtn = document.querySelector('.cancel-icon');
+  const searchBtn = document.querySelector('.container-new-search__btn');
+  const cancelBtn = document.querySelector('.container-new-cancel__btn');
   const form = document.querySelector('form');
   cancelBtn.onclick = ()=>{
     searchBtn.classList.remove('hide');
@@ -61,20 +61,25 @@ const createTemplate = () => {
     cancelBtn.classList.add('show');
   };
 
-  // обработка отправки формы
-  const search = document.getElementById('text_search');
-  // const openSearch = document.getElementById('open-s');
+  const search = document.getElementById('text-search');
+  const openSearch = document.getElementById('open-s');
+  openSearch.addEventListener('click', function(event) {
+    event.preventDefault();
+    const navbar = document.getElementById('navbar');
+    const navbarToggle = navbar.querySelector('.container-new__toggle');
+    navbar.classList.remove('opened');
+    navbarToggle.setAttribute('aria-expanded', 'false');
+  });
 
   search.addEventListener('focus', function(event) {
     event.preventDefault();
     if (document.getElementById('close_focus') == null) {
       const search = document.getElementById('stuff');
       const me = document.createElement('div');
-      me.setAttribute('class', 'back-search-fon');
+      me.setAttribute('class', 'root__search');
       me.setAttribute('id', 'close_focus');
       search.appendChild(me);
       const root = document.getElementById('close_focus');
-      // временно
       const result = {'actors': [], 'films': []};
       root.innerHTML = searchPagePug({result: result, isResult: false});
 
@@ -86,16 +91,18 @@ const createTemplate = () => {
         form.classList.remove('active');
         const search = document.getElementById('close_focus');
         search.parentNode.removeChild(search);
-        const searchForm = document.getElementById('text_search');
+        const searchForm = document.getElementById('text-search');
         searchForm.value = '';
       });
     }
   });
 
+  let time;
   const searchForm = document.getElementById('search-form');
   searchForm.addEventListener('input', function(event) {
     event.preventDefault();
-    createSearchPage(search.value);
+    clearTimeout(time);
+    time = setTimeout(createSearchPage, 400, search.value);
   });
 
   // Enter заблокирован тк у нас уже событие input
@@ -123,11 +130,9 @@ export const createMenu = () => {
           throw error;
         }
       },
-  ).then(
-      (result) => {
-        createElements(true);
-      },
-  ).catch((error) => {
+  ).then(() => {
+    createElements(true);
+  }).catch(() => {
     createElements(false);
   },
   );
