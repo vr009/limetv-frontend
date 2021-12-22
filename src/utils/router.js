@@ -80,17 +80,17 @@ export class Router {
           window.history.back();
         }
 
-        // let url = '';
-        // if (state !== null) {
-        //   url += state.title.slug;
-        // }
-        //
-        // document.title = state.title.name;
-        // window.history.replaceState(
-        //     state, // объект состояния
-        //     state.title.name, // заголовок состояния
-        //     url, // URL новой записи (same origin)
-        // );
+        let url = '';
+        if (state !== null) {
+          url += state.title.slug;
+        }
+
+        document.title = state.title.name;
+        window.history.replaceState(
+            state, // объект состояния
+            state.title.name, // заголовок состояния
+            url, // URL новой записи (same origin)
+        );
         createFilmPage(uuid);
       } else if (path.includes('/player/')) {
         const src = path.substring('/player/'.length, path.length);
