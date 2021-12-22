@@ -108,7 +108,7 @@ export class Router {
         );
         createPlayerPage(src, title, state, state.current);
       } else if (path.includes('/genre/')) {
-        console.log(encodeURI(path));
+        document.write(path);
         const genres = path.substring('/genre/'.length, path.length);
         createGenres(genres);
       } else {
