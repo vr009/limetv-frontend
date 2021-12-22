@@ -29,5 +29,5 @@ menu.setAttribute('id', 'menu');
 root.innerHTML = '';
 root.appendChild(menu);
 createMenu();
-Rout.go(encodeURI(window.location.pathname), document.title);
+Rout.go(decodeURIComponent(window.location.pathname), document.title);
 // createFilms();
