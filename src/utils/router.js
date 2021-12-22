@@ -110,6 +110,7 @@ export class Router {
       } else if (path.includes('/genre/')) {
         document.write(path);
         const genres = path.substring('/genre/'.length, path.length);
+        console.log(decodeURIComponent(genres));
         createGenres(genres);
       } else {
         this.go('/', 'LimeTV', null, true, true);
