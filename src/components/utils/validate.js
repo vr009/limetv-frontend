@@ -99,8 +99,8 @@ export const sklonenieSeries = (number, txt) => {
 };
 
 export const Genres = [
-  {id: 'comedy', title: 'Комедия', name: 'Комедия', src: 'comedy.webp'},
-  {id: 'fiantsy', title: 'Фентези', name: 'Фентези', src: 'fantasy.webp'},
+  {id: 'comedy', title: 'Комедии', name: 'Комедии', src: 'comedy.webp'},
+  {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.webp'},
   // eslint-disable-next-line max-len
   {id: 'detective', title: 'Детективы', name: 'Детективы', src: 'detective.webp'},
   {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.webp'},
