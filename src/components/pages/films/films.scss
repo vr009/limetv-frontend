@@ -48,9 +48,9 @@
 }
 .film-first-info__btn {
     position: absolute;
-    left: 165px;
+    left: 142px;
     text-transform: uppercase;
-    background: rgb(137 137 137 / 58%);
+    background: rgb(68 68 68 / 62%);
     padding: 0 30px;
     text-align: center;
     border-radius: 8px;
@@ -141,6 +141,7 @@
 }
 .film-first-title__text {
     padding-bottom: 20px;
+    text-shadow: 1px 0 1px #363636a6, 0 1px 1px #363636a6, -1px 0 1px #363636a6, 0 -1px 1px #363636a6;
 }
 @media (max-width: 721px) {
     .film-first-play__ico {
