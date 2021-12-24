@@ -5,22 +5,21 @@ import {createMenu} from './components/menu/menu.js';
 import {Router} from './utils/router.js';
 import Rout from './utils/router.js';
 
-// потом раскоментить
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register('/sw.js')
-//         .then(() => {
-//           console.log('sWorker register!');
-//         })
-//         .catch((err) => {
-//           console.log('sWorker err:', err);
-//         });
-//     if (!navigator.onLine) {
-//       console.log('offline load path:', window.location.pathname);
-//       offline(window.location.pathname, document.title);
-//     }
-//   });
-// }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+        .then(() => {
+          console.log('sWorker register!');
+        })
+        .catch((err) => {
+          console.log('sWorker err:', err);
+        });
+    if (!navigator.onLine) {
+      console.log('offline load path:', window.location.pathname);
+      offline(window.location.pathname, document.title);
+    }
+  });
+}
 
 new Router();
 const root = document.getElementById('root');
