@@ -1,11 +1,11 @@
 div(class="film-block")
     div(class="film-pic")
-    img(src=result.pic class="film-block__picture")
+    img(src=result.pic[1] class="film-block__picture")
     div(class="film-age__text") #{result.age+'+'}
     div(class="film-about")
         h1(class="film-about-title__text") #{result.title}
         div(class="film-about-short__column")
-            span(class="film-about-short__text") #{result.year} · #{result.genres+' · '}
+            span(class="film-about-short__text") #{result.year} · #{result.genres[0]+' · '}
                 if countSeries
                     span(class="film-about-series__text") #{countSeries+' · '}
                 else

@@ -189,11 +189,12 @@ const showActors = (actors) => {
 
         salt = 'root-actors';
         const root = document.getElementById('root-actors');
+        let result2 = result;
         if (result.length > 3) {
-          result = result.slice(0, 3);
+          result2 = result.slice(0, 3);
         }
         root.innerHTML = actorsLinePug({
-          actors: result,
+          actors: result2,
           salt: salt,
         });
         for (let i = 0; i < result.length; i++) {

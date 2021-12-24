@@ -48,9 +48,9 @@
 }
 .film-first-info__btn {
     position: absolute;
-    left: 135px;
+    left: 142px;
     text-transform: uppercase;
-    background: rgb(137 137 137 / 58%);
+    background: rgb(68 68 68 / 62%);
     padding: 0 30px;
     text-align: center;
     border-radius: 8px;
@@ -78,7 +78,7 @@
 .film-first-title__column {
     position: absolute;
     font: bold 24px/64px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
-    left: 115px;
+    left: 58px;
     max-width: 40%;
     padding-top: 21%;
     font-size: 52px;
@@ -94,7 +94,7 @@
 }
 .selection-film {
     pointer-events: all;
-    padding-left: 10px;
+    //padding-left: 10px;
     @media (max-width: 700px) {
         padding-left: 5px;
     }
@@ -141,6 +141,7 @@
 }
 .film-first-title__text {
     padding-bottom: 20px;
+    text-shadow: 1px 0 1px #363636a6, 0 1px 1px #363636a6, -1px 0 1px #363636a6, 0 -1px 1px #363636a6;
 }
 @media (max-width: 721px) {
     .film-first-play__ico {

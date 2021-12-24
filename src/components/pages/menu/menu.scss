@@ -265,6 +265,7 @@ label {
     display: inline-block;
     margin: 0;
     color: azure;
+    text-shadow: 1px 0 1px #363636a6, 0 1px 1px #363636a6, -1px 0 1px #363636a6, 0 -1px 1px #363636a6;
 }
 .films-label__text {
     font: bold 20px/10px Graphik Kinopoisk LC Web,Arial,Tahoma,Verdana,sans-serif;
@@ -669,13 +670,13 @@ nav {
     margin: 10px 0;
 }
 .film-first-block__shadow {
-    background: #0c0c0c9e;
+    background: #0c0c0c42;
     display: block;
     margin-bottom: 49px;
     padding: 15px 15px 80px;
     border-radius: 15px;
     min-width: 220px;
-    box-shadow: 0 0 15px 10px rgba(12, 12, 12, 0);
+    box-shadow: 0 0 15px 10px rgb(12 12 12 / 30%);
 }
 @media (max-width: 616px) {
     .film-first-block__shadow {

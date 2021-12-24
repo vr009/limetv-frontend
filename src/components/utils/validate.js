@@ -99,16 +99,17 @@ export const sklonenieSeries = (number, txt) => {
 };
 
 export const Genres = [
-  {id: 'comedy', title: 'Комедия', name: 'Комедия', src: 'comedy.png'},
-  {id: 'fiantsy', title: 'Фентези', name: 'Фентези', src: 'fantasy.png'},
+  {id: 'comedy', title: 'Комедии', name: 'Комедии', src: 'comedy.webp'},
+  {id: 'fiantsy', title: 'Фэнтези', name: 'Фэнтези', src: 'fantasy.webp'},
   // eslint-disable-next-line max-len
-  {id: 'detective', title: 'Детективы', name: 'Детективы', src: 'detective.png'},
-  {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.png'},
-  {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.png'},
-  {id: 'thrillers', title: 'Триллер', name: 'Триллер', src: 'thrillers.png'},
-  {id: 'fighter', title: 'Боевики', name: 'Боевики', src: 'fighters.png'},
+  {id: 'detective', title: 'Детективы', name: 'Детективы', src: 'detective.webp'},
+  {id: 'drama', title: 'Драмы', name: 'Драмы', src: 'drama.webp'},
+  {id: 'fantasy', title: 'Фантастика', name: 'Фантастика', src: 'future.webp'},
+  {id: 'thrillers', title: 'Триллер', name: 'Триллер', src: 'thrillers.webp'},
+  {id: 'fighter', title: 'Боевики', name: 'Боевики', src: 'fighters.webp'},
   // eslint-disable-next-line max-len
-  {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.png'},
-  {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.png'},
-  {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.png'},
+  {id: 'adventure', title: 'Приключения', name: 'Приключения', src: 'journey.webp'},
+  {id: 'horrors', title: 'Ужасы', name: 'Ужасы', src: 'horrors.webp'},
+  // eslint-disable-next-line max-len
+  // {id: 'cartoons', title: 'Мультфильмы', name: 'Мультфильмы', src: 'mult.webp'},
 ];
